@@ -1,19 +1,21 @@
 ![althomepage](static/images/logo.png)
 
-
 - [Overview](#overview)
 
 - [User stories](#user-stories)
 
 - [UX](#ux)
 
-  \- [Strategy](#strategy)
+  - [Strategy](#strategy)
 
-  \- [Scope](#scope)
+  - [Scope](#scope)
 
-  \- [Structure](#structure)
+  - [Structure](#structure)
 
-  \- [Skeleton](#skeleton)
+  - [Skeleton](#skeleton)
+  
+  - [Surface](#surface)
+
 
 - [Features](#features)
 
@@ -29,16 +31,16 @@
 
 - [Deployment](#deployment)
 
-  \- [Database Deployment](#database-deployment)
+  - [Database Deployment](#database-deployment)
 
-  \- [Deployment Platform](#deployment-platform)
+  - [Deployment Platform](#deployment-platform)
 
 - [Credits](#credits)
 
 - [Acknowledgments](#acknowledgments)
 
 
-**## Demo**
+## Demo
 
 ---
 
@@ -51,12 +53,12 @@
 
 
 
-**## Overview**
+## Overview
 
 ---
 
 
-**## User stories**
+## User stories
 
 ---
 
@@ -71,143 +73,140 @@
 **Admin User Stories**
 
 
-**## Site Owner Stories**
+**Site Owner Stories**
 
 
-**## UX (5 planes)**
+## UX 
+(5 planes)
+
+---
+1. ## Strategy
+
+**Project purpose:**
+
+
+**Site owner goals:**
+
+**Customer Goals:**
+
+
+2. ## Scope
+
+**Functional Requirements**
+
+
+**Content Requirements**
+
+
+
+3. ## Structure
+
+
+
+**FRONT END**
+
+
+**BACK END**
+
+
+4. ## Skeleton
+
+**Wireframe mockups:**
+
+
+5. ## Surface
+
+**Colors**
+
+ **Typography**
+
+ **Images**
+
+
+## Features
 
 ---
 
 
-**### Project purpose:**
+
+## Technologies Used
+
+**1. Languages**
+
+-  ![html5](wireframes/readme/html5.png) – [HTML5](https://developer.mozilla.org/en-US/docs/Web/HTML)
+
+-  ![css3](wireframes/readme/css3.png)- [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS)
+
+-  ![python](wireframes/readme/python.png) - [Python](https://www.python.org/)
+
+-  ![javascript](wireframes/readme/js.png) – [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
 
-**### Site owner goals:**
+**2. Integrations**
 
-**### Customer Goals:**
+-  ![django](wireframes/readme/django.png) - [django](https://www.djangoproject.com/)  website creating framework software.
 
-
-2. **## \**Scope plane\****
-
-
-**### Functional Requirements**
+-  ![stripe](wireframes/readme/stripe.jpg) [stripe]( https://balsamiq.com/) - a secure processing payment platform.
 
 
-**### Content Requirements**
+-  ![bootstrap](wireframes/readme/bootstrap.png) – [bootstrap](https://getbootstrap.com/)  CSS framework directed at responsive, mobile-first front-end web development
+
+-  ![fontawesome](wireframes//readme/font-awesome.png) - [Font Awesome](https://fontawesome.com/) is the source of all icons.
+
+-  ![googlefonts](wireframes/readme/google-fonts.png) - [Google Fonts](https://fonts.google.com/) used on the website courtesy of Google Fonts
+
+-  ![jquery](wireframes/readme/jquery.png) - [jQuery](https://jquery.com/) The project uses JQuery to simplify DOM manipulation.
+
+**3.Version Control, database and hosting**
+
+-  ![gitpod](wireframes/readme/gitpod.png) - [Gitpod](https://www.gitpod.io/) Main workspace IDE (Integrated Development Environment)
+
+-  ![gitversioncontrol](wireframes/readme/git-version-control.png) – [Git](https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control ) Distributed Version Control tool to store versions of files and track changes.
+
+-  ![github](wireframes/readme/github.png) - [GitHub](https://wikipedia.org/wiki/GitHub) Used to store the project repository and deploy the site via github pages.
+
+- ![heroku](wireframes/readme/heroku.png) - [Heroku](https://www.heroku.com/what) was used in order to deploy the website
+
+- ![aws](wireframes/readme/aws.png) - [Amazon Web Services](https://en.wikipedia.org/wiki/Amazon_Web_Services) a cloud platform and hosting website
+
+- ![PostgreSQL](wireframes/readme/postgresql.png) - [PostgreSql](https://www.postgresql.org/) PostgreSQL is an object-relational database system 
 
 
+**4.Editors**
 
-3. **## \**Structure plane\****
+-  ![typora](wireframes/readme/typora.png) - [Typora]( https://typora.io/) was used to simplify creation of the README.md file.
+
+-  ![dbdiagram](wireframes/readme/dbdiagram.png) - [dbdiagram]( https://dbdiagram.io/home) was used to create Entity Relationship Diagrams of the database.
+
+-  ![balsamiq](wireframes/readme/balsamiq.png) [balsamiq]( https://balsamiq.com/) - Wireframing design tool to create wireframes.
+
+**5. Tools Used**
+Red Ketchup
+- [Colors](https://coolors.co/) - color schemes generator.
+- [TinyPNG](https://tinypng.com/) - Efficient compression of images for site.
+- [RedKetchup](https://redketchup.io/) - to convert an image into a favicon and edit icons for used technologies.
+
+**5. IDE Extensions used in GitPod**
+
+- Auto Close Tag
+
+- Prettier - Code Formatter
+
+- Bracket Pair Colorizer
+
+- Code spell Checker
+
+- Font Awesome Auto-complete
 
 
-
-**### FRONT END**
-
-
-**### BACK END**
+**6. Other**
 
 
-4. **## \**Skeleton plane\****
-
-**## Wireframe mockups:**
-
-
-***\*5. Surface plane\****
-
-***\*Colors\****
-
- ***\*Typography\****
-
- ***\*Images\****
-
-
-**## Features**
+## Resources
 
 ---
 
-***\*Existing Features\****
-
-
-
-**### Navigation bar:**
-
-
-
-**### Footer:**
-
-
-
-**### HOME/RECIPE PAGE:**
-
-
-
-**### COLLECTIONS PAGES:Stay Healthy/Stay Young/Stay Fit/ Stay Happy:**
-
-
-
-**### UTENCILS PAGE:**
-
-
-
-**### SINGLE RECIPE PAGE**
-
-
-
-**### ADD/EDIT/DELETE EXISTING RECIPE PAGE**
-
-
-
-**### PROFILE PAGE**
-
-
-
-**### MANAGE CATEGORIES PAGE**
-
-
-
-**### REGISTER PAGE**
-
-
-
-**### LOGIN PAGE**
-
-
-
-**### CONTACT PAGE**
-
-
-
-***\*Features Left to Implement when skills develop\****
-
-
-**## Technologies Used**
-
-***\*1. Languages\****
-
-***\*2. Integrations\****
-
-
-
-***\*3. Database Management System\****
-
-
-***\*4.Version Control, storage and hosting\****
-
-
-***\*5.Editors\****
-
-
-***\*6.IDE Extensions used in GitPod\****
-
-
-***\*5. Other\****
-
-
-**## Resources**
-
----
-
-**## Testing**
+## Testing
 
 - Click [here](TESTING.md) for the full testing process.
 
@@ -230,45 +229,290 @@ Overview
 
 - [Further Testing](TESTING.md#further-testing)
 
-
 ---
 
-**## Code validity**
+## Code validity
+
+- HTML - [Markup Validation W3C Service](https://validator.w3.org/)
+
+- CSS - [Jigsaw Validation W3C Service](https://jigsaw.w3.org/css-validator/)
+
+- JSHint - [JSHint for detecting errors in JavaScript code](https://jshint.com/)
+
+- Link checker - [Check links and anchors in Web pages or full Web sites](https://validator.w3.org/checklink)
+- PEP8 - [PEP8](http://pep8online.com/) check code for code requirements
+
+- Lighthouse in Google dev tool for testing the performance of the website
 
 
-**## Version Control**
+## Version Control
+
+[Git](https://git-scm.com/) as a local repository and [GitHub](https://github.com/) as a remote repository are used for the project, and below is how I use them as the version control for the project.
 
 
-**### \**To make a Local Clone\****
+**- - Setting Up New Repository - -**
 
+1. Create a remote repository in GitHub by clicking "New repository" on the main page
 
-**## Deployment**
+![new repository](wireframes/readme/new-repository.png)
 
+2. Use Code Institute Template, put the repository name and click Create Repository **making sure to select public**
 
+![repository template](wireframes/readme/repository-template.png)
 
-**### Database Deployment**
+![public](wireframes/readme/public.png)
 
+![create-repository](wireframes/readme/create-repository.png)
 
+3. Open the repository with Gitpod which is my Integrated Development Environment (IDE). 
 
-**### Deployment Platform**
-
-
-
-**## Credits**
-
-
-
-***\*Media\****
-
-***\*Content\****
+![opengitpod](wireframes/readme/open-gitpod.png)
 
 
 
-***\*Code Snippets\****
+**- - Commitments - -**
+
+
+When a section or even a group of work is completed, it is committed in git and pushed into GitHub, to make sure to keep the history of the work logged properly and not to lose the work in unexpected situations. Below commands are used for this.
+
+```
+ - git status | we use to check the status of new/modified folders, files, and documents
+```
+
+
+```
+- git add -A | we use to put all new and updated work on the stage in git
+```
+
+```
+ - git add <specific file name> | we use when different types of work is done but do not want to commit everything on the same commitment
+```
+
+```
+ - git commit -m "Example commit" | To commit the work on the stage in git before pushing it to GitHub
+```
+
+```
+ - git push | we use to update the repository in GitHub for main branch
+```
+
+```
+ - git push origin <branch name> | we use when pushing git into GitHub for sub-branches
+```
+
+ ** - - Branches - -**
+
+When some testing is needed, create a branch and test is on it instead of using main branch. When the testing is successful, then merge the branch into main, when it is not, leave the branch unmerged and keep working on main branch. Below commands are used for this.
+
+```
+* git branch <branch name> | To create a new branch
+```
+
+```
+* git checkout <branch name> | To switch branch
+```
+
+```
+* git branch | To check current branch
+```
+
+```
+* git merge <branch name> | To merge sub-branch into main, do this on main branch
+```
+
+### **To fork the GitHub Repository**
+
+By forking the GitHub Repository we make a copy of the original repository on our GitHub account to view and/or make changes without
+
+affecting the original repository by using the following steps:
+
+1. Log in to GitHub and locate the [Repository](https://github.com/Eva-Kuk/smoothie-lovers).
+
+2. At the top right of the Repository just above the "Settings" Button on the menu, locate and click the "Fork" Button.
+
+3. You should have a copy of the original repository in your GitHub account now.
+
+
+### **To make a Local Clone**
+
+1. Log in GitHub and locate the [Repository](https://github.com/Eva-Kuk/smoothie-lovers).
+
+2. At the top of the Repository locate the "Code" dropdown menu.
+
+3. To clone the repository using HTTPS, under "CLONE", make sure "HTTPS" is selected and copy the link then.
+4. Open Git Bash.
+
+Change the current working directory to the location where you want the cloned directory to be made.
+
+5. Type `git clone` and past the URL you copied in Step 3.
+
+```
+$ git clone https://github.com/Eva-Kuk/smoothie-lovers
+```
+
+6. Press Enter and you local clone will be created.
+
+
+## Deployment
+The application project requires back-end technologies such as server, application, and database so it was deployed using [Heroku](https://dashboard.heroku.com/apps) which is a cloud platforn with a service supporting several programming languages including python. GitHub can only host a static website. There are two ways to deploy a website in Heroku. One is to use Heroku Command Line Interface (CLI) by using a  command: `heroku login` or `heroku login -i` and another one is to connect to GitHub repository by Heroku.This is deploying by Connecting to GitHub repository. 
+
+### **Requirements**
+ 
+- AWS cloud storage and an S3 bucket for online backup of static files.
+- [Stripe Account](https://dashboard.stripe.com/register) (account, test keys and webhooks) as a secure payment platform.
+- an IDE, I used GitPod.
+- PIP, for Python packages.
+- Python3
+- Git for version control.
+- Email account, I used Gmail.
+
+1. First we need to install gunicorn which will act as our webserver
+
+    `pip3 install gunicorn`
+
+2. Create `requirements.txt` file which contains the names of packages being used in Python. It is important to update the file if other packages or modules are installed during the project.
+
+    `pip3 freeze > reqiurements.txt`
+
+3. Create `Procfile` which contains the name of the application file so that Heroku knows what to run: unicorn and serve our django app. Use the following command:
+
+  `web: gunicorn unique-wings.wsgi:application`
+
+Procfile may have a blank line when it is created so remove it as it may cause problems. 
+
+4. Push both files to GitHub.
+
+5. Go to [Heroku](https://dashboard.heroku.com/apps) and login or create and account.
+
+6. Click **New** and choose from dropdown menu **Create new app** to create a new app
+
+![heroku new app](wireframes/readme/heroku-new-app.png)
+
+7. Enter an **App name**, which must be unique but the best practice is put the same name as in our github repository project(lowercase with a dash used instead of spaces), then choose a region and click **create app**
+
+![heroku app name](wireframes/readme/heroku-app-name.png)
+
+8. From Heroku dashboard resources section, provision 'Heroku Postgres' addon (hobby dev free version). 
+
+9. Install 'dj_database_url' and 'psycopg2' via the CLI using the pip3 install prefixed to the module names
+pip3 install dj_database_url
+pip3 install psycopg2
+
+10. Disable Heroku from collecting static files -
+'heroku config:set DISABLE_COLLECTSTATIC=1 --app your-app-name
+11. Add the host name to your settings.py file, under ALLOWED_HOSTS
+ALLOWED_HOSTS = ['you-app-name.herokuapp.com', 'localhost']
+12. Go to the Deploy tab and click **Connect to GithHub**
+
+![deploy connect to github](wireframes/readme/deploy-connect-to-github.png)
+
+13. Search for the name of the repository and click **Connect**.
+
+![heroku search repository](wireframes/readme/heroku-search-repository.png)
+
+14. Go to **Settings**, click **Reveal Config Vars** and fill out necessary keys and values
+    - AWS_ACCESS_KEY_ID
+    - AWS_SECRET_ACCESS_KEY
+    - DATABASE_URL
+    - DISABLE_COLLECT_STATIC = 1
+    - EMAIL_HOST_PASS
+    - EMAIL_HOST_USER
+    - SECRET_KEY
+    - STRIPE_PRICE_ID
+    - STRIPE_PUBLIC_KEY
+    - STRIPE_SECRET_KEY
+    - STRIPE_WH_SECRET
+    - USE_AWS = True
+15. Once all the hidden variables are recorded, then click **Enable Automatic Deploys** 
+
+16. Click **Deploy Branch** (Main should be selected unless you want other branches to be deployed)
+
+![heroku automatic deploys](wireframes/readme/heroku-automatic-deploys.png)
+
+17. When the app is deployed by Heroku correctly, the message will appear saying 'Your app was successfully deployed.'
+
+![heroku successfully deployed](wireframes/readme/heroku-successfully-deployed.png)
+
+18. Click **View**.
+
+### **AWS S3 Bucket**
+1. Create your AWS account
+2. Search for S3 and create a new bucket, select 'allow public access'
+3. Under Properties go to static website hosting. Select enable typle index.html as index.html and save.
+4. In Permissions, under CORS use :
+    - [ { "AllowedHeaders": [ "Authorization" ], "AllowedMethods": [ "GET" ], "AllowedOrigins": [ "*" ], "ExposeHeaders": [] } ]
+5. Still in permissions, select bucket policy:
+    - Generate bucket policy and copy the bucket ARN
+    - Choose S3 Bucket Policy as type of policy
+    - For Principle enter *
+    - Paste ARN copied from above
+    - Add Statement
+    - Generate Policy
+    - Copy Policy JSON Document
+    - Paste policy into Edit Bucket policy on the previous tab
+    - Save
+6. Under Access Control List (ACL):
+    - For Everyone (public access), tick List
+    - Accept that everyone in the world may access the Bucket
+    - Save
+### **AWS IAM**
+1. From the IAM dashboard within AWS, select User Groups:
+    - Create a new group
+    - Click through and create group
+2. Select Policies:
+    - Create policy
+    - Under JSON tab, click Import managed policy
+    - Choose AmazongS3FullAccess
+    - Edit the resource to include the Bucket ARN noted earlier when creating the Bucket Policy
+    - Click next step and go to Review policy
+    - Give the policy a name and description of your choice
+    - Create policy
+3. Go back to User Groups and choose the group created earlier
+    - Under Permissions > Add permissions, choose Attach Policies and select the one just created
+    - Add permissions
+4. Under Users::
+    - Choose a user name
+    - Selecet programmatic access as the access type
+    - Click through next
+    - Add the user to the group just created
+    - Click next and create a user
+5. Download the ``.csv` containing the access key and secret access key.
+    - The .csv file is onlu available once and cannot be downloaded again
+### **Connecting Heroku to AWS S3**
+1. Install boto3 and django-storages and freeze your requirements
+2. Add the values from the .csv you downloaded to the Heroku configvars
+3. Delete 'DISABLE_COLLECT_STATIC = 1' from the config vars
+4. Create a custom storage python file in your development environment with the following
+    - from django.conf import settings
+    - from storages.backends.s3boto3 import S3Boto3Storage
+    - class StaticStorage(S3Boto3Storage): location = settings.STATICFILES_LOCATION
+    - class MediaStorage(S3Boto3Storage): location = settings.MEDIAFILES_LOCATION
+5. Deploy the app
+6. In the S3 bucket, set up a new media folder at the same level as the tatic folder and upload any required files. Both files need to be publicly accessible.
+
+### Database Deployment
 
 
 
-**## Acknowledgments**
+### Deployment Platform
+
+
+
+## Credits
+
+
+
+**Media**
+
+**Content**
+
+
+
+**Code Snippets**
+
+
+
+## Acknowledgments
 
 
 
