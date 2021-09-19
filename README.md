@@ -1,3 +1,5 @@
+Milestone 4 Unique Wings Shoes - by Eva Kukla
+
 ![althomepage](static/images/logo.png)
 
 - [Overview](#overview)
@@ -52,8 +54,21 @@
 - A github repository can be found [here]()
 
 
-
 ## Overview
+This is my fourth of Milestone Project 4 which is part of the Code Institute's FullStack Software Development Diploma Course and the main requirements is to build a full-stack website based around busines logic used to control a centtrally-owned dataset which contain set up an authentication access mechanism and provide paid access to the site's data andpurchase of the product.
+
+This project demonstrates the skills and knowledge of using the HTML5, CSS3, JavaScript, Python, Django, Relational database Poistgres and Stripe payments in Back-End development which I have learned recently on the course.
+
+The aim of this project is to create an e-commerce web application name **Unique Wings** for women who love shoes and are interested in extraordinary and unusual shoes. They will be able to find and purchase those unique shoes from various amazing designers in one place. The project is for educational purposes only.
+
+Users can search for and purchase unique shoes via text search, designers or categories.
+
+Users can create an account to save delivery information for future use, review their orders and logged in users are also able to leave revives on shoes.
+
+???
+A user can subscribe and have a 30%  on the first purchase
+
+The owner/administrator of the shop  (with the appropriate access) can add, edit and delete products, and create news posts for keeping their members up to date with latest information.
 
 ---
 
@@ -61,19 +76,84 @@
 ## User stories
 
 ---
+**Viewing and navigation**
 
-**New User Stories**
+| User Story ID | AS a/an                     | I want to be able to ...                                   | So that I can ...                                            |
+| ------------- | --------------------------- | ---------------------------------------------------------- | ------------------------------------------------------------ |
+| 1.            | new user                    | recognise the purpose of the site immediately              | identify whether I am interested in the content and wish to use the site |
+| 2.            | new user                    | easily navigate the site                                   | find what I need effectively                                 |
+| 3.            | new user                    | to access the website on a desktop and also mobile devices | use it on a desktop or on the go                             |
+| 4.            | general visitor             | to contact the website owner                               | make about the product, purchase, return policy              |
+| 5.            | general user                | to read some information about shoe designers              | get to know their brand better                               |
+| 6.            | general user                | view blogs                                                 | get new information's about the shop, designers              |
+| 7.            | new user and future shopper | view a list of shoes                                       | find which shoes I'd like to purchase                        |
+| 8.            | new user and future shopper | view individual shoe details                               | identify the price, description, shoes rating,  image and available sizes before deciding to purchase. |
+| 9.            | new user and future shopper | quickly identify sales, pomotions and special offers       | take advantage of special savings on products I'd like to purchase |
+| 10.           | new user and future shopper | easily view the total of my purchases at any time          | avoid spending too much                                      |
 
 
+**Registration and User Accounts**       
 
-**Registered User Stories**
+| **User Story ID** | **AS a/an**                 | **I want to be able to ...**                    | **So that I can ...**                                        |
+| ----------------- | --------------------------- | ----------------------------------------------- | ------------------------------------------------------------ |
+| 11.               | new user and future shopper | easily register for an account                  | have a personal account and be able to view my profile       |
+| 12.               | registered user             | easily login/out                                | access my personal account information                       |
+| 13.               | registered user             | easily reset my password in case I forget it    | recover  access to my account if I have forgotten my password |
+| 14                | registered user             | receive an email confirmation after registering | verify that my account registration was succesful            |
+| 15                | registered user             | have a customized dashboard                     | view my personal order history and order confirmation, and save my payment information |
+
+**Sorting and searching**      
+
+| **User Story ID** | **AS a/an** | **I want to be able to ...**                                | **So that I can ...**                                        |
+| ----------------- | ----------- | ----------------------------------------------------------- | ------------------------------------------------------------ |
+| 16.               | Shopper     | sort the list of available shoes                            | easily identify the best rated, best priced and categorically sorted products |
+| 17.               | Shopper     | sort a specific category of shoes depending on the designer | find the best-priced or best-rated shoes in a specific designer category, or sort the shoes in that category |
+| 18.               | Shopper     | sort multiple categories of shoes simultaneously            | find the best-priced or best-rated product across broad categories, such as "high hills" , "flats", "boots" |
+| 19.               | Shopper     | search for a product by name or description                 | Find a specific product I'd like to purchase                 |
+| 20.               | Shopper     | Easily see what I've searched for and the number of results | Quickly decide whether the product I want is available       |
 
 
+**Purchasing the checkout**
 
-**Admin User Stories**
+| **User Story ID** | **AS a/an** | **I want to be able to ...**                                 | **So that I can ...**                                        |
+| ----------------- | ----------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 21.               | shopper     | easily select the size and quantity of a product when purchasing it | Ensure I don't accidentally select the wrong product, quantity or size |
+| 22.               | shopper     | view details about the items in my shopping bag              | decide if I want to purchase an item or edit it              |
+| 23.               | shopper     | easily add, edit & delete items in my shopping bag           | adjust my total to fit into my budget                        |
+| 24.               | shopper     | revisit my shopping cart after logging in and logging out    | complete my purchase without re-adding every single item     |
+| 25.               | shopper     | checkout using credit/debit card                             | purchase chosen products                                     |
+| 26.               | shopper     | receive my digital order via email                           | access the item I just purchased                             |
+
+**Navigation**  
+
+| **User Story ID** | **AS a/an** | **I want to be able to ...**                         | **So that I can ...**              |
+| ----------------- | ----------- | ---------------------------------------------------- | ---------------------------------- |
+| 27.               | site owner  | access product management from the homepage          | access my account                  |
+| 28.               | site owner  | access my dashboard from the homepage                | return to my dashboard at any time |
+| 29.               | site owner  | receive a notification when there is a pending order | know when I am making money        |
+
+**Product management**
+
+| **User Story ID** | **AS a/an** | **I want to be able to ...**                                | **So that I can ...**                                        |
+| ----------------- | ----------- | ----------------------------------------------------------- | ------------------------------------------------------------ |
+| 30.               | site owner  | add new products                                            | add new items to my online store                             |
+| 31.               | site owner  | edit/update products                                        | update products prices, descriptions, images and other product criteria |
+| 32.               | site owner  | delete products                                             | remove erroneous products or products that are no longer available |
+| 33.               | site owner  | preview & verify new products before submitting to the shop | check for correct description, grammatical errors and mistakes |
+| 35.               | site owner  | add, edit, delete blog post                                 | add new posts to their blog                                  |
+| 36.               | site owner  | Edit/Update a blog post                                     | change post name, content, and image                         |
+| 37.               | site owner  | Delete a blog post                                          | remove a blog post                                           |
+| 38.               | site owner  | make a draft blog post                                      | work on a blog post before letting it be viewable to the website visitors |
 
 
-**Site Owner Stories**
+ **Authentication & account**    
+
+ | **User Story ID** | **AS a/an** | **I want to be able to ...**           | **So that I can ...**                      |
+| ----------------- | ----------- | -------------------------------------- | ------------------------------------------ |
+| 39.               | site owner  | verify my email address                | set up my account securely                 |
+| 40.               | site owner  | update my account information          | maintain access to my account              |
+| 41.               | site owner  | logout when I am finished with my work | logoutof my account                        |
+| 42.               | site owner  | reset my password                      | recover my account or upgrade its security |
 
 
 ## UX 
@@ -382,35 +462,36 @@ Procfile may have a blank line when it is created so remove it as it may cause p
 
 4. Push both files to GitHub.
 
-5. Go to [Heroku](https://dashboard.heroku.com/apps) and login or create and account.
+### Deployment Platform
+1. Go to [Heroku](https://dashboard.heroku.com/apps) and login or create and account.
 
-6. Click **New** and choose from dropdown menu **Create new app** to create a new app
+2. Click **New** and choose from dropdown menu **Create new app** to create a new app
 
 ![heroku new app](wireframes/readme/heroku-new-app.png)
 
-7. Enter an **App name**, which must be unique but the best practice is put the same name as in our github repository project(lowercase with a dash used instead of spaces), then choose a region and click **create app**
+3. Enter an **App name**, which must be unique but the best practice is put the same name as in our github repository project(lowercase with a dash used instead of spaces), then choose a region and click **create app**
 
 ![heroku app name](wireframes/readme/heroku-app-name.png)
 
-8. From Heroku dashboard resources section, provision 'Heroku Postgres' addon (hobby dev free version). 
+4. From Heroku dashboard resources section, provision 'Heroku Postgres' addon (hobby dev free version). 
 
-9. Install 'dj_database_url' and 'psycopg2' via the CLI using the pip3 install prefixed to the module names
+5. Install 'dj_database_url' and 'psycopg2' via the CLI using the pip3 install prefixed to the module names
 pip3 install dj_database_url
 pip3 install psycopg2
 
-10. Disable Heroku from collecting static files -
+6. Disable Heroku from collecting static files -
 'heroku config:set DISABLE_COLLECTSTATIC=1 --app your-app-name
-11. Add the host name to your settings.py file, under ALLOWED_HOSTS
+7. Add the host name to your settings.py file, under ALLOWED_HOSTS
 ALLOWED_HOSTS = ['you-app-name.herokuapp.com', 'localhost']
-12. Go to the Deploy tab and click **Connect to GithHub**
+8. Go to the Deploy tab and click **Connect to GithHub**
 
 ![deploy connect to github](wireframes/readme/deploy-connect-to-github.png)
 
-13. Search for the name of the repository and click **Connect**.
+9. Search for the name of the repository and click **Connect**.
 
 ![heroku search repository](wireframes/readme/heroku-search-repository.png)
 
-14. Go to **Settings**, click **Reveal Config Vars** and fill out necessary keys and values
+10. Go to **Settings**, click **Reveal Config Vars** and fill out necessary keys and values
     - AWS_ACCESS_KEY_ID
     - AWS_SECRET_ACCESS_KEY
     - DATABASE_URL
@@ -423,17 +504,17 @@ ALLOWED_HOSTS = ['you-app-name.herokuapp.com', 'localhost']
     - STRIPE_SECRET_KEY
     - STRIPE_WH_SECRET
     - USE_AWS = True
-15. Once all the hidden variables are recorded, then click **Enable Automatic Deploys** 
+11. Once all the hidden variables are recorded, then click **Enable Automatic Deploys** 
 
-16. Click **Deploy Branch** (Main should be selected unless you want other branches to be deployed)
+12. Click **Deploy Branch** (Main should be selected unless you want other branches to be deployed)
 
 ![heroku automatic deploys](wireframes/readme/heroku-automatic-deploys.png)
 
-17. When the app is deployed by Heroku correctly, the message will appear saying 'Your app was successfully deployed.'
+13. When the app is deployed by Heroku correctly, the message will appear saying 'Your app was successfully deployed.'
 
 ![heroku successfully deployed](wireframes/readme/heroku-successfully-deployed.png)
 
-18. Click **View**.
+14. Click **View**.
 
 ### **AWS S3 Bucket**
 1. Create your AWS account
@@ -494,7 +575,7 @@ ALLOWED_HOSTS = ['you-app-name.herokuapp.com', 'localhost']
 
 
 
-### Deployment Platform
+
 
 
 
