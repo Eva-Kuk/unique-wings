@@ -1,6 +1,6 @@
 Milestone 4 Unique Wings Shoes - by Eva Kukla
 
-![althomepage](static/images/logo.png)
+![logo](wireframes/readme/logo.png)
 
 - [Overview](#overview)
 
@@ -14,7 +14,7 @@ Milestone 4 Unique Wings Shoes - by Eva Kukla
 
   - [Structure](#structure)
 
-  - [Skeleton](#skeleton)
+  - [Skeleton](#skeleton)- Wireframes mockups
   
   - [Surface](#surface)
 
@@ -55,23 +55,24 @@ Milestone 4 Unique Wings Shoes - by Eva Kukla
 
 
 ## Overview
-This is my fourth of Milestone Project 4 which is part of the Code Institute's FullStack Software Development Diploma Course and the main requirements is to build a full-stack website based around busines logic used to control a centtrally-owned dataset which contain set up an authentication access mechanism and provide paid access to the site's data andpurchase of the product.
+This is my fourth of Milestone Project 4 which is part of the Code Institute's FullStack Software Development Diploma Course and the main requirements is to build a full-stack website based around busines logic used to control a centrally-owned dataset which contain set up an authentication access mechanism and provide paid access to the site's data and purchase of the product.
 
 This project demonstrates the skills and knowledge of using the HTML5, CSS3, JavaScript, Python, Django, Relational database Poistgres and Stripe payments in Back-End development which I have learned recently on the course.
 
-The aim of this project is to create an e-commerce web application name **Unique Wings** for women who love shoes and are interested in extraordinary and unusual shoes. They will be able to find and purchase those unique shoes from various amazing designers in one place. The project is for educational purposes only.
 
-Users can search for and purchase unique shoes via text search, designers or categories.
+The idea to create this website came from the inspiration of my best friend, who is a devoted fashion follower and passionate about unique creations, beautiful shoes and handbags, which she might show a quite few in her beautifull collection. 
+The aim of this project is to create an e-commerce web application name **Unique Wings** for women but not only, for everyone for whom fashion plays a big role, who love and looking for unique, unusual and extraordinary shoes and bags, which accent their style. The users will find on the website products designed with bird and butterfly motif. 
 
-Users can create an account to save delivery information for future use, review their orders and logged in users are also able to leave revives on shoes.
+The brand name of the website "Unique Wings" was inspired not only by the beautiful colorful birds, parrots, peacocks and butterflies, which are the main theme of the collection offered in the store but is worth mentioning that the wings from Greek and Roman mythology were once an attribute of the gods. Nowadays they are a symbol of lightness, uniqueness and freedom, just like the shoes offer in the store which are not only unique and beautiful but also light and comfortable to wear. For many people, wings can also mean making their innermost dreams come true and believing that the impossible may become possible. I hope users can find on this page a collection of shoes and handbags not belonging to the cheapest but certainly belonging to the original and unique models which every women will be delighted to have in her wordrobe.
 
-???
-A user can subscribe and have a 30%  on the first purchase
+Users can search for and purchase unique shoes and bags via text search, designers or categories.
 
-The owner/administrator of the shop  (with the appropriate access) can add, edit and delete products, and create news posts for keeping their members up to date with latest information.
+Users can create an account to save delivery information for future use, review their orders and logged in users are also able to leave rating on products and write a comment under the blog posts.
 
+The owner/administrator of the shop  (with the appropriate access) can add, edit and delete products, and create news posts about new delivery, promotions, fashion and designers.
+
+The project is for educational purposes only.
 ---
-
 
 ## User stories
 
@@ -162,32 +163,50 @@ The owner/administrator of the shop  (with the appropriate access) can add, edit
 ---
 1. ## Strategy
 
-**Project purpose:**
+The target audience for the proposed website are women but not only, for everyone who are a fashion enthusiasts, who are looking for unique and unusual shoes and bags. Users will be able to get more information about the shoes designers, follow the news from fashion and new shoe models posted on the blog on an ongoing basis. They will be able to register and login into their account, keep the order history in one place, shere their thoughts and add comments on the blogpost, rate shoes and bags at store.
 
+The main goal of this project was to create an e-commerce web application where users can find unusual shoes where the main motif are birds and butterflies. There also will be able to match bags with their shoes or choose just a bag. The users can secure purchase all products through secure process.     
+
+It is intended to be used as an full-stack application with clean and user - friendly site design.
+
+**Project purpose:**
+- To create an easy-to-use online e-commerce web application, providing a user-friendly interface with full functionality.
+- Create an online shop where users can buy unusual shoes and bags.
+- An incentive to buy shoes and handbags presented in the store.
 
 **Site owner goals:**
+- Build a store with two different collections shoes ang bags wher users can search for, secure purchase
+- To create, update and delete unnesesary products.
+- To provide the blog with the latest collections, fashion news which encourage users to return to the site
 
 **Customer Goals:**
-
+- Easy to register and log in into the account.
+- Easy to search for shoes ang bags by categories, rating, price, and find  the information about them
+- Easy and secure checkout process.
+- Easy to find links to social media accounts to follow the news about the website.
+- Easy to find contact form for possible enquiries about profile or recipes.
+- Easy to find and enjoy reading latest posts collections, news on the blog.
 
 2. ## Scope
 
 **Functional Requirements**
 
-
-**Content Requirements**
-
-
+- Mobile-first website that is responsive on all devices.
+- Informative Landing Page
+- The navbar has been fixed, and is accessed by clicking on the 'hamburger' icon in the top left hand corner of the screen on small and medium devices. When the 'hamburger' icon is clicked, the 'All Products', 'Shoes', 'Bags', 'Special Offers',  'Blog' and 'Contact links are displayed, as well as a 'home' link.
+- The Search box has been replaced by an icon on small devices, which displays a search box when clicked.
+- Search by a keyword function that users can search for product by keyword
 
 3. ## Structure
+The frontend is integrated into the backend using Python and Django with a PostgreSQL Database.
+The site has a simple layout, heavily influenced by the Bootstrap framework.
+The navbar always sits at the top of each page, taking the user to all the site sections they can access. Only the pages relevant to the user are displayed e.g. a logged-in user will not see a link to the 'login' page as they are logged in. Equally, a logged out user will not see a link to the 'logout' page as they are already logged out.  If a user tries to manually enter an invalid page URL, they will be redirected automatically to the homepage. There is also a search bar on the navbar, prompting a user to search for a 'mountain' or resort.
 
+An unauthenticated user cannot access certain parts of the website such as the 'bag' and 'checkout' pages as only an authenticated user can make purchases.  
+If a user tries to access a 'forbidden' page, they will be either automatically redirected with an error message toast appearing or asked to log in/register as required.
 
-
-**FRONT END**
-
-
-**BACK END**
-
+## Database Schema
+**Relational Database tables schema**
 
 4. ## Skeleton
 
@@ -198,12 +217,41 @@ The owner/administrator of the shop  (with the appropriate access) can add, edit
 
 **Colors**
 
+For this project I have decied to use the simple color pallete as the website will contain many collorfull images with shoes and bags.
+- For navigation bar, footer and buttons, I have chosen a shade of teal:  **Blue Munsel (#288FA4)** which is one of the colors of shoes displaying on the home page.Reffering to the website 
+[color-meanings](https://www.color-meanings.com/teal-color-meaning-the-color-teal/)
+teal color, comprised of blue shades and green tones it has unique values and symbolizes individuality, renewal. It is also very welcoming color.
+- For the background color and some text  I have chosen white off-which **Cultured(#F5F9F9)** which will create harmony with images, text, buttons, and icons. Reffering to the website: 
+[inspiration-feed](https://inspirationfeed.com/how-a-white-background-can-improve-your-website/) - 6 Tips on Using White Background in Modern Website Design. 
+White is associated with cleanliness, perfection, newness, honesty, and new beginnings. It can help to create a focus on certain design elements and make text and headlines readable.A white background is one of the simplest ways to focus visitors’ eyes on something important.
+- As a text color, discount information I have chosen a **Ritch Black (#14161F)**
+- For the warning signs, delete buttons I have chosen the **Violet Red (#F05193)** which also is one of the shoes colors.
+
+![color palette](wireframes/readme/color-palette.png) 
+
  **Typography**
+- For creating logo "Butterfly" and main headings I have chosen font [Princess Sofia](https://fonts.google.com/specimen/Princess+Sofia?preview.text=All%20products%20Shoes%20&preview.text_type=custom&query=prince#standard-styles) that resembles a butterfly and also because of its originality, which aims to make the brand unique.
+
+- For the navigation bar headings I have selected font [Lato](https://fonts.google.com/specimen/Lato?preview.text=All%20products%20Shoes%20&preview.text_type=custom&query=lato#standard-styles) with the group of fall-back font of **sans-serif**. 
+
+- For the content, I have chosen font [Roboto](https://fonts.google.com/specimen/Roboto?preview.text=All%20products%20Shoes%20&preview.text_type=custom&query=roboto) with a fallback of **sans-serif**, which according to "Google font" website not only is a matching a font for Princess Sophia and Lato fonts which won't make it too crowdy using three different fonts but also is considered a reader-friendly, elegant which has been designed to be easy on the eye. 
+Both the 'Lato' and 'Roboto' are the recommended fonts used on e-commerce sites by article from[rocketium](https://rocketium.com/academy/20-best-fonts-for-ecommerce-businesses/) about 20 best fonts for e-commerce
 
  **Images**
 
+As the idea behind the e-commerce site is the collection and sale of unusual shoes and handbags, mainly designed by two designers, on the main page I have created a hero image on which I placed shoes belonging to the collection of both designers. For the store I have chosen pictures of beautifull, unique and unusual shoes and bags with motifs of butterflies and birds. 
+ Pictures are downloaded from the [Kat Maconie](https://katmaconie.com/) and [Sophia Webster](https://www.sophiawebster.com/). This project is for educational purposes only so the accociated credit has been included in the credits section. 
 
+The default image if image of the product is not available 
+![no image](wireframes/readme/no-image.png)
 ## Features
+**Existing Features**
+
+
+
+**Features Left to Implement when skills develop**
+
+
 
 ---
 
@@ -283,7 +331,7 @@ Red Ketchup
 
 
 ## Resources
-
+- [inspirationfeed](https://inspirationfeed.com/how-a-white-background-can-improve-your-website/) - 6 Tips on Using White Background in Modern Website Design
 ---
 
 ## Testing
