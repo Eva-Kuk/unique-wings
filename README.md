@@ -344,6 +344,67 @@ If a user tries to access a 'forbidden' page, they will be either automatically 
 
 4. ## Skeleton
 
+## Wireframes mockups
+
+Below are the wireframes created in advance of starting the project. I used the wireframing software [Balsamiq](https://balsamiq.com/) for this project.
+
+**HOME PAGE**
+
+![home page](wireframes/home.png)
+
+**PRODUCTS PAGE**
+
+![products page](wireframes/products.png)
+
+**EXAMPLE PRODUCT PAGE**
+
+![example product page](wireframes/example-product.png)
+
+**MY SHOPPING BAG PAGE**
+
+![my shopping bag page](wireframes/my-shopping-bag.png)
+
+**ORDER CONFIRMATION PAGE**
+
+![order confirmation page](wireframes/order-confirmation.png)
+
+**PROFILE PAGE**
+
+![profile page](wireframes/profile.png)
+
+**LOGIN PAGE**
+
+![login page](wireframes/login.png)
+
+**REGISTER PAGE**
+
+![register page](wireframes/register.png)
+
+**CONTACT PAGE**
+
+![contact page](wireframes/contact.png)
+
+**ADMIN/PRODUCT MANAGEMENT PAGE**
+
+![admin product management page](wireframes/admin-product-management.png)
+
+**BLOG PAGE**
+
+![blog page](wireframes/blog.png)
+
+**SINGLE BLOGPST PAGE**
+
+![single blogpost page](wireframes/single-blogpost.png)
+
+**500 INTERNAL SERVER ERROR PAGE**
+
+![500 error page](wireframes/500.png)
+
+**404 NOT FOUND ERROR PAGE**
+
+![404 not found error page](wireframes/404.png)
+
+
 5. ## Surface
 
 **Colors**
