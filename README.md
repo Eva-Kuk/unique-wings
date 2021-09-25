@@ -1,4 +1,4 @@
-Milestone 4 Unique Wings Shoes - by Eva Kukla
+## Milestone 4 Unique Wings Shoes - by Eva Kukla
 
 ![logo](wireframes/readme/logo.png)
 
@@ -14,9 +14,12 @@ Milestone 4 Unique Wings Shoes - by Eva Kukla
 
   - [Structure](#structure)
 
-  - [Skeleton](#skeleton)- Wireframes mockups
+    - [Database Schema](#database-schema)
+
+  - [Skeleton](#skeleton) 
+    - [Wireframes mockups](#wireframes-mockups)
   
-  - [Surface](#surface)
+  - [Surface](#surface) 
 
 
 - [Features](#features)
@@ -206,12 +209,140 @@ An unauthenticated user cannot access certain parts of the website such as the '
 If a user tries to access a 'forbidden' page, they will be either automatically redirected with an error message toast appearing or asked to log in/register as required.
 
 ## Database Schema
+
+### **DATA MODELS RELATIONS**
+
+**Database Structure**
+
+![dbdiagram](wireframes/readme/dbdiagram-structure.png)
+
 **Relational Database tables schema**
 
+### "UserProfile" model used to store user information. The "UserProfile" is linked to the "User" and "Order" model.
+
+| *Field*                 | *Field type*  | *Attributes*                                 |
+| ----------------------- | ------------- | -------------------------------------------- |
+| user                    | OneToOneField | User, on_delete=models.CASCADE               |
+| default_full_name       | CharField     | max_length=50, null=True, blank=True         |
+| default_email           | EmailField    | max_length=254, null=True, blank=True        |
+| default_phone_number    | CharField     | max_length=20, null=True, blank=True         |
+| default_country         | CountryField  | blank_label='Country', null=True, blank=True |
+| default_postcode        | CharField     | max_length=20, null=True, blank=True         |
+| default_town_or_city    | CharField     | max_length=40, null=True, blank=True         |
+| default_street_address1 | CharField     | max_length=80, null=True, blank=True         |
+| default_street_address2 | CharField     | max_length=80, null=True, blank=True         |
+| default_county          | CharField     | max_length=80, null=True, blank=True         |
+
+### "User" Model is created by django All Auth on registration, it stores the name, email and password of a user.
+
+| *Field*  | *Field type* | *Attributes* |
+| -------- | ------------ | ------------ |
+| name     | Charfield    |              |
+| username | Charfield    |              |
+| email    | EmailField   |              |
+| password | Charfield    |              |
+
+
+### Checkout - "Order" model is connected to the user profile, feeding in the shipping and contact information. It creates an instance of an order on the data base with billing information, date and time of placement and by whom. The order model is linked to the"OrderLineItem" model which holds the product information for the order placed.
+
+| *Field*         | *Field type*  | *Attributes*                                                 |
+| --------------- | ------------- | ------------------------------------------------------------ |
+| order_number    | CharField     | max_length=32, null=False, editable=False                    |
+| user_profile    | ForeignKey    | UserProfile, on_delete=models.SET_NULL, null=True, blank=True, related_name='orders' |
+| full_name       | CharField     | max_length=50, null=False, blank=False                       |
+| email           | EmailField    | max_length=254, null=False, blank=False                      |
+| phone_number    | CharField     | max_length=20, null=False, blank=False                       |
+| country         | CountryField  | blank_label='Country *', null=False, blank=False             |
+| postcode        | CharField     | max_length=20, null=True, blank=True                         |
+| town_or_city    | CharField     | max_length=40, null=False, blank=False                       |
+| street_address1 | CharField     | max_length=80, null=False, blank=False                       |
+| street_address2 | CharField     | max_length=80, null=True, blank=True                         |
+| county          | CharField     | max_length=80, null=True, blank=True                         |
+| date            | DateTimeField | auto_now_add=True                                            |
+| delivery_cost   | DecimalField  | max_digits=6, decimal_places=2, null=False, default=0        |
+| discount        | DecimalField  | max_digits=6, decimal_places=2, null=False, default=0        |
+| order_total     | DecimalField  | max_digits=10, decimal_places=2, null=False, default=0       |
+| grand_total     | DecimalField  | max_digits=10, decimal_places=2, null=False, default=0       |
+| original_bag    | TextField     | null=False, blank=False, default=''                          |
+| stripe_pid      | CharField     | max_length=254, null=False, blank=False, default=''          |
+
+
+### Checkout - "OrderLineItem" model used to store and add items to order model. The Order Line Item model is linked to products.
+
+| *Field*        | *Field type* | *Attributes*                                                 |
+| -------------- | ------------ | ------------------------------------------------------------ |
+| order          | ForeignKey   | Order, null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems' |
+| product        | ForeignKey   | Product, null=False, blank=False, on_delete=models.CASCADE   |
+| product_size   | CharField    | max_length=2, null=True, blank=True                          |
+| quantity       | IntegerField | null=False, blank=False, default=0                           |
+| lineitem_total | DecimalField | max_digits=6, decimal_places=2, null=False, blank=False, editable=False |
+
+
+### "Product" model creates objects containing individual product information, such as name, description, price, image and sku. - The unique ID is auto generated. The product model is linked to the categories model which divides the products into subsections. The product objects will be used for the order model and favourites model.
+
+| *Field*     | *Field type* | *Attributes*                                                 |
+| ----------- | ------------ | ------------------------------------------------------------ |
+| category    | ForeignKey   | 'Category', null=True, blank=True, on_delete=models.SET_NULL |
+| sku         | CharField    | max_length=254, null=True, blank=True                        |
+| name        | CharField    | max_length=254                                               |
+| description | TextField    | ()                                                           |
+| has_sizes   | BooleanField | default=False, null=True, blank=True                         |
+| price       | DecimalField | max_digits=6, decimal_places=2                               |
+| rating      | DecimalField | max_digits=6, decimal_places=2, null=True, blank=True        |
+| image_url   | URLField     | max_length=1024, null=True, blank=True                       |
+| image       | ImageField   | null=True, blank=True                                        |
+
+
+### Category Model
+
+| *Field*       | *Field type* | *Attributes*                          |
+| ------------- | ------------ | ------------------------------------- |
+| name          | Charfield    | max_length=254                        |
+| friendly_name | CharField    | max_length=254, null=True, blank=True |
+
+
+### "BlogPost" Model used to add and store articles. This model is linked to the "BlogComment" Model and stores Blogpost content, image and posted date.
+
+| *Field*     | *Field type*          | *Attributes*                          |
+| ----------- | --------------------- | ------------------------------------- |
+| image       | ImageField            | null=True, blank=True                 |
+| title       | "TextField"/CharField | max_length=254, null=True, blank=True |
+| content     | TextField             | max_length=1000                       |
+| date_posted | DateTimeField         | auto_now_add=True                     |
+
+
+### "BlogComment" Model  is linked to the "BlockPost" and "User" models and it's used to store users comments about the Blogpost
+
+| *Field*      | *Field type*  | *Attributes*                                                |
+| ------------ | ------------- | ----------------------------------------------------------- |
+| blogpost     | ForeignKey    | BlogPost, on_delete=models.CASCADE, related_name='comments' |
+| user_comment | ForeignKey    | user, on_delete=models.CASCADE                              |
+| date         | DateTimeField | auto_now_add=True                                           |
+| comment      | TextField     | max_length=1024, null=False, blank=False                    |
+
+
+### "Contact" Model stores users queries in the backend for the admin user to view.
+
+| *Field*     | *Field type*  | *Attributes*                                                 |
+| ----------- | ------------- | ------------------------------------------------------------ |
+| full_name   | Charfield     | max_length=50, null=False, blank=False                       |
+| email       | EmailField    | max_length=254, null=False, blank=False                      |
+| subject     | CharField     | (max_length=50, choices=SUBJECT_MENU, default='general_query', null=False, blank=False) |
+| message     | TextField     | blank=False, null=False                                      |
+| date_posted | DateTimeField | auto_now_add=True                                            |
+
+
+### "Review" model is used to store users comments for each product. "Review" model is linked to the "Product" and ""User" Model.
+
+| *Field*     | *Field type* | *Attributes*                      |
+| ----------- | ------------ | --------------------------------- |
+| product     | ForeignKey   | Product, on_delete=models.CASCADE |
+| user        | ForeignKey   | User, on_delete=models.CASCADE    |
+| comment     | TextField    | max_length=900                    |
+| date_posted | DateTime     | auto_now_add=True                 |
+
+
 4. ## Skeleton
-
-**Wireframe mockups:**
-
 
 5. ## Surface
 
