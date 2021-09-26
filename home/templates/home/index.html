@@ -2,6 +2,29 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
 {% block content %}
-    <h1 class="display-4 text-success">It works!</h1>
+<div class="container h-100">
+    <div class="row h-100">
+        <div class="col-3 offset-md-4 my-auto">
+            <h1 class="logo-sign">
+                Unique Wings
+            </h1>
+            <p>Hard to be seen...</p>
+            <p>Made to be worn...</p>
+            <div class="my-5">
+                <h4>
+                    <a href="{% url 'products' %}" class="btn-shop-now btn btn-sm rounded-3 px-3">Shop Now</a>
+                </h4>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
