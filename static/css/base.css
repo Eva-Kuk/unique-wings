@@ -12,11 +12,24 @@ body {
     color: #14161F;
     font-family:'Roboto', sans-serif;
 }
-
+/* heading */
+h4 {
+    font-weight: 400;
+    font-size:1.3rem;
+}
 
 /* navbar and main page */
 .bg-color-teal {
     background-color:#288FA4;
+}
+.bg-color-black {
+    background: #14161F !important;
+}
+.navbar {
+    background-color: #288fa4;
+}
+.dropdown-menu.show {
+    background-color: #288fa4;
 }
 .btf-logo-nav {
     width: 63px;
@@ -29,10 +42,16 @@ body {
 }
 .nav-link {
     font-family: 'Lato', sans-serif;
-    color: #F5F9F9;
+    color: #F5F9F9 !important;
 }
-.nav-link:hover{
-    color:#d5d8d8;
+.nav-link:hover {
+    color:#d5d8d8 !important;
+}
+.text-white {
+    color: #F5F9F9 !important;
+}
+.text-pink {
+    color:#F05193;
 }
 .img-left {
     width: 100%;
@@ -52,11 +71,9 @@ body {
     font-size: 2.8rem;
     color: #14161F;
 }
-
 .welome-link:hover {
     text-decoration: none;
 }
-
 .welcome-text-style {
     text-transform: capitalize;
     font-weight: 500;
@@ -65,6 +82,7 @@ body {
 .header-container {
     background-color:#288FA4;
 }
+
 /*buttons*/
 .btn-shop-now {
     background: #288FA4;
@@ -87,6 +105,12 @@ body {
     background:#288FA4;
     color: #F5F9F9 !important;
 }
+.dropdown-item {
+    color: #F5F9F9
+}
+
+
+
 /* from Bulma */
 .icon {
     align-items: center;
@@ -99,7 +123,18 @@ body {
 .border-blue {
     border: 1px solid #F5F9F9 !important;
 }
-
+/*
+.text-black {
+    color:yellowgreen !important;
+}*/
+.navbar-light .navbar-toggler {
+    color: #F5F9F9;
+    border-color: #F5F9F9;
+}
+.dropdown-item:focus, .dropdown-item:hover {
+    color: #d5d8d8;
+    background-color: #288FA4;
+}
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
