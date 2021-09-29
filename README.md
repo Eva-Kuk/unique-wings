@@ -1,4 +1,4 @@
-## Milestone 4 Unique Wings Shoes - by Eva Kukla
+## Milestone 4 Unique Wings - by Eva Kukla
 
 ![logo](wireframes/readme/logo.png)
 
@@ -824,6 +824,53 @@ ALLOWED_HOSTS = ['you-app-name.herokuapp.com', 'localhost']
 
 
 **Media**
+
+Sophia Webster
+- [Flamingo Rainbow High Heeled Sandals](https://www.sophiawebster.com/product/35452/flo-flamingo-sandal)
+- [Chiara Purple Butterfly Sandals](https://www.sophiawebster.com/product/35453/chiara)
+- [Chiara Black Butterfly Sandals](https://www.sophiawebster.com/product/35454/chiara)
+- [Chiara Pink Butterfly Sandals](https://www.sophiawebster.com/product/32564/chiara)
+- [Evangeline Bronze Butterfly Sandals](https://www.sophiawebster.com/product/35496/evangeline)
+- [Chiara Black Butterfly Pump](https://www.sophiawebster.com/product/35467/chiara-pump)
+- [Riva Butterfly Platform Sandals](https://www.sophiawebster.com/product/35445/riva-platform)
+- [Chiara Ankle Black Butterfly Boot](https://www.sophiawebster.com/product/31556/chiara-ankle-boot)
+- [Paloma Mid Ankle Boot](https://www.sophiawebster.com/product/32605/paloma-mid-ankle-boot)
+- [Riva Black Espadrile Wedges](https://www.sophiawebster.com/product/35484/riva-espadrille)
+- [Flossy Clutch Black Butterfly Bag](https://www.sophiawebster.com/product/35563/flossy)
+- [Flossy Clutch Black Butterfly Crystal Bag](https://www.sophiawebster.com/product/32541/flossy-crystal)
+- [Valentina Mid Wedges Espadrile](https://www.sophiawebster.com/product/35439/valentina-mid-espadrille)
+- [Flamingo Rainbow High Heeled Sandals](https://www.sophiawebster.com/product/35452/flo-flamingo-sandal)
+- [Butterfly Flat Blue Sandal](https://www.sophiawebster.com/product/32616/butterfly-flat-sandal)
+- [Butterfly Black Flat Pump](https://www.sophiawebster.com/product/35471/butterfly-flat)
+- [Butterfly SlingBack Flat](https://www.sophiawebster.com/product/35469/butterfly-slingback)
+- [Hola Shopper Leather Bag](https://www.sophiawebster.com/product/32545/hola)
+- [Mariposa Black HandBag](https://www.sophiawebster.com/product/35565/mariposa)
+- [Margaux Butterflies Printed Handbag](https://www.sophiawebster.com/product/35555/margaux)
+- [Clara Bijou Gold Clutch Bag](https://www.sophiawebster.com/product/32555/clara-bijou-box-clutch)
+- [Chiara 85 Black & Rainbow Mid Heels](https://www.eu.forzieri.com/shoes/sophia-webster/wb430419-016-04)
+- [Butterfly White Platform Espadrile](https://www.sophiawebster.com/product/32690/butterfly-espadrille-platform-flat)
+- [Hola Shopper Leather Bag](https://www.sophiawebster.com/product/35575/hola-tote)
+- [Butterfly Gold Platform Espadrile](https://www.sophiawebster.com/product/32689/butterfly-espadrille-platform-flat)
+
+Kat Maconie
+- [Aya Kicker Heel Sandal](https://katmaconie.com/collections/shop-all/products/aya-black-multi-aw21)
+- [Aya Kicker Heel Orchid Multi Sandal](https://katmaconie.com/collections/shop-all/products/aya-orchid-multi-aw21)
+- [Caya Embroidered Black Sandals](https://katmaconie.com/collections/shop-all/products/caya-black-aw21)
+- [Lucie Black Floral Boots](https://katmaconie.com/collections/shop-all/products/lucie-multi-aw21)
+- [Selina Kicker Heel Sandals](https://katmaconie.com/collections/shop-all/products/selina-black-multi)
+- [Arabella Black High Heel Sandals](https://katmaconie.com/collections/shop-all/products/arabella-black-gold)
+- [Frida kicker Heel Milti Sandals](https://katmaconie.com/collections/shop-all/products/frida-crystal-pink-multi)
+- [Emmi Chain Candy Heel Sandals](https://katmaconie.com/collections/shop-all/products/emmi-multi-aw21)
+- [Mona Flat Black Multi Sandals](https://katmaconie.com/collections/shop-all/products/mona-black-multi-1)
+- [Caya Embroidedered White Sandals](https://katmaconie.com/collections/shop-all/products/caya-blanc-multi-aw21)
+- [Alba Chain Black Heel Boot](https://katmaconie.com/collections/shop-all/products/alba-black-aw21)
+- [Sigrid Chain Heel Yellow Sandals](https://katmaconie.com/collections/best-sellers/products/sigrid-sunny)
+
+Other
+- [Chiara Colored High Heels](https://www.brownsfashion.com/ie/shopping/sophia-webster-chiara-sandals-11809223)
+- [Claudie Butterfly Black Shouldes Bag](https://www.bragmybag.com/sophia-webster-claudie-butterfly-bag/)
+- [Mini Kensington Actoss Body Rainpow Bag](https://www.zalando.ie/kurt-geiger-london-mini-kensington-across-body-bag-multicoloured-ku051h07o-t11.html)
+
 
 **Content**
 
