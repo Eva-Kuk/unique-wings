@@ -18,6 +18,16 @@ h4 {
     font-size:1.3rem;
 }
 
+.header-font {
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    margin-top: 3rem;
+}
+/*
+.bg-color-white {
+    background: #F5F9F9;
+}*/
 /* navbar and main page */
 .bg-color-teal {
     background-color:#288FA4;
@@ -59,7 +69,7 @@ h4 {
 .img-right {
     width: 100%;
  }
- .logo-font {
+.logo-font {
     font-family: 'Princess Sofia', cursive;
  }
 .btf-logo {
@@ -135,6 +145,17 @@ h4 {
     color: #d5d8d8;
     background-color: #288FA4;
 }
+/* --------------------------------products.html */
+.overlay {
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	position: fixed;
+	background: white;
+	z-index: -1;
+}
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
