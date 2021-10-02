@@ -40,19 +40,23 @@
   </head>
   <body>
     <header class="container-fluid fixed-top">
+      <!-- Delivery Banner -->
       <div id="delivery-banner" class="row text-center">
         <div class="col bg-color-black text-white">
             <h4 class="my-2 text-uppercase">Free delivery on orders over €{{ free_delivery_threshold }}!</h4>                
         </div>            
       </div>
+      <!-- Main Navigation Bar -->
       <div id="topnav" class="row bg-color-teal pt-lg-2 d-none d-lg-flex">
+        <!-- Logo -->
         <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
           <a href="{% url 'home' %}" class="nav-link nav-logo-link">
             <h2 class="logo-font"><img src="/media/butterfly-logo-white.png" class="btf-logo-nav" alt="kat-maconie-parrot-shoe">Unique Wings</h2>
           </a>
         </div>
+        <!-- Search Box -->
         <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
-          <form method="GET" action="">
+          <form method="GET" action="{% url 'products' %}">
             <div class="input-group w-100">
                 <div class="input-group-append">
                     <button class="form-control btn btn-blue border-blue border rounded-0" type="submit">
@@ -65,6 +69,7 @@
             </div>
           </form>
         </div>
+        <!-- Right Site Menu: Contact -->
         <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
           <ul class="list-inline list-unstyled text-center text-lg-right my-0">
             <li class="list-inline-item">
@@ -74,6 +79,7 @@
                   <p class="my-0">Contact</p>
               </a>
             </li>
+             <!-- Right Site Menu: My Account -->
             <li class="list-inline-item dropdown">
                 <a class="nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div class="text-center">
@@ -94,6 +100,7 @@
                     {% endif %}
                 </div>
             </li>
+            <!-- Right Site Menu: Bag -->
             <li class="list-inline-item">
                 <a class="{% if grand_total %}text-pink font-weight-bold{% else %}nav-link{% endif %} nav-link" href="">
                     <div class="text-center">
@@ -111,6 +118,7 @@
         </ul>
         </div>
       </div>
+       <!-- Mobile Main Navigation Bar -->
       <div class="row bg-teal pt-lg-flex">
         <nav class="navbar navbar-expand-lg navbar-light w-100">
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
