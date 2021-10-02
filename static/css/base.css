@@ -19,10 +19,9 @@ h4 {
 }
 
 .header-font {
-    font-size: 2rem;
+    font-size: 2.4rem;
     font-weight: 600;
-    letter-spacing: 3px;
-    margin-top: 3rem;
+    letter-spacing: 6px;
 }
 /*
 .bg-color-white {
@@ -55,7 +54,7 @@ h4 {
     color: #F5F9F9 !important;
 }
 .nav-link:hover {
-    color:#d5d8d8 !important;
+    color:#14161F !important;
 }
 .text-white {
     color: #F5F9F9 !important;
@@ -142,7 +141,7 @@ h4 {
     border-color: #F5F9F9;
 }
 .dropdown-item:focus, .dropdown-item:hover {
-    color: #d5d8d8;
+    color: #14161F;
     background-color: #288FA4;
 }
 /* --------------------------------products.html */
@@ -152,20 +151,22 @@ h4 {
 	top: 0;
 	left: 0;
 	position: fixed;
-	background: white;
+	background: #F5F9F9;
 	z-index: -1;
 }
-
+.card-footer {
+    background-color:#fff ;
+}
 /* -------------------------------- Media Queries */
 
-/* Slightly larger container on xl screens */
+/* Enlarged container on xl screens */
 @media (min-width: 1200px) {
   .container {
     max-width: 80%;
   }
 }
 
-/* fixed top navbar only on medium and up */
+/* Fixed top navbar only on medium and up */
 @media (min-width: 992px) {
     .fixed-top-desktop-only {
         position: fixed;
@@ -176,5 +177,15 @@ h4 {
     }
     .header-container {
         padding-top: 164px;
+    }
+}
+/* Lowering the top part in case the navigation bar is collapsed on a mobile device */
+@media (max-width: 991px) {
+    .header-container {
+        padding-top: 116px;
+    }
+
+    body {
+        height: calc(100vh - 116px);
     }
 }
