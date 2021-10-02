@@ -798,7 +798,7 @@ ALLOWED_HOSTS = ['you-app-name.herokuapp.com', 'localhost']
     - Add the user to the group just created
     - Click next and create a user
 5. Download the ``.csv` containing the access key and secret access key.
-    - The .csv file is onlu available once and cannot be downloaded again
+    - The .csv file is only available once and cannot be downloaded again
 ### **Connecting Heroku to AWS S3**
 1. Install boto3 and django-storages and freeze your requirements
 2. Add the values from the .csv you downloaded to the Heroku configvars
@@ -870,6 +870,12 @@ Other
 - [Chiara Colored High Heels](https://www.brownsfashion.com/ie/shopping/sophia-webster-chiara-sandals-11809223)
 - [Claudie Butterfly Black Shouldes Bag](https://www.bragmybag.com/sophia-webster-claudie-butterfly-bag/)
 - [Mini Kensington Actoss Body Rainpow Bag](https://www.zalando.ie/kurt-geiger-london-mini-kensington-across-body-bag-multicoloured-ku051h07o-t11.html)
+- [Yara Butterfly Turqoise Pumps](https://www.bragmybag.com/sophia-webster-yara-butterfly-pumps/)
+- [Aguazzura Ritch Turqouse Butterfly Sandals](https://www.aquazzura.com/us_en/papillon-sandal-105-rich-turquoise-pplhigs0-snl-rtq.html)
+- [Aguazzura Jungle Green Butterfly Sandals](https://www.farfetch.com/ca/shopping/women/aquazzura-papillon-105mm-sandals-item-15209224.aspx?size=21&storeid=11811&clickref=1100lijidbCd&utm_source=laurenlyst&utm_medium=affiliate&utm_campaign=PHCA&utm_term=CANetwork&pid=performancehorizon_int&c=laurenlyst&clickid=1100lijidbCd&af_siteid=1011l2075&af_sub_siteid=1011l274&af_cost_model=CPA&af_channel=affiliate&is_retargeting=true)
+- [Aguazzura Canary Yellow Butterfly Sandals](https://www.aquazzura.com/us_en/papillon-sandal-105-sporty-yellow-pplhigs0-snl-spy.html)
+- [Furla Flamingo Shoulder Bag](https://wwd.bags2020c.com/furla-metropolis-flamingo_p30)
+
 
 
 **Content**
