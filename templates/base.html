@@ -140,9 +140,60 @@
 
     {% block content %}
     {% endblock %}
-
+    <!-- Footer -->
+    <footer class="text-center text-lg-start text-white bg-color-teal" id="footer">
+      <hr class="footer-hr">
+      <section>
+        <div class="container-fluid mx-auto">
+          <hr class="white-divider mt-5">
+          <div class="row">
+            <!-- Left: usefull likns -->
+            <div class="col-12 col-md-4 mx-auto">
+              <h4><span class="text-uppercase footer-headers"><strong>Usefull Links</strong></span></h4>
+              <p>
+                <a href="" class="footer-item footer-link text-white">Blog</a>
+              </p>
+              <p>
+                <a href="" class="footer-item footer-link text-white">Contact Us</a>
+              </p>
+            </div>
+            <!-- Centre: newsletter -->
+            <div class="col-12 col-md-4 mx-auto">
+              <h4><span class="text-uppercase footer-headers"><strong>Newsletter</strong></span></h4>
+              <p>Sign up to our monthly newsletter to get the exclusive on new arrivals, special offers </p>
+                <form method="POST" action="" id="newsletter_form" class="mb-3">
+                  <div class="form-group mx-auto mb-1 newsletter-signup"> 
+                      <!--temporary e-mail field-->
+                      <input type="email" id="email" name="email" placeholder="Enter your email address">
+                  </div>
+                  <button type="submit" class="btn btn-sm btn-white rounded-0 text-center">Sign Up</button>
+                </form>
+            </div>
+            <!-- Right: social links -->
+            <div class="col-12 col-md-4 mx-auto">
+              <h4><span class="text-uppercase footer-headers"><strong>Social Media</strong></span></h4>
+              <a href="https://facebook.com/" class="mx-2 text-white social-link footer-link" target="_blank" rel="noreferrer" aria-label="Follow us on Facebook">
+                <i class="fa fa-facebook"></i>
+              </a>
+              <a href="https://twitter.com/" class="mx-2 text-white social-link footer-link" target="_blank" rel="noreferrer" aria-label="Follow us on Twitter">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="https://www.instagram.com/" class="mx-2  text-white social-link footer-link" target="_blank" rel="noreferrer" aria-label="Follow us on Instagram">
+                <i class="fab fa-instagram"></i>
+              </a>
+            </div>
+          </div>
+          <hr class="white-divider">
+          <!-- copyright -->
+          <div class="row">
+            <div class="col-12 pb-2 mx-auto copyright">
+              copyright © 2021 Ewa Kukla For Educational Purposes Only
+            </div>
+          </div>
+        </div>
+      </section>
+    </footer>
     {% block postloadjs %}
     {% endblock %}
-  
   </body>
 </html>

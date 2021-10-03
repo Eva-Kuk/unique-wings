@@ -114,6 +114,16 @@ h4 {
     background:#288FA4;
     color: #F5F9F9 !important;
 }
+.btn-white {
+    background: #F5F9F9;
+    color: #14161F !important;
+}
+.btn-white:hover,
+.btn-white:active,
+.btn-white:focus {
+    background:#14161F;
+    color: #F5F9F9 !important;
+}
 .dropdown-item {
     color: #F5F9F9
 }
@@ -137,7 +147,8 @@ h4 {
 .btt-link {
     cursor: pointer;
 }
-.btt-link:hover {
+.btt-link:hover,
+.footer-link:hover {
     text-decoration: none;
 }
 .btt-btn-color {
@@ -174,6 +185,38 @@ h4 {
 .dropdown-item:focus, .dropdown-item:hover {
     color: #14161F;
     background-color: #288FA4;
+}
+/* Footer */
+.white-divider {
+    background: #F5F9F9;
+    height: 1px;
+}
+.footer-headers {
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+.copyright {
+    font-size: 0.9rem;
+}
+.footer-link {
+    font-weight: 500;
+}
+.footer-link:hover {
+    color:#14161F !important;
+}
+.social-link {
+    padding: 6px 9px;
+    height: 30px;
+    width: 30px;
+    text-align: center;    
+    border-radius: 50%;
+    background: #F5F9F9;
+    color: #288FA4 !important;
+}
+
+.social-link:hover {
+    background:#14161F ;
+    color: #F5F9F9 !important;
 }
 /* --------------------------------products.html */
 .overlay {
