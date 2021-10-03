@@ -125,6 +125,32 @@ h4 {
     background: #14161F !important;
     color: #F5F9F9 !important;
 }
+/* back to top button */
+.btt-btn {
+    height: 42px;
+    width: 42px;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+.btt-link {
+    cursor: pointer;
+}
+.btt-link:hover {
+    text-decoration: none;
+}
+.btt-btn-color {
+    background: #288FA4 !important;
+    color: #F5F9F9 !important;
+}
+.btt-btn-color:hover {
+    background: #14161F !important;
+    color: #F5F9F9 !important;
+}
+.arrow-size {
+    font-size: 2rem;
+}
 /* from Bulma */
 .icon {
     align-items: center;
