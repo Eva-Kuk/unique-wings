@@ -21,7 +21,7 @@ h4 {
 .header-font {
     font-size: 2.4rem;
     font-weight: 600;
-    letter-spacing: 6px;
+    letter-spacing: 4px;
 }
 /*
 .bg-color-white {
@@ -104,13 +104,13 @@ h4 {
     background: #14161F;
     color: #F5F9F9;
 }
-.btn-blue {
+.btn-search {
     background: #F5F9F9;
     color: #14161F !important;
 }
-.btn-blue:hover,
-.btn-blue:active,
-.btn-blue:focus {
+.btn-search:hover,
+.btn-search:active,
+.btn-search:focus {
     background:#288FA4;
     color: #F5F9F9 !important;
 }
@@ -127,14 +127,28 @@ h4 {
 .dropdown-item {
     color: #F5F9F9
 }
-.badge-color {
+.badge-color,
+.btn-teal {
     background: #288FA4 !important;
     color: #F5F9F9 !important;
 }
-.badge-color:hover {
+.badge-color:hover,
+.btn-teal:hover {
     background: #14161F !important;
     color: #F5F9F9 !important;
 }
+.btn-outline-teal {
+    background: white;
+    color: black !important; 
+    border: 1px solid #288FA4;
+}
+.btn-outline-teal:hover,
+.btn-outline-teal:active,
+.btn-outline-teal:focus {
+    background: #288FA4;
+    color: white !important;
+}
+
 /* back to top button */
 .btt-btn {
     height: 42px;
