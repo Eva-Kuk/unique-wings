@@ -40,15 +40,35 @@
                 </p>
                 {% endif %}
                 {% if product.rating %}
-                    <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
+                <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
                 {% else %}
-                    <small class="text-muted">No Rating</small>
+                <small class="text-muted">No Rating</small>
                 {% endif %}
                 <p class="mt-3">{{ product.description }}</p>
                 <!-- Quantity Selecting, Adding Specific Product id To The Bag Form -->
                 <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
                     {% csrf_token %}
                     <div class="form-row">
+                        {% with product.has_sizes as s %}
+                        {% if s %}
+                        <div class="col-12">
+                            <p><strong>Size:</strong></p>
+                            <select class="form-control rounded-0 w-50" name="product_size" id='id_product_size'>
+                                <option value="35">UK2/EU35/US4</option>
+                                <option value="36">UK3/EU36/US5</option>
+                                <option value="37" selected>UK4/EU37/US6</option>
+                                <option value="38">UK5/EU38/US7</option>
+                                <option value="39">UK6/EU39/US8</option>
+                                <option value="40">UK7/EU40/US9</option>
+                                <option value="41">UK8/EU41/US10</option>
+                                <option value="42">UK9/EU42/US11</option>
+                                <option value="43">UK10/EU43/US12</option>
+                                <option value="44">UK11/EU44/US13</option>
+                                <option value="45">UK12/EU45/US14</option>
+                                <option value="46">UK13/EU46/US15</option>
+                            </select>
+                        </div>
+                        {% endif %}
                         <div class="col-12">
                             <p class="mt-3"><strong>Quantity:</strong></p>
                             <div class="form-group w-50">
@@ -59,7 +79,7 @@
                             </div>
                         </div>
 
-                        <div class="col-12">
+                        <div class="col{% if s %}-12 mt-2{% endif %}">
                             <a href="{% url 'products' %}" class="btn btn-outline-teal rounded-0 mt-5">
                                 <span class="icon">
                                     <i class="fas fa-chevron-left"></i>
@@ -69,6 +89,7 @@
                             <input type="submit" class="btn btn-teal rounded-0 text-uppercase mt-5" value="Add to Bag">
                         </div>
                         <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                        {% endwith %}
                     </div>
                 </form>
             </div>
