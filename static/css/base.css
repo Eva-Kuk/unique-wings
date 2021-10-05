@@ -12,7 +12,7 @@ body {
     color: #14161F;
     font-family:'Roboto', sans-serif;
 }
-/* heading */
+/* -----------------heading----------------- */
 h4 {
     font-weight: 400;
     font-size:1.3rem;
@@ -27,7 +27,7 @@ h4 {
 .bg-color-white {
     background: #F5F9F9;
 }*/
-/* navbar and main page */
+/* -----------------navbar and main page----------------- */
 .bg-color-teal {
     background-color:#288FA4;
 }
@@ -95,7 +95,7 @@ h4 {
     background-color:#288FA4;
 }
 
-/*buttons*/
+/*-----------------buttons-----------------*/
 .btn-shop-now {
     background: #288FA4;
     color: #F5F9F9;
@@ -152,7 +152,7 @@ h4 {
     color: white !important;
 }
 
-/* back to top button */
+/* -----------------back to top button----------------- */
 .btt-btn {
     height: 42px;
     width: 42px;
@@ -181,7 +181,7 @@ h4 {
 .arrow-size {
     font-size: 2rem;
 }
-/* from Bulma */
+/* -----------------from Bulma----------------- */
 .icon {
     align-items: center;
     display: inline-flex;
@@ -205,7 +205,7 @@ h4 {
     color: #14161F;
     background-color: #288FA4;
 }
-/* Footer */
+/* -----------------Footer----------------- */
 .white-divider {
     background: #F5F9F9;
     height: 1px;
@@ -237,7 +237,7 @@ h4 {
     background:#14161F ;
     color: #F5F9F9 !important;
 }
-/* --------------------------------products.html */
+/* ---------------products.html----------------- */
 .overlay {
 	height: 100%;
 	width: 100%;
@@ -250,7 +250,27 @@ h4 {
 .card-footer {
     background-color:#FFF ;
 }
-/* -------------------------------- Media Queries */
+
+/* -----------------Toasts----------------- */
+
+.message-container {
+    position: fixed;
+    top: 130px;
+    right: 15px;
+    z-index: 99999999999;
+}
+
+.custom-toast {
+    overflow: visible;
+}
+
+.toast-capper {
+    height: 4px;
+}
+.bg-info-custom {
+    color: aqua;
+}
+/* -----------------Media Queries----------------- */
 
 /* Enlarged container on xl screens */
 @media (min-width: 1200px) {
