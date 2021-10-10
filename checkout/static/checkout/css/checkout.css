@@ -32,7 +32,18 @@
 .stripe-style-input::placeholder {
     color: #aab7c4;
 }
-/* loading spinner */
+/* Country Selecting Box */
+select,
+select option {
+    color: #000000;
+}
+
+select:invalid,
+select option[value=""] {
+    color: #aab7c4 !important;
+}
+
+/* Loading Spinner */
 #loading-overlay {
 	display: none;
 	position: fixed;
