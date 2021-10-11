@@ -194,12 +194,21 @@
         <!-- Buttons -->
         <div class="row d-flex justify-content-center">
 			<div class="col-12 col-lg-7 text-center">
-				<a href="{% url 'products' %}?category=new_arrivals,deals,clearance" class="btn btn-teal rounded-0 my-2">
-					<span class="icon mr-2">
-						<i class="fas fa-gifts"></i>
-					</span>
-					<span class="text-uppercase">Now check out the latest deals!</span>
-				</a>
+                {% if from_profile %}
+                    <a href="{% url 'profile' %}" class="btn btn-teal rounded-0 my-2">
+                        <span class="icon mr-2">
+                            <i class="fas fa-angle-left"></i>
+                        </span>
+                        <span class="text-uppercase">Back to Profile</span>
+                    </a>
+                {% else %}
+                    <a href="{% url 'products' %}?category=new_arrivals,deals,clearance" class="btn btn-teal rounded-0 my-2">
+                        <span class="icon mr-2">
+                            <i class="fas fa-gifts"></i>
+                        </span>
+                        <span class="text-uppercase">Now check out the latest deals!</span>
+                    </a>
+                {% endif %}
 			</div>
 		</div>
     </div>
