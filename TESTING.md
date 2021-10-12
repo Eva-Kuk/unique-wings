@@ -18,7 +18,7 @@ While working on this project I encountered the following problems which I tried
 1. ERROR: IntegrityError at/accounts/login/ unique constrant failed:profiles.user_id showed while registering new user and trying to sign in 
 ![integrity error](wireframes/testing/integrity-error.png)
     SOLVING BY: 
-    - Checking for cod differences in diffchecker (came out correct) ,
+    - Checking for code differences in diffchecker (came out correct) ,
     - Created a new superuser (still left with the same error),
     - Deleted the db.sqlite3 file in workspace, make and run migrations, loaded my fixtures for categories.json and product.json, then created a new superuser (still didn't work)
     - Checked all related files and the issue was forgotten undo uncommited lines in models.py 
@@ -27,8 +27,13 @@ While working on this project I encountered the following problems which I tried
         - to
     ![integrity error solution](wireframes/testing/integrity-error-solved.png)
 
-
-    
+2. ERROR: while making purchase on the site and receivind an order confirmation on the profile site and success message the confirmation email doesn't appear in the terminal. Instead the error `POST /checkout/wh/HTTP/1.1 500 146184` and TemplateDoesntExist received
+![confirmation-email-error](wireframes/testing/confirmation-email-error.png)
+SOLVING BY: 
+   - Checking for typos and correct place for **confirmation_emails** folder and webhook_handler.py
+   - Checking the webhooks are correct, updating in the settings variables, and on the stripe site 
+   - The error came from a typo in the `confirmation_email_subject.txt`
+![confirmation-email-error-typo](wireframes/testing/confirmation-email-error-typo.png)
 ## Code Validation
 ---
 
