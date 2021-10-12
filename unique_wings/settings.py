@@ -175,10 +175,15 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Stripe
 FREE_DELIVERY_THRESHOLD = 300
-STANDARD_DELIVERY_PERCENTAGE = 10
+STANDARD_DELIVERY_PERCENTAGE = 5
 STRIPE_CURRENCY = 'eur'
 STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
 STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
+DEFAULT_FROM_EMAIL = 'uniquewings@example.com'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+print("WEBHOOK SECRET:"),
+print(os.environ.get("STRIPE_WH_SECRET"))
