@@ -427,8 +427,29 @@ input[name='q']::placeholder {
     border-radius: 0;
 }
 
+/* ----- Blog page ------- */
 
-
+.image_wrap {
+	height:35vh;
+	min-height: 25vh;
+	object-fit: cover;
+}
+.btf-logo-blog {
+    width: 37px;
+    padding-right: 2px;
+}
+.btf-logo-blog-reverse {
+    transform: scaleX(-1);
+}
+.blog-contact-link {
+    color:#dc3545 ;
+}
+.blog-contact-link:hover {
+    color: #17a2b8;
+}
+.card-footer {
+    border-top: none;
+}
 
 /* -----------------Media Queries----------------- */
 
