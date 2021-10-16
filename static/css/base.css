@@ -277,7 +277,7 @@ input[name='q']::placeholder {
 }
 .font-your-bag {
     font-weight: 500;
-    font-family: 'Lato';
+    font-family: 'Lato', sans-serif;
     text-transform: uppercase;
 }
 
@@ -427,9 +427,9 @@ input[name='q']::placeholder {
     border-radius: 0;
 }
 
-/* ----- Blog page ------- */
+/* ----- Blog Page ------- */
 
-.image_wrap {
+.image-wrap {
 	height:35vh;
 	min-height: 25vh;
 	object-fit: cover;
@@ -450,7 +450,18 @@ input[name='q']::placeholder {
 .card-footer {
     border-top: none;
 }
-
+.blog-detail-img {
+    height: 100%;
+	object-fit: cover;
+	width: 100%;
+}
+.blog-date,
+.blog-author {
+    font-size:1rem;
+}
+.blog-header {
+    font-family: 'Lato', sans-serif;
+}
 /* -----------------Media Queries----------------- */
 
 /* Enlarged container on xl screens */

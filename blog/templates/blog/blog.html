@@ -9,18 +9,19 @@
 {% endblock %}
 
 {% block content %}
+<main>
     <div class="overlay"></div>
     <div class="container pt-4">
 
         <!-- Header -->
         <div class="row">
             <div class="col text-center mt-3">
-                <hr class="w-50 mb-3">
+                <hr class="w-75 mb-3">
                 <h2 class="header-font logo-font mb-4">Blog</h2>
-                <hr class="w-50 mb-3">
+                <hr class="w-75 mb-3">
             </div>
         </div>
-
+    <section>
         <div class="row">
             <div class="col-12 mb-4">
                 <p>
@@ -41,7 +42,8 @@
             </div>
         </div>
         <hr class="w-50">
-
+    </section>
+    <section>
         <!-- Blog Container -->
         <div class="row">
             {% for blogpost in blogposts %}
@@ -50,41 +52,35 @@
                     <div class="card shadow text-center h-100 ">
                         
                             {% if blogpost.image %} 
-                                    <img src="{{ blogpost.image.url }}" alt="{{ blogpost.title }}" class="image_wrap"/>       
+                                    <img src="{{ blogpost.image.url }}" alt="{{ blogpost.title }}" class="image-wrap"/>       
                             {% else %}
-                                    <img src="{{ blogpost.image_url }}" alt="{{ blogpost.title }}" class="image_wrap" />
+                                    <img src="{{ blogpost.image_url }}" alt="{{ blogpost.title }}" class="image-wrap" />
                             {% endif %}
                             <div class="card-body p-0">
                             <!-- Title -->
-                            <h4 class="card-title mx-2 my-2 text-full">{{ blogpost.title }}</h4>
+                            <h4 class="card-title mx-2 my-2">{{ blogpost.title }}</h4>
                             <!-- Preview -->
-                            <p class="card-text text-full pt-2">{{ blogpost.info }}</p>
+                            <p class="card-text pt-2">{{ blogpost.info }}</p>
                             <!-- Author -->
                             <p><small class="px-2 text-muted">Posted by: {{ blogpost.author }} <span class="date"> on: {{ blogpost.date_posted }}</span></small></p>
                              <!-- Button -->
                              <div class="card-footer">
-                             <a href="" class=" btn btn-sm  rounded-0 btn-teal text-full">Read more</a>
+                             <a href="{% url 'blog_detail' blogpost.id %}" class=" btn btn-sm  rounded-0 btn-teal">Read more</a>
                             </div>
                        </div>
-                    </div>
-                  
-                  
+                    </div>            
                 </div>       
             {%  endfor %}
         </div>
     </div>
-    <!-- Scroll up button -->
-    <div class="btt-button shadow-sm ">
-        <a href="#" class="btt-link d-flex h-100">
-            <i class="fas fa-arrow-up text-white mx-auto my-auto"></i>
-        </a>
-    </div>
+</section>
 <!-- Back To Top Button-->
 <div class="btt-btn btt-btn-color shadow-sm">
     <a class="btt-link d-flex h-100">
         <i class="fas fa-arrow-alt-circle-up text-white arrow-size mx-auto my-auto"></i>
     </a>
 </div>
+</main>
 {% endblock %}
 {% block postloadjs %}
     {{ block.super }}

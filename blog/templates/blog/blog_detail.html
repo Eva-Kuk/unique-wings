@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+<main class="container mx-auto pt-5">
+    <div class="row">
+
+        <!-- Blogpost content-->
+        <div class="col-12 col-md-8 mx-auto">
+            <hr>
+            <h2 class="header-font blog-header mb-4 text-center">{{ blogpost.title }}</h2>
+            <hr>
+            <h5 class="text-muted blog-author"> posted by: {{ blogpost.author}}</h5>
+            
+            
+             <!--Blogpost Image-->
+            <figure class="wrap_image">
+                {% if blogpost.image %} 
+                    <img src="{{ blogpost.image.url }}" alt="{{ blogpost.title }}" class="blog-detail-img" />             
+                {% else %}
+                    <img src="{{ blogpost.image_url }}" alt="{{ blogpost.title }}" class="blog-detail-img" />
+                {% endif %}
+            </figure>
+        </div>
+    </div>
+
+     <!-- Written Content -->
+    <div class="container">
+        <div class="col-sm-12 mb-5 mt-5 blog-content">           
+            <p class="">{{ blogpost.content }}</p>
+        </div>
+        <hr>
+        <h5 class="text-muted blog-date">Last update on: {{ blogpost.date_posted }}</h5>
+    </div>
+</main>
+{% endblock %}
