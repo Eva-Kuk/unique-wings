@@ -24,7 +24,7 @@
 
         <!-- Edit Blogpost form -->
         <div class="row justify-content-center">
-            <div class="col-12 col-md-6 post-form">
+            <div class="col-12 col-md-6">
                 <form method="POST" action="{% url 'edit_blogpost' blogpost.id %}" class="form mb-2" enctype="multipart/form-data">
                     {% csrf_token %}
                      {% for field in form %}
@@ -38,7 +38,7 @@
                     <!-- Buttons -->
                     <div class="text-right my-5">
                         <a class="btn btn-outline-teal rounded-0" href="{% url 'blog' %}">Cancel</a>
-                        <button class="btn btn-teal text-full rounded-0" type="submit">Submit Post</button>
+                        <button class="btn btn-teal rounded-0" type="submit">Submit Post</button>
                     </div>
                 </form>
             </div>            

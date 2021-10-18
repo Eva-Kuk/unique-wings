@@ -399,7 +399,7 @@ input[name='q']::placeholder {
 .card-footer {
     background-color:#FFF ;
 }
-/* ---------------Product Form----------------- */
+/* ---------------Product/Blog Form----------------- */
 
 .btn-file {
     position: relative;
@@ -418,12 +418,12 @@ input[name='q']::placeholder {
 
 .custom-checkbox .custom-control-label::before {
     border-radius: 0;
-    border-color: #dc3545;
+    border-color: #F05193;
 }
 
 .custom-checkbox .custom-control-input:checked~.custom-control-label::before {
-    background-color: #dc3545;
-    border-color: #dc3545;
+    background-color: #F05193;
+    border-color: #F05193;
     border-radius: 0;
 }
 
@@ -442,7 +442,7 @@ input[name='q']::placeholder {
     transform: scaleX(-1);
 }
 .blog-contact-link {
-    color:#dc3545 ;
+    color:#F05193 ;
 }
 .blog-contact-link:hover {
     color: #17a2b8;
