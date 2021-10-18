@@ -54,7 +54,7 @@
                             {% if blogpost.image %} 
                                     <img src="{{ blogpost.image.url }}" alt="{{ blogpost.title }}" class="image-wrap"/>       
                             {% else %}
-                                    <img src="{{ blogpost.image_url }}" alt="{{ blogpost.title }}" class="image-wrap" />
+                                    <img src="{{ MEDIA_URL }}noimage.png" alt="{{ blogpost.title }}" class="image-wrap" />
                             {% endif %}
                             <div class="card-body p-0">
                             <!-- Title -->
