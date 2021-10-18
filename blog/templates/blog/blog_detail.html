@@ -37,6 +37,12 @@
         <div class="col-sm-12 mb-5 mt-5 blog-content">           
             <p class="">{{ blogpost.content }}</p>
         </div>
+        {% if request.user.is_superuser %}
+        <small class="float-right mr-3">
+            <a class="text-teal" href="{% url 'edit_blogpost' blogpost.id %}">Edit</a> |
+            <a class="text-pink" href="{% url 'delete_blogpost' blogpost.id %}">Delete</a>
+        </small>
+        {% endif %}
         <hr>
         <h5 class="text-muted blog-date">Last update on: {{ blogpost.date_posted }}</h5>
     </div>

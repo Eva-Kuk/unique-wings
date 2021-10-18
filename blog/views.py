@@ -91,3 +91,16 @@ def edit_blogpost(request, blogpost_id):
     }
 
     return render(request, template, context)
+
+
+def delete_blogpost(request, blogpost_id):
+    """ A view to Delete Blogpost form for admin only """
+
+    blogpost = get_object_or_404(BlogPost, pk=blogpost_id)
+
+    if request.user == blogpost.author or request.user.is_superuser:
+        blogpost.delete()
+        return redirect(reverse('blog'))
+    else:
+        messages.error(request, 'You cannot do that !')
+        return redirect(reverse('blog'))
