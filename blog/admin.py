@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import BlogPost, BlogComment
+from .models import BlogPost
 
 
 # Register your models here.
@@ -12,13 +12,4 @@ class BlogAdmin(admin.ModelAdmin):
     )
 
 
-class BlogCommentAdmin(admin.ModelAdmin):
-    list_display = (
-        'user_comment',
-        'comment',
-        'date',
-    )
-
-
-admin.site.register(BlogPost)
-admin.site.register(BlogComment)
+admin.site.register(BlogPost, BlogAdmin)

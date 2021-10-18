@@ -59,3 +59,35 @@ def add_blogpost(request):
     }
 
     return render(request, template, context)
+
+
+def edit_blogpost(request, blogpost_id):
+    """ A view to Edit Blogpost form for admin only """
+
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
+    blogpost = get_object_or_404(BlogPost, pk=blogpost_id)
+    if request.method == 'POST':
+        form = BlogForm(request.POST, request.FILES, instance=blogpost)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully updated blog post!')
+            return redirect(reverse('blog_detail', args=[blogpost.id]))
+        else:
+            messages.error(
+                    request,
+                    'Failed to update the blog post.\
+                    Please ensure the form is valid.')
+    else:
+        form = BlogForm(instance=blogpost)
+        messages.info(request, f'You are editing {blogpost.title}')
+
+    template = 'blog/edit_blogpost.html'
+    context = {
+        'form': form,
+        'blogpost': blogpost,
+    }
+
+    return render(request, template, context)
