@@ -11,20 +11,20 @@
 
 {% block content %}
     <div class="overlay"></div>
-    <div class="container">
+    <div class="container mt-4 mb-5">
         <!-- Header -->
         <div class="row justify-content-center">
             <div class="col-12 col-md-6 post-header mx-auto">
                 <hr>
                 <h2 class="header-font logo-font mb-4 text-center">Blog Management</h2>
-                <h5 class="text-muted text-center">Edit a Blog Post</h5>
                 <hr>
             </div>
         </div>
 
         <!-- Edit Blogpost form -->
         <div class="row justify-content-center">
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-md-6 rounded-0 shadow p-4">
+                <h5 class="text-muted mb-4">Edit a Blog Post</h5>
                 <form method="POST" action="{% url 'edit_blogpost' blogpost.id %}" class="form mb-2" enctype="multipart/form-data">
                     {% csrf_token %}
                      {% for field in form %}

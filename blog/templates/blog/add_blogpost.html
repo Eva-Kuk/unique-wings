@@ -11,20 +11,20 @@
 
 {% block content %}
     <div class="overlay"></div>
-    <div class="container mt-4 mb-4">
+    <div class="container mt-4 mb-5">
         <!-- Header -->
         <div class="row justify-content-center">
             <div class="col-12 col-md-6 post-header mx-auto">
                 <hr>
                 <h2 class="header-font logo-font mb-4 text-center">Blog Management</h2>
-                <h5 class="text-muted text-center">Add a Blog Post</h5>
                 <hr>
             </div>
         </div>
 
-        <!-- Add Blogpost form -->
+        <!-- Add Blogpost Form -->
         <div class="row justify-content-center">
-            <div class="col-12 col-md-6 post-form mx-auto">
+            <div class="col-12 col-md-6 shadow rounded-0 pt-4 pb-4 post-form mx-auto">
+                <h5 class="text-muted mb-4">Add a Blog Post</h5>
                 <form method="POST" action="{% url 'add_blogpost' %}" class="form mb-2" enctype="multipart/form-data">
                     {% csrf_token %}
                      {% for field in form %}
@@ -46,9 +46,9 @@
     </div>
 {% endblock %}
 
-<!-- Image text set-up -->
 {% block postloadjs %}
 {{ block.super }}
+<!-- Image text set-up -->
     <script type="text/javascript">
         $('#new-image').change(function() {
             let file = $('#new-image')[0].files[0];
