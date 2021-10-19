@@ -29,22 +29,53 @@
                     <img src="{{ MEDIA_URL }}noimage.png" alt="{{ blogpost.title }}" class="blog-detail-img" />
                 {% endif %}
             </figure>
+            <!-- Superuser links and posted date -->
+            {% if request.user.is_superuser %}
+            <small class="float-right mr-3">
+                <a class="text-teal" href="{% url 'edit_blogpost' blogpost.id %}">Edit</a> |
+                <a class="text-pink" href="{% url 'delete_blogpost' blogpost.id %}">Delete</a>
+            </small>
+            {% endif %}
+            <h5 class="text-muted blog-date">Last update on: {{ blogpost.date_posted }}</h5>
         </div>
     </div>
-
      <!-- Written Content -->
     <div class="container">
         <div class="col-sm-12 mb-5 mt-5 blog-content">           
             <p class="">{{ blogpost.content }}</p>
         </div>
-        {% if request.user.is_superuser %}
-        <small class="float-right mr-3">
-            <a class="text-teal" href="{% url 'edit_blogpost' blogpost.id %}">Edit</a> |
-            <a class="text-pink" href="{% url 'delete_blogpost' blogpost.id %}">Delete</a>
-        </small>
-        {% endif %}
-        <hr>
-        <h5 class="text-muted blog-date">Last update on: {{ blogpost.date_posted }}</h5>
+    </div>
+
+    <!-- Blogpost Comment -->
+    <div class="container">
+        <div class="col-sm-12">
+            <div class="bg-white rounded shadow p-4 mb-4 clearfix">
+                <h3 class="mb-0 mb-2 comment-header">Comments</h3>
+                <hr>
+                    <div class="row">
+                    <div class="col-sm-12 d-flex justify-content-end">
+                        <a href="{% url 'blog_comment' blogpost.id %}" type="button" class="btn btn-teal rounded-0 ">Add Comment</a>
+                    </div>
+                    <div class="col-sm-12 pt-4 pb-4">
+                        {% if blogpost.comments.count > 0 %}
+                            {% for comment in blogpost.comments.all %}
+                                <div class="row mt-3">
+                                    <div class="col-4">
+                                        <h6 class="mb-1 text-full">{{ comment.user_comment }}</h6>
+                                        <p class="text-gray text-full">{{ comment.date }}</p>
+                                    </div>
+                                    <div class="col-8 pl-3">
+                                        <div class="text-full">
+                                            <p>{{ comment.comment }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </main>
 {% endblock %}

@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .forms import BlogForm
+from .forms import BlogForm, CommentForm
 from .models import BlogPost, BlogComment
 
 # Create your views here.
@@ -108,3 +108,32 @@ def delete_blogpost(request, blogpost_id):
     else:
         messages.error(request, 'You cannot do that !')
         return redirect(reverse('blog'))
+
+
+def blog_comment(request, blogpost_id):
+    """ A view to Add BlogComment form for registered user only only """
+
+    blogpost = get_object_or_404(BlogPost, pk=blogpost_id)
+
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.comment_user = request.user
+            comment.blogpost = blogpost
+            comment.save()
+            messages.success(request, 'Thank you for your comment !')
+            return redirect(reverse('blog_detail', args=[blogpost.id]))
+        else:
+            messages.error(request,
+                           'Oops something went wrong. \
+                            Please try again.')
+    else:
+        form = CommentForm(instance=blogpost)
+    template = 'blog/add_comment.html'
+    context = {
+        'form': form,
+        'blogpost': blogpost,
+    }
+
+    return render(request, template, context)
