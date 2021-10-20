@@ -26,4 +26,8 @@ urlpatterns = [
           'comment/<int:blogpost_id>/',
           views.blog_comment,
           name='blog_comment'),
+     path(
+          'edit_comment/<int:comment_id>/',
+          views.edit_comment,
+          name='edit_comment'),
 ]

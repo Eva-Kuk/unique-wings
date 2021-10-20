@@ -130,10 +130,38 @@ def blog_comment(request, blogpost_id):
                             Please try again.')
     else:
         form = CommentForm(instance=blogpost)
-    template = 'blog/add_comment.html'
+    template = 'blog/add_blogcomment.html'
     context = {
         'form': form,
         'blogpost': blogpost,
+    }
+
+    return render(request, template, context)
+
+
+def edit_comment(request, comment_id):
+    """ A view to Edit BlogComment form for registered user only only """
+
+    comment = get_object_or_404(BlogComment, pk=comment_id)
+    if request.method == 'POST':
+        form = CommentForm(request.POST, instance=comment)
+        if form.is_valid():
+            form.save()
+            messages.success(
+                        request,
+                        'Your comment is successfully updated')
+            return redirect(reverse('blog'))
+        else:
+            messages.error(
+                request,
+                'Failed to edit your comment. \
+                Please ensure the form is valid.')
+    else:
+        form = CommentForm(instance=comment)
+    template = 'blog/edit_blogcomment.html'
+    context = {
+        'form': form,
+        'comment': comment,
     }
 
     return render(request, template, context)
