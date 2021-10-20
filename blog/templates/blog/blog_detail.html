@@ -19,8 +19,7 @@
             <h2 class="header-font logo-font mb-4 text-center">{{ blogpost.title }}</h2>
             <hr>
             <h5 class="text-muted blog-author"> posted by: {{ blogpost.author}}</h5>
-            
-            
+              
              <!--Blogpost Image-->
             <figure class="wrap_image">
                 {% if blogpost.image %} 
@@ -32,8 +31,8 @@
             <!-- Superuser links and posted date -->
             {% if request.user.is_superuser %}
             <small class="float-right mr-3">
-                <a class="text-teal" href="{% url 'edit_blogpost' blogpost.id %}">Edit</a> |
-                <a class="text-pink" href="{% url 'delete_blogpost' blogpost.id %}">Delete</a>
+                <a class="text-pink delete-btn px-1 " href="{% url 'delete_blogpost' blogpost.id %}">Delete</a> |
+                <a class="text-teal edit-btn px-2" href="{% url 'edit_blogpost' blogpost.id %}">Edit</a> 
             </small>
             {% endif %}
             <h5 class="text-muted blog-date">Last update on: {{ blogpost.date_posted }}</h5>
@@ -41,7 +40,7 @@
     </div>
      <!-- Written Content -->
     <div class="container">
-        <div class="col-sm-12 mb-5 mt-5 blog-content">           
+        <div class="col-12 mx-auto mb-5 mt-5 blog-content">           
             <p class="">{{ blogpost.content }}</p>
         </div>
     </div>
@@ -49,24 +48,34 @@
     <!-- Blogpost Comment -->
     <div class="container">
         <div class="col-sm-12">
-            <div class="bg-white rounded shadow p-4 mb-4 clearfix">
-                <h3 class="mb-0 mb-2 comment-header">Comments</h3>
+            <div class="bg-white rounded shadow p-4 mb-4">
+                <h3 class="mb-0 mb-2 comments-header">Comments</h3>
                 <hr>
-                    <div class="row">
+                <div class="row">
                     <div class="col-sm-12 d-flex justify-content-end">
-                        <a href="{% url 'blog_comment' blogpost.id %}" type="button" class="btn btn-teal rounded-0 ">Add Comment</a>
+                        <a href="{% url 'blog_comment' blogpost.id %}" type="button" class="btn btn-teal rounded-0">Add Comment</a>
                     </div>
                     <div class="col-sm-12 pt-4 pb-4">
-                        {% if blogpost.comments.count > 0 %}
+                        {% if blogpost.comments %}
                             {% for comment in blogpost.comments.all %}
                                 <div class="row mt-3">
-                                    <div class="col-4">
-                                        <h6 class="mb-1 text-full">{{ comment.user_comment }}</h6>
-                                        <p class="text-gray text-full">{{ comment.date }}</p>
+                                    <div class="col-12 d-flex justify-content-between ">
+                                        <h4 class="font-weight-bold user-comment-font">Added by: {{ comment.user_comment }}</h4> 
+                                        <span class="text-muted  align-text-right"> {{ comment.date }}</span>
                                     </div>
-                                    <div class="col-8 pl-3">
-                                        <div class="text-full">
+                                    <div class="col-12 pl-3">
+                                        <div>
                                             <p>{{ comment.comment }}</p>
+                                            {% if request.user.is_authenticated or request.user.is_superuser %}
+                                            <div class="d-flex justify-content-end align-items-baseline">
+                                                <a href="{% url 'delete_comment' comment.id %}" class="text-pink delete-btn px-2">Delete</a> |
+                                                <a href="{% url 'edit_comment' comment.id %}" class="text-teal px-3 edit-btn">Edit</i></a>
+                                            </div>
+                                            {% endif %}
+                                            <div>
+                                                <hr class="hr-comment-color my-2">
+                                                <p class="text-right"><img src="/media/butterfly-logo.png" class="btf-logo-blog btf-logo-blog-reverse btf-logo-blog-comment align-text-right" alt="butterfly-logo"></p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

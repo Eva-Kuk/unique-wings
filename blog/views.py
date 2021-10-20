@@ -34,7 +34,7 @@ def blog_detail(request, blogpost_id):
 
 @login_required
 def add_blogpost(request):
-    """ A view to Add Blogpost form for admin only """
+    """ A view to Add Blogpost for admin only """
 
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
@@ -65,7 +65,7 @@ def add_blogpost(request):
 
 @login_required
 def edit_blogpost(request, blogpost_id):
-    """ A view to Edit Blogpost form for admin only """
+    """ A view to Edit Blogpost for admin only """
 
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
@@ -98,7 +98,7 @@ def edit_blogpost(request, blogpost_id):
 
 @login_required
 def delete_blogpost(request, blogpost_id):
-    """ A view to Delete Blogpost form for admin only """
+    """ A view to Delete Blogpost for admin only """
 
     blogpost = get_object_or_404(BlogPost, pk=blogpost_id)
 
@@ -106,12 +106,12 @@ def delete_blogpost(request, blogpost_id):
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
     else:
-        messages.error(request, 'You cannot do that !')
+        messages.error(request, 'You cannot do that!')
         return redirect(reverse('blog'))
 
 
 def blog_comment(request, blogpost_id):
-    """ A view to Add BlogComment form for registered user only only """
+    """ A view to Add BlogComment for registered user only """
 
     blogpost = get_object_or_404(BlogPost, pk=blogpost_id)
 
@@ -122,7 +122,7 @@ def blog_comment(request, blogpost_id):
             comment.user_comment = request.user
             comment.blogpost = blogpost
             comment.save()
-            messages.success(request, 'Thank you for your comment !')
+            messages.success(request, 'Thank you for your comment!')
             return redirect(reverse('blog_detail', args=[blogpost.id]))
         else:
             messages.error(request,
@@ -140,28 +140,46 @@ def blog_comment(request, blogpost_id):
 
 
 def edit_comment(request, comment_id):
-    """ A view to Edit BlogComment form for registered user only only """
+    """ A view to Edit BlogComment for registered user only """
 
     comment = get_object_or_404(BlogComment, pk=comment_id)
-    if request.method == 'POST':
-        form = CommentForm(request.POST, instance=comment)
-        if form.is_valid():
-            form.save()
-            messages.success(
-                        request,
-                        'Your comment is successfully updated')
-            return redirect(reverse('blog'))
+    if request.user == comment.user_comment or request.user.is_superuser:
+        if request.method == 'POST':
+            form = CommentForm(request.POST, instance=comment)
+            if form.is_valid():
+                form.save()
+                messages.success(
+                            request,
+                            'Your comment is successfully updated')
+                return redirect(reverse('blog'))
+            else:
+                messages.error(
+                    request,
+                    'Failed to edit your comment. \
+                    Please ensure the form is valid.')
         else:
-            messages.error(
-                request,
-                'Failed to edit your comment. \
-                Please ensure the form is valid.')
-    else:
-        form = CommentForm(instance=comment)
-    template = 'blog/edit_blogcomment.html'
-    context = {
-        'form': form,
-        'comment': comment,
-    }
+            form = CommentForm(instance=comment)
+        template = 'blog/edit_blogcomment.html'
+        context = {
+            'form': form,
+            'comment': comment,
+        }
 
-    return render(request, template, context)
+        return render(request, template, context)
+    else:
+        messages.error(request, 'You not allowed to do that!')
+        return redirect(reverse('blog'))
+
+
+def delete_comment(request, comment_id):
+    """ A view to Delete BlogComment for registered user only """
+
+    comment = get_object_or_404(BlogComment, pk=comment_id)
+
+    if request.user == comment.user_comment or request.user.is_superuser:
+        comment.delete()
+        messages.success(request, 'Your comment is deleted!')
+        return redirect(reverse('blog'))
+    else:
+        messages.error(request, 'You not allowed to do that!')
+        return redirect(reverse('blog'))
