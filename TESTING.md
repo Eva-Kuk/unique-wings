@@ -29,11 +29,24 @@ While working on this project I encountered the following problems which I tried
 
 2. ERROR: while making purchase on the site and receivind an order confirmation on the profile site and success message the confirmation email doesn't appear in the terminal. Instead the error `POST /checkout/wh/HTTP/1.1 500 146184` and TemplateDoesntExist received
 ![confirmation-email-error](wireframes/testing/confirmation-email-error.png)
-SOLVING BY: 
+c
    - Checking for typos and correct place for **confirmation_emails** folder and webhook_handler.py
    - Checking the webhooks are correct, updating in the settings variables, and on the stripe site 
    - The error came from a typo in the `confirmation_email_subject.txt`
 ![confirmation-email-error-typo](wireframes/testing/confirmation-email-error-typo.png)
+
+
+3. ERROR: While saving the comment on the "Add Comment" form the Integrity error not hull constraint failed: blog_blogcomment.user_comment_id appear
+
+![integrity-error-comments-blog](wireframes/testing/integrity-error-comments-blog.png)
+
+SOLVING BY: 
+    -changing in models.py BlogComment class comment values `null=True` and `blank=True`
+    -wrong spelled name in the views.py `comment_user` => `user_comment`
+
+![integrity-error-comments-blog-solved](wireframes/testing/integrity-error-comments-blog-solved.jpg)
+![integrity-error-comments-blog-solved](wireframes/testing/integrity-error-comments-blog-solved1.png)
+
 ## Code Validation
 ---
 
