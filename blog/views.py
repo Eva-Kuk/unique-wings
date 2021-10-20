@@ -119,7 +119,7 @@ def blog_comment(request, blogpost_id):
         form = CommentForm(request.POST)
         if form.is_valid():
             comment = form.save(commit=False)
-            comment.comment_user = request.user
+            comment.user_comment = request.user
             comment.blogpost = blogpost
             comment.save()
             messages.success(request, 'Thank you for your comment !')
