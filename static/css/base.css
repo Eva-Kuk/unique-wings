@@ -142,21 +142,43 @@ h4 {
     background: #288FA4 !important;
     color: #F5F9F9 !important;
 }
+.btn-pink {
+    background: #dc3545 !important;
+    color: #F5F9F9 !important;
+}
+
 .badge-color:hover,
-.btn-teal:hover {
+.btn-teal:hover,
+.btn-pink:hover {
     background: #14161F !important;
     color: #F5F9F9 !important;
 }
 .btn-outline-teal {
-    background: white;
-    color: black !important; 
+    background: #FFF;
+    color: #14161F !important; 
     border: 1px solid #288FA4;
 }
 .btn-outline-teal:hover,
 .btn-outline-teal:active,
 .btn-outline-teal:focus {
     background: #288FA4;
-    color: white !important;
+    color: #FFF !important;
+}
+.edit-btn,
+.delete-btn {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+.edit-btn:hover {
+    text-decoration: none;
+    color: #17a2b8;
+}
+.delete-btn:hover {
+    text-decoration: none;
+    color: #dc3545;
+}
+.delete-btn:focus {
+    box-shadow: none;
 }
 
 /* -----------------back to top button----------------- */
@@ -427,7 +449,7 @@ input[name='q']::placeholder {
     border-radius: 0;
 }
 
-/* ----- Blog Page ------- */
+/* ----- Blog ------- */
 
 .image-wrap {
 	height:35vh;
@@ -461,6 +483,21 @@ input[name='q']::placeholder {
 }
 .blog-header {
     font-family: 'Lato', sans-serif;
+}
+.comment-user{
+    justify-content: space-between !important;
+}
+.btf-logo-blog-comment {
+    width: 37px;
+}
+.hr-comment-color {
+    background-color: #288fa4d3;
+}
+.user-comment-font {
+    font-size: 1rem;
+}
+.comments-header {
+    font-size: 2rem;
 }
 /* -----------------Media Queries----------------- */
 

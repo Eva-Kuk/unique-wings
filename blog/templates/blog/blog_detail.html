@@ -49,12 +49,11 @@
     <div class="container">
         <div class="col-sm-12">
             <div class="bg-white rounded shadow p-4 mb-4">
-                <h3 class="mb-0 mb-2 comments-header">Comments</h3>
+                <h3 class="mb-0 mb-2 logo-font comments-header">Comments</h3>
                 <hr>
                 <div class="row">
                     <div class="col-sm-12 d-flex justify-content-end">
-                        <a href="{% url 'blog_comment' blogpost.id %}" type="button" class="btn btn-teal rounded-0">Add
-                            Comment</a>
+                        <a href="{% url 'blog_comment' blogpost.id %}" type="button" class="btn btn-teal rounded-0">Add Comment</a>
                     </div>
                     <div class="col-sm-12 pt-4 pb-4">
                         {% if blogpost.comments.count > 0 %}
@@ -67,53 +66,45 @@
                             <div class="col-12 pl-3">
                                 <div>
                                     <p>{{ comment.comment }}</p>
-                                    {% if request.user.is_authenticated or request.user.is_superuser %}
+                                    {% if request.user == comment.user_comment or request.user.is_superuser %}
                                     <div class="d-flex justify-content-end align-items-baseline">
-                                        <a href="{% url 'delete_comment' comment.id %}"
-                                            class="text-pink delete-btn px-2">Delete</a> |
-                                        <a href="{% url 'edit_comment' comment.id %}"
-                                            class="text-teal px-3 edit-btn">Edit</i></a>
-                                    </div>
+                                    <!-- Delete Button Trigger Modal-->
+                                    <button type="button" class="btn text-pink delete-btn px-2" data-toggle="modal" data-target="#deleteComment-{{ comment.id }}">
+                                        Delete
+                                    </button>      
+                                    <span class="separator"> | </span> 
+                                        <a href="{% url 'edit_comment' comment.id %}" class="text-teal px-3 edit-btn">Edit</i></a>
+                                        </div>
                                     {% endif %}
                                     <div>
                                         <hr class="hr-comment-color my-2">
-                                        <p class="text-right"><img src="/media/butterfly-logo.png"
-                                                class="btf-logo-blog btf-logo-blog-reverse btf-logo-blog-comment align-text-right"
-                                                alt="butterfly-logo"></p>
+                                        <p class="text-right">
+                                            <img src="/media/butterfly-logo.png" class="btf-logo-blog btf-logo-blog-reverse btf-logo-blog-comment align-text-right" alt="butterfly-logo"></p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                            Launch demo modal
-                        </button>
-
-                        <!-- Modal -->
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        <!-- Modal for Delete Blog Comment -->
+                        <div class="modal fade" id="deleteComment-{{ comment.id }}" tabindex="-1" aria-labelledby="deleteCommentModal"
                             aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                        <h5 class="modal-title" id="deleteCommentModal">Confirm Delete</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        ...
+                                        <p>Are you sure you want to delete this comment? </p>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                        <button type="button" class="btn btn-outline-teal" data-dismiss="modal">Cancel</button>
+                                        <a href="{% url 'delete_comment' comment.id %}" class="btn btn-pink px-2">Delete</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-
-
                         {% endfor %}
                         {% else %}
                         <p>No comments yet.</p>
