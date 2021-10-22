@@ -29,7 +29,7 @@ While working on this project I encountered the following problems which I tried
 
 2. ERROR: while making purchase on the site and receivind an order confirmation on the profile site and success message the confirmation email doesn't appear in the terminal. Instead the error `POST /checkout/wh/HTTP/1.1 500 146184` and TemplateDoesntExist received
 ![confirmation-email-error](wireframes/testing/confirmation-email-error.png)
-c
+    SOLVED BY:
    - Checking for typos and correct place for **confirmation_emails** folder and webhook_handler.py
    - Checking the webhooks are correct, updating in the settings variables, and on the stripe site 
    - The error came from a typo in the `confirmation_email_subject.txt`
@@ -40,13 +40,23 @@ c
 
 ![integrity-error-comments-blog](wireframes/testing/integrity-error-comments-blog.png)
 
-SOLVING BY: 
-    -changing in models.py BlogComment class comment values `null=True` and `blank=True`
-    -wrong spelled name in the views.py `comment_user` => `user_comment`
+    SOLVED BY: 
+    - changing in models.py BlogComment class comment values `null=True` and `blank=True`
+    - wrong spelled name in the views.py `comment_user` => `user_comment`
 
 ![integrity-error-comments-blog-solved](wireframes/testing/integrity-error-comments-blog-solved.jpg)
 ![integrity-error-comments-blog-solved](wireframes/testing/integrity-error-comments-blog-solved1.png)
+4. ERROR: While implementing modal a problem with dislayng on the screen
 
+    SOLVED BY:
+    - It was a typo in id 
+![modal-error](wireframes/testing/modal-error.jpg)
+
+5. BUG: `Delete|Edit` buttons for comments don't hide when user is on his account is able to to see other users buttons
+![modal-delete-button-error](wireframes/testing/modal-delete-button-error.jpg)
+    SOLVED BY:
+    - Changing if statement
+![modal-delete-button-error-solved](wireframes/testing/modal-delete-button-error-solved.jpg)
 ## Code Validation
 ---
 
