@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
     </div>
+</div>
 {% endblock %}
 
 {% block content %}
@@ -21,81 +21,118 @@
                 <hr class="w-75 mb-3">
             </div>
         </div>
-    <section>
-        <div class="row">
-            <div class="col-12 mb-4">
-                <p>
-                    The "Unique Wings" was inspired not only by the beautiful and colorful parrots,
-                    peacocks and butterflies, which are the main theme of the collection offered in the store but is worth mentioning that the wings from Greek and Roman mythology
-                    were once an attribute of the gods. Nowadays they are a symbol of lightness, uniqueness and freedom, just like the shoes offer in the store which are not 
-                    only unique and beautiful but also light and comfortable to wear. For many people, wings can also mean making their innermost dreams come true and believing 
-                    that the impossible may become possible. I hope users can find on this page a collection of shoes certainly belonging to the original and unique models which
-                    everyone who is passionate about fashion will be delighted to have them in her wordrobe.
-                </p>
-                <p>As a passionate about fashion here at <span class="logo-font">Unique Wings</span> blog we would like to share with you interesting news from the world of fashion,
-                    the latest designs as well as interesting designers. We hope you will be happy to visit here and share your opinions with us.. 
-                </p>   
-                <p class="small text-center"><img src="/media/butterfly-logo.png" class="btf-logo-blog btf-logo-display" alt="butterfly-logo">
-                    If you would like to contribute to our blog please drop Us a message <a href="" class="blog-contact-link" aria-label="Contact Link">here</a>
-                    with Blog in the subject line <img src="/media/butterfly-logo.png" class="btf-logo-blog btf-logo-blog-reverse btf-logo-display" alt="butterfly-logo">
-                </p>
+        <section>
+            <div class="row">
+                <div class="col-12 mb-4">
+                    <p>
+                        The "Unique Wings" was inspired not only by the beautiful and colorful parrots,
+                        peacocks and butterflies, which are the main theme of the collection offered in the store but is
+                        worth mentioning that the wings from Greek and Roman mythology
+                        were once an attribute of the gods. Nowadays they are a symbol of lightness, uniqueness and
+                        freedom, just like the shoes offer in the store which are not
+                        only unique and beautiful but also light and comfortable to wear. For many people, wings can
+                        also mean making their innermost dreams come true and believing
+                        that the impossible may become possible. I hope users can find on this page a collection of
+                        shoes certainly belonging to the original and unique models which
+                        everyone who is passionate about fashion will be delighted to have them in her wordrobe.
+                    </p>
+                    <p>As a passionate about fashion here at <span class="logo-font">Unique Wings</span> blog we would
+                        like to share with you interesting news from the world of fashion,
+                        the latest designs as well as interesting designers. We hope you will be happy to visit here and
+                        share your opinions with us..
+                    </p>
+                    <p class="small text-center"><img src="/media/butterfly-logo.png"
+                            class="btf-logo-blog btf-logo-display" alt="butterfly-logo">
+                        If you would like to contribute to our blog please drop Us a message <a href=""
+                            class="blog-contact-link" aria-label="Contact Link">here</a>
+                        with Blog in the subject line <img src="/media/butterfly-logo.png"
+                            class="btf-logo-blog btf-logo-blog-reverse btf-logo-display" alt="butterfly-logo">
+                    </p>
+                </div>
             </div>
-        </div>
-        <hr class="w-50">
-    </section>
-    <section>
-        <!-- Blog Container -->
-        <div class="row">
-            {% for blogpost in blogposts %}
-                <div class="col-12 col-md-6 col-lg-3 mb-4">  
-                    <!-- Image -->         
+            <hr class="w-50">
+        </section>
+        <section>
+            <!-- Blog Container -->
+            <div class="row">
+                {% for blogpost in blogposts %}
+                <div class="col-12 col-md-6 col-lg-3 mb-4">
+                    <!-- Image -->
                     <div class="card shadow text-center h-100 ">
-                        
-                            {% if blogpost.image %} 
-                                    <img src="{{ blogpost.image.url }}" alt="{{ blogpost.title }}" class="image-wrap"/>       
-                            {% else %}
-                                    <img src="{{ MEDIA_URL }}noimage.png" alt="{{ blogpost.title }}" class="image-wrap" />
-                            {% endif %}
-                            <div class="card-body p-0">
+
+                        {% if blogpost.image %}
+                        <img src="{{ blogpost.image.url }}" alt="{{ blogpost.title }}" class="image-wrap" />
+                        {% else %}
+                        <img src="{{ MEDIA_URL }}noimage.png" alt="{{ blogpost.title }}" class="image-wrap" />
+                        {% endif %}
+                        <div class="card-body p-0">
                             <!-- Title -->
                             <h4 class="card-title mx-2 my-2">{{ blogpost.title }}</h4>
                             <!-- Preview -->
                             <p class="card-text pt-2">{{ blogpost.info }}</p>
                             <!-- Author -->
-                            <p><small class="px-2 text-muted">Posted by: {{ blogpost.author }} <span class="date"> on: {{ blogpost.date_posted }}</span></small></p>
-                             <!-- Button -->
-                             <div class="card-footer">
-                             <a href="{% url 'blog_detail' blogpost.id %}" class=" btn btn-sm  rounded-0 btn-teal">Read more</a>
-                            <!--Edit/Delete links for superuser-->
-                            {% if request.user.is_superuser %}
-                            <small class="float-right mr-3">
-                                <a class="text-teal" href="{% url 'edit_blogpost' blogpost.id %}">Edit</a> |
-                                <a class="text-pink" href="{% url 'delete_blogpost' blogpost.id %}">Delete</a>
-                            </small>
-                            {% endif %}
+                            <p><small class="px-2 text-muted">Posted by: {{ blogpost.author }} <span class="date"> on:
+                                        {{ blogpost.date_posted }}</span>
+                                    </small></p>
+                            <!-- Button -->
+                            <div class="card-footer">
+                                <a href="{% url 'blog_detail' blogpost.id %}"
+                                    class=" btn btn-sm  rounded-0 btn-teal">Read more</a>
+                                <!--Edit/Delete links for superuser-->
+                                {% if request.user.is_superuser %}
+                                <small class="float-right mr-3">
+                                    <!-- Delete Blog Post Button Trigger Modal-->
+                                    <button type="button" class="btn text-pink delete-btn px-1" data-toggle="modal" data-target="#deleteBlogPost-{{ blogpost.id }}">
+                                        Delete
+                                    </button>
+                                    <span class="separator"> | </span>
+                                    <a class="text-teal edit-btn px-1" href="{% url 'edit_blogpost' blogpost.id %}">Edit</a>
+                                </small>
+
+                                <!-- Modal for Delete Blog Post -->
+                                <div class="modal fade" id="deleteBlogPost-{{ blogpost.id }}" tabindex="-1"
+                                    aria-labelledby="deleteBlogPostModal" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="deleteBlogPostModal">Confirm Delete</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p>Are you sure you want to delete post: <span class="font-weight-bold"> {{ blogpost.title }}</span>? </p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-outline-teal" data-dismiss="modal">Cancel</button>
+                                                <a href="{% url 'delete_blogpost' blogpost.id %}" class="btn btn-pink px-2">Delete</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endif %}
                             </div>
-                       </div>
-                    </div>            
-                </div>       
-            {%  endfor %}
-        </div>
+                        </div>
+                    </div>
+                </div>
+                {%  endfor %}
+            </div>
     </div>
-</section>
-<!-- Back To Top Button-->
-<div class="btt-btn btt-btn-color shadow-sm">
-    <a class="btt-link d-flex h-100">
-        <i class="fas fa-arrow-alt-circle-up text-white arrow-size mx-auto my-auto"></i>
-    </a>
-</div>
+    </section>
+    <!-- Back To Top Button-->
+    <div class="btt-btn btt-btn-color shadow-sm">
+        <a class="btt-link d-flex h-100">
+            <i class="fas fa-arrow-alt-circle-up text-white arrow-size mx-auto my-auto"></i>
+        </a>
+    </div>
 </main>
 {% endblock %}
 {% block postloadjs %}
-    {{ block.super }}
-    <!--Back to top button functionality with JS-->
-    <script type="text/javascript">
-        $('.btt-link').click(function(e) {
-            window.scrollTo(0,0)
-        })
-    </script>
+{{ block.super }}
+<!--Back to top button functionality with JS-->
+<script type="text/javascript">
+    $('.btt-link').click(function (e) {
+        window.scrollTo(0, 0)
+    })
+</script>
 {% endblock %}
-

@@ -166,7 +166,7 @@ h4 {
 }
 .edit-btn,
 .delete-btn {
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 600;
 }
 .edit-btn:hover {
@@ -498,6 +498,10 @@ input[name='q']::placeholder {
 }
 .comments-header {
     font-size: 2rem;
+}
+.separator {
+    font-size: 1.4rem;
+    font-style: 600;
 }
 /* -----------------Media Queries----------------- */
 

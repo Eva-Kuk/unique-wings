@@ -102,9 +102,10 @@ def delete_blogpost(request, blogpost_id):
 
     blogpost = get_object_or_404(BlogPost, pk=blogpost_id)
 
-    if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only store owners can do that.')
-        return redirect(reverse('home'))
+    if request.user.is_superuser:
+        blogpost.delete()
+        messages.success(request, f'{blogpost.title} is deleted!')
+        return redirect(reverse('blog'))
     else:
         messages.error(request, 'You cannot do that!')
         return redirect(reverse('blog'))
@@ -125,9 +126,10 @@ def blog_comment(request, blogpost_id):
             messages.success(request, 'Thank you for your comment!')
             return redirect(reverse('blog_detail', args=[blogpost.id]))
         else:
-            messages.error(request,
-                           'Oops something went wrong. \
-                            Please try again.')
+            messages.error(
+                request,
+                'Oops something went wrong. \
+                Please try again.')
     else:
         form = CommentForm(instance=blogpost)
     template = 'blog/add_blogcomment.html'
@@ -139,6 +141,7 @@ def blog_comment(request, blogpost_id):
     return render(request, template, context)
 
 
+@login_required
 def edit_comment(request, comment_id):
     """ A view to Edit BlogComment for registered user only """
 
@@ -171,6 +174,7 @@ def edit_comment(request, comment_id):
         return redirect(reverse('blog'))
 
 
+@login_required
 def delete_comment(request, comment_id):
     """ A view to Delete BlogComment for registered user only """
 
