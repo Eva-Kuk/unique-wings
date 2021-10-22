@@ -32,11 +32,9 @@
             {% if request.user.is_superuser %}
             <small class="float-right mr-3">
                 <!-- Delete Blog Post Button Trigger Modal-->
-                <button type="button" class="btn text-pink delete-btn px-1" data-toggle="modal" data-target="#deleteBlogPost-{{ blogpost.id }}">
-                    Delete
-                </button>      
+                <button type="button" class="btn text-pink delete-btn pb-1 p-0" data-toggle="modal" data-target="#deleteBlogPost-{{ blogpost.id }}">Delete</button>      
                 <span class="separator"> | </span> 
-                <a class="text-teal edit-btn px-1" href="{% url 'edit_blogpost' blogpost.id %}">Edit</a>
+                <a class="text-teal edit-btn px-0" href="{% url 'edit_blogpost' blogpost.id %}">Edit</a>
             </small>
 
             <!-- Modal for Delete Blog Post -->
@@ -50,7 +48,7 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <p>Are you sure you want to delete this post? </p>
+                            <p>Are you sure you want to delete <strong class="text-pink"> {{ blogpost.title }}</strong> post? </p>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-outline-teal" data-dismiss="modal">Cancel</button>
@@ -95,11 +93,9 @@
                                     {% if request.user == comment.user_comment or request.user.is_superuser %}
                                     <div class="d-flex justify-content-end align-items-baseline">
                                     <!-- Delete Blog Comment Button Trigger Modal-->
-                                    <button type="button" class="btn text-pink delete-btn px-1" data-toggle="modal" data-target="#deleteComment-{{ comment.id }}">
-                                        Delete
-                                    </button>      
+                                    <button type="button" class="btn text-pink delete-btn mx-1 pb-1 p-0" data-toggle="modal" data-target="#deleteComment-{{ comment.id }}">Delete</button>      
                                     <span class="separator"> | </span> 
-                                        <a href="{% url 'edit_comment' comment.id %}" class="text-teal px-1 edit-btn">Edit</i></a>
+                                        <a href="{% url 'edit_comment' comment.id %}" class="text-teal px-0 mx-1 edit-btn">Edit</i></a>
                                         </div>
                                     {% endif %}
                                     <div>
@@ -122,7 +118,7 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <p>Are you sure you want to delete this comment? </p>
+                                        <p>Are you sure you want to  <strong class="text-pink">delete</strong> this comment? </p>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-outline-teal" data-dismiss="modal">Cancel</button>
