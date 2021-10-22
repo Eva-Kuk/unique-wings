@@ -47,9 +47,33 @@
                 <!-- Editing/Deleting links -->
                 {% if request.user.is_superuser %}
                 <small class="ml-3">
-                    <a class="text-teal" href="{% url 'edit_product' product.id %}">Edit</a> | 
-                    <a class="text-pink" href="{% url 'delete_product' product.id %}">Delete</a>
+                    <!-- Delete Product Button Trigger Modal-->
+                    <button type="button" class="btn text-pink delete-btn pb-1 p-0" data-toggle="modal" data-target="#deleteProduct-{{ product.id }}"> Delete</button>
+                    <span class="separator"> | </span>
+                    <a class="text-teal edit-btn px-0" href="{% url 'edit_product' product.id %}">Edit</a>
                 </small>
+
+                <!-- Modal for Delete Product Button -->
+                <div class="modal fade" id="deleteProduct-{{ product.id }}" tabindex="-1"
+                    aria-labelledby="deleteProduct" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="deleteProduct">Confirm Delete</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Are you sure you want to delete <strong class="text-pink"> {{ product.name }}</strong> product? </p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-outline-teal" data-dismiss="modal">Cancel</button>
+                                <a href="{% url 'delete_product' product.id %}" class="btn btn-pink px-2">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 {% endif %}
                 <p class="mt-3">{{ product.description }}</p>
                 <!-- Quantity Selecting, Adding Specific Product id To The Bag Form, Product Size -->
@@ -82,8 +106,7 @@
                                 <div class="input-group">
                                     <!-- Decrement Quantity Button -->
                                     <div class="input-group-prepend">
-                                        <button class="decrement-qty btn btn-teal rounded-0"
-                                            data-item_id="{{ product.id }}" id="decrement-qty_{{ product.id }}">
+                                        <button class="decrement-qty btn btn-teal rounded-0" data-item_id="{{ product.id }}" id="decrement-qty_{{ product.id }}">
                                             <span class="icon">
                                                 <i class="fas fa-minus"></i>
                                             </span>
@@ -93,8 +116,7 @@
                                         min="1" max="99" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
                                     <!-- Increment Quantity Button -->
                                     <div class="input-group-append">
-                                        <button class="increment-qty btn btn-teal rounded-0"
-                                            data-item_id="{{ product.id }}" id="increment-qty_{{ product.id }}">
+                                        <button class="increment-qty btn btn-teal rounded-0" data-item_id="{{ product.id }}" id="increment-qty_{{ product.id }}">
                                             <span class="icon">
                                                 <i class="fas fa-plus"></i>
                                             </span>

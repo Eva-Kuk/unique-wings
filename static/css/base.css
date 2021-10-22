@@ -166,8 +166,8 @@ h4 {
 }
 .edit-btn,
 .delete-btn {
-    font-size: 1rem;
-    font-weight: 600;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
 }
 .edit-btn:hover {
     text-decoration: none;
@@ -502,6 +502,16 @@ input[name='q']::placeholder {
 .separator {
     font-size: 1.4rem;
     font-style: 600;
+}
+.card-fotter-alignment {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.card-body-aligment {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 /* -----------------Media Queries----------------- */
 
