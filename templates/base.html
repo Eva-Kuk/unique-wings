@@ -82,7 +82,7 @@
         <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
           <ul class="list-inline list-unstyled text-center text-lg-right my-0">
             <li class="list-inline-item">
-              <a class="nav-link" href="#" id="contact">
+              <a class="nav-link" href="{% url 'contact' %}" id="contact">
                 <div class="text-center">
                   <div><i class="fas fa-envelope fa-lg"></i></div>
                   <p class="my-0">Contact</p>
@@ -173,10 +173,10 @@
             <div class="col-12 col-md-4 mx-auto">
               <h4><span class="text-uppercase footer-headers"><strong>Usefull Links</strong></span></h4>
               <p>
-                <a href="" class="footer-item footer-link text-white">Blog</a>
+                <a href="{% url 'blog' %}" class="footer-item footer-link text-white">Blog</a>
               </p>
               <p>
-                <a href="" class="footer-item footer-link text-white">Contact Us</a>
+                <a href="{% url 'contact' %}" class="footer-item footer-link text-white">Contact Us</a>
               </p>
             </div>
             <!-- Centre: newsletter -->
