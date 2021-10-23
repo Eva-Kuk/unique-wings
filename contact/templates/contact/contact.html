@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+{% load bag_tools %}
+
+
+{% block page_header %}
+<!-- Header -->
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<main>
+    <div class="overlay"></div>
+    <div class="container pt-4">
+
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col">
+                    <hr w-75 mb-3>
+                    <h2 class="header-font logo-font mb-4">Contact Us</h2>
+                    <hr w-75 mb-3>
+                </div>
+            </div>
+            <!-- Contact Form -->
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-6 shadow rounded-0">
+                    <form method="POST" action="{% url 'contact' %}" class="form mb-2" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <div class="text-right mt-2">
+                            <a href="{% url 'contact' %}" class="btn btn-outline-teal rounded-0 my-2">Cancel</a>
+                            <button type="Submit" class="btn btn-teal rounded-0 my-2">Send</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

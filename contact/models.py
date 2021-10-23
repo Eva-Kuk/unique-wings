@@ -14,17 +14,25 @@ SUBJECT_MENU = (
 class Contact(models.Model):
     """ Contact Model stores users queries in the backend for the admin """
     full_name = models.CharField(
-        max_length=50, null=False,
+        max_length=50,
+        null=False,
         blank=False)
     email = models.EmailField(
-        max_length=254, null=False,
+        max_length=254,
+        null=False,
         blank=False)
     subject = models.CharField(
-        max_length=100, choices=SUBJECT_MENU,
+        max_length=100,
+        choices=SUBJECT_MENU,
         default='general_query',
-        null=False, blank=False)
+        null=False,
+        blank=False)
+    message = models.TextField(
+        max_length=1000,
+        null=True,
+        blank=True)
     date_posted = models.DateTimeField(
         auto_now_add=True)
 
     def __str__(self):
-        return self.subject
+        return self.full_name
