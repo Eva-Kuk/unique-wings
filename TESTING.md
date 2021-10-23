@@ -57,6 +57,16 @@ While working on this project I encountered the following problems which I tried
     SOLVED BY:
     - Changing if statement
 ![modal-delete-button-error-solved](wireframes/testing/modal-delete-button-error-solved.jpg)
+6. ISSUE: While adding missing message field into the models.py in contact form a makemigration non-nullable firld 'message' issue appeared
+![makemigrations-contact-message-issue](wireframes/testing/makemigrations-contact-message-issue.png)
+
+
+![contact-models-message-error](wireframes/testing/contact-models-message-error.jpg)
+
+SOLVED BY: 
+- value: null=False changed to null=True
+- value: blank-False changed to null=True
+7. 
 ## Code Validation
 ---
 
