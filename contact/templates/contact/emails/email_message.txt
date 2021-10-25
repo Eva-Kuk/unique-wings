@@ -1,0 +1,11 @@
+Hi {{ instance.full_name }},  
+
+Thank you very much for your message!
+
+We have received your message and will be in touch shortly...
+
+Have a great day!
+
+
+Kind Regards, 
+Unique Wings

@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.contrib import messages
 from django.core.mail import send_mail
+from django.template.loader import render_to_string
 from django.conf import settings
 from .forms import ContactForm
 
@@ -18,8 +19,14 @@ def contact(request):
             instance = contact_form.save()
 
             to_email = instance.email
-            subject = 'Thank you for contacting Unique Wings'
-            message = 'Hi there thank you for contacting with us!....'
+            subject = render_to_string(
+                'contact/emails/email_subject.txt',
+                {'instance': instance})
+            message = render_to_string(
+                'contact/emails/email_message.txt',
+                {'instance': instance,
+                 'contact_email': settings.DEFAULT_FROM_EMAIL})
+            # send an email
             send_mail(
                 subject,
                 message,

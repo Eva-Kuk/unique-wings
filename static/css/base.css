@@ -115,14 +115,15 @@ h4 {
     color: #F5F9F9;
 }
 .btn-search {
-    background: #F5F9F9;
-    color: #14161F !important;
+    background:#288FA4;
+    color: #F5F9F9 !important;
+    
 }
 .btn-search:hover,
 .btn-search:active,
 .btn-search:focus {
-    background:#288FA4;
-    color: #F5F9F9 !important;
+    background: #F5F9F9;
+    color: #14161F !important;
 }
 .btn-white {
     background: #F5F9F9;
@@ -512,6 +513,11 @@ input[name='q']::placeholder {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+}
+
+
+.input-form-style {
+    border: 1px solid ;
 }
 /* -----------------Media Queries----------------- */
 
