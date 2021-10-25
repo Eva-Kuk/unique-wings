@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Contact
+from .models import Contact, Newsletter
 # Register your models here.
 
 
@@ -23,3 +23,13 @@ class ContactAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Contact, ContactAdmin)
+
+
+class NewsletterAdmin(admin.ModelAdmin):
+    list_display = (
+        'email',
+        'date_sent',
+        )
+
+
+admin.site.register(Newsletter, NewsletterAdmin)
