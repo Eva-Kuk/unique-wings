@@ -30,7 +30,7 @@ class Contact(models.Model):
     message = models.TextField(
         max_length=1000,
         null=True,
-        blank=True)
+        blank=False)
     date_posted = models.DateTimeField(
         auto_now_add=True)
 
