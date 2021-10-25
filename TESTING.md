@@ -66,7 +66,18 @@ While working on this project I encountered the following problems which I tried
 SOLVED BY: 
 - value: null=False changed to null=True
 - value: blank-False changed to null=True
-7. 
+7. ISSUE: While testing the contact form message field didn't work as expected (no validation) and also the makemigration message appeared
+![make-migration-message](wireframes/testing/make-migration-message.png)
+SOLVED BY: 
+- in models message atribute value blank=True changed to null=False and null=True stayed the same
+- before migrations database with sent emails was deleted
+![message-field-issue-solved](wireframes/testing/message-field-issue-solved.jpg)
+8. BUG: Input placeholders are not displayed on the Contact page as expected, default labels are enabled.
+![message-field-issue-solved](wireframes/testing/forms-placeholders-intendation-bug.png)
+SOLVED BY:
+- wrong intendation 
+![forms-placeholders-intendation-bug](wireframes/testing/forms-placeholders-intendation-bug1.jpg)
+
 ## Code Validation
 ---
 
