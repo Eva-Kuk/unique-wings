@@ -9,4 +9,8 @@ urlpatterns = [
         'newsletter_signup/',
         views.newsletter_signup,
         name='newsletter_signup'),
+    path(
+        'newsletter_unsubscribe/',
+        views.newsletter_unsubscribe,
+        name='newsletter_unsubscribe'),
 ]

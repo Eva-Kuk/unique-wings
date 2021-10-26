@@ -63,7 +63,33 @@ def newsletter_signup(request):
                             signed up for our newsletter.')
         else:
             instance.save()
-            messages.success(request, "Thank you!\
-                             You are now signed up to our newsletter.")
+            messages.success(request, 'Thank you!\
+                             You are now signed up to our newsletter.')
 
     return redirect(redirect_url)
+
+
+def newsletter_unsubscribe(request):
+
+    newsletter_form = NewsletterForm(request.POST or None)
+
+    if newsletter_form.is_valid():
+        instance = newsletter_form.save(commit=False)
+        if (Newsletter.objects.filter(
+                email=instance.email).exists()):
+            Newsletter.objects.filter(
+                email=instance.email).delete()
+            messages.success(request, f'{instance.email}\
+                have been removed from subscription.')
+        else:
+            messages.error(request, 'Sorry! That email address\
+                            does not exist in our database.')
+
+    newsletter_form = NewsletterForm()
+
+    template = 'contact/newsletter_unsubscribe.html'
+    context = {
+        'newsletter_form': newsletter_form,
+    }
+
+    return render(request, template, context)
