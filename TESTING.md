@@ -77,7 +77,16 @@ SOLVED BY:
 SOLVED BY:
 - wrong intendation 
 ![forms-placeholders-intendation-bug](wireframes/testing/forms-placeholders-intendation-bug1.jpg)
-
+9. I encountered a few difficulties when creating a subscription app for the newsletter
+    a) BUG : The newsletter-subscription form don't display on the site 
+    SOLVED BY: Forgot to add the context to the context processors in settings.py `'contexts.subscription_form',` 
+    ![contexts-subscription-form](wireframes/testing/contexts-subscription-form.jpg)
+    b) ERROR: No Reverse Match at contact/newsletter signup 
+     ![no-reverse-match-newsletter-error](wireframes/testing/no-reverse-match-newsletter-error.png)
+    SOLVED BY: It was wrong return 'newsletter_form' whis is a value not a URL changed to redirect_url add in footer.html in the form a hidden input field and change view to get the redirect_url from the form and then redirect it to the redirect_url
+    ![hidden-input-field](wireframes/testing/hidden-input-field.jpg)
+    ![redirect-url](wireframes/testing/redirect-url.jpg)
+    
 ## Code Validation
 ---
 
