@@ -1,9 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.conf import settings
-from .forms import ContactForm
+from .models import Newsletter
+from .forms import ContactForm, NewsletterForm
 
 
 def contact(request):
@@ -36,7 +37,7 @@ def contact(request):
         else:
             messages.error(
                 request,
-                'Oops, looks like there is an error.\
+                'Looks like there is an error.\
                     Please ensure the form is valid.')
 
     contact_form = ContactForm()
@@ -47,3 +48,21 @@ def contact(request):
     }
 
     return render(request, template, context)
+
+
+def newsletter_signup(request):
+
+    newsletter_form = NewsletterForm(request.POST or None)
+
+    if newsletter_form.is_valid():
+        instance = newsletter_form.save(commit=False)
+        if (Newsletter.objects.filter(
+                email=instance.email).exists()):
+            messages.info(request, 'You are already\
+                            signed up for our newsletter.')
+        else:
+            instance.save()
+            messages.success(request, "Thank you!\
+                             You are now signed up to our newsletter.")
+
+    return redirect(newsletter_form)
