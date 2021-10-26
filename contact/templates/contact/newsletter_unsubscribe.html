@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block page_header %}
+    <!-- Header -->
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+<main>
+    <div class="container-fluid mb-5">
+        <div class="row">
+            <div class="col text-center mt-4">
+                <hr w-75 mb-3>
+                <h1 class="header-font logo-font mb-4">Unsubscribe from our Newsletter</h1>
+                <hr w-75 mb-3>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-10 text-center">
+                <h3 class="mb-3">Dear Customer,</h3>
+                <p>We're sorry that you're leaving. 
+                    Please let us know <a href="{% url 'contact' %}" class="blog-contact-link font-weight-bold">here</a> 
+                    if there is any reason for unsubscribing.
+                    Feetback is greatly appreciated</p>
+                <p>If you'd like to unsubscribe from our newsletter please enter your email address below and press unsubscribe.</p>
+                <p>If you change your mind, don't worry, you can change your preferences at any time.</p> 
+            </div>
+        </div>
+        
+        <!-- Newsletter Unsubscribe Form -->
+        <div class="row justify-content-center mb-3">
+            <div class="col-12 col-md-4">
+                <form method="POST" action="{% url 'newsletter_unsubscribe' %}" id="subscription_form">
+                    <div class="form-group newsletter mx-auto">
+                        {% csrf_token %}
+                        {{ newsletter_form|crispy }}          
+                    </div>
+                    <div class="text-center mt-3">
+                        <button type="submit" class="btn btn-outline-teal rounded-0 text-center">Unsubscribe</button> 
+                        <a href="{% url 'products' %}"  class="btn btn-teal rounded-0 mr-2">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
