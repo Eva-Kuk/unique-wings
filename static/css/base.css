@@ -59,10 +59,12 @@ h4 {
 .nav-link {
     font-family: 'Lato', sans-serif;
     color: #F5F9F9 !important;
+    padding: .5rem .5rem !important;
 }
 .nav-link:hover {
     color:#14161F !important;
 }
+
 .text-white {
     color: #F5F9F9 !important;
 }
@@ -147,7 +149,6 @@ h4 {
     background: #dc3545 !important;
     color: #F5F9F9 !important;
 }
-
 .badge-color:hover,
 .btn-teal:hover,
 .btn-pink:hover {
@@ -196,8 +197,7 @@ h4 {
 .remove-item {
     cursor: pointer;
 }
-.btt-link:hover,
-.footer-link:hover {
+.btt-link:hover {
     text-decoration: none;
 }
 .btt-btn-color {
@@ -211,10 +211,10 @@ h4 {
 .arrow-size {
     font-size: 2rem;
 }
-
 input[name='q']::placeholder {
     color: #aab7c4;
 }
+
 /* -----------------from Bulma----------------- */
 .icon {
     align-items: center;
@@ -223,14 +223,12 @@ input[name='q']::placeholder {
     height: 1.5rem;
     width: 1.5rem;
 }
-
 .border-blue {
     border: 1px solid #F5F9F9 !important;
 }
 .border-black {
     border: 1px solid #14161F !important;
 }
-
 /*
 .text-black {
     color: #14161F !important;
@@ -243,7 +241,7 @@ input[name='q']::placeholder {
     color: #14161F;
     background-color: #288FA4;
 }
-/* -----------------Footer----------------- 
+/* -----------------Footer/Newsletter----------------- 
 #footer {
     position: absolute;
     bottom: 0;
@@ -261,40 +259,65 @@ input[name='q']::placeholder {
 .copyright {
     font-size: 0.9rem;
 }
-.footer-link {
-    font-weight: 500;
-}
 .footer-link:hover {
     color:#14161F !important;
-}
-.social-link {
-    padding: 6px 9px;
-    height: 30px;
-    width: 30px;
-    text-align: center;    
-    border-radius: 50%;
-    background: #F5F9F9;
-    color: #288FA4 !important;
+    text-decoration: none;
 }
 
-.social-link:hover {
-    background:#14161F ;
-    color: #F5F9F9 !important;
+.footer .social-icons a {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    margin-left: 6px;
+    margin-right: 0;
+    border-radius: 100%;
+    background-color: #F5F9F9;
+}
+
+.footer .social-icons {
+    text-align: center;
+}
+
+.social-icons li {
+    display: inline-block;
+    margin-bottom: 4px;
+}
+
+.social-icons a {
+    background-color: #F5F9F9;
+    color: #288FA4;
+    font-size: 16px;
+    display: inline-block;
+    line-height: 44px;
+    width: 44px;
+    height: 44px;
+    text-align: center;
+    margin-right: 8px;
+    border-radius: 100%;
+    transition: all .2s linear;
+}
+
+.social-icons a:active,
+.social-icons a:focus,
+.social-icons a:hover {
+    color: #F5F9F9;
+    background-color: #14161F;
+}
+
+.newsletter-style {
+    letter-spacing: 1px;
 }
 
 /* -----------------Toasts----------------- */
-
 .message-container {
     position: fixed;
     top: 130px;
     right: 15px;
     z-index: 99999999999;
 }
-
 .custom-toast {
     overflow: visible;
 }
-
 .toast-capper {
     height: 4px;
 }
@@ -315,67 +338,53 @@ input[name='q']::placeholder {
     top: -10px;
     right: 36px;
 }
+
 /* Convenience classes - colors copied from Bootstrap */
 .arrow-primary {
     border-bottom-color: #007bff !important;
 }
-
 .arrow-secondary {
     border-bottom-color: #6c757d !important;
 }
-
 .arrow-success {
     border-bottom-color: #28a745 !important;
 }
-
 .arrow-danger {
     border-bottom-color: #dc3545 !important;
 }
-
 .arrow-warning {
     border-bottom-color: #ffc107 !important;
 }
-
 .arrow-info {
     border-bottom-color: #17a2b8 !important;
 }
-
 .arrow-light {
     border-bottom-color: #f8f9fa !important;
 }
-
 .arrow-dark {
     border-bottom-color: #343a40 !important;
 }
-
 .bag-notification-wrapper {
     height: 100px;
     overflow-x: hidden;
     overflow-y: auto;
 }
 
-
-
 /* Allauth form formatting */
-
 .allauth-form-inner-content p {
     margin-top: 1.5rem; /* mt-4 */
     color: #6c757d; /* text-secondary */
 }
-
 .allauth-form-inner-content input {
     border-color: #000;
     border-radius: 0;
 }
-
 .allauth-form-inner-content label:not([for='id_remember']) {
     display: none;
 }
-
 .allauth-form-inner-content input::placeholder {
     color: #aab7c4;
 }
-
 .allauth-form-inner-content button,
 .allauth-form-inner-content input[type='submit'] {
 	/* btn */
@@ -398,17 +407,16 @@ input[name='q']::placeholder {
     /* standard bootstrap btn transitions */
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
-
 .allauth-form-inner-content button:hover,
 .allauth-form-inner-content input[type='submit']:hover {	
 	color: #fff;
     background-color: #222;
     border-color: #222;
 }
-
 .allauth-form-inner-content a {
 	color: #17a2b8; /* text-info */
 }
+
 /* ---------------products.html----------------- */
 .overlay {
 	height: 100%;
@@ -422,13 +430,12 @@ input[name='q']::placeholder {
 .card-footer {
     background-color:#FFF ;
 }
-/* ---------------Product/Blog Form----------------- */
 
+/* ---------------Product/Blog Form----------------- */
 .btn-file {
     position: relative;
     overflow: hidden;
 }
-
 .btn-file input[type="file"] {
     position: absolute;
     top: 0;
@@ -438,12 +445,10 @@ input[name='q']::placeholder {
     opacity: 0;
     cursor: pointer;
 }
-
 .custom-checkbox .custom-control-label::before {
     border-radius: 0;
     border-color: #F05193;
 }
-
 .custom-checkbox .custom-control-input:checked~.custom-control-label::before {
     background-color: #F05193;
     border-color: #F05193;
@@ -451,7 +456,6 @@ input[name='q']::placeholder {
 }
 
 /* ----- Blog ------- */
-
 .image-wrap {
 	height:35vh;
 	min-height: 25vh;
@@ -469,6 +473,7 @@ input[name='q']::placeholder {
 }
 .blog-contact-link:hover {
     color: #17a2b8;
+    text-decoration: none !important;
 }
 .card-footer {
     border-top: none;
@@ -514,12 +519,11 @@ input[name='q']::placeholder {
     flex-direction: column;
     justify-content: space-around;
 }
-
-
 .input-form-style {
     border: 1px solid ;
 }
-/* -----------------Media Queries----------------- */
+
+/* ----------------- Media Queries ----------------- */
 
 /* Enlarged container on xl screens */
 @media (min-width: 1200px) {
@@ -549,5 +553,14 @@ input[name='q']::placeholder {
 
     body {
         height: calc(100vh - 116px);
+    }
+    h4 {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 321px) {
+    .mobile-small-font {
+        font-size: 0.7rem;
     }
 }
