@@ -11,14 +11,11 @@ body {
     height: calc(100vh - 164px);
     color: #14161F;
     font-family:'Roboto', sans-serif;
-    /*position: relative;*/
 }
 #content {
     min-height: calc(100vh - 164px);
-}/*
-#header {
-    margin-top: 50px;
-}*/
+}
+
 /* -----------------heading----------------- */
 h4 {
     font-weight: 400;
@@ -30,10 +27,7 @@ h4 {
     font-weight: 600;
     letter-spacing: 4px;
 }
-/*
-.bg-color-white {
-    background: #F5F9F9;
-}*/
+
 /* -----------------navbar and main page----------------- */
 .bg-color-teal {
     background-color:#288FA4;
@@ -99,11 +93,7 @@ h4 {
     text-transform: capitalize;
     font-weight: 500;
     font-size: 1.2rem;
-}/*
-.header-container {
-    background-color:#288FA4;
 }
-*/
 /*-----------------buttons and badges-----------------*/
 .btn-shop-now {
     background: #288FA4;
@@ -229,10 +219,7 @@ input[name='q']::placeholder {
 .border-black {
     border: 1px solid #14161F !important;
 }
-/*
-.text-black {
-    color: #14161F !important;
-}*/
+
 .navbar-light .navbar-toggler {
     color: #F5F9F9;
     border-color: #F5F9F9;
@@ -241,13 +228,8 @@ input[name='q']::placeholder {
     color: #14161F;
     background-color: #288FA4;
 }
-/* -----------------Footer/Newsletter----------------- 
-#footer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-}*/
+/* -----------------Footer/Newsletter----------------- */
+
 .white-divider {
     background: #F5F9F9;
     height: 1px;
@@ -558,7 +540,7 @@ input[name='q']::placeholder {
         font-size: 1rem;
     }
 }
-
+/* Fixed top navbar on small devices only */
 @media (max-width: 321px) {
     .mobile-small-font {
         font-size: 0.7rem;
