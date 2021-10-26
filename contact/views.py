@@ -53,6 +53,7 @@ def contact(request):
 def newsletter_signup(request):
 
     newsletter_form = NewsletterForm(request.POST or None)
+    redirect_url = request.POST.get("redirect_url")
 
     if newsletter_form.is_valid():
         instance = newsletter_form.save(commit=False)
@@ -65,4 +66,4 @@ def newsletter_signup(request):
             messages.success(request, "Thank you!\
                              You are now signed up to our newsletter.")
 
-    return redirect(newsletter_form)
+    return redirect(redirect_url)
