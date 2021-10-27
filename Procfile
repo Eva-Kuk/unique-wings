@@ -1,1 +1,1 @@
-web: gunicorn unique-wings.wsgi:application
+web: gunicorn unique_wings.wsgi:application
