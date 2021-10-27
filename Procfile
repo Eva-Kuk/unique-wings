@@ -1,0 +1,1 @@
+web: gunicorn unique-wings.wsgi:application
