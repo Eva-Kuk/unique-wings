@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block page_header %}
 <div class="container header-container">
@@ -42,11 +43,11 @@
                         share your opinions with us..
                     </p>
                     <p class="small text-center">
-                        <img src="/media/butterfly-logo.png" class="btf-logo-blog btf-logo-display" alt="butterfly-logo">
+                        <img src="/static/images/butterfly-logo.png" class="btf-logo-blog btf-logo-display" alt="butterfly-logo">
                         If you would like to contribute to our blog please drop Us a message 
                         <a href="{% url 'contact' %}" class="blog-contact-link font-weight-bold" aria-label="Contact Link">here</a>
-                        with Blog in the subject line <img src="/media/butterfly-logo.png"
-                            class="btf-logo-blog btf-logo-blog-reverse btf-logo-display" alt="butterfly-logo">
+                        with Blog in the subject line 
+                        <img src="/static/images/butterfly-logo.png" class="btf-logo-blog btf-logo-blog-reverse btf-logo-display" alt="butterfly-logo">
                     </p>
                 </div>
             </div>
