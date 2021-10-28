@@ -12,9 +12,9 @@
 {% block content %}
 <div class="container-fluid mt-5 mb-5">
     <div class="row">
-       <div class="col-sm my-auto"><img src="/static/images/kat-maconie.jpg" class="img-left" alt="kat-maconie-parrot-shoe"></div>
+       <div class="col-sm my-auto"><img src="{% static 'images/kat-maconie.jpg' %}" class="img-left" alt="kat-maconie-parrot-shoe"></div>
         <div class="col-sm text-center my-auto">
-                <h1 class="welcome-logo-link logo-font pt-3 pb-3"><img src="/static/images/butterfly-logo.png" class="btf-logo" alt="kat-maconie-parrot-shoe">Unique Wings</h1>
+                <h1 class="welcome-logo-link logo-font pt-3 pb-3"><img src="{% static 'images/butterfly-logo.png' %}" class="btf-logo" alt="kat-maconie-parrot-shoe">Unique Wings</h1>
             <p class="welcome-text-style">...Hard to be missed...</p>
             <p class="welcome-text-style">...Made to be worn...</p>
             <div class="my-5">
@@ -23,7 +23,7 @@
                 </h4>
             </div>
         </div>
-        <div class="col-sm my-auto"><img src="/static/images/sophia-webster.jpg" class="img-right" alt="sophia-webster-butterfly-shoe"></div>
+        <div class="col-sm my-auto"><img src="{% static 'images/sophia-webster.jpg' %}" class="img-right" alt="sophia-webster-butterfly-shoe"></div>
     </div>
 </div>
 {% endblock %}
