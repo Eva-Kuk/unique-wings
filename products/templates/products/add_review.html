@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<!--overlay-->
+<div class="overlay"></div>
+<div class="container mt-4 mb-5">
+    <!-- Header -->
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-6 post-header mx-auto">
+            <hr>
+            <h2 class="logo-font mb-4 text-center">Reviews</h2>
+            <hr>
+        </div>
+    </div>
+    <!--renders the review form for the user to add a review-->
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-6 shadow rounded-0 pt-4 pb-4 mx-auto">
+            <form method="POST" action="{% url 'add_review' product.id %}" class="form mb-2"
+                enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form | crispy }}
+                <div class="text-right">
+                    <a href="{% url 'product_detail' product.id %}" class="btn btn-outline-teal">Cancel</a>
+                    <button class="btn btn-teal rounded-0" type="submit">Add Review</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

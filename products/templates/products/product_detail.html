@@ -128,13 +128,13 @@
                         </div>
 
                         <div class="col{% if s %}-12 mt-2{% endif %}">
-                            <a href="{% url 'products' %}" class="btn btn-outline-teal rounded-0 mt-5">
+                            <a href="{% url 'products' %}" class="btn btn-outline-teal rounded-0">
                                 <span class="icon">
                                     <i class="fas fa-chevron-left"></i>
                                 </span>
                                 <span class="text-uppercase">Keep Shopping</span>
                             </a>
-                            <input type="submit" class="btn btn-teal rounded-0 text-uppercase mt-5" value="Add to Bag">
+                            <input type="submit" class="btn btn-teal rounded-0 text-uppercase" value="Add to Bag">
                         </div>
                         <input type="hidden" name="redirect_url" value="{{ request.path }}">
                         {% endwith %}
@@ -144,6 +144,54 @@
         </div>
     </div>
 </div>
+<!-- Review section --> 
+
+<div class="container">
+    <div class="col-sm-12">
+        <div class="bg-white rounded shadow p-4 mb-4">
+            <h3 class="mb-0 mb-2 logo-font comments-header text-center">Reviews</h3>
+            <hr>
+            <div class="row">
+                <div class="col-sm-12 d-flex justify-content-end">
+                    <a href="{% url 'add_review' product.id %}" class="btn btn-teal rounded-0 mb-3">Add a Review</a>
+                </div>
+                <div class="col-sm-12 pt-4 pb-4">
+                    {% if reviews %}
+                    {% for review in reviews %}
+                    <div class="row mt-3">
+                        <div class="col-12 d-flex flex-column">
+                            <p class="rating text-right font-weight-bold ">rating: {{ review.rate }} / 5 <i class="far fa-star font-weight-bold"></i></p>
+                            <p class="mb-1"><small>{{ review.date_posted }}</small></p>
+                           
+                            <p class="font-weight-bold user-comment-font">{{ review.user }}</p>
+                           
+                            
+                        </div>
+                        <div class="col-12 pl-3">
+                            <div>
+                                <p>{{ review.comment }}</p>
+                                <div>
+                                    <hr class="hr-comment-color my-2">
+                                    <p class="text-right">
+                                        <img src="{% static 'images/butterfly-logo.png' %}" class="btf-logo-blog btf-logo-blog-reverse btf-logo-blog-comment align-text-right" alt="butterfly-logo"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {% endfor %}
+                    {% else %}
+                    <p>No comments yet.</p>
+                {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
 {% endblock %}
 
 {% block postloadjs %}
