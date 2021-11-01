@@ -1,4 +1,4 @@
-<footer class="footer text-center text-lg-start text-white bg-color-teal" id="footer">
+<footer class="footer text-center text-lg-start text-white bg-color-teal">
     <section>
       <div class="container-fluid mx-auto pt-1">
         <hr class="white-divider mt-5">
@@ -14,9 +14,9 @@
             </p>
           </div>
           <!-- Centre: newsletter form -->
-          <div class="col-12 col-md-4 mx-auto">
+          <div class="col-12 col-md-4 mx-auto  mb-3">
             <h4><span class="text-uppercase footer-headers"><strong>Newsletter</strong></span></h4>
-            <p>Sign up to our monthly newsletter to get the exclusive on new arrivals, special offers </p>
+            <p class="footer-item">Sign up to our monthly newsletter to get the exclusive on new arrivals, special offers </p>
               <form method="POST" action="{% url 'newsletter_signup' %}" id="newsletter_form" class="mb-3">
                 <div class="form-group mx-auto mb-1"> 
                   {% csrf_token %}
@@ -32,7 +32,7 @@
           <!-- Right: social links -->
           <div class="col-12 col-md-4 mx-auto">
             <h4><span class="text-uppercase footer-headers"><strong>Social Media</strong></span></h4>
-            <ul class="social-icons p-0">
+            <ul class="social-icons p-0 mt-3">
                 <li><a class="twitter" target="_blank" href="https://twitter.com/" rel="noopener noreferrer"
                     aria-hidden="false" aria-label="Twitter"><i class="fa fa-twitter"></i></a></li>
                 <li><a class="instagram" target="_blank" href="https://www.instagram.com/"
@@ -40,15 +40,14 @@
                 <li><a class="facebook" target="_blank" href="https://facebook.com/"
                     rel="noopener noreferrer" aria-hidden="false" aria-label="facebook"><i class="fa fa-facebook"></i></a></li>
             </ul>
-    
           </div>
         </div>
         <hr class="white-divider">
         <!-- copyright -->
         <div class="row">
-          <div class="col-12 pb-2 mx-auto copyright">
+          <small class="col-12 pb-2 mx-auto copyright mb-3">
             copyright © 2021 Ewa Kukla For Educational Purposes Only
-          </div>
+          </small>
         </div>
       </div>
     </section>

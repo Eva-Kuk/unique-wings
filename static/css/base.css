@@ -6,14 +6,18 @@ html {
 }
 
 body {
-    /*background: url('/media/hero-image.jpg') no-repeat center center fixed;*/
-    /*background-size: cover;*/
     height: calc(100vh - 164px);
     color: #14161F;
     font-family:'Roboto', sans-serif;
 }
 #content {
     min-height: calc(100vh - 164px);
+}
+.container-min-width {
+    min-height: 50vh;
+}
+.accounts-container-min-width {
+    min-height: 70vh;
 }
 
 /* -----------------heading----------------- */
@@ -83,7 +87,7 @@ h4 {
     padding-right: 10px;
 }
 .welcome-logo-link {
-    font-size: 2.8rem;
+    font-size: 2.9rem;
     color: #14161F;
 }
 .welome-link:hover {
@@ -98,7 +102,7 @@ h4 {
 .btn-shop-now {
     background: #288FA4;
     color: #F5F9F9;
-    min-width: 260px;
+    min-width: 240px;
 }
 .btn-shop-now:hover,
 .btn-shop-now:active,
@@ -114,8 +118,8 @@ h4 {
 .btn-search:hover,
 .btn-search:active,
 .btn-search:focus {
-    background: #F5F9F9;
-    color: #14161F !important;
+    background: #14161F;
+    color: #F5F9F9 !important;
 }
 .btn-white {
     background: #F5F9F9;
@@ -239,7 +243,7 @@ input[name='q']::placeholder {
     letter-spacing: 1px;
 }
 .copyright {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
 }
 .footer-link:hover {
     color:#14161F !important;
@@ -398,6 +402,9 @@ input[name='q']::placeholder {
 .allauth-form-inner-content a {
 	color: #17a2b8; /* text-info */
 }
+.allauth-form-inner-content button {
+    border: 1px solid #fff0;
+}
 
 /* ---------------products.html----------------- */
 .overlay {
@@ -437,7 +444,7 @@ input[name='q']::placeholder {
     border-radius: 0;
 }
 
-/* ----- Blog ------- */
+/* ----- BlogPost/BlogComments ------- */
 .image-wrap {
 	height:35vh;
 	min-height: 25vh;
@@ -536,13 +543,99 @@ input[name='q']::placeholder {
     body {
         height: calc(100vh - 116px);
     }
-    h4 {
+    #delivery-banner h4 {
+        font-size: .8rem;
+    }
+    .welcome-text-style {
         font-size: 1rem;
     }
-}
-/* Fixed top navbar on small devices only */
-@media (max-width: 321px) {
-    .mobile-small-font {
-        font-size: 0.7rem;
+    .welcome-logo-link {
+        font-size: 1.8rem !important;
+    }
+    .nav-link {
+        padding: 0.2rem 0.2rem !important;
+    }
+    .navbar-toggler {
+        padding: .6rem .6rem;
+        font-size: 1rem;
+    }
+    a.footer-item,
+    .footer-item 
+    {
+        font-size: .9rem;
+    }
+    .header-font{
+        font-size: 2rem;
+    }
+    .header-container {
+        padding-top: 65px;
     }
 }
+
+@media (max-width: 440px){
+    .nav-link {
+        font-size: 0.9rem !important;
+    }
+    a.dropdown-item {
+        font-size: 0.9rem !important;
+    }
+    .btf-logo-nav {
+        width: 30px !important;
+        padding-right: 0px !important;
+    }
+    .mobile-small-font {
+        font-size: .6rem;
+    }
+    .navbar {
+        padding: .5rem .5rem !important;
+    }
+    .btf-logo {
+        width: 60px;
+        height: auto;
+        padding-right: 10px;
+    }
+    .welcome-logo-link {
+        font-size: 2rem;
+    }
+    .btn-size{
+        padding: .225rem .208rem !important;
+        font-size: .75rem !important;
+    }
+    .btn.btn-outline-teal.rounded-0 {
+        padding: .375rem .375rem;
+        font-size: .75rem;
+    }
+    .btn.btn-teal.rounded-0 {
+        padding: .375rem .375rem;
+        font-size: .75rem;
+    }
+    .increment-qty, .decrement-qty {
+        padding: .25rem .5rem !important;
+    }
+}
+
+@media (max-width: 1075px){
+    .welcome-logo-link {
+        font-size: 2.3rem;
+        color: #14161F;
+    }
+}
+@media (max-width: 1024px){
+    .home-images{
+        min-height: 51vh;
+        display: flex;
+    }  
+}
+@media (max-width: 280px) {
+    .separator {
+        font-size: 1.1rem;
+    }
+    .edit-btn,
+    .delete-btn 
+    {
+        font-size: .8rem !important;
+    }
+}
+
+
+

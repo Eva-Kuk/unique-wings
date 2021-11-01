@@ -52,7 +52,6 @@
                     <span class="separator"> | </span>
                     <a class="text-teal edit-btn px-0" href="{% url 'edit_product' product.id %}">Edit</a>
                 </small>
-
                 <!-- Modal for Delete Product Button -->
                 <div class="modal fade" id="deleteProduct-{{ product.id }}" tabindex="-1"
                     aria-labelledby="deleteProduct" aria-hidden="true">
@@ -122,13 +121,11 @@
                                             </span>
                                         </button>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
-
                         <div class="col{% if s %}-12 mt-2{% endif %}">
-                            <a href="{% url 'products' %}" class="btn btn-outline-teal rounded-0">
+                            <a href="{% url 'products' %}" class="btn btn-outline-teal btn-size rounded-0">
                                 <span class="icon">
                                     <i class="fas fa-chevron-left"></i>
                                 </span>
@@ -144,8 +141,8 @@
         </div>
     </div>
 </div>
-<!-- Review section --> 
 
+<!-- Review section --> 
 <div class="container">
     <div class="col-sm-12">
         <div class="bg-white rounded shadow p-4 mb-4">
@@ -156,31 +153,26 @@
                     <a href="{% url 'add_review' product.id %}" class="btn btn-teal rounded-0 mb-3">Add a Review</a>
                 </div>
                 <div class="col-sm-12 pt-4 pb-4">
-                    {% if reviews %}
+                {% if reviews %}
                     {% for review in reviews %}
                     <div class="row mt-3">
                         <div class="col-12 d-flex flex-column">
                             <p class="rating text-right font-weight-bold ">rating: {{ review.rate }} / 5 <i class="far fa-star font-weight-bold"></i></p>
                             <p class="mb-1"><small>{{ review.date_posted }}</small></p>
-                           
                             <p class="font-weight-bold user-comment-font">{{ review.user }}</p>
-                           
-                            
                         </div>
                         <div class="col-12 pl-3">
                             <div>
                                 <p>{{ review.comment }}</p>
                                 <div>
                                     <hr class="hr-comment-color my-2">
-                                    <p class="text-right">
-                                        <img src="{% static 'images/butterfly-logo.png' %}" class="btf-logo-blog btf-logo-blog-reverse btf-logo-blog-comment align-text-right" alt="butterfly-logo"></p>
+                                    <p class="text-right"><img src="{% static 'images/butterfly-logo.png' %}" class="btf-logo-blog btf-logo-blog-reverse btf-logo-blog-comment align-text-right" alt="butterfly-logo"></p>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                     {% endfor %}
-                    {% else %}
+                {% else %}
                     <p>No comments yet.</p>
                 {% endif %}
                 </div>
@@ -188,8 +180,6 @@
         </div>
     </div>
 </div>
-
-
 
 
 {% endblock %}

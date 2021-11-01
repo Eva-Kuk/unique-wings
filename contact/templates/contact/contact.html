@@ -18,23 +18,20 @@
     <div class="container pt-4">
 
         <div class="container">
-            <div class="row">
-                <div class="col text-center mt-3">
+            <!-- Contact Form -->
+            <div class="row justify-content-center ">
+                <div class="col col-12 col-md-8  shadow rounded rounded text-center my-4 pt-3">
                     <hr w-75 mb-3>
                     <h2 class="header-font logo-font mb-4">Contact Us</h2>
                     <hr w-75 mb-3>
-                </div>
-            </div>
-            <!-- Contact Form -->
-            <div class="row justify-content-center">
-                <div class="col-12 col-md-8 shadow rounded rounded p-4 mb-4">
+               
                     <form method="POST" action="{% url 'contact' %}" class="form mb-2" enctype="multipart/form-data">
                         {% csrf_token %}
                         {{ form|crispy }}
                         <div class="text-right mt-2">
                             <a href="{% url 'contact' %}" class="btn btn-outline-teal rounded-0 my-2">Cancel</a>
                             <button type="Submit" class="btn btn-teal rounded-0 my-2">Send</button>
-                        </div>
+                        
                     </form>
                 </div>
             </div>
