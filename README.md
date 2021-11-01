@@ -36,7 +36,7 @@
 
 - [Deployment](#deployment)
 
-  - [Database Deployment](#database-deployment)
+  - [AWS S3 Bucket](#AWS-S3-Bucket)
 
   - [Deployment Platform](#deployment-platform)
 
@@ -60,7 +60,7 @@
 ## Overview
 This is my fourth of Milestone Project 4 which is part of the Code Institute's FullStack Software Development Diploma Course and the main requirements is to build a full-stack website based around busines logic used to control a centrally-owned dataset which contain set up an authentication access mechanism and provide paid access to the site's data and purchase of the product.
 
-This project demonstrates the skills and knowledge of using the HTML5, CSS3, JavaScript, Python, Django, Relational database Poistgres and Stripe payments in Back-End development which I have learned recently on the course.
+This project demonstrates the skills and knowledge of using the HTML5, CSS3, JavaScript, Python, Django, AWS, Relational database Postgres and Stripe payments in Back-End development which I have learned recently on the course.
 
 
 The idea to create this website came from the inspiration of my best friend, who is a devoted fashion follower and passionate about unique creations, beautiful shoes and handbags, which she might show a quite few in her beautifull collection. 
@@ -328,8 +328,15 @@ If a user tries to access a 'forbidden' page, they will be either automatically 
 | full_name   | Charfield     | max_length=50, null=False, blank=False                       |
 | email       | EmailField    | max_length=254, null=False, blank=False                      |
 | subject     | CharField     | (max_length=50, choices=SUBJECT_MENU, default='general_query', null=False, blank=False) |
-| message     | TextField     | blank=False, null=False                                      |
+| message     | TextField     | max_length=1000, blank=False, null=True                                      |
 | date_posted | DateTimeField | auto_now_add=True                                            |
+
+### "NewsletterUserSubscription" model is used to store users emails for newsletter subscription.
+| *Field*     | *Field type* | *Attributes*                      |
+| ----------- | ------------ | --------------------------------- |
+| email  | EmailField   | max_length=254, null=False, blank=False |
+| date_sent | DateTimeField  | auto_now_add=True |
+
 
 
 ### "Review" model is used to store users comments for each product. "Review" model is linked to the "Product" and ""User" Model.
@@ -337,8 +344,9 @@ If a user tries to access a 'forbidden' page, they will be either automatically 
 | *Field*     | *Field type* | *Attributes*                      |
 | ----------- | ------------ | --------------------------------- |
 | product     | ForeignKey   | Product, on_delete=models.CASCADE |
-| user        | ForeignKey   | User, on_delete=models.CASCADE    |
-| comment     | TextField    | max_length=900                    |
+| user        | ForeignKey   | UserProfile, on_delete=models.CASCADE|
+| comment     | TextField    | max_length=500                    |
+| rate        | IntegerField | choices=RATE                      |
 | date_posted | DateTime     | auto_now_add=True                 |
 
 
@@ -442,7 +450,9 @@ The default image if image of the product is not available
 
 
 **Features Left to Implement when skills develop**
-
+mozliwos kilku zdjec dla jednego produktu
+mozliwosc logowania przez gmail, facebook
+mozliwosc wysylania automatycznie maila welcome mail gdy user subscribe
 
 
 ---
@@ -524,6 +534,9 @@ Red Ketchup
 
 ## Resources
 - [inspirationfeed](https://inspirationfeed.com/how-a-white-background-can-improve-your-website/) - 6 Tips on Using White Background in Modern Website Design
+- [Create A Simple Blog With Python and Django - Codemy](https://www.youtube.com/watch?v=B40bteAMM_M) - tutorial from Codemy about making a blog
+- [Contact Pages part1 in Django - Codemy ](https://www.youtube.com/watch?v=w4ilq6Zk-08) - tutorial from Codemy about making a contact form
+- [Contact Pages part2 in Django - Codemy ](https://www.youtube.com/watch?v=xNqnHmXIuzU) - tutorial from Codemy about sending email with django
 ---
 
 ## Testing
@@ -686,21 +699,7 @@ The application project requires back-end technologies such as server, applicati
 - Git for version control.
 - Email account, I used Gmail.
 
-1. First we need to install gunicorn which will act as our webserver
 
-    `pip3 install gunicorn`
-
-2. Create `requirements.txt` file which contains the names of packages being used in Python. It is important to update the file if other packages or modules are installed during the project.
-
-    `pip3 freeze > reqiurements.txt`
-
-3. Create `Procfile` which contains the name of the application file so that Heroku knows what to run: unicorn and serve our django app. Use the following command:
-
-  `web: gunicorn unique-wings.wsgi:application`
-
-Procfile may have a blank line when it is created so remove it as it may cause problems. 
-
-4. Push both files to GitHub.
 
 ### Deployment Platform
 1. Go to [Heroku](https://dashboard.heroku.com/apps) and login or create and account.
@@ -709,29 +708,92 @@ Procfile may have a blank line when it is created so remove it as it may cause p
 
 ![heroku new app](wireframes/readme/heroku-new-app.png)
 
-3. Enter an **App name**, which must be unique but the best practice is put the same name as in our github repository project(lowercase with a dash used instead of spaces), then choose a region and click **create app**
+3. Enter an **App name**, which must be unique but the best practice is put the same name as in our github repository project(lowercase with a dash used instead of spaces), then choose a region (europe) and click **create app**
 
 ![heroku app name](wireframes/readme/heroku-app-name.png)
 
-4. From Heroku dashboard resources section, provision 'Heroku Postgres' addon (hobby dev free version). 
+4. From Heroku dashboard `Resources` tab, do provision a new Postgress database  by writing postgres in the `Add-ons` box and choosing 'Heroku Postgres' (Plan name: Hobby Dev - Free version). 
 
-5. Install 'dj_database_url' and 'psycopg2' via the CLI using the pip3 install prefixed to the module names
-pip3 install dj_database_url
-pip3 install psycopg2
+5. To use postgress  we need to install 'dj_database_url' and 'psycopg2' via the CLI using the pip3 install prefixed to the module names and write it in the terminal in github
 
-6. Disable Heroku from collecting static files -
-'heroku config:set DISABLE_COLLECTSTATIC=1 --app your-app-name
-7. Add the host name to your settings.py file, under ALLOWED_HOSTS
-ALLOWED_HOSTS = ['you-app-name.herokuapp.com', 'localhost']
-8. Go to the Deploy tab and click **Connect to GithHub**
+`pip3 install dj_database_url`
+
+and
+
+`pip3 install psycopg2`
+
+
+then freze the requirements with pip3 freeze
+
+`pip3 freeze > reqiurements.txt`
+
+to check go to requirements file
+
+![requirements](wireframes/readme/requirements.jpg)
+
+6. Get to our store new database setup by going to unique-wings settings.py and importing dj_database_url
+
+`import dj_database_url`
+
+and in the DATABASES comment out the default configurations and add database from Heroku which you can get from config variables in settings tab 
+
+![heroku-database-url](wireframes/readme/heroku-database-url.jpg)
+
+or from the command line by typing
+
+`heroku config`
+
+![settings-database-url](wireframes/readme/settings-database-url.jpg)
+ run migrations as we are connecting to heroku Postgres
+`python3 manage.py showmigrations` - chech to see all migrations
+
+`python3 manage.py migrate` - will apply all migrations and get our database set up
+7. To import our product data we can use our fixtures to load in the categories and then products in that order as the products depend on categories
+
+`python3 manage.py loaddata categories`
+
+`python3 manage.py loaddata products`
+
+and create a superuser to login with 
+
+`python3 manage.py createsuperuser`
+
+8. Before commit remove the heroku databse and uncomment to original to avoid have it in version control
+9. Add if statement to DATABASE_URL for heroku and version control working
+![heroku-database-setup-in-settings](wireframes/readme/heroku-database-setup-in-settings.png)
+
+10. Next we need to install gunicorn which will act as our webserver
+
+    `pip3 install gunicorn`
+
+11. Create `requirements.txt` file which contains the names of packages being used in Python. It is important to update the file if other packages or modules are installed during the project.
+
+    `pip3 freeze > requirements.txt`
+
+12. Create `Procfile` below our manage.py file which contains the name of the application file so that Heroku knows what to run: unicorn and serve our django app. Write in the file the following command:
+
+  `web: gunicorn unique-wings.wsgi:application`
+
+Procfile may have a blank line when it is created so remove it as it may cause problems. 
+
+13. log in to heroku by typing in the termnal
+`heroku login` or `heroku login -i` if `{"error":"Forbidden"}` appear
+
+14. Disable Heroku from collecting static files - so heroku won't try to collect static files when we deploy
+`heroku config:set DISABLE_COLLECTSTATIC=1 --app uniqie-wings
+15. Add the host name to your settings.py file, under ALLOWED_HOSTS
+ALLOWED_HOSTS = ['unique-wings.herokuapp.com', 'localhost']
+- and git add, git commit, git push 
+
+16. Go to the Deploy tab and click **Connect to GitHub**
 
 ![deploy connect to github](wireframes/readme/deploy-connect-to-github.png)
 
-9. Search for the name of the repository and click **Connect**.
+17. Search for the name of the repository and click **Connect**.
 
 ![heroku search repository](wireframes/readme/heroku-search-repository.png)
 
-10. Go to **Settings**, click **Reveal Config Vars** and fill out necessary keys and values
+18. Go to **Settings**, click **Reveal Config Vars** and fill out necessary keys and values
     - AWS_ACCESS_KEY_ID
     - AWS_SECRET_ACCESS_KEY
     - DATABASE_URL
@@ -744,19 +806,20 @@ ALLOWED_HOSTS = ['you-app-name.herokuapp.com', 'localhost']
     - STRIPE_SECRET_KEY
     - STRIPE_WH_SECRET
     - USE_AWS = True
-11. Once all the hidden variables are recorded, then click **Enable Automatic Deploys** 
+19. Once all the hidden variables are recorded, then click **Enable Automatic Deploys** 
 
-12. Click **Deploy Branch** (Main should be selected unless you want other branches to be deployed)
+20. Click **Deploy Branch** (Main should be selected unless you want other branches to be deployed)
 
 ![heroku automatic deploys](wireframes/readme/heroku-automatic-deploys.png)
 
-13. When the app is deployed by Heroku correctly, the message will appear saying 'Your app was successfully deployed.'
+21. When the app is deployed by Heroku correctly, the message will appear saying 'Your app was successfully deployed.'
 
 ![heroku successfully deployed](wireframes/readme/heroku-successfully-deployed.png)
 
-14. Click **View**.
+22. Click **View**.
 
-### **AWS S3 Bucket**
+
+### AWS S3 Bucket
 1. Create your AWS account
 2. Search for S3 and create a new bucket, select 'allow public access'
 3. Under Properties go to static website hosting. Select enable typle index.html as index.html and save.
@@ -797,7 +860,7 @@ ALLOWED_HOSTS = ['you-app-name.herokuapp.com', 'localhost']
     - Click through next
     - Add the user to the group just created
     - Click next and create a user
-5. Download the ``.csv` containing the access key and secret access key.
+5. Download the `.csv` containing the access key and secret access key.
     - The .csv file is only available once and cannot be downloaded again
 ### **Connecting Heroku to AWS S3**
 1. Install boto3 and django-storages and freeze your requirements
@@ -811,21 +874,18 @@ ALLOWED_HOSTS = ['you-app-name.herokuapp.com', 'localhost']
 5. Deploy the app
 6. In the S3 bucket, set up a new media folder at the same level as the tatic folder and upload any required files. Both files need to be publicly accessible.
 
-### Database Deployment
-
-
-
-
-
-
 
 ## Credits
 
-
+- [IntegrityError in Django](https://stackoverflow.com/questions/18243149/integrityerror-in-django) - Stack overflow solutions ideas how to solve the integrity error in Django
+- [IntegrityError at /posts/12/new-comment/ NOT NULL constraint failed](https://stackoverflow.com/questions/64378553/ integrityerror-at-posts-12-new-comment-not-null-constraint-failed-posts-comme) - Stack overflow solutions ideas how to solve the integrity error in Django
+- [Django Tutorial - Create Newsletters App](https://www.youtube.com/watch?v=TBVsILIt4HM) - Django Tutorial - Create Newsletters App from Master Code Online
+- [Django Tutorial - Newsletter Sign Up View](https://www.youtube.com/watch?v=Hy94jBBgvpk) - Django Tutorial - Newsletter Sign Up View from Master Code Online
+- [Django Tutorial - Newsletter Unsubscribe View](https://www.youtube.com/watch?v=q2B1VpjDjMQ) - Django Tutorial - Newsletter Unsubscribe View from Master Code Online
 
 **Media**
 
-Sophia Webster
+Sophia Webster shoes and bags
 - [Flamingo Rainbow High Heeled Sandals](https://www.sophiawebster.com/product/35452/flo-flamingo-sandal)
 - [Chiara Purple Butterfly Sandals](https://www.sophiawebster.com/product/35453/chiara)
 - [Chiara Black Butterfly Sandals](https://www.sophiawebster.com/product/35454/chiara)
@@ -851,8 +911,9 @@ Sophia Webster
 - [Butterfly White Platform Espadrile](https://www.sophiawebster.com/product/32690/butterfly-espadrille-platform-flat)
 - [Hola Shopper Leather Bag](https://www.sophiawebster.com/product/35575/hola-tote)
 - [Butterfly Gold Platform Espadrile](https://www.sophiawebster.com/product/32689/butterfly-espadrille-platform-flat)
+- [Chiara Ankle Boot](https://www.sophiawebster.com/product/35650/chiara-ankle-boot)
 
-Kat Maconie
+Kat Maconie shoes
 - [Aya Kicker Heel Sandal](https://katmaconie.com/collections/shop-all/products/aya-black-multi-aw21)
 - [Aya Kicker Heel Orchid Multi Sandal](https://katmaconie.com/collections/shop-all/products/aya-orchid-multi-aw21)
 - [Caya Embroidered Black Sandals](https://katmaconie.com/collections/shop-all/products/caya-black-aw21)
@@ -865,8 +926,12 @@ Kat Maconie
 - [Caya Embroidedered White Sandals](https://katmaconie.com/collections/shop-all/products/caya-blanc-multi-aw21)
 - [Alba Chain Black Heel Boot](https://katmaconie.com/collections/shop-all/products/alba-black-aw21)
 - [Sigrid Chain Heel Yellow Sandals](https://katmaconie.com/collections/best-sellers/products/sigrid-sunny)
+- [Aya Kicker Heel Navy Yellow Sandal](https://www.yoox.com/us/17026805MF/item#cod10=17026805MF&sizeId=15)
+- [Jihan Hourglass Heel Sandals](https://katmaconie.com/collections/high-heel/products/jihan-pearl-multi)
 
-Other
+
+
+Other designers shoes and bags
 - [Chiara Colored High Heels](https://www.brownsfashion.com/ie/shopping/sophia-webster-chiara-sandals-11809223)
 - [Claudie Butterfly Black Shouldes Bag](https://www.bragmybag.com/sophia-webster-claudie-butterfly-bag/)
 - [Mini Kensington Actoss Body Rainpow Bag](https://www.zalando.ie/kurt-geiger-london-mini-kensington-across-body-bag-multicoloured-ku051h07o-t11.html)
@@ -874,10 +939,13 @@ Other
 - [Aguazzura Ritch Turqouse Butterfly Sandals](https://www.aquazzura.com/us_en/papillon-sandal-105-rich-turquoise-pplhigs0-snl-rtq.html)
 - [Aguazzura Jungle Green Butterfly Sandals](https://www.farfetch.com/ca/shopping/women/aquazzura-papillon-105mm-sandals-item-15209224.aspx?size=21&storeid=11811&clickref=1100lijidbCd&utm_source=laurenlyst&utm_medium=affiliate&utm_campaign=PHCA&utm_term=CANetwork&pid=performancehorizon_int&c=laurenlyst&clickid=1100lijidbCd&af_siteid=1011l2075&af_sub_siteid=1011l274&af_cost_model=CPA&af_channel=affiliate&is_retargeting=true)
 - [Aguazzura Canary Yellow Butterfly Sandals](https://www.aquazzura.com/us_en/papillon-sandal-105-sporty-yellow-pplhigs0-snl-spy.html)
-- [Furla Flamingo Shoulder Bag](https://wwd.bags2020c.com/furla-metropolis-flamingo_p30)
-
-
-
+- [Furla Flamingo Shoulder Bag](https://www.lyst.com/bags/furla-flamingo-print-metropolis-bag/)
+- [Turquoise mini Kensington Hand Bag](https://www.zalando.ie/kurt-geiger-london-fabric-mini-kensington-across-body-bag-turquoise-ku051h08n-l11.html?size=One%20Size&allophones=0&wmc=SEM353_NB_GO._9357456472_1445614975_128503437563.&opc=2211&mpp=google%7cv1%7c%7cpla-422602954492%7c%7c1007850%7c%7cg%7cc%7c%7c555699722328%7c%7cpla%7cKU051H08N-L110ONE000%7c422602954492%7c1%7c&gclid=Cj0KCQjwlOmLBhCHARIsAGiJg7lDQRnXMV2ojg8V4VtuOiLD2r9yv1RWSdBP3N0H3wqhWgrJfbVx4XQaApAREALw_wcB&gclsrc=aw.ds)
+Blogpost articles
+-[Shoes that celebrities like to wear](https://footwearnews.com/2019/fashion/celebrity-style/sophia-webster-butterfly-heels-red-carpet-1202761466/)
+- [Debunking Myths](https://katmaconie.com/blogs/blog/the-widefitchallenge)
+- [Kensington Rainbow Handbag](https://8000-scarlet-tiger-6t3dns54.ws-eu18.gitpod.io/products/57/)
+- [Kensington Rainbow Shopper Bag](https://www.zalando.ie/kurt-geiger-london-shopper-tote-bag-multi-coloured-ku051h07e-t11.html?size=One%20Size)
 **Content**
 
 
