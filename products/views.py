@@ -5,8 +5,9 @@ from django.db.models import Q
 from django.db.models.functions import Lower
 
 
-from .models import Product, Category
-from .forms import ProductForm
+from .models import Product, Category, Review
+from .forms import ProductForm, ReviewForm
+from profiles.models import UserProfile
 
 # Create your views here.
 
@@ -68,9 +69,13 @@ def product_detail(request, product_id):
     """ A view to display the selected products details """
 
     product = get_object_or_404(Product, pk=product_id)
+    reviews = Review.objects.filter(product=product)
+    review_form = ReviewForm()
 
     context = {
         'product': product,
+        'reviews': reviews,
+        "review_form": review_form,
     }
 
     return render(request, 'products/product_detail.html', context)
@@ -146,3 +151,36 @@ def delete_product(request, product_id):
     product.delete()
     messages.success(request, 'Product deleted!')
     return redirect(reverse('products'))
+
+
+@login_required
+def add_review(request, product_id):
+    """ Add a review to a product """
+    product = get_object_or_404(Product, pk=product_id)
+    user = get_object_or_404(UserProfile, user=request.user)
+    if request.method == 'POST':
+        form = ReviewForm(request.POST)
+        if form.is_valid():
+            comment = form.cleaned_data['comment']
+            rate = form.cleaned_data['rate']
+            Review.objects.create(
+                user=user,
+                product=get_object_or_404(Product, pk=product_id),
+                rate=rate,
+                comment=comment)
+            messages.success(request, 'Review added successfully. \
+                        Thank you for your time')
+            return redirect(reverse('product_detail', args=[product_id]))
+        else:
+            messages.error(request, 'Oops something went wrong. \
+                    Please check the form is valid and try again.')
+    else:
+        form = ReviewForm()
+
+    template = 'products/add_review.html'
+    context = {
+        'form': form,
+        'product': product,
+    }
+
+    return render(request, template, context)
