@@ -86,7 +86,28 @@ SOLVED BY:
     SOLVED BY: It was wrong return 'newsletter_form' whis is a value not a URL changed to redirect_url add in footer.html in the form a hidden input field and change view to get the redirect_url from the form and then redirect it to the redirect_url
     ![hidden-input-field](wireframes/testing/hidden-input-field.jpg)
     ![redirect-url](wireframes/testing/redirect-url.jpg)
-    
+10. I encountered a few difficulties while deploying project to heroku but main was: 
+    a) ISSUE: logo images and hero-images  didn't appear on the on the home page
+       SOLVED BY: create a new folder in static folder 'images' and moved the images from media folder to static folder
+    b) ISSUE: logo butterfly image didnt wan't to display ftom static/imagef file
+       SOLVED BY: It have to be moved back to Media folder and add the MEDIA_URL
+
+    ![butterfly-logo-mobile-top-header](wireframes/testing/butterfly-logo-mobile-top-header.png)
+
+11. While creating review application I  encountered a few errors that two of them:
+    a) ERROR: NameError at products/add_review 
+    SOLVED BY: Change 'User' to 'UserProfile' for model and in the views 
+    form `user = User.objects.get(user=request.user)` to ` user = get_object_or_404(UserProfile, user=request.user)`
+    ![review-user profile-error](wireframes/testing/review-user profile-error.jpg)
+
+    b) ISSUE: Comments don't display on the product_detail site product. Product review object is returning from the view but don't display data on the site.
+
+    ![review-if-statement-issue](wireframes/testing/review-if-statement-issue.jpg)
+
+      SOLVED BY: create the if statement review that checks if there are any reviews and then loop through them. As the product review is already retrived from DB in the view we don't need to create any associacion with produce in the frontend like it was done previously.
+
+    ![review-if-statement-issue-sollution](wireframes/testing/review-if-statement-issue-sollution.jpg)
+
 ## Code Validation
 ---
 
