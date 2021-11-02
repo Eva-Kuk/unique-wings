@@ -539,7 +539,6 @@ input[name='q']::placeholder {
     .header-container {
         padding-top: 116px;
     }
-
     body {
         height: calc(100vh - 116px);
     }
@@ -570,6 +569,21 @@ input[name='q']::placeholder {
     .header-container {
         padding-top: 65px;
     }
+        .btn-size{
+        padding: .225rem .208rem !important;
+        font-size: .75rem !important;
+    }
+    .btn.btn-outline-teal.rounded-0 {
+        padding: .375rem .375rem;
+        font-size: .75rem;
+    }
+    .btn.btn-teal.rounded-0 {
+        padding: .375rem .375rem;
+        font-size: .75rem;
+    }
+    .increment-qty, .decrement-qty {
+        padding: .25rem .5rem !important;
+    }
 }
 
 @media (max-width: 440px){
@@ -597,21 +611,7 @@ input[name='q']::placeholder {
     .welcome-logo-link {
         font-size: 2rem;
     }
-    .btn-size{
-        padding: .225rem .208rem !important;
-        font-size: .75rem !important;
-    }
-    .btn.btn-outline-teal.rounded-0 {
-        padding: .375rem .375rem;
-        font-size: .75rem;
-    }
-    .btn.btn-teal.rounded-0 {
-        padding: .375rem .375rem;
-        font-size: .75rem;
-    }
-    .increment-qty, .decrement-qty {
-        padding: .25rem .5rem !important;
-    }
+
 }
 
 @media (max-width: 1075px){
