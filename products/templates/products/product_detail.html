@@ -156,12 +156,14 @@
                 {% if reviews %}
                     {% for review in reviews %}
                     <div class="row mt-3">
-                          <!--shows the edit/delete pills if the user is authenticated-->
-                          {% if request.user.is_authenticated %}
+                          <!--Shows the edit/delete links if the user is superuser or registered user-->
+                          {% if request.user == comment.user or request.user.is_superuser %}
                           <div class="col-12 d-flex justify-content-end">
-                              <a class="text-teal edit-btn px-0" href="{% url 'edit_review' review.id %}">Edit</a> |
-                              <a class="btn text-pink delete-btn pb-1 p-0" href="{% url 'delete_review' review.id %}">Delete</a>   
-                          </div>
+                          <!-- Delete Review Comment Button Trigger Modal-->
+                          <button type="button" class="btn text-pink delete-btn pt-1 px-1" data-toggle="modal" data-target="#deleteReview-{{ review.id }}">Delete</button>      
+                          <span class="separator"> | </span> 
+                              <a href="{% url 'edit_review' review.id %}" class="text-teal px-1 pt-1 edit-btn">Edit</i></a>
+                              </div>
                           {% endif %}
                         <div class="col-12 d-flex flex-column">
                             <p class="rating text-right font-weight-bold ">rating: {{ review.rate }} / 5 <i class="far fa-star font-weight-bold"></i></p>
@@ -179,6 +181,27 @@
                         </div>
                        
                     </div>
+                    <!-- Modal for Delete Review Comment -->
+                    <div class="modal fade" id="deleteReview-{{ review.id }}" tabindex="-1" aria-labelledby="deleteReviewModal"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="deleteReviewModal">Confirm Delete</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Are you sure you want to  <strong class="text-pink">delete</strong> this review? </p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-outline-teal" data-dismiss="modal">Cancel</button>
+                                <a href="{% url 'delete_review' review.id %}" class="btn btn-pink px-2">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                     {% endfor %}
                 {% else %}
                     <p>No comments yet.</p>
