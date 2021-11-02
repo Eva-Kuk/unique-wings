@@ -211,11 +211,23 @@
         </div>
     </div>
 </div>
-
+<!-- Back To Top Button-->
+<div class="btt-btn btt-btn-color shadow-sm">
+    <a class="btt-link d-flex h-100">
+        <i class="fas fa-arrow-alt-circle-up text-white arrow-size mx-auto my-auto"></i>
+    </a>
+</div>
 
 {% endblock %}
 
 {% block postloadjs %}
 {{ block.super }}
+<!--Back to top button functionality with JS-->
+<script type="text/javascript">
+    $('.btt-link').click(function (e) {
+        window.scrollTo(0, 0)
+    })
+</script>
+
 {% include 'products/includes/quantity_input_script.html' %}
 {% endblock %}
