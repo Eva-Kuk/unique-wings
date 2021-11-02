@@ -443,7 +443,7 @@ As the idea behind the e-commerce site is the collection and sale of unusual sho
  Pictures are downloaded from the [Kat Maconie](https://katmaconie.com/) and [Sophia Webster](https://www.sophiawebster.com/). This project is for educational purposes only so the accociated credit has been included in the credits section. 
 
 The default image if image of the product is not available 
-![no image](wireframes/readme/no-image.png)
+![no image](wireframes/readme/noimage.png)
 ## Features
 **Existing Features**
 
@@ -958,3 +958,4 @@ Blogpost articles
 
 
 
+q

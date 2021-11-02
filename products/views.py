@@ -154,7 +154,7 @@ def delete_product(request, product_id):
 
 
 @login_required
-def review(request, product_id):
+def add_review(request, product_id):
     """ Add a review to a product """
     product = get_object_or_404(Product, pk=product_id)
     user = get_object_or_404(UserProfile, user=request.user)
@@ -177,10 +177,35 @@ def review(request, product_id):
     else:
         form = ReviewForm()
 
-    template = 'products/review.html'
+    template = 'products/add_review.html'
     context = {
         'form': form,
         'product': product,
+    }
+
+    return render(request, template, context)
+
+
+@login_required
+def edit_review(request, review_id):
+    """ Edit a review to a product """
+    review = get_object_or_404(Review, pk=review_id)
+    if request.method == 'POST':
+        form = ReviewForm(request.POST, instance=review)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Review edited successfully.')
+        else:
+            messages.error(request, 'Oops something went wrong. \
+                    Please check the form is valid and try again.')
+    else:
+        form = ReviewForm(instance=review)
+
+    template = "products/edit_review.html"
+    context = {
+        "form": form,
+        "review": review,
+        "product": review.product,
     }
 
     return render(request, template, context)
