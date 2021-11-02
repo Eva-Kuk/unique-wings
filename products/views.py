@@ -154,7 +154,7 @@ def delete_product(request, product_id):
 
 
 @login_required
-def add_review(request, product_id):
+def review(request, product_id):
     """ Add a review to a product """
     product = get_object_or_404(Product, pk=product_id)
     user = get_object_or_404(UserProfile, user=request.user)
@@ -177,7 +177,7 @@ def add_review(request, product_id):
     else:
         form = ReviewForm()
 
-    template = 'products/add_review.html'
+    template = 'products/review.html'
     context = {
         'form': form,
         'product': product,
