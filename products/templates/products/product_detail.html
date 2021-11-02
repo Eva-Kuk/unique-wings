@@ -156,6 +156,13 @@
                 {% if reviews %}
                     {% for review in reviews %}
                     <div class="row mt-3">
+                          <!--shows the edit/delete pills if the user is authenticated-->
+                          {% if request.user.is_authenticated %}
+                          <div class="col-12 d-flex justify-content-end">
+                              <a class="text-teal edit-btn px-0" href="{% url 'edit_review' review.id %}">Edit</a> |
+                              <a class="btn text-pink delete-btn pb-1 p-0" href="{% url 'delete_review' review.id %}">Delete</a>   
+                          </div>
+                          {% endif %}
                         <div class="col-12 d-flex flex-column">
                             <p class="rating text-right font-weight-bold ">rating: {{ review.rate }} / 5 <i class="far fa-star font-weight-bold"></i></p>
                             <p class="mb-1"><small>{{ review.date_posted }}</small></p>
@@ -170,13 +177,7 @@
                                 </div>
                             </div>
                         </div>
-                         <!--shows the edit/delete pills if the user is authenticated-->
-                    {% if request.user.is_authenticated %}
-                    <small class="text-center">
-                        <a class="text-teal edit-btn px-0" href="{% url 'edit_review' review.id %}">Edit</a> |
-                      
-                    </small>
-                    {% endif %}
+                       
                     </div>
                     {% endfor %}
                 {% else %}
