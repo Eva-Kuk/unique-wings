@@ -107,6 +107,17 @@ SOLVED BY:
       SOLVED BY: create the if statement review that checks if there are any reviews and then loop through them. As the product review is already retrived from DB in the view we don't need to create any associacion with produce in the frontend like it was done previously.
 
     ![review-if-statement-issue-sollution](wireframes/testing/review-if-statement-issue-sollution.jpg)
+12. ISSUE: Static Files didn't uploaded on Heroku live website after changes on gitpod
+    SOLVED BY: 
+    - Changed STATICFILES_DIRS and add STATIC_ROOT to settings.py
+    - Added variables to GitPod variables on settings from heroku DATABASE_URL and DEVELOPMENT set to False, make sure DEVELOPMENT doesn't exist on the Heroku config variables.
+    then make sure to close and reopen worksace again for project 
+    - run the command `python3 manage.py collectstatic` (staticfiles added to static folder)
+
+    BEFORE:
+    ![old-static-url](wireframes/testing/old-static-url.png)
+    AFTER:
+    ![updated-static-url](wireframes/testing/updated-static-url.png)
 
 ## Code Validation
 ---
