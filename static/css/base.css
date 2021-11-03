@@ -46,7 +46,7 @@ h4 {
     background-color: #288fa4;
 }
 .btf-logo-nav {
-    width: 63px;
+    width: 60px;
     padding-right: 8px;
 }
 .nav-logo-link {
@@ -583,6 +583,13 @@ input[name='q']::placeholder {
     }
     .increment-qty, .decrement-qty {
         padding: .25rem .5rem !important;
+    }
+    .btf-logo-nav {
+        width: 50px;
+    }
+    .mobile-small-font {
+        font-size: .7rem;
+        padding-top: 0.1rem
     }
 }
 
