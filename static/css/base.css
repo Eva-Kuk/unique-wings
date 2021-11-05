@@ -10,6 +10,7 @@ body {
     color: #14161F;
     font-family:'Roboto', sans-serif;
 }
+
 #content {
     min-height: calc(100vh - 164px);
 }
@@ -511,6 +512,28 @@ input[name='q']::placeholder {
 .input-form-style {
     border: 1px solid ;
 }
+/* ----------------- Error Pages 404/500 ----------------- */
+#hero-error-img {
+    background: url('/media/error-img.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: calc(100vh - 164px);
+    color: rgb(253, 253, 253);
+    font-family: 'Lato';
+}   
+.overlay-background {
+    background: #0404046e;
+}
+.header-font-error {
+    font-size: 6rem;
+    font-weight: 600;
+    letter-spacing: 4px;
+}
+.text-error {
+    font-size: 2rem;
+}
+
+
+
 
 /* ----------------- Media Queries ----------------- */
 
@@ -591,6 +614,15 @@ input[name='q']::placeholder {
         font-size: .7rem;
         padding-top: 0.1rem
     }
+    .header-font-error {
+        font-size: 4.5rem;
+        font-weight: 600;
+        letter-spacing: 4px;
+        line-height: 5rem;
+    }
+    .text-error {
+        font-size: 1.5rem;
+    }
 }
 
 @media (max-width: 440px){
@@ -616,7 +648,13 @@ input[name='q']::placeholder {
         padding-right: 10px;
     }
     .welcome-logo-link {
-        font-size: 2rem;
+        font-size: 2.2rem;
+    }
+    .header-font-error {
+        font-size: 3rem;
+    }
+    .text-error {
+        font-size: 1.1rem;
     }
 
 }

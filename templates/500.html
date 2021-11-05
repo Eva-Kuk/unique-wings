@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+<!-- Hero images -->
+<section id="hero-error-img">
+    <div class="container-fluid overlay-background h-100">
+        <div class="row h-50  d-flex align-content-center">
+            <div class="col-12 text-center ">
+                <h2 class="header-font-error logo-font mb-5">Ooops!</h2>
+            </div>
+        </div>
+        <div class="row text-center d-flex align-items-center h-50 text-error-position">
+            <div class="col-12 mt-2">
+                <h4>
+                    <p class="pt-3  text-error">Looks like there is nothing here yet!</p>
+                    <p  class="pt-3 text-error"><i class="fas fa-hand-point-down"></i> 
+                        Let us take you back on track click the button bellow 
+                        <i class="fas fa-hand-point-down"></i>
+                    </p>
+                    <a href="{% url 'home' %}" class="btn btn-teal border-0 mt-2 px-3">Back to Store!</a>
+                </h4>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
