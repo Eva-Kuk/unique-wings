@@ -70,11 +70,20 @@ def product_detail(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     reviews = Review.objects.filter(product=product)
     review_form = ReviewForm()
+    review_user = None
+    if request.user.is_authenticated:
+        review_user = request.user
+        print(type(review_user))
+        for x in reviews:
+            if x.user:
+                print("in loop")
+                print(type(x.user.user))
 
     context = {
         'product': product,
         'reviews': reviews,
         "review_form": review_form,
+        'review_user': review_user
     }
 
     return render(request, 'products/product_detail.html', context)
@@ -189,6 +198,7 @@ def add_review(request, product_id):
 def edit_review(request, review_id):
     """ Edit a review to a product """
     review = get_object_or_404(Review, pk=review_id)
+    review_user = request.user
     if request.method == 'POST':
         form = ReviewForm(request.POST, instance=review)
         if form.is_valid():
@@ -205,8 +215,9 @@ def edit_review(request, review_id):
         "form": form,
         "review": review,
         "product": review.product,
+        "review_user": review_user,
     }
-
+    print(review_user)
     return render(request, template, context)
 
 

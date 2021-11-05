@@ -12,16 +12,17 @@
 {% block content %}
 <!-- Header, Products Category Badges -->
 <div class="overlay"></div>
-<div class="container-fluid">
+<div class="container-fluid my-4">
     <div class="row">
-        <div class="col text-center mt-5">
+        <div class="col text-center mt-2">
+            <hr class="w-75 mb-3">
             <h2 class="header-font logo-font">Products</h2>
             {% for c in current_categories %}
             <a class="category-badge text-decoration-none" href="{% url 'products' %}?category={{ c.name }}">
                 <span class="p-2 mt-2 badge badge-color rounded-0 border">{{ c.friendly_name }}</span>
             </a>
             {% endfor %}
-            <hr class="w-50 mb-1">
+            <hr class="w-75 mb-3">
         </div>
     </div>
     <!-- Sort By/Filter Products Feature -->

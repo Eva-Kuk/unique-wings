@@ -106,9 +106,7 @@
                                     <!-- Decrement Quantity Button -->
                                     <div class="input-group-prepend">
                                         <button class="decrement-qty btn btn-teal rounded-0" data-item_id="{{ product.id }}" id="decrement-qty_{{ product.id }}">
-                                            <span class="icon">
-                                                <i class="fas fa-minus"></i>
-                                            </span>
+                                            <span class="icon"><i class="fas fa-minus"></i></span>
                                         </button>
                                     </div>
                                     <input class="form-control qty_input" type="number" name="quantity" value="1"
@@ -116,9 +114,7 @@
                                     <!-- Increment Quantity Button -->
                                     <div class="input-group-append">
                                         <button class="increment-qty btn btn-teal rounded-0" data-item_id="{{ product.id }}" id="increment-qty_{{ product.id }}">
-                                            <span class="icon">
-                                                <i class="fas fa-plus"></i>
-                                            </span>
+                                            <span class="icon"><i class="fas fa-plus"></i></span>
                                         </button>
                                     </div>
                                 </div>
@@ -126,9 +122,7 @@
                         </div>
                         <div class="col{% if s %}-12 mt-2{% endif %}">
                             <a href="{% url 'products' %}" class="btn btn-outline-teal btn-size rounded-0">
-                                <span class="icon">
-                                    <i class="fas fa-chevron-left"></i>
-                                </span>
+                                <span class="icon"><i class="fas fa-chevron-left"></i></span>
                                 <span class="text-uppercase">Keep Shopping</span>
                             </a>
                             <input type="submit" class="btn btn-teal rounded-0 text-uppercase" value="Add to Bag">
@@ -152,19 +146,28 @@
                 <div class="col-sm-12 d-flex justify-content-end">
                     <a href="{% url 'add_review' product.id %}" class="btn btn-teal rounded-0 mb-3">Add a Review</a>
                 </div>
+                 <!--renders all reviews that have been left for the product-->
                 <div class="col-sm-12 pt-4 pb-4">
                 {% if reviews %}
                     {% for review in reviews %}
                     <div class="row mt-3">
-                          <!--Shows the edit/delete links if the user is superuser or registered user-->
-                          {% if request.user == comment.user or request.user.is_superuser %}
-                          <div class="col-12 d-flex justify-content-end">
-                          <!-- Delete Review Comment Button Trigger Modal-->
-                          <button type="button" class="btn text-pink delete-btn pt-1 px-1" data-toggle="modal" data-target="#deleteReview-{{ review.id }}">Delete</button>      
-                          <span class="separator"> | </span> 
-                              <a href="{% url 'edit_review' review.id %}" class="text-teal px-1 pt-1 edit-btn">Edit</i></a>
-                              </div>
-                          {% endif %}
+                        <!--Shows the edit/delete links if the user is superuser or the owner of the review-->
+                         <!-- <p>Review User: {{ review.user }}</p> -->
+                        <!-- <p>Request User t: {{ review_user }} </p> -->
+                        <!-- <p>review_user {{review_user}}</p>
+                        <p>review user {{review.user.user}}</p> -->
+
+                        {%if review_user == review.user.user%}
+                        <p>Request User t: {{ review_user }} </p>
+                        {%endif%}
+                        {% if review_user == review.user.user %}
+                        <div class="col-12 d-flex justify-content-end">
+                            <!-- Delete Review Comment Button Trigger Modal-->
+                            <button type="button" class="btn text-pink delete-btn pt-1 px-1" data-toggle="modal" data-target="#deleteReview-{{ review.id }}">Delete</button>      
+                            <span class="separator"> | </span> 
+                            <a href="{% url 'edit_review' review.id %}" class="text-teal px-1 pt-1 edit-btn">Edit</i></a>
+                        </div>
+                        {% endif %}
                         <div class="col-12 d-flex flex-column">
                             <p class="rating text-right font-weight-bold ">rating: {{ review.rate }} / 5 <i class="far fa-star font-weight-bold"></i></p>
                             <p class="mb-1"><small>{{ review.date_posted }}</small></p>
@@ -179,7 +182,6 @@
                                 </div>
                             </div>
                         </div>
-                       
                     </div>
                     <!-- Modal for Delete Review Comment -->
                     <div class="modal fade" id="deleteReview-{{ review.id }}" tabindex="-1" aria-labelledby="deleteReviewModal"
