@@ -119,6 +119,19 @@ SOLVED BY:
     AFTER:
     ![updated-static-url](wireframes/testing/updated-static-url.png)
 
+13. ISSUE: The  Review `Edit | Delete` buttons are visible only for a superuser, not for the owner of the review, and they are not able to edit or remove their reviews. 
+
+    SOLVED BY: Initialy the if statement was checking two variables that are different of types. After changes `Edit | Delete ` links will be visible to the user if they are logged in and they are own the review. 
+        - Make a new variavle `review_user` in the edit_review view 
+        - Add to the product_detail a `review_user = None` and if statement
+        - Modify if statement in a product_detail.html 
+    BEFORE CHANGES:
+    ![review-if-stetement-product-detail-issue](wireframes/testing/review-if-stetement-product-detail-issue.png)
+    AFTER CHANGES:
+    ![review-if-statement-edit-review](wireframes/testing/review-if-statement-edit-review.jpg)
+    ![review-if-statement-product-detail](wireframes/testing/review-if-statement-product-detail.jpg)
+    ![review-if-statement-product-detail-html](wireframes/testing/review-if-statement-product-detail-html.jpg)
+
 ## Code Validation
 ---
 
