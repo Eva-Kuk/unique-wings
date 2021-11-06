@@ -73,11 +73,6 @@ def product_detail(request, product_id):
     review_user = None
     if request.user.is_authenticated:
         review_user = request.user
-        print(type(review_user))
-        for x in reviews:
-            if x.user:
-                print("in loop")
-                print(type(x.user.user))
 
     context = {
         'product': product,

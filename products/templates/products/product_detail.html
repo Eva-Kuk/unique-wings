@@ -39,8 +39,8 @@
                     </a>
                 </p>
                 {% endif %}
-                {% if product.rating %}
-                <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
+                {% if product.avg_rating %}
+                <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.avg_rating }} / 5</small>
                 {% else %}
                 <small class="text-muted">No Rating</small>
                 {% endif %}
@@ -151,15 +151,6 @@
                 {% if reviews %}
                     {% for review in reviews %}
                     <div class="row mt-3">
-                        <!--Shows the edit/delete links if the user is superuser or the owner of the review-->
-                         <!-- <p>Review User: {{ review.user }}</p> -->
-                        <!-- <p>Request User t: {{ review_user }} </p> -->
-                        <!-- <p>review_user {{review_user}}</p>
-                        <p>review user {{review.user.user}}</p> -->
-
-                        {%if review_user == review.user.user%}
-                        <p>Request User t: {{ review_user }} </p>
-                        {%endif%}
                         {% if review_user == review.user.user %}
                         <div class="col-12 d-flex justify-content-end">
                             <!-- Delete Review Comment Button Trigger Modal-->
@@ -206,7 +197,7 @@
                 </div>
                     {% endfor %}
                 {% else %}
-                    <p>No comments yet.</p>
+                    <p>This product does not currently have any rewiews</p>
                 {% endif %}
                 </div>
             </div>

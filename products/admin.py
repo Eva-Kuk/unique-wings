@@ -10,11 +10,11 @@ class ProductAdmin(admin.ModelAdmin):
         'name',
         'category',
         'price',
-        'rating',
         'image',
     )
 
     ordering = ('sku',)
+    readonly_fields = ('avg_rating',)
 
 
 class CategoryAdmin(admin.ModelAdmin):
