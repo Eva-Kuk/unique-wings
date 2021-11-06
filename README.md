@@ -49,12 +49,12 @@
 
 ---
 
-![altamiresponsive](wireframes/readme/am-i-responsive.jpg)
+![altamiresponsive](wireframes/readme/am-i-responsive.png)
 
 
-- A live demo can be found [here](https://eva-kuk.github.io/unique-wings/)
+- A live demo can be found [here](https://unique-wings.herokuapp.com/)
 
-- A github repository can be found [here]()
+- A github repository can be found [here](https://github.com/Eva-Kuk/unique-wings)
 
 
 ## Overview
@@ -260,7 +260,6 @@ If a user tries to access a 'forbidden' page, they will be either automatically 
 | county          | CharField     | max_length=80, null=True, blank=True                         |
 | date            | DateTimeField | auto_now_add=True                                            |
 | delivery_cost   | DecimalField  | max_digits=6, decimal_places=2, null=False, default=0        |
-| discount        | DecimalField  | max_digits=6, decimal_places=2, null=False, default=0        |
 | order_total     | DecimalField  | max_digits=10, decimal_places=2, null=False, default=0       |
 | grand_total     | DecimalField  | max_digits=10, decimal_places=2, null=False, default=0       |
 | original_bag    | TextField     | null=False, blank=False, default=''                          |
@@ -288,7 +287,7 @@ If a user tries to access a 'forbidden' page, they will be either automatically 
 | description | TextField    | ()                                                           |
 | has_sizes   | BooleanField | default=False, null=True, blank=True                         |
 | price       | DecimalField | max_digits=6, decimal_places=2                               |
-| rating      | DecimalField | max_digits=6, decimal_places=2, null=True, blank=True        |
+| avg_rating  | DecimalField | max_digits=6, decimal_places=2, null=True, blank=True        |
 | image_url   | URLField     | max_length=1024, null=True, blank=True                       |
 | image       | ImageField   | null=True, blank=True                                        |
 
@@ -305,8 +304,10 @@ If a user tries to access a 'forbidden' page, they will be either automatically 
 
 | *Field*     | *Field type*          | *Attributes*                          |
 | ----------- | --------------------- | ------------------------------------- |
+| author      | ForeignKey            | User, on_delete=models.CASCADE        |
 | image       | ImageField            | null=True, blank=True                 |
 | title       | "TextField"/CharField | max_length=254, null=True, blank=True |
+| info        | Charfield             | models.CharField(max_length=254, null=True, blank=True) |
 | content     | TextField             | max_length=1000                       |
 | date_posted | DateTimeField         | auto_now_add=True                     |
 
@@ -328,7 +329,7 @@ If a user tries to access a 'forbidden' page, they will be either automatically 
 | full_name   | Charfield     | max_length=50, null=False, blank=False                       |
 | email       | EmailField    | max_length=254, null=False, blank=False                      |
 | subject     | CharField     | (max_length=50, choices=SUBJECT_MENU, default='general_query', null=False, blank=False) |
-| message     | TextField     | max_length=1000, blank=False, null=True                                      |
+| message     | TextField     | max_length=1000, blank=False, null=True                      |
 | date_posted | DateTimeField | auto_now_add=True                                            |
 
 ### "NewsletterUserSubscription" model is used to store users emails for newsletter subscription.
@@ -338,12 +339,11 @@ If a user tries to access a 'forbidden' page, they will be either automatically 
 | date_sent | DateTimeField  | auto_now_add=True |
 
 
-
 ### "Review" model is used to store users comments for each product. "Review" model is linked to the "Product" and ""User" Model.
 
 | *Field*     | *Field type* | *Attributes*                      |
 | ----------- | ------------ | --------------------------------- |
-| product     | ForeignKey   | Product, on_delete=models.CASCADE |
+| product     | ForeignKey   | models.ForeignKey(Product, null=True, blank=True,related_name='reviews', on_delete=models.SET_NULL |
 | user        | ForeignKey   | UserProfile, on_delete=models.CASCADE|
 | comment     | TextField    | max_length=500                    |
 | rate        | IntegerField | choices=RATE                      |
@@ -355,7 +355,8 @@ If a user tries to access a 'forbidden' page, they will be either automatically 
 ## Wireframes mockups
 
 Below are the wireframes created in advance of starting the project. I used the wireframing software [Balsamiq](https://balsamiq.com/) for this project.
-
+The initial wireframes do not differ much from the final version. Visually, I centered the login and register form, I also decided to allow registered users to add, edit and delete comments for blogs and products, and I add ratings.
+I have also decided to change blog page and display blog articles as four cards in a row. I found it better UX than previous version. 
 **HOME PAGE**
 
 ![home page](wireframes/home.png)
@@ -382,11 +383,15 @@ Below are the wireframes created in advance of starting the project. I used the 
 
 **LOGIN PAGE**
 
-![login page](wireframes/login.png)
+[login page old version](wireframes/login.png)
+
+![login page](wireframes/login-new.png)
 
 **REGISTER PAGE**
 
-![register page](wireframes/register.png)
+[register page old version](wireframes/register.png)
+
+![register page new](wireframes/register-new.png)
 
 **CONTACT PAGE**
 
@@ -398,11 +403,15 @@ Below are the wireframes created in advance of starting the project. I used the 
 
 **BLOG PAGE**
 
-![blog page](wireframes/blog.png)
+[blog page old version](wireframes/blog.png)
+
+![blog page new](wireframes/blog-new.png)
 
 **SINGLE BLOGPST PAGE**
 
-![single blogpost page](wireframes/single-blogpost.png)
+[single blogpost page old version](wireframes/single-blogpost.png)
+
+![single blogpost page](wireframes/single-blogpost-new.png)
 
 **500 INTERNAL SERVER ERROR PAGE**
 
@@ -941,13 +950,15 @@ Other designers shoes and bags
 - [Aguazzura Canary Yellow Butterfly Sandals](https://www.aquazzura.com/us_en/papillon-sandal-105-sporty-yellow-pplhigs0-snl-spy.html)
 - [Furla Flamingo Shoulder Bag](https://www.lyst.com/bags/furla-flamingo-print-metropolis-bag/)
 - [Turquoise mini Kensington Hand Bag](https://www.zalando.ie/kurt-geiger-london-fabric-mini-kensington-across-body-bag-turquoise-ku051h08n-l11.html?size=One%20Size&allophones=0&wmc=SEM353_NB_GO._9357456472_1445614975_128503437563.&opc=2211&mpp=google%7cv1%7c%7cpla-422602954492%7c%7c1007850%7c%7cg%7cc%7c%7c555699722328%7c%7cpla%7cKU051H08N-L110ONE000%7c422602954492%7c1%7c&gclid=Cj0KCQjwlOmLBhCHARIsAGiJg7lDQRnXMV2ojg8V4VtuOiLD2r9yv1RWSdBP3N0H3wqhWgrJfbVx4XQaApAREALw_wcB&gclsrc=aw.ds)
-Blogpost articles
--[Shoes that celebrities like to wear](https://footwearnews.com/2019/fashion/celebrity-style/sophia-webster-butterfly-heels-red-carpet-1202761466/)
-- [Debunking Myths](https://katmaconie.com/blogs/blog/the-widefitchallenge)
 - [Kensington Rainbow Handbag](https://8000-scarlet-tiger-6t3dns54.ws-eu18.gitpod.io/products/57/)
 - [Kensington Rainbow Shopper Bag](https://www.zalando.ie/kurt-geiger-london-shopper-tote-bag-multi-coloured-ku051h07e-t11.html?size=One%20Size)
-**Content**
 
+Blogpost articles
+
+**Content**
+- [Shoes that celebrities like to wear](https://footwearnews.com/2019/fashion/celebrity-style/sophia-webster-butterfly-heels-red-carpet-1202761466/)
+- [Debunking Myths](https://katmaconie.com/blogs/blog/the-widefitchallenge)
+- [How to choose the correct shoe size when shopping online?](https://www.dolitashoes.com/blogs/news/how-to-choose-the-correct-shoe-size-when-shopping-online)
 
 
 **Code Snippets**
