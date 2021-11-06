@@ -46,6 +46,7 @@ While working on this project I encountered the following problems which I tried
 
 ![integrity-error-comments-blog-solved](wireframes/testing/integrity-error-comments-blog-solved.jpg)
 ![integrity-error-comments-blog-solved](wireframes/testing/integrity-error-comments-blog-solved1.png)
+
 4. ERROR: While implementing modal a problem with dislayng on the screen
 
     SOLVED BY:
@@ -53,6 +54,7 @@ While working on this project I encountered the following problems which I tried
 ![modal-error](wireframes/testing/modal-error.jpg)
 
 5. BUG: `Delete|Edit` buttons for comments don't hide when user is on his account is able to to see other users buttons
+
 ![modal-delete-button-error](wireframes/testing/modal-delete-button-error.jpg)
     SOLVED BY:
     - Changing if statement
@@ -74,6 +76,7 @@ SOLVED BY:
 ![message-field-issue-solved](wireframes/testing/message-field-issue-solved.jpg)
 8. BUG: Input placeholders are not displayed on the Contact page as expected, default labels are enabled.
 ![message-field-issue-solved](wireframes/testing/forms-placeholders-intendation-bug.png)
+
 SOLVED BY:
 - wrong intendation 
 ![forms-placeholders-intendation-bug](wireframes/testing/forms-placeholders-intendation-bug1.jpg)
@@ -81,6 +84,7 @@ SOLVED BY:
     a) BUG : The newsletter-subscription form don't display on the site 
     SOLVED BY: Forgot to add the context to the context processors in settings.py `'contexts.subscription_form',` 
     ![contexts-subscription-form](wireframes/testing/contexts-subscription-form.jpg)
+    
     b) ERROR: No Reverse Match at contact/newsletter signup 
      ![no-reverse-match-newsletter-error](wireframes/testing/no-reverse-match-newsletter-error.png)
     SOLVED BY: It was wrong return 'newsletter_form' whis is a value not a URL changed to redirect_url add in footer.html in the form a hidden input field and change view to get the redirect_url from the form and then redirect it to the redirect_url
@@ -116,6 +120,7 @@ SOLVED BY:
 
     BEFORE:
     ![old-static-url](wireframes/testing/old-static-url.png)
+   
     AFTER:
     ![updated-static-url](wireframes/testing/updated-static-url.png)
 
@@ -125,12 +130,30 @@ SOLVED BY:
         - Make a new variavle `review_user` in the edit_review view 
         - Add to the product_detail a `review_user = None` and if statement
         - Modify if statement in a product_detail.html 
+    
     BEFORE CHANGES:
     ![review-if-stetement-product-detail-issue](wireframes/testing/review-if-stetement-product-detail-issue.png)
+   
     AFTER CHANGES:
     ![review-if-statement-edit-review](wireframes/testing/review-if-statement-edit-review.jpg)
     ![review-if-statement-product-detail](wireframes/testing/review-if-statement-product-detail.jpg)
     ![review-if-statement-product-detail-html](wireframes/testing/review-if-statement-product-detail-html.jpg)
+
+14. ISSUE: The problem with displaying and counting the average rating for each product
+
+    SOLVED BY:
+
+    - Add signals in the Product app, which will fire whenewer the `Review` is created  for that product and register signal in apps.py
+    - modify the calculate_rating method
+    
+    BEFORE CHANGES:
+    ![calculate-ratings-before](wireframes/testing/calculate-rating-before.jpg)
+    
+    AFTER CHANGES:
+    - remove all() as the aggregation implies all items already
+    - remove the return as the method only calculates the average rating and sets it and don't return anything
+    ![calculate-ratings-after](wireframes/testing/calculate-ratings-after.png)
+
 
 ## Code Validation
 ---
