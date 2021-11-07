@@ -152,8 +152,20 @@ SOLVED BY:
     AFTER CHANGES:
     - remove all() as the aggregation implies all items already
     - remove the return as the method only calculates the average rating and sets it and don't return anything
+
     ![calculate-ratings-after](wireframes/testing/calculate-ratings-after.png)
 
+15. ERROR: While testing the sorting by: `Rating(low to high) Rating(hight to low) `future the error field appeared
+
+    ![sort-by-rating-error](wireframes/testing/sort-by-rating-error.png)
+
+    SOLVED BY:
+    - As the `rating` sortkey will only sort the non-null vs null items the new variable `subkey` is created  to sort products on the actual avg_rating.
+    - The desc will invert the sortkey so it was needed to put sortkey and the subkey into the id direction statement
+
+    ![main-nav-sort-by-rating](wireframes/testing/main-nav-sort-by-rating.png)
+    ![products-sort-rating-by](wireframes/testing/products-sort-rating-by.png)
+    ![views-sort-by-rating-solution](wireframes/testing/views-sort-by-rating-solution.jpg)
 
 ## Code Validation
 ---
