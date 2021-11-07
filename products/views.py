@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.db.models import Q
+from django.db.models import Q, Count
 from django.db.models.functions import Lower
 
 from profiles.models import UserProfile
@@ -24,6 +24,11 @@ def all_products(request):
         if 'sort' in request.GET:
             sortkey = request.GET['sort']
             sort = sortkey
+            subkey = None
+            if sortkey == 'rating':
+                products = products.annotate(rating_true=Count("avg_rating"))
+                sortkey = "rating_true"
+                subkey = "avg_rating"
             if sortkey == 'name':
                 sortkey = 'lower_name'
                 products = products.annotate(lower_name=Lower('name'))
@@ -33,7 +38,13 @@ def all_products(request):
                 direction = request.GET['direction']
                 if direction == 'desc':
                     sortkey = f'-{sortkey}'
-            products = products.order_by(sortkey)
+                    if subkey:
+                        subkey = f'-{subkey}'
+
+            if subkey:
+                products = products.order_by(sortkey, subkey)
+            else:
+                products = products.order_by(sortkey)
 
         if request.GET:
             if 'category' in request.GET:
