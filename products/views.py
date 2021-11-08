@@ -210,6 +210,7 @@ def edit_review(request, review_id):
         if form.is_valid():
             form.save()
             messages.success(request, 'Review edited successfully.')
+            return redirect(reverse('product_detail', args=[product_id]))
         else:
             messages.error(request, 'Oops something went wrong. \
                     Please check the form is valid and try again.')
