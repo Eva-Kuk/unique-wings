@@ -5,6 +5,7 @@ from .models import UserProfile
 from .forms import UserProfileForm
 
 from checkout.models import Order
+from products.models import Review
 
 
 @login_required
@@ -25,10 +26,18 @@ def profile(request):
         form = UserProfileForm(instance=profile)
     orders = profile.orders.all()
 
+    # acces to review history for users.
+    orders = profile.orders.all()
+
+    reviews = Review.objects.filter(
+        user=get_object_or_404(UserProfile, user=request.user),
+        )
+
     template = 'profiles/profile.html'
     context = {
         'form': form,
         'orders': orders,
+        'reviews': reviews,
         'on_profile_page': True
     }
 

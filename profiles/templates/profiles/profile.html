@@ -34,6 +34,7 @@
         </div>
         <div class="col-12 col-lg-6">
             <p class="text-muted">Order History</p>
+            <hr class="d-block d-lg-none">
             <div class="order-history table-responsive">
                 <table class="table table-sm table-borderless">
                     <thead>
@@ -72,8 +73,49 @@
                 </table>
             </div>
         </div>
+
+
+        <!-- Review History -->
+        
+        <div class="col-sm-12 col-lg-8">
+            <p class="text-muted">Review History</p>
+            <hr>
+            <div class="order-history table-responsive">
+                <table class="table table-sm table-borderless">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Review</th>
+                            <th>Date</th>
+                            <th>Rating</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    {% for review in reviews %}
+                    <tbody>
+                        <tr>
+                            <td>
+                                {{ review.product }}
+                            </td>
+                            <td>
+                                {{ review.comment }}
+                            </td>
+                            <td>                                                                          
+                                <p class="small">{{ review.date_posted }}</p>
+                            </td>
+                            <td>{{ review.rate }} <i class="fas fa-star"></i></td>
+                            <td class="d-flex align-items-start">
+                                <a href="{% url 'edit_review' review.id %}" class=" btn btn-teal btn-sm mx-1"> Edit</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
     </div>
 </div>
+
 {% endblock %}
 
 {% block postloadjs %}
