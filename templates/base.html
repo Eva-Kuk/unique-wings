@@ -91,13 +91,13 @@
             </li>
              <!-- Right Site Menu: My Account -->
             <li class="list-inline-item dropdown">
-                <a class="nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link" href="#" id="user-options-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div class="text-center">
                         <div><i class="fas fa-user fa-lg"></i></div>
                         <p class="my-0">My Account</p>
                     </div>
                 </a>
-                <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                <div class="dropdown-menu border-0" aria-labelledby="user-options-menu">
                     {% if request.user.is_authenticated %}
                         {% if request.user.is_superuser %}
                             <a href="{% url 'add_product' %}" class="dropdown-item" aria-label="product management">Product Management</a>
@@ -168,7 +168,7 @@
     {% include 'includes/footer.html' %}
   
     {% block postloadjs %}
-    <script type="text/javascript">
+    <script >
       $('.toast').toast('show');
     </script>
     {% endblock %}
