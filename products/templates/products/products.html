@@ -172,7 +172,7 @@
 {% block postloadjs %}
 {{ block.super }}
 <!--Back to top button functionality with JS-->
-<script type="text/javascript">
+<script>
     $('.btt-link').click(function (e) {
         window.scrollTo(0, 0)
     })
@@ -192,7 +192,7 @@
 </script>
 
 <!-- Sorting functionality with JS - CREDIT : Boutique Ado CI -->
-<script type="text/javascript">
+<script>
     $('#sort-selector').change(function () {
         var selector = $(this);
         var currentUrl = new URL(window.location);
