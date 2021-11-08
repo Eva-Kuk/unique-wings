@@ -456,14 +456,178 @@ The default image if image of the product is not available
 ## Features
 **Existing Features**
 
+- The site containd 7 separate custom apps. Each app has his own set of features.
+    - Home
+    - Products
+    - Bag
+    - Checkout
+    - Blog
+    - Contact
+    - Profile
+    - Toast Messages
+- There are 4 types of toast messages:
+    - Success
+    - Info
+    - Warning
+    - Error
 
+    They appear site wide when particular actions are performed by the user
+    They provide feedback on the action taken
+    Examples of toasts:
+    
+Responsiveness
+ - All templates of this project have been built with the responsive framework Bootstrap 4.6 I also used targeted media queries to make this project responsive on all screen sizes.
+
+NAVIGATION BAR
+![navigation bar](wireframes/readme/navigation-bar.png)
+This project has two navigation bars present on large screens and :
+1. Main navigation bar:
+- Logo  `Unique-wings` and butterfly navigates user to home page.
+- `Search bar` allows the user to search for products by name, word, category.
+- `Contact link` navigates the user to the contact form.
+- `My account` dropdown menu: Links to register or sign in forms when the user is logged out. When logged in as a registered user, the menu links to the user's profile and the logout page. When logged in as an admin, the dropdown links to the the product management, blog management pages as well as the profile app and the log out page.
+- `Shopping bag` navigate the user to the shopping bag. When the bag is empty it has the same color like the rest of items on the navigation bar, once an item is added to the bag it displays the price in pink color. When more items is added to the shopping bag it update by displaying the total price.
+2. All Products/Shoes/Bags/SpecialOffers/Blog navigation bar:
+- This navigation bar allows the user to check the shop collections by two different categories as dropdown menu: Shoes and Bags.
+- All Products dropdown menu sort products by Price, Rating, Categories and  All products.
+- Special offer dropdown menu filter products by New Arrivals, Special and Displays All Specials.
+- The user can also navigate to the blog section.
+3. Delivery banner informs user of the free delivery threshold
+On mobile and medium devices navigation bar the main bar is visible and also added the butterfly logo stay as a navigation to homepage and additional link Homepage addad to dropdownmenu
+
+![navigation bar mobile](wireframes/readme/navigation-bar-mobile.png)
+
+HOME PAGE
+
+- The home page presents a hero image composed of two shoes from the latest collection of various disigners, the store's motto and a button redirecting the visitor to the store products.
+
+![home page](wireframes/readme/home-page.png)
+
+FOOTER
+- The footer contains a list of usefull links : Blog, Contact Us, Social media links: Tweeter, Instagram and Facebook and also a neswletter subscription for visitors and users to subscribe for newsletter.
+- The users don't need to register to sign up for newsletter
+
+![footer](wireframes/readme/footer.png)
+
+
+SHOPPING BAG
+- Shopping Bag App allows the user to add/adjust/delete products to the shopping bag, view the Grand total price and details in the bag.
+- When a product is added, a preview of the shopping bag is displayed in a toast and the Grand total price/shipping price is updated.
+
+![home page](wireframes/readme/shopping-bag.png)
+
+CHECKOUT
+
+- Checkout feature allows the user to safely purchase the selection of item placed in the bag using to Stripe.
+- The user is able to purchase the products without being logged into account. If the payment succeeded the user will receive the confirmation email with the order details, confirmation page and the success toast message will display on the screen.  If logged in the shipping details will be filled from the details given in the user profile.
+- When user is logged in and if no details where given or a detail is changed the user has the possibility to check the Remember checkbox and update it in the profile app.
+- The credit card details section is linked to the payment platform Stripe for a secure payment procedure.
+- When the `Secure checkout` button is clicked it triggers a loading spinner that will remain while Stripe check the credit card details.
+- If the payment did not go through, the user is redirected to the checkout form and informed of the failed procedure.
+
+![checkout top](wireframes/readme/checkout1.png)
+
+![checkout bottom](wireframes/readme/checkout2.png)
+
+![checkout confirmation page](wireframes/readme/checkout-confirmation-page.png)
+
+PRODUCTS
+
+- Product app feature allows the user to see products and their details like: image/name/price/category/average rating  on the website.
+- The superuser can also have access to the EDIT/DELETE product buttons.
+- The user can browse products using a `Sort by...` box which can be filtered previously by different category and additionaly sorted by Price, Rating, Name and Category.
+- There is back to top button bringing the user back 
+
+![products page](wireframes/readme/products-page.png)
+
+PRODUCT DETAIL PAGE
+
+- Product detail page displays the product details (image, name, price, category, average rating, description, sizes if any). There is a quantity button to choose an amount of products user wants to purchase
+- The superuser can also have access to the EDIT/DELETE product buttons.
+- The review section is added when all visit users can read the reviews and ratings.
+
+![product-detail top](wireframes/readme/product-detail1.png)
+![product-detail bottom](wireframes/readme/product-detail.png)
+
+REVIEW/RATING
+- Only the registered and logged in users can add/edit/delete reviews and rating. By using `Add Review` button users are redirected to the review page which contain the the form to fill in. The average rating made by users is counted and displayed on each product details section.
+Once the form is filled and the user clicked the "Submit" button, they will be redirected to the product page.
+
+![reviews-form](wireframes/readme/reviews-form.png)
+
+PRODUCT MANAGEMENT
+- Product management is for superuser/admin and is visible on My account dropdown menu when admin is logged into account.
+- Only Admin has possibility to add product to the database by filling in the add product form. Images can be selected directly from the admin's computer. There is an option for url links as well.
+
+![product-management-top](wireframes/readme/product-management1.png)
+![product-management-bottom](wireframes/readme/product-management2.png)
+
+- Only Admin can edit/delete products in the database by navigating on the product site or directly on the product detail page by using Delete|Edit links which redirect the admin to products form to be edited. The alert toast displays the information about editing the product. 
+
+![product-management-top](wireframes/readme/product-management-edit1.png)
+![product-management-bottom](wireframes/readme/product-management-edit2.png)
+
+- When deleting the product admin is getting modal alert will appear.
+
+![modal-alert](wireframes/readme/modal-alert.png)
+
+REGISTER
+- The user can register to the website through the Register form page. Every account requests an email, email-confirmation, username, password and  password confirmation
+- A verification email is sent to the user's email to avoid fake users with no email. That email contains a security link that opens a "confirmed email" page on the website. The user is added to the database and is allowed to complete their profile on their new profile page.
+
+![sign up](wireframes/readme/sign-up.png)
+
+SIGN IN
+- If the user is already registered, they can sign in through the login page. The user needs their email adress or username as well as their password to connect. The user can also retrieve their password if forgotten.
+- Once the login form is approved, the user is redirected to their profile page containing their personal information.
+
+![sign in](wireframes/readme/sign-in.png)
+
+PROFILE
+- Profile Page is personal and displays for the registered and logged in user by using the link `Profile` on the `My account` dropdown menu. 
+- User is able to fill in and update the Delivery information, see the order history.
+- The order number links to the order confirmation page.
+
+![profile](wireframes/readme/profile.png)
+
+SIGN OUT
+- The user can log out by accessing the logout page through the main navigation bar and confirm to log out. The user is then redirected to the index page.
+
+![sign out](wireframes/readme/sign-out.png)
+
+CONTACT
+- Contact page allows the user to sent a query to the admin. The query is stored in the database and two emails are sent: one to the user to confirm that the message was received and one to the admin to signal the store owner of a new query.
+- The user does not need to be a registered user to send a query.
+![contact](wireframes/readme/contact.png)
+
+BLOG
+
+- Blog page is made to bring to users many interesting facts about fashion industry, designers, collections events going on. Only the admin can manage the blog posts, and users can sent emails if they would like to contribute to the blog post there is a link which redirect user to the contact form. 
+- Blog page can be accesed through the navigation menu.
+ ![blog](wireframes/readme/blog1.png)
+ ![blog](wireframes/readme/blog2.png)
+
+BLOG DETAIL PAGE
+
+- This page display the full blog post (title, author, date posted/last updated, content) and the comment section. All visitors can read the blog post and comments but only registered and logged users can Add/edit/delete comment.
+- The edit link redirects to an edit form while the delete link triggers a confirmation modal and permanently deletes the comment if "Delete" is clicked in the modal.
+![blog detail page1](wireframes/readme/blog-detail-page1.png)
+![blog detail page3](wireframes/readme/blog-detail-page2.png)
+![blog detail page3](wireframes/readme/blog-detail-page3.png)
+
+BLOG MANAGEMENT
+- Blog management is for superuser/admin and is visible on My account dropdown menu when admin is logged into account.
+- Only Admin has possibility to add blogpost by filling in the add blog post form. Images can be selected directly from the admin's computer. 
+- Only Admin is able to edit/delete blogpost on the blog page or by navigating to a blog detail page and click the Edit|Delete link
+- A confirmation modal is trigered and the comment if "Delete" is clicked in the modal comment is deleted permanently.
+![blog management](wireframes/readme/blog-management.png)
 
 **Features Left to Implement when skills develop**
-mozliwos kilku zdjec dla jednego produktu
-mozliwosc logowania przez gmail, facebook
-mozliwosc wysylania automatycznie maila welcome mail gdy user subscribe
-
-
+- The possibility to add several photos to a single product and blogpost
+- The possibility to login via social media (Google, Facebook, Instagram)
+-  The possibility for users to be able to specify different billing and delivery addresses
+- The possibility to add automatically send welcome mail when user subscribe and unsubscribe
+- The possibility for users to be able to create a wishlist.
 ---
 
 
