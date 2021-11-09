@@ -63,21 +63,29 @@
         </div>
     </div>
     <!-- Written Content -->
-    <div class="container">
+    <div class="row">
         <div class="col-12 mx-auto mb-5 mt-5 blog-content">
             <p class="">{{ blogpost.content }}</p>
         </div>
     </div>
-
+    <!-- Back to blog button -->
+    <div class="row mb-3">
+        <div class="col-12 d-flex justify-content-end">
+            <a href="{% url 'blog' %}" class="btn btn-outline-teal btn-size rounded-0">
+                <span class="icon"><i class="fas fa-chevron-left"></i></span>
+                <span class="text-uppercase">Back to blog</span>
+            </a>
+        </div>
+    </div>
     <!-- Blogpost Comment -->
-    <div class="container">
+    <div class="row">
         <div class="col-sm-12">
             <div class="bg-white rounded shadow p-4 mb-4">
                 <h3 class="mb-0 mb-2 logo-font comments-header text-center">Comments</h3>
                 <hr>
                 <div class="row">
                     <div class="col-sm-12 d-flex justify-content-end">
-                        <a href="{% url 'blog_comment' blogpost.id %}" type="button" class="btn btn-teal rounded-0">Add Comment</a>
+                        <a href="{% url 'blog_comment' blogpost.id %}" class="btn btn-teal rounded-0">Add Comment</a>
                     </div>
                     <div class="col-sm-12 pt-4 pb-4">
                         {% if blogpost.comments.count > 0 %}
@@ -95,9 +103,9 @@
                                     <!-- Delete Blog Comment Button Trigger Modal-->
                                     <button type="button" class="btn text-pink delete-btn mx-1 pb-1 p-0" data-toggle="modal" data-target="#deleteComment-{{ comment.id }}">Delete</button>      
                                     <span class="separator"> | </span> 
-                                        <a href="{% url 'edit_comment' comment.id %}" class="text-teal px-0 mx-1 edit-btn">Edit</i></a>
+                                        <a href="{% url 'edit_comment' comment.id %}" class="text-teal px-0 mx-1 edit-btn">Edit</a>
                                         </div>
-                                    {% endif %}
+                                    {% endif %}            
                                     <div>
                                         <hr class="hr-comment-color my-2">
                                         <p class="text-right">
@@ -137,4 +145,22 @@
         </div>
     </div>
 </main>
+
+<!-- Back To Top Button-->
+<div class="btt-btn btt-btn-color shadow-sm">
+    <a class="btt-link d-flex h-100">
+        <i class="fas fa-arrow-alt-circle-up text-white arrow-size mx-auto my-auto"></i>
+    </a>
+</div>
+
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+<!--Back to top button functionality with JS-->
+<script>
+    $('.btt-link').click(function (e) {
+        window.scrollTo(0, 0)
+    })
+</script>
 {% endblock %}
