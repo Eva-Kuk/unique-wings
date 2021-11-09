@@ -52,12 +52,10 @@
                 </div>
             </div>
             <hr class="w-50">
-        </section>
-        <section>
             <!-- Blog Container -->
             <div class="row">
                 {% for blogpost in blogposts %}
-                <div class="col-12 col-md-6 col-lg-3 mb-4">
+                <div class="col-12 col-md-6 col-lg-4 mb-4">
                     <!-- Image -->
                     <div class="card shadow text-center h-100 ">
 
@@ -118,8 +116,9 @@
                 </div>
                 {%  endfor %}
             </div>
+        </section>
     </div>
-    </section>
+    
     <!-- Back To Top Button-->
     <div class="btt-btn btt-btn-color shadow-sm">
         <a class="btt-link d-flex h-100">
@@ -131,7 +130,7 @@
 {% block postloadjs %}
 {{ block.super }}
 <!--Back to top button functionality with JS-->
-<script type="text/javascript">
+<script>
     $('.btt-link').click(function (e) {
         window.scrollTo(0, 0)
     })
