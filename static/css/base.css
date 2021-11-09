@@ -1,16 +1,21 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.3.6,
+* Autoprefixer: v10.3.1
+* Browsers: last 4 version
+*/
+
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Roboto:wght@300;400;500;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Princess+Sofia&display=swap');
 
 html {
     height: 100%;
 }
-
 body {
     height: calc(100vh - 164px);
     color: #14161F;
     font-family:'Roboto', sans-serif;
 }
-
 #content {
     min-height: calc(100vh - 164px);
 }
@@ -20,19 +25,16 @@ body {
 .accounts-container-min-width {
     min-height: 70vh;
 }
-
 /* -----------------heading----------------- */
 h4 {
     font-weight: 400;
     font-size:1.3rem;
 }
-
 .header-font {
     font-size: 2.4rem;
     font-weight: 600;
     letter-spacing: 4px;
 }
-
 /* -----------------navbar and main page----------------- */
 .bg-color-teal {
     background-color:#288FA4;
@@ -51,6 +53,8 @@ h4 {
     padding-right: 8px;
 }
 .nav-logo-link {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
     width: fit-content;
     font-size: 2rem;
     color: #F5F9F9;
@@ -114,7 +118,6 @@ h4 {
 .btn-search {
     background:#288FA4;
     color: #F5F9F9 !important;
-    
 }
 .btn-search:hover,
 .btn-search:active,
@@ -175,7 +178,8 @@ h4 {
     color: #dc3545;
 }
 .delete-btn:focus {
-    box-shadow: none;
+    -webkit-box-shadow: none;
+            box-shadow: none;
 }
 
 /* -----------------back to top button----------------- */
@@ -206,15 +210,33 @@ h4 {
 .arrow-size {
     font-size: 2rem;
 }
+input[name='q']::-webkit-input-placeholder {
+    color: #aab7c4;
+}
+input[name='q']::-moz-placeholder {
+    color: #aab7c4;
+}
+input[name='q']:-ms-input-placeholder {
+    color: #aab7c4;
+}
+input[name='q']::-ms-input-placeholder {
+    color: #aab7c4;
+}
 input[name='q']::placeholder {
     color: #aab7c4;
 }
 
 /* -----------------from Bulma----------------- */
 .icon {
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
     display: inline-flex;
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     height: 1.5rem;
     width: 1.5rem;
 }
@@ -260,16 +282,13 @@ input[name='q']::placeholder {
     border-radius: 100%;
     background-color: #F5F9F9;
 }
-
 .footer .social-icons {
     text-align: center;
 }
-
 .social-icons li {
     display: inline-block;
     margin-bottom: 4px;
 }
-
 .social-icons a {
     background-color: #F5F9F9;
     color: #288FA4;
@@ -281,20 +300,19 @@ input[name='q']::placeholder {
     text-align: center;
     margin-right: 8px;
     border-radius: 100%;
+    -webkit-transition: all .2s linear;
+    -o-transition: all .2s linear;
     transition: all .2s linear;
 }
-
 .social-icons a:active,
 .social-icons a:focus,
 .social-icons a:hover {
     color: #F5F9F9;
     background-color: #14161F;
 }
-
 .newsletter-style {
     letter-spacing: 1px;
 }
-
 /* -----------------Toasts----------------- */
 .message-container {
     position: fixed;
@@ -313,7 +331,6 @@ input[name='q']::placeholder {
     font-family: 'Lato', sans-serif;
     text-transform: uppercase;
 }
-
 /* from CSS-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */
 .arrow-up {
     width: 0; 
@@ -325,7 +342,6 @@ input[name='q']::placeholder {
     top: -10px;
     right: 36px;
 }
-
 /* Convenience classes - colors copied from Bootstrap */
 .arrow-primary {
     border-bottom-color: #007bff !important;
@@ -369,6 +385,18 @@ input[name='q']::placeholder {
 .allauth-form-inner-content label:not([for='id_remember']) {
     display: none;
 }
+.allauth-form-inner-content input::-webkit-input-placeholder {
+    color: #aab7c4;
+}
+.allauth-form-inner-content input::-moz-placeholder {
+    color: #aab7c4;
+}
+.allauth-form-inner-content input:-ms-input-placeholder {
+    color: #aab7c4;
+}
+.allauth-form-inner-content input::-ms-input-placeholder {
+    color: #aab7c4;
+}
 .allauth-form-inner-content input::placeholder {
     color: #aab7c4;
 }
@@ -380,10 +408,14 @@ input[name='q']::placeholder {
     color: #fff;
     text-align: center;
     vertical-align: middle;
+   
     -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+   
+       -moz-user-select: none;
+   
+        -ms-user-select: none;
+   
+            user-select: none;
     background-color: #000;
     border: 1px solid #000;
     padding: .375rem .75rem;
@@ -392,13 +424,17 @@ input[name='q']::placeholder {
     border-radius: 0;
 
     /* standard bootstrap btn transitions */
+    -webkit-transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+    -o-transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
 }
 .allauth-form-inner-content button:hover,
 .allauth-form-inner-content input[type='submit']:hover {	
 	color: #fff;
     background-color: #222;
-    border-color: #222;
+    border-color: rgba(34, 34, 34, 0);
 }
 .allauth-form-inner-content a {
 	color: #17a2b8; /* text-info */
@@ -441,7 +477,7 @@ input[name='q']::placeholder {
 }
 .custom-checkbox .custom-control-input:checked~.custom-control-label::before {
     background-color: #F05193;
-    border-color: #F05193;
+    border-color: #fafafa;
     border-radius: 0;
 }
 
@@ -449,14 +485,17 @@ input[name='q']::placeholder {
 .image-wrap {
 	height:35vh;
 	min-height: 25vh;
-	object-fit: cover;
+	-o-object-fit: cover;
+	   object-fit: cover;
 }
 .btf-logo-blog {
     width: 37px;
     padding-right: 2px;
 }
 .btf-logo-blog-reverse {
-    transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+        -ms-transform: scaleX(-1);
+            transform: scaleX(-1);
 }
 .blog-contact-link {
     color:#F05193 ;
@@ -470,7 +509,8 @@ input[name='q']::placeholder {
 }
 .blog-detail-img {
     height: 100%;
-	object-fit: cover;
+	-o-object-fit: cover;
+	   object-fit: cover;
 	width: 100%;
 }
 .blog-date,
@@ -481,7 +521,9 @@ input[name='q']::placeholder {
     font-family: 'Lato', sans-serif;
 }
 .comment-user{
-    justify-content: space-between !important;
+    -webkit-box-pack: justify !important;
+        -ms-flex-pack: justify !important;
+            justify-content: space-between !important;
 }
 .btf-logo-blog-comment {
     width: 37px;
@@ -497,17 +539,28 @@ input[name='q']::placeholder {
 }
 .separator {
     font-size: 1.4rem;
-    font-style: 600;
 }
 .card-fotter-alignment {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
 }
 .card-body-aligment {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
 }
 .input-form-style {
     border: 1px solid ;
@@ -531,9 +584,6 @@ input[name='q']::placeholder {
 .text-error {
     font-size: 2rem;
 }
-
-
-
 
 /* ----------------- Media Queries ----------------- */
 
@@ -656,7 +706,6 @@ input[name='q']::placeholder {
     .text-error {
         font-size: 1.1rem;
     }
-
 }
 
 @media (max-width: 1075px){
@@ -668,6 +717,8 @@ input[name='q']::placeholder {
 @media (max-width: 1024px){
     .home-images{
         min-height: 51vh;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
     }  
 }
@@ -681,6 +732,3 @@ input[name='q']::placeholder {
         font-size: .8rem !important;
     }
 }
-
-
-
