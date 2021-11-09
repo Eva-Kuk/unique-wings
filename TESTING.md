@@ -167,7 +167,124 @@ SOLVED BY:
     ![products-sort-rating-by](wireframes/testing/products-sort-rating-by.png)
     ![views-sort-by-rating-solution](wireframes/testing/views-sort-by-rating-solution.jpg)
 
+16. ERROR: While creating an order history for the user on his profile page when user is redirected to the edit form and submit the form the Name Error appeared 
+
+    ![review-history-edit-error](wireframes/testing/review-history-edit-error.png)
+
+    SOLVED BY: modyfying the reverse product_id argument
+
+   ![review-history-edit-solution](wireframes/testing/review-history-edit-solution.jpg)
+
 ## Code Validation
+
+### HTML Validator
+1. Used [W3C Markup Validation](https://validator.w3.org/) Service HTML to validate my HTML code for all pages. Because the code is made up of Jinja templates, had to check on the site by right clicking each page, selecting View Page Source and running that generated code through the validator.
+
+
+| HTML Page                                           |                      Warnings / Errors                       | Fixed |
+| :-------------------------------------------------- | :----------------------------------------------------------: | ----- |
+| home/base.html/main-nav.html/mobile-top-header.html | no space between attributes(space added), end tag a violets nesting rules(add </div>), Cannot recover after last error (add </div>), the type attribute is unnecessary for JS (removed) | PASS* |
+| /accounts/login/                                    |                             None                             | PASS |
+| /accounts/logout/                                   |                             None                             | PASS |
+| /accounts/signup/                                   |     None       | PASS  |
+| /products/                                          |      The type attribute is unnecessary for JS (removed)      | PASS |
+| /products/1/                                        |      The type attribute is unnecessary for JS (removed)      | PASS  |
+| /products/add/                                      |      The type attribute is unnecessary for JS (removed)      | PASS |
+| /products/edit/1                                    | The type attribute is unnecessary for JS (removed), missing alt attribute (added `alt="{{ widget.name }})`, element <p> not allowed as child of <strong> element (elements swapped) | PASS |
+| /reviews/add_review/1/                              |                             None                             | PASS |
+| /reviews/edit/review/1/                             |                             None                             | PASS |
+| /profile/                                           |      The type attribute is unnecessary for JS (removed)      | PASS |
+| /profile/order_history/                             |                             None                             | PASS |
+| /blog/                                              | Section lacks heading. Consider using `h2`  `h6` elements(fixed section removed), The type attribute is unnecessary for JS (removed)' | PASS  |
+| /blog/1/                                            | Bad value `button` for attribute `type` on element `a` element (removed) | PASS |
+| /blog/edit_blogpost/1/                              | missing alt attribute (added `alt="{{ widget.name }})`, element <p> not allowed as child of <strong> (elements swapped) element ,  | PASS  |
+| /blog/comment/1/                                    |                             None                             | PASS |
+| /blog/edit_comment/2/                               |                             None                             | PASS |
+| /bag/                                               | Attribute`w-75` not allowed on element `hr` at this point., The type attribute is unnecessary for JS (removed) | PASS  |
+| /checkout/                                          | Empty heading for loading-spinner, Duplicate ID div_id_email`, Duplicate ID `id_email` | PASS  |
+| /checkout.checkout_success/                         |                             None                             | PASS |
+| /contact/                                           | Attribute`w-75` not allowed on element `hr` at this point.(`<class="w-75">`) Unclosed element `div` (closed div) | PASS  |
+| /newsletter_unsubscribe/                            | Attribute`w-75` not allowed on element `hr` at this point (`<class="w-75">`), | PASS  |
+
+
+Home Page (base.html)
+- ERRORS
+    - FIXED: 
+    - make the space between attributes
+    - and add the closing `</div>` tag
+    - remove `type="text/javascript"` following the [webmaserworld tip](https://www.webmasterworld.com/javascript/4879097.htm)
+    - change the `id="user-options` to `id="user-options-menu` on the base template, line 94, Right Site Menu: My Account 
+
+ ![home-html-validator](wireframes/testing/home-html-validator.png)
+
+![home-html-validator2](wireframes/testing/home-html-validator2.png)
+
+Contact
+
+ - ERRORS
+
+![contact-html-validator-error](wireframes/testing/contact-html-validator-error.png)
+
+    - FIXED:
+    - add closing div tag `</div>`
+    - add class to `<hr>` element `<class="w-75">`
+ 
+Add product / Edit products
+
+ - ERRORS:
+
+  ![edit-product-html-validator-errors](wireframes/testing/edit-product-html-validator-errors.png)
+
+- FIXED:
+    - java script `type` attribute removed
+    - swap the `<span>` , `<p>` tags in custom_clearable_file_input.htm places in products/templates/custom_widget_templates
+    - added `alt="{{ widget.name }}` for images set dynamically in custom_clearable_file_input.htm file
+
+Blog edit comment
+- ERRORS
+
+![blog-widget-alt-html-validator-error](wireframes/testing/blog-widget-alt-html-validator-error.png)
+
+- added `alt="{{ widget.name }}` for images set dynamically in custom_clearable_file_input.htm file
+- swap the `<span>` , `<p>` tags in custom_clearable_file_input.htm places in products/templates/custom_widget_templates
+
+### CSS Jigsaw Validator
+Used [ jigsaw W3C CSS Validation Service](jigsaw W3C CSS Validation Service) to validate my CSS code, came out clean with no errors with 48 warnings about vendor extension
+![css-validator](wireframes/testing/css-validator.png)
+
+### script.js testing
+used [jshint](https://jshint.com/) to validate javascript code for script.js. 
+
+
+profiles>static>js>countryfield.js
+
+![countryfield-jshint-validator](wireframes/testing/countryfield-jshint-validator.png)
+
+FIXED:
+    - semicolon removed from line 16
+    - added /*jshint esversion: 6 */
+
+checkout > static > js > stripe_elements.js 
+
+    - ERROR: mising semicolon lline 117
+    - FIXED: semicolon added
+
+----
+blog.html, 
+blog_detail.html, 
+bag.html (line 132, 133, 142, 156 )
+
+![js](wireframes/testing/js.png)
+
+![js-jshint-validator](wireframes/testing/js-jshint-validator.png)
+
+FIXED: 
+- semicolons added 
+
+### Python PEP8
+Used online [PEP8](http://pep8online.com/). The entire code for every py file from each application was placed in the PEP8 tool and passed the test successfully.
+ - bag app 
+
 ---
 
 ## Testing User stories
