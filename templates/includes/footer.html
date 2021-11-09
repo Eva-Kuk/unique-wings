@@ -14,13 +14,13 @@
             </p>
           </div>
           <!-- Centre: newsletter form -->
-          <div class="col-12 col-md-4 mx-auto  mb-3">
+          <div class="col-12 col-md-4 mx-auto mb-3">
             <h4><span class="text-uppercase footer-headers"><strong>Newsletter</strong></span></h4>
             <p class="footer-item">Sign up to our monthly newsletter to get the exclusive on new arrivals, special offers </p>
               <form method="POST" action="{% url 'newsletter_signup' %}" id="newsletter_form" class="mb-3">
                 <div class="form-group mx-auto mb-1"> 
                   {% csrf_token %}
-                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                    <input type="hidden" name="redirect_url" value="{{ request.path }}"></input>
                   {{ newsletter_form|crispy }}
                 </div>
                 <button type="submit" class="btn btn-sm btn-white rounded-0 text-center">Sign Up</button>
