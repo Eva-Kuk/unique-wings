@@ -282,8 +282,60 @@ FIXED:
 - semicolons added 
 
 ### Python PEP8
-Used online [PEP8](http://pep8online.com/). The entire code for every py file from each application was placed in the PEP8 tool and passed the test successfully.
- - bag app 
+Used online [PEP8](http://pep8online.com/). The entire code for every file from each application was placed in the PEP8 tool, all the errors was fixed and on the end code passed the test successfully.
+| app          | python file        | PASS | ERRORS/WARNINGS                                              |
+| ------------ | ------------------ | ---- | ------------------------------------------------------------ |
+| bag          | `apps.py`            | PASS |                                                              |
+|              | `contexts.py`        | PASS |                                                              |
+|              |` urls.py `           | PASS |                                                              |
+|              | `views.py`           | PASS | E501 line to long (errors - 6) - added parenthesis, f'' break into lines |
+| blog         | `admin.py`           | PASS |                                                              |
+|              | `apps.py `           | PASS |                                                              |
+|              | `forms.py `          | PASS |                                                              |
+|              | `urls.py `           | PASS |                                                              |
+|              | `views.py`           | PASS |                                                              |
+|              | `widgets.py`         | PASS | E501 line to long (error -1) -added parenthesis, f'' break into lines |
+|              | `models.py`          |      |                                                              |
+| checkout     | `admin.py`           | PASS |                                                              |
+|              | `apps.py `           | PASS |                                                              |
+|              | `forms.py`           | PASS |                                                              |
+|              | `urls.py`            | PASS |                                                              |
+|              | `views.py`           | PASS | E501 line to long (errors-2) -added quotations mark and break line, added added parenthesis |
+|              | `widgets.py`         | PASS |                                                              |
+|              | `models.py`          | PASS | E501 line to long (errors-2) -added parenthesis, f'' break into lines  changed onto W503 - warning line break before `binary operator` |
+|              | `signals.py `        | PASS | E501 line to long (errors-5) -added parenthesis, f'' break into lines |
+|              | `webhook_handler.py` | PASS | E501 line to long (error-1) - move to another line           |
+|              | `webhooks.py`        | PASS |                                                              |
+| contact      | `admin.py  `         | PASS |                                                              |
+|              | `apps.py `           | PASS |                                                              |
+|              | `contexts.py`        | PASS |                                                              |
+|              | `forms.py `          | PASS |                                                              |
+|              | `models.py `         | PASS |                                                              |
+|              | `urls.py `           | PASS |                                                              |
+|              |` views.py`           | PASS |                                                              |
+| home         | `apps.py`            | PASS |                                                              |
+|              | `urls.py`            | PASS |                                                              |
+|              | `views.py `          | PASS |                                                              |
+| products     | `admin.py`           | PASS |                                                              |
+|              | `apps.py `           | PASS |                                                              |
+|              | `forms.py`           | PASS |                                                              |
+|              |` models.py`          | PASS |                                                              |
+|              |` signals.py `        | PASS |                                                              |
+|              | `urls.py`            | PASS |                                                              |
+|              | `views.py`           | PASS |                                                              |
+|              | `widgets.py`         | PASS | E501 line to long (error-1) added parenthesis, break into lines |
+| profiles     | `apps.py`            | PASS |                                                              |
+|              | `forms.py`           | PASS | E501 line to long (error-1) added parenthesis, break into lines |
+|              |` models.py`          | PASS |                                                              |
+|              | `urls.py`            | PASS |                                                              |
+|              | `views.py`           | PASS |                                                              |
+| unique_wings | `settings.py`        |      | E501 line to long (error-4) unfixable                        |
+
+I also ran the python test command in the terminal to double check over my Python code. It all passed with no issues.
+
+`python3 manage.py test`
+![gitpod test](wireframes/testing/gitpod-test.png)
+
 
 ---
 
