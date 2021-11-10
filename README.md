@@ -464,36 +464,41 @@ The default image if image of the product is not available
     - Blog
     - Contact
     - Profile
-    - Toast Messages
+  
 - There are 4 types of toast messages:
     - Success
     - Info
     - Warning
     - Error
 
-    They appear site wide when particular actions are performed by the user
+    They appear the right site wide when particular actions are performed by the user
     They provide feedback on the action taken
-    Examples of toasts:
-    
-Responsiveness
- - All templates of this project have been built with the responsive framework Bootstrap 4.6 I also used targeted media queries to make this project responsive on all screen sizes.
+    Toast examples:
+    ![success-toast-update](wireframes/readme/success-toast-update.png)
+    ![toast-success](wireframes/readme/toast-success.png)
+    ![toast-alert](wireframes/readme/toast-alert.png)
+    ![toast-alert](wireframes/readme/toast-error.png)
+
+### Responsiveness
+ - All templates of this project have been built with the responsive framework Bootstrap 4.6 and also used targeted media queries to make this project responsive on all screen sizes.
 
 NAVIGATION BAR
 ![navigation bar](wireframes/readme/navigation-bar.png)
-This project has two navigation bars present on large screens and :
+
+This project has two navigation bars present on large screens and folded into the dropdownlist on small devices:
 1. Main navigation bar:
 - Logo  `Unique-wings` and butterfly navigates user to home page.
-- `Search bar` allows the user to search for products by name, word, category.
-- `Contact link` navigates the user to the contact form.
-- `My account` dropdown menu: Links to register or sign in forms when the user is logged out. When logged in as a registered user, the menu links to the user's profile and the logout page. When logged in as an admin, the dropdown links to the the product management, blog management pages as well as the profile app and the log out page.
-- `Shopping bag` navigate the user to the shopping bag. When the bag is empty it has the same color like the rest of items on the navigation bar, once an item is added to the bag it displays the price in pink color. When more items is added to the shopping bag it update by displaying the total price.
-2. All Products/Shoes/Bags/SpecialOffers/Blog navigation bar:
-- This navigation bar allows the user to check the shop collections by two different categories as dropdown menu: Shoes and Bags.
-- All Products dropdown menu sort products by Price, Rating, Categories and  All products.
-- Special offer dropdown menu filter products by New Arrivals, Special and Displays All Specials.
+- `Search bar` allows any user using keywords to search for products by name, word, category.
+- `Contact` link navigates the user to the contact form.
+- `My account` dropdown menu: Links to register or sign in forms when the user is logged out. User is able to logg in as a registered user and is able to access the menu links: the user's profile and the logout page. When logged in as an admin, the user has access to the dropdown links: the product management, blog management pages as well as the profile app and the log out page.
+- `Shopping bag` navigate the user to the shopping bag. When the bag is empty it has the same color like the rest of items on the navigation bar, once an item is added to the bag it displays the price in pink color. When more items is added to the shopping bag is updated and displays the total price.
+2. Navigation bar: All Products/Shoes/Bags/SpecialOffers/Blog:
+- This navigation bar allows the user to check the shop collections by two different categories as  Shoes and Bags.
+- `All Products` dropdown menu sort all products by Price, Rating, Categories and  All products.
+- `Special offer` dropdown menu filter products by New Arrivals, Special and Displays All Specials.
 - The user can also navigate to the blog section.
-3. Delivery banner informs user of the free delivery threshold
-On mobile and medium devices navigation bar the main bar is visible and also added the butterfly logo stay as a navigation to homepage and additional link Homepage addad to dropdownmenu
+3. On top of navigation bar there is `Free Delivery banner` which informs user of the free delivery threshold and is counted when the user prosseed to the secure checkout.
+- On mobile and medium devices navigation bar is hidden behind the hamburger sign and the `Search` icon, `My Account`, `Shopping bag` visible on the main navbar. The butterfly logo is added which navigated user to the home page as well as a Homepage link addad to dropdownmenu.
 
 ![navigation bar mobile](wireframes/readme/navigation-bar-mobile.png)
 
@@ -504,8 +509,8 @@ HOME PAGE
 ![home page](wireframes/readme/home-page.png)
 
 FOOTER
-- The footer contains a list of usefull links : Blog, Contact Us, Social media links: Tweeter, Instagram and Facebook and also a neswletter subscription for visitors and users to subscribe for newsletter.
-- The users don't need to register to sign up for newsletter
+- The footer contains a list of usefull links: Blog, Contact Us, Social media links: Tweeter, Instagram and Facebook and also a neswletter subscription for visitors and users to subscribe for newsletter.
+- The users don't need to be register to sign up for newsletter. If user desides to unsubscribe from a Newsletter, there is a link which redirects the user to the `Unsubscribe Newsletter` form. The form provides an email to fill in and the user will be removed from the database. The toast message will be displayed.
 
 ![footer](wireframes/readme/footer.png)
 
@@ -513,16 +518,13 @@ FOOTER
 SHOPPING BAG
 - Shopping Bag App allows the user to add/adjust/delete products to the shopping bag, view the Grand total price and details in the bag.
 - When a product is added, a preview of the shopping bag is displayed in a toast and the Grand total price/shipping price is updated.
-
-![home page](wireframes/readme/shopping-bag.png)
+- There is free delivery counter that calculates how much user need to spend to get the free delivery.
 
 CHECKOUT
-
-- Checkout feature allows the user to safely purchase the selection of item placed in the bag using to Stripe.
-- The user is able to purchase the products without being logged into account. If the payment succeeded the user will receive the confirmation email with the order details, confirmation page and the success toast message will display on the screen.  If logged in the shipping details will be filled from the details given in the user profile.
-- When user is logged in and if no details where given or a detail is changed the user has the possibility to check the Remember checkbox and update it in the profile app.
+- Checkout App allows the user to safely purchase the selection of item placed in the bag using to Stripe system.
+- Any user is able to purchase the products without being registered and logged into account. If the payment succeeded the user will receive the confirmation email with the order details, confirmation page and the success toast message will display on the screen.  If logged in the shipping details will be filled from the details given in the user profile.
 - The credit card details section is linked to the payment platform Stripe for a secure payment procedure.
-- When the `Secure checkout` button is clicked it triggers a loading spinner that will remain while Stripe check the credit card details.
+- When the `Complete Order` button is clicked it triggers a loading spinner that will remain while Stripe check the credit card details.
 - If the payment did not go through, the user is redirected to the checkout form and informed of the failed procedure.
 
 ![checkout top](wireframes/readme/checkout1.png)
@@ -532,20 +534,21 @@ CHECKOUT
 ![checkout confirmation page](wireframes/readme/checkout-confirmation-page.png)
 
 PRODUCTS
-
-- Product app feature allows the user to see products and their details like: image/name/price/category/average rating  on the website.
-- The superuser can also have access to the EDIT/DELETE product buttons.
-- The user can browse products using a `Sort by...` box which can be filtered previously by different category and additionaly sorted by Price, Rating, Name and Category.
-- There is back to top button bringing the user back 
+- Product App allows the user to see products with basic product information: image, name, price, category, average rating.
+- Clicking the image takes the user to the specific product detail page.
+- Only the superuser (Admin) can have access to the EDIT/DELETE product pills and is able to edit or delete products that already exist in the database.
+- Any user can browse products using a `Sort by...` box which sort actual display for eg. Heels by Price, Rating, Name and Category.
+- There is back to top button at the bottom right of the screen brins the user back to top of the page. 
 
 ![products page](wireframes/readme/products-page.png)
 
 PRODUCT DETAIL PAGE
-
-- Product detail page displays the product details (image, name, price, category, average rating, description, sizes if any). There is a quantity button to choose an amount of products user wants to purchase
-- The superuser can also have access to the EDIT/DELETE product buttons.
-- The review section is added when all visit users can read the reviews and ratings.
-
+- Product detail page displays the product details (image, name, price, category, average rating, description, sizes for shoes). 
+- The quantity button is to choose an amount of products user wants to purchase.
+- Only the superuser (Admin) can have access to the EDIT/DELETE product pills and edit or delete products that already exist in the database.
+- The review section is added on the bottom of each product. All visitors can read the reviews and ratings.
+- The owners of the review when logged in will have an access to the EDIT/DELETE review pills and be able to modify or delete their review. 
+- All the ratings are counted and average rating is displayed on the product details section. If there is no reviews then No rating information is displayed.
 ![product-detail top](wireframes/readme/product-detail1.png)
 ![product-detail bottom](wireframes/readme/product-detail.png)
 
@@ -556,35 +559,35 @@ Once the form is filled and the user clicked the "Submit" button, they will be r
 ![reviews-form](wireframes/readme/reviews-form.png)
 
 PRODUCT MANAGEMENT
-- Product management is for superuser/admin and is visible on My account dropdown menu when admin is logged into account.
-- Only Admin has possibility to add product to the database by filling in the add product form. Images can be selected directly from the admin's computer. There is an option for url links as well.
+- Product management is for superuser/admin and is visible on `My account` dropdown menu when admin is logged into account.
+- Only Superuser (Admin) has possibility to add product to the database by filling in the add product form. Images can be selected directly from the admin's computer. There is an option for url links as well.
 
 ![product-management-top](wireframes/readme/product-management1.png)
 ![product-management-bottom](wireframes/readme/product-management2.png)
 
-- Only Admin can edit/delete products in the database by navigating on the product site or directly on the product detail page by using Delete|Edit links which redirect the admin to products form to be edited. The alert toast displays the information about editing the product. 
+- Only Admin can edit/delete products in the database on the product site or on the product detail page by using Delete|Edit product pills which redirect the admin to products form to be edited. The alert toast displays the information about editing the product and success toast for edited. 
 
 ![product-management-top](wireframes/readme/product-management-edit1.png)
 ![product-management-bottom](wireframes/readme/product-management-edit2.png)
 
-- When deleting the product admin is getting modal alert will appear.
+- When deleting the product admin is getting modal alert will appear on the middle of the screen.
 
 ![modal-alert](wireframes/readme/modal-alert.png)
 
 REGISTER
-- The user can register to the website through the Register form page. Every account requests an email, email-confirmation, username, password and  password confirmation
+- The site visitor can add their details to open an account on the site through the Register form page. Every account requests an email, email-confirmation, username, password and  password confirmation
 - A verification email is sent to the user's email to avoid fake users with no email. That email contains a security link that opens a "confirmed email" page on the website. The user is added to the database and is allowed to complete their profile on their new profile page.
 
 ![sign up](wireframes/readme/sign-up.png)
 
-SIGN IN
-- If the user is already registered, they can sign in through the login page. The user needs their email adress or username as well as their password to connect. The user can also retrieve their password if forgotten.
+LOGIN
+- The site visitor can login to the site if they are an existing user through the login page. The user needs their email adress or username as well as their password to connect. The user can also retrieve their password if forgotten.
 - Once the login form is approved, the user is redirected to their profile page containing their personal information.
 
 ![sign in](wireframes/readme/sign-in.png)
 
 PROFILE
-- Profile Page is personal and displays for the registered and logged in user by using the link `Profile` on the `My account` dropdown menu. 
+- Profile Page is personal and displays for the registered and logged in user by using the link `My Profile` on the `My account` dropdown menu. 
 - User is able to fill in and update the Delivery information, see the order history.
 - The order number links to the order confirmation page.
 
@@ -596,8 +599,9 @@ SIGN OUT
 ![sign out](wireframes/readme/sign-out.png)
 
 CONTACT
-- Contact page allows the user to sent a query to the admin. The query is stored in the database and two emails are sent: one to the user to confirm that the message was received and one to the admin to signal the store owner of a new query.
-- The user does not need to be a registered user to send a query.
+- Contact page allows the user to sent a query to the admin. User has possibility to chose the query from the list General Query,Delivery Query, Return Query, Blog Contribution, Complaint.
+The query is stored in the database and two emails are sent: one to the user to confirm that the message was received and one to the admin to signal the store owner of a new query.
+- Any User can contact the site owner by email.
 ![contact](wireframes/readme/contact.png)
 
 BLOG
@@ -609,7 +613,7 @@ BLOG
 
 BLOG DETAIL PAGE
 
-- This page display the full blog post (title, author, date posted/last updated, content) and the comment section. All visitors can read the blog post and comments but only registered and logged users can Add/edit/delete comment.
+- Blog detail page display the full blog post (title, author, date posted/last updated, content) and the comment section. All visitors can read the blog post and comments but only registered and logged users can add/edit/delete comment.
 - The edit link redirects to an edit form while the delete link triggers a confirmation modal and permanently deletes the comment if "Delete" is clicked in the modal.
 ![blog detail page1](wireframes/readme/blog-detail-page1.png)
 ![blog detail page3](wireframes/readme/blog-detail-page2.png)
@@ -618,18 +622,23 @@ BLOG DETAIL PAGE
 BLOG MANAGEMENT
 - Blog management is for superuser/admin and is visible on My account dropdown menu when admin is logged into account.
 - Only Admin has possibility to add blogpost by filling in the add blog post form. Images can be selected directly from the admin's computer. 
-- Only Admin is able to edit/delete blogpost on the blog page or by navigating to a blog detail page and click the Edit|Delete link
+- Only Admin is able to edit/delete blogpost on the blog page or by navigating to a blog detail page and click the Edit|Delete pills
 - A confirmation modal is trigered and the comment if "Delete" is clicked in the modal comment is deleted permanently.
 ![blog management](wireframes/readme/blog-management.png)
 
 **Features Left to Implement when skills develop**
-- The possibility to add several photos to a single product and blogpost
-- The possibility to login via social media (Google, Facebook, Instagram)
--  The possibility for users to be able to specify different billing and delivery addresses
-- The possibility to add automatically send welcome mail when user subscribe and unsubscribe
-- The possibility for users to be able to create a wishlist.
+I would like to add the followung features
+- **Verified Purchases:** The ppossibility to allow only customers who have bought an item to be able to leave a review for it.
+- **Multiple imaged:** The possibility to add several photos to a single product and blogpost.
+- **Social media login:** The possibility to login via social media (Google, Facebook, Instagram).
+-  **Different billing addres:** The possibility for users to be able to specify different billing and delivery addresses.
+- **Paypal:** The possibility for users to pay for their items using Paypal.
+- **Apple Pay** - The possibility fot users to be able to pay for their items using Aple Pay.
+- **Wishlist:** The possibility for users to be able to create a wishlist.
 ---
-
+Accessibility:
+Alt Tags:
+In order to ensure that all images are accessible for those using a screen reader, I have ensured that all images used throughout the site include alt tags.
 
 
 ## Technologies Used
@@ -710,6 +719,20 @@ Red Ketchup
 - [Create A Simple Blog With Python and Django - Codemy](https://www.youtube.com/watch?v=B40bteAMM_M) - tutorial from Codemy about making a blog
 - [Contact Pages part1 in Django - Codemy ](https://www.youtube.com/watch?v=w4ilq6Zk-08) - tutorial from Codemy about making a contact form
 - [Contact Pages part2 in Django - Codemy ](https://www.youtube.com/watch?v=xNqnHmXIuzU) - tutorial from Codemy about sending email with django
+- [cloudinary](https://cloudinary.com/) - Cloudinary is being used to access the image through cloud and to edit and use the images.
+- [Code Institute Course Content]() - Main source of fundamental knowledge.
+- [Responsinator](https://www.responsinator.com/) - Responsive website mock up image generator.
+- [Am I Responsive](http://ami.responsivedesign.is/) - Used to check how the website will look on different devices.
+- [Autoprefixer](https://autoprefixer.github.io/) - Used to add vendor prefixes.
+- [Google chrome developer tools](https://developer.chrome.com/docs/devtools/) - Used to check page elements, help debug issues with the site layout and test different CSS styles and console JS.
+- [w3schools](https://www.w3schools.com/) -  Used as a general source of knowledge.
+- [StackOverflow](https://stackoverflow.com/) -  Used as a general source of knowledge.
+- [Colors](https://coolors.co/738290-a1b5d8-fffcf7-e4f0d0-c2d8b9) - Color schemes generator.
+- [RedKetchup](https://redketchup.io/) - Used to convert an image into a favicon and edit icons for used technologies.
+- [Grammarly](https://www.grammarly.com/) - Used to help with grammar check.
+- [youtube](https://www.youtube.com/) - Used for general resources.
+
+
 ---
 
 ## Testing
@@ -1050,12 +1073,6 @@ ALLOWED_HOSTS = ['unique-wings.herokuapp.com', 'localhost']
 
 ## Credits
 
-- [IntegrityError in Django](https://stackoverflow.com/questions/18243149/integrityerror-in-django) - Stack overflow solutions ideas how to solve the integrity error in Django
-- [IntegrityError at /posts/12/new-comment/ NOT NULL constraint failed](https://stackoverflow.com/questions/64378553/ integrityerror-at-posts-12-new-comment-not-null-constraint-failed-posts-comme) - Stack overflow solutions ideas how to solve the integrity error in Django
-- [Django Tutorial - Create Newsletters App](https://www.youtube.com/watch?v=TBVsILIt4HM) - Django Tutorial - Create Newsletters App from Master Code Online
-- [Django Tutorial - Newsletter Sign Up View](https://www.youtube.com/watch?v=Hy94jBBgvpk) - Django Tutorial - Newsletter Sign Up View from Master Code Online
-- [Django Tutorial - Newsletter Unsubscribe View](https://www.youtube.com/watch?v=q2B1VpjDjMQ) - Django Tutorial - Newsletter Unsubscribe View from Master Code Online
-
 **Media**
 
 Sophia Webster shoes and bags
@@ -1116,7 +1133,7 @@ Other designers shoes and bags
 - [Turquoise mini Kensington Hand Bag](https://www.zalando.ie/kurt-geiger-london-fabric-mini-kensington-across-body-bag-turquoise-ku051h08n-l11.html?size=One%20Size&allophones=0&wmc=SEM353_NB_GO._9357456472_1445614975_128503437563.&opc=2211&mpp=google%7cv1%7c%7cpla-422602954492%7c%7c1007850%7c%7cg%7cc%7c%7c555699722328%7c%7cpla%7cKU051H08N-L110ONE000%7c422602954492%7c1%7c&gclid=Cj0KCQjwlOmLBhCHARIsAGiJg7lDQRnXMV2ojg8V4VtuOiLD2r9yv1RWSdBP3N0H3wqhWgrJfbVx4XQaApAREALw_wcB&gclsrc=aw.ds)
 - [Kensington Rainbow Handbag](https://8000-scarlet-tiger-6t3dns54.ws-eu18.gitpod.io/products/57/)
 - [Kensington Rainbow Shopper Bag](https://www.zalando.ie/kurt-geiger-london-shopper-tote-bag-multi-coloured-ku051h07e-t11.html?size=One%20Size)
-
+- [error image](https://pixabay.com/pl/illustrations/motyl-skrzyd%c5%82o-owad-zwierz%c4%99-2339711/) - error background image from Pixaby by Comfreak
 Blogpost articles
 
 **Content**
@@ -1126,11 +1143,22 @@ Blogpost articles
 
 
 **Code Snippets**
+- Code Institute Boutique Ado Project
+- [IntegrityError in Django](https://stackoverflow.com/questions/18243149/integrityerror-in-django) - Stack overflow solutions ideas how to solve the integrity error in Django
+- [IntegrityError at /posts/12/new-comment/ NOT NULL constraint failed](https://stackoverflow.com/questions/64378553/ integrityerror-at-posts-12-new-comment-not-null-constraint-failed-posts-comme) - Stack overflow solutions ideas how to solve the integrity error in Django
+- [Django Tutorial - Create Newsletters App](https://www.youtube.com/watch?v=TBVsILIt4HM) - Django Tutorial - Create Newsletters App from Master Code Online
+- [Django Tutorial - Newsletter Sign Up View](https://www.youtube.com/watch?v=Hy94jBBgvpk) - Django Tutorial - Newsletter Sign Up View from Master Code Online
+- [Django Tutorial - Newsletter Unsubscribe View](https://www.youtube.com/watch?v=q2B1VpjDjMQ) - Django Tutorial - Newsletter Unsubscribe View from Master Code Online
 
 
 
 ## Acknowledgments
+I would like to thank to:
 
+- My super mentor Aaron Sinnott for his helpful and valuable feedback and guidance, Thank you:)
+- To my wonderful tutor Kasia for being supported whenever I needed. Thank you :)
+- I would like to thank the whole fantastic Code Institute Tutor Support team for your help, all tips, explanations, time spent on solving my mysterious problems;) I am grateful for every minute, you are amazing guys with astonishing knowledge. Thank you for sharing, I have learned a lot from you. I would not be myself if I did not thank: Igor, Fatima, Jo, Sean, Sharyl, Johann, Ed,  Thank you :)
+- My wonderful friend Anna who helped me test and give advice and ideas for better UX improving, my son Adrian for the time devoted to reading and correcting my documentation, and the whole family and friends, Thank you guys:)
+- Slack community for great posts. Thank you.
 
-
-q
+Site for educational purposes only :)
