@@ -37,19 +37,20 @@ h4 {
 }
 /* -----------------navbar and main page----------------- */
 .bg-color-teal {
-    background-color:#288FA4;
+    background-color:#227A8C;
 }
 .bg-color-black {
     background: #14161F !important;
 }
 .navbar {
-    background-color: #288fa4;
+    background-color: #227A8C;
 }
 .dropdown-menu.show {
-    background-color: #288fa4;
+    background-color: #227A8C;
 }
 .btf-logo-nav {
     width: 60px;
+    height: auto;
     padding-right: 8px;
 }
 .nav-logo-link {
@@ -75,7 +76,7 @@ h4 {
     color:#F05193 !important;
 }
 .text-teal {
-    color: #288fa4;
+    color: #227A8C;
 }
 .img-left {
     width: 100%;
@@ -87,7 +88,7 @@ h4 {
     font-family: 'Princess Sofia', cursive;
  }
 .btf-logo {
-    width: 78px;
+    width: 75px !important;
     height: auto;
     padding-right: 10px;
 }
@@ -105,7 +106,7 @@ h4 {
 }
 /*-----------------buttons and badges-----------------*/
 .btn-shop-now {
-    background: #288FA4;
+    background: #227A8C;
     color: #F5F9F9;
     min-width: 240px;
 }
@@ -116,7 +117,7 @@ h4 {
     color: #F5F9F9;
 }
 .btn-search {
-    background:#288FA4;
+    background:#227A8C;
     color: #F5F9F9 !important;
 }
 .btn-search:hover,
@@ -140,7 +141,7 @@ h4 {
 }
 .badge-color,
 .btn-teal {
-    background: #288FA4 !important;
+    background: #227A8C !important;
     color: #F5F9F9 !important;
 }
 .btn-pink {
@@ -156,12 +157,12 @@ h4 {
 .btn-outline-teal {
     background: #FFF;
     color: #14161F !important; 
-    border: 1px solid #288FA4;
+    border: 1px solid #227A8C;
 }
 .btn-outline-teal:hover,
 .btn-outline-teal:active,
 .btn-outline-teal:focus {
-    background: #288FA4;
+    background: #227A8C;
     color: #FFF !important;
 }
 .edit-btn,
@@ -171,7 +172,7 @@ h4 {
 }
 .edit-btn:hover {
     text-decoration: none;
-    color: #17a2b8;
+    color: #227A8C;
 }
 .delete-btn:hover {
     text-decoration: none;
@@ -200,7 +201,7 @@ h4 {
     text-decoration: none;
 }
 .btt-btn-color {
-    background: #288FA4 !important;
+    background: #227A8C !important;
     color: #F5F9F9 !important;
 }
 .btt-btn-color:hover {
@@ -253,7 +254,7 @@ input[name='q']::placeholder {
 }
 .dropdown-item:focus, .dropdown-item:hover {
     color: #14161F;
-    background-color: #288FA4;
+    background-color: #227A8C;
 }
 /* -----------------Footer/Newsletter----------------- */
 
@@ -291,7 +292,7 @@ input[name='q']::placeholder {
 }
 .social-icons a {
     background-color: #F5F9F9;
-    color: #288FA4;
+    color: #227A8C;
     font-size: 16px;
     display: inline-block;
     line-height: 44px;
@@ -437,7 +438,7 @@ input[name='q']::placeholder {
     border-color: rgba(34, 34, 34, 0);
 }
 .allauth-form-inner-content a {
-	color: #17a2b8; /* text-info */
+	color: #227A8C; /* text-info */
 }
 .allauth-form-inner-content button {
     border: 1px solid #fff0;
@@ -501,7 +502,7 @@ input[name='q']::placeholder {
     color:#F05193 ;
 }
 .blog-contact-link:hover {
-    color: #17a2b8;
+    color: #227A8C;
     text-decoration: none !important;
 }
 .card-footer {
