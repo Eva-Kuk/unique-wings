@@ -32,7 +32,7 @@ for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
 
 {% else %}
 <p>{% blocktrans %}If you have not created an account yet, then please
-<a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
+<a class="comment-link"  href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
 {% endif %}
 
 <form class="login" method="POST" action="{% url 'account_login' %}">
@@ -45,7 +45,7 @@ for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
   <a class="btn btn-outline-teal rounded-0" href="{% url 'home' %}">Home</a>
   <button class="primaryAction btn btn btn-teal rounded-0" type="submit">{% trans "Sign In" %}</button>
   <p class="mt-2">
-    <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+    <a class="button secondaryAction comment-link" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
   </p>
 </div>
 </form>

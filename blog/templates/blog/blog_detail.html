@@ -84,9 +84,15 @@
                 <h3 class="mb-0 mb-2 logo-font comments-header text-center">Comments</h3>
                 <hr>
                 <div class="row">
+                    {% if request.user.is_authenticated %}
                     <div class="col-sm-12 d-flex justify-content-end">
                         <a href="{% url 'blog_comment' blogpost.id %}" class="btn btn-teal rounded-0">Add Comment</a>
                     </div>
+                    {% else %}
+                    <div class="col-sm-12 d-flex justify-content-center">
+                    <p class="text-center">Please <a class="comment-link" href="{% url 'account_signup' %}">Register</a> or <a class="comment-link" href="{% url 'account_login' %}">Login</a> to leave a comment.</p>
+                </div>
+                    {% endif %}  
                     <div class="col-sm-12 pt-4 pb-4">
                         {% if blogpost.comments.count > 0 %}
                         {% for comment in blogpost.comments.all %}
