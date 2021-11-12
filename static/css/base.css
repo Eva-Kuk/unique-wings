@@ -73,7 +73,7 @@ h4 {
     color: #F5F9F9 !important;
 }
 .text-pink {
-    color:#F05193 !important;
+    color:#E11469 !important;
 }
 .text-teal {
     color: #227A8C;
@@ -145,7 +145,7 @@ h4 {
     color: #F5F9F9 !important;
 }
 .btn-pink {
-    background: #dc3545 !important;
+    background: #E11469 !important;
     color: #F5F9F9 !important;
 }
 .badge-color:hover,
@@ -176,7 +176,7 @@ h4 {
 }
 .delete-btn:hover {
     text-decoration: none;
-    color: #dc3545;
+    color: #E11469;
 }
 .delete-btn:focus {
     -webkit-box-shadow: none;
@@ -474,10 +474,10 @@ input[name='q']::placeholder {
 }
 .custom-checkbox .custom-control-label::before {
     border-radius: 0;
-    border-color: #F05193;
+    border-color: #E11469;
 }
 .custom-checkbox .custom-control-input:checked~.custom-control-label::before {
-    background-color: #F05193;
+    background-color: #E11469;
     border-color: #fafafa;
     border-radius: 0;
 }
@@ -499,7 +499,7 @@ input[name='q']::placeholder {
             transform: scaleX(-1);
 }
 .blog-contact-link {
-    color:#F05193 ;
+    color:#E11469 ;
 }
 .blog-contact-link:hover {
     color: #227A8C;
