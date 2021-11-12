@@ -12,7 +12,7 @@
 {% block content %}
 <!-- Header, Products Category Badges -->
 <div class="overlay"></div>
-<div class="container-fluid my-4">
+<div class="container-fluid my-4 container-min-width">
     <div class="row">
         <div class="col text-center mt-2">
             <hr class="w-75 mb-3">
@@ -75,8 +75,7 @@
                         </a>
                         {% else %}
                         <a href="{% url 'product_detail' product.id %}">
-                            <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png"
-                                alt="{{ product.name }}">
+                            <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
                         </a>
                         {% endif %}
                         <div class="card-body pb-0">
@@ -95,8 +94,7 @@
                                     </p>
                                     {% endif %}
                                     {% if product.avg_rating %}
-                                    <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.avg_rating }} /
-                                        5</small>
+                                    <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.avg_rating }} / 5</small>
                                     {% else %}
                                     <small class="text-muted">No Rating</small>
                                     {% endif %}
@@ -166,7 +164,6 @@
         <i class="fas fa-arrow-alt-circle-up text-white arrow-size mx-auto my-auto"></i>
     </a>
 </div>
-
 {% endblock %}
 
 {% block postloadjs %}
