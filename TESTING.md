@@ -340,9 +340,6 @@ I also ran the python test command in the terminal to double check over my Pytho
 
 
 
-
-
-
 ---
 
 ## Testing User stories
@@ -529,7 +526,6 @@ and the number of result is displayed on the left site of the page.
 ![user-stories-delete](wireframes/testing/user-stories-delete.png)
 
 
-
 31. AS a site owner I want to be able to add blog post,  so that I can add new posts to their blog.
 - Once site owner is logged he has access to the Blog Management. The admin will be redirected to the Blog Management page where he can add a new blogpost.
 
@@ -565,10 +561,430 @@ and the number of result is displayed on the left site of the page.
 
 ## Testing Functionality
 
+### HOME PAGE base.html/index.html
+
+| Element                            | Sub-categories     | Action            | Expected Result                                              | PASS/FAIL | PROBLEM | FIX  |
+| ---------------------------------- | ------------------ | ----------------- | ------------------------------------------------------------ | :-------: | ------- | ---- |
+| **Navbar** -desktop                |                    |                   |                                                              |           |         |      |
+| Logo "Unique Wings"                |                    | Click             | Redirect to home page/ change color to black/                | **PASS**  |         |      |
+| All products  dropdown menu Link   |                    | Click             | Each link changes colour to black on hover, sort within the All products category and display products according  to the chosen sub-category: | **PASS**  |         |      |
+|                                    | By price           | Click             | Sorts products By price low to high                          | **PASS**  |         |      |
+|                                    | By Rating          | Click             | Sorts products By Rating High to low                         | **PASS**  |         |      |
+|                                    | By Category        | Click             | Sorts products Category Alphabetically A-Z                   | **PASS**  |         |      |
+|                                    | All products       | Click             | Displays All products within All Products category           | **PASS**  |         |      |
+| Shoes Dropdown menu link           |                    | Click             | Each link changes colour to black on hover, sorts within the Shoes category and display products according  to the chosen sub-category: | **PASS**  |         |      |
+|                                    | Flats              | Click             | Sorts Flats within Shoes category                            | **PASS**  |         |      |
+|                                    | Heels              | Click             | Sorts Heels within Shoes category                            | **PASS**  |         |      |
+|                                    | Wedges             | Click             | Sorts Flats Wedges Shoes category                            | **PASS**  |         |      |
+|                                    | Boots              | Click             | Sorts Boots within Shoes category                            | **PASS**  |         |      |
+|                                    | All shoes          | Click             | Dysplays All shoes within Shoes category                     | **PASS**  |         |      |
+| Bags page Dropdown menu link       |                    | Click             | Each link changes colour to black on hover, sorts within the Bags category and display products according  to the chosen sub-category: | **PASS**  |         |      |
+|                                    | Shoulder bag       | Click             | Sorts Shoulder Bag within Bags category                      | **PASS**  |         |      |
+|                                    | Handbag            | Click             | Sorts Handbag within Bags category                           | **PASS**  |         |      |
+|                                    | Clutches           | Click             | Sorts Clutches within Bags category                          | **PASS**  |         |      |
+|                                    | Shopper Totes      | Click             | Sorts Shopper Totes within Bags category                     | **PASS**  |         |      |
+|                                    | All Bags           | Click             | Displays All Bags within Bags category                       | **PASS**  |         |      |
+| Special Offer Dropdown menu link   |                    | Click             | Each link changes colour to black on hover, sorts within the Special Offers category and display products according  to the chosen sub-category: | **PASS**  |         |      |
+|                                    | New Arrivals       | Click             | Sorts New Arrivals within Special Offers Categorry           | **PASS**  |         |      |
+|                                    | Sale               | Click             | Sorts Shoes on Sale within Special Offers Category           | **PASS**  |         |      |
+|                                    | All Specials       | Click             | Displays All Specials within Special Offers Category         | **PASS**  |         |      |
+| Blog  Link                         |                    | Click             | Redirect to Blogpage                                         | **PASS**  |         |      |
+| Contact  Link                      |                    | Click             | Redirect to Contact page                                     | **PASS**  |         |      |
+| My Account page Dropdown menu link |                    | Click             | Each link changes colour to black on hover, sorts within the Bags category and display products according  to the chosen sub-category: | **PASS**  |         |      |
+|                                    | Product Management | Click             | (Only visible if admin in session), Redirect to Product Management page | **PASS**  |         |      |
+|                                    | Blog Management    | Click             | (Only visible if admin in session), Redirect to Blog Management page | **PASS**  |         |      |
+|                                    | My Profile         | Click             | (Only visible if admin or user logged in)                    | **PASS**  |         |      |
+|                                    | Login              | Click             | Redirect to Sign In page (Not visible if admin or user  logged in) | **PASS**  |         |      |
+|                                    | Logout             | Click             | Redirect to Sign Out page, Log Out user out of Profile (Only visible if admin or user  logged in) | **PASS**  |         |      |
+|                                    | Register           | Click             | Redirect to Sign Up page (Not visible if admin or user logged in) | **PASS**  |         |      |
+| Shopping Bag                       |                    | Click             | Redirect to Shopping Bag page, Changes colour to black on hover when empty to pink when product is added, | **PASS**  |         |      |
+| Search Box                         |                    | Click + searchkey | Sort Products within the keyword and display on the site with the product number (name,designer,color, description etc.) eg. webster, gold, chiara, | **PASS**  |         |      |
+| **NavBar** mobile                  |                    |                   |                                                              |           |         |      |
+| Butterfly Logo                     |                    | Click             | Redirect to Home Page                                        | **PASS**  |         |      |
+| Search icon                        |                    | Click+searchkey   | Open search box, Sort Products within the keyword and display on the site with the product number (name,designer,color, description etc.) eg. webster, gold, chiara, | **PASS**  |         |      |
+| Search box empty                   |                    |                   | Error toast "You didn't enter any search criteria"           | **PASS**  |         |      |
+| Search box no result               |                    |                   | 0 products found for "....." message displayed on the site   | **PASS**  |         |      |
+| My Account page Dropdown menu link |                    | Click             | Each link changes colour to black on hover, sorts within the Bags category and display products according  to the chosen sub-category: | **PASS**  |         |      |
+|                                    | Product Management | Click             | (Only visible if admin logged in), Redirect to Product Management page | **PASS**  |         |      |
+|                                    | Blog Management    | Click             | (Only visible if admin logged in), Redirect to Blog Management page | **PASS**  |         |      |
+|                                    | My Profile         | Click             | (Only visible if admin or user logged in)                    | **PASS**  |         |      |
+|                                    | Login              | Click             | Redirect to Sign In page (Not visible if admin or user  logged in) | **PASS**  |         |      |
+|                                    | Logout             | Click             | Redirect to Sign Out page, Log Out user out of Profile (Only visible if admin or user logged in) | **PASS**  |         |      |
+|                                    | Register           | Click             | Redirect to Sign Up page (Not visible if admin or user  logged in) | **PASS**  |         |      |
+| Shopping Bag                       |                    | Click             | Redirect to Shopping Bag page, Changes colour to black on hover when empty to pink when product is added, | **PASS**  |         |      |
+| Hamburger Icon                     |                    | Click             | Open Side nav                                                | **PASS**  |         |      |
+| Home Dropdown                      |                    | Click             | Redirect to Home Page                                        | **PASS**  |         |      |
+| All Products Dropdowan             | By price           | Click             | Sorts products By price low to high                          | **PASS**  |         |      |
+|                                    | By Rating          | Click             | Sorts products By Rating High to low                         | **PASS**  |         |      |
+|                                    | By Category        | Click             | Sorts products Category Alphabetically A-Z                   | **PASS**  |         |      |
+|                                    | All products       | Click             | Displays All products within All Products category           | **PASS**  |         |      |
+| Shoes dropdown                     | Flats              | Click             | Sorts Flats within Shoes category                            | **PASS**  |         |      |
+|                                    | Heels              | Click             | Sorts Heels within Shoes category                            | **PASS**  |         |      |
+|                                    | Wedges             | Click             | Sorts Flats Wedges Shoes category                            | **PASS**  |         |      |
+|                                    | Boots              | Click             | Sorts Boots within Shoes category                            | **PASS**  |         |      |
+|                                    | All shoes          | Click             | Dysplays All shoes within Shoes category                     | **PASS**  |         |      |
+| Bags dropdown                      | Shoulder bag       | Click             | Sorts Shoulder Bag within Bags category                      | **PASS**  |         |      |
+|                                    | Handbag            | Click             | Sorts Handbag within Bags category                           | **PASS**  |         |      |
+|                                    | Clutches           | Click             | Sorts Clutches within Bags category                          | **PASS**  |         |      |
+|                                    | Shopper Totes      | Click             | Sorts Shopper Totes within Bags category                     | **PASS**  |         |      |
+|                                    | All Bags           | Click             | Displays All Bags within Bags category                       | **PASS**  |         |      |
+| Special Offers dropdown            | New Arrivals       | Click             | Sorts New Arrivals within Special Offers Categorry           | **PASS**  |         |      |
+|                                    | Sale               | Click             | Sorts Shoes on Sale within Special Offers Category           | **PASS**  |         |      |
+|                                    | All Specials       | Click             | Displays All Specials within Special Offers Category         | **PASS**  |         |      |
+| Blog  Link                         |                    | Click             | Redirect to Blogpage                                         | **PASS**  |         |      |
+| Contact  Link                      |                    | Click             | Redirect to Contact page                                     | **PASS**  |         |      |
+| Shop Now button                    |                    | Click             | Redirect to Products page                                    | **PASS**  |         |      |
+|                                    |                    |                   |                                                              |           |         |      |
+| **Footer**                         |                    |                   |                                                              |           |         |      |
+| Usefull Links                      |                    |                   |                                                              |           |         |      |
+| Blog                               |                    | Click             | Redirect to Blogpage                                         | **PASS**  |         |      |
+| Contact Us                         |                    | Click             | Redirect to Contact Us page                                  | **PASS**  |         |      |
+| Newsletter box + Sign Up button    |                    | email + click     | Information message when wrong email                         | **PASS**  |         |      |
+|                                    |                    |              | Access to the Newsletter from all the pages                     |   **PASS** |          |       |
+|                                    |                    |                   | Success toast when email correct and signed up succesful     | **PASS**  |         |      |
+|                                    |                    |                   | email in the database on the admin site                      | **PASS**  |         |      |
+| Social Media                       |                    |                   |                                                              |           |         |      |
+| Twitter Link                       |                    | Click             | Open on external page                                        | **PASS**  |         |      |
+| Instagram Link                     |                    | Click             | Open on external page                                        | **PASS**  |         |      |
+| Facebook Link                      |                    | Click             | Open on external page                                        | **PASS**  |         |      |
+
+
+
+### PRODUCTS PAGE products.html
+
+| Element                      | Additional            | Action                    | Expected Result                                              | PASS/FAIL | PROBLEM | FIX  |
+| ---------------------------- | --------------------- | ------------------------- | ------------------------------------------------------------ | :-------: | ------- | ---- |
+| **Products**                 |                       |                           |                                                              |           |         |      |
+| **Sort By box**              |                       | choose from dropdown list | Sorts products within displayed subcategory eg. Heels, Wedges ect. |           |         |      |
+|                              | Price (low to high)   |                           | Sorts products within the given category                     | **PASS**  |         |      |
+|                              | Price (high to low)   |                           | Sorts products within the given category                     | **PASS**  |         |      |
+|                              | Rating (low to high)  |                           | Sorts products within the given category                     | **PASS**  |         |      |
+|                              | Rating  (high to low) |                           | Sorts products within the given category                     | **PASS**  |         |      |
+|                              | Name (A-Z)            |                           | Sorts products within the given category                     | **PASS**  |         |      |
+|                              | Name (Z-A)            |                           | Sorts products within the given category                     | **PASS**  |         |      |
+|                              | Category (A-Z)        |                           | Sorts products within the given category                     | **PASS**  |         |      |
+|                              | Category (Z-A)        |                           | Sorts products within the given category                     | **PASS**  |         |      |
+| **Products Card**            |                       |                           |                                                              |           |         |      |
+| Product Image                |                       | Click                     | Redirect to product detail page                              | **PASS**  |         |      |
+| Edit Product link            |                       | Click                     | Redirect to edit recipe page                                 | **PASS**  |         |      |
+|                              |                       |                           | (Only visible if admin logged in)                            | **PASS**  |         |      |
+| Delete Product link          |                       | Click                     | Open delete confirmation modal                               | **PASS**  |         |      |
+|                              |                       |                           | (Only visible if admin logged in)                            | **PASS**  |         |      |
+| Delete modal                 |                       | Click                     | Delete selected product                                      | **PASS**  |         |      |
+|                              |                       |                           | (Only visible if admin logged in)                            |           |         |      |
+|                              |                       |                           | Redirect to Products page                                    | **PASS**  |         |      |
+|                              |                       |                           | 'Product deleted' + confirmation message                     | **PASS**  |         |      |
+| Delete modal - cancel button |                       | Click                     | Close modal with no change made                              | **PASS**  |         |      |
+| Back to top button           |                       | Click                     | Move to the top of the page                                  | **PASS**  |         |      |
+
+
+### DETAIL PRODUCT PAGE detail_product.html
+| Element                      | Additional                         | Action                      | Expected Result                                              |   PASS/FAIL   | PROBLEM                      | FIX                                                          |
+| ---------------------------- | ---------------------------------- | --------------------------- | ------------------------------------------------------------ | :-----------: | ---------------------------- | ------------------------------------------------------------ |
+| **Product Detail **          |                                    |                             |                                                              |               |                              |                                                              |
+| Product image                |                                    | displayed on the page open  | Product image displayed properly                             |   **PASS**    |                              |                                                              |
+| Product Name                 |                                    | displayed on the page open  | Product image displayed properly                             |   **PASS**    |                              |                                                              |
+| Product Category             |                                    | displayed on  the page open | Product Category displayed properly                          |   **PASS**    |                              |                                                              |
+| Product Rating               |                                    | displayed on the page open  | Rating Product displayed properly (average rating out of comments rating) |   **PASS**    |                              |                                                              |
+| Product description          |                                    | displayed on the page open  | Product description displayed properly                       |   **PASS**    |                              |                                                              |
+| Product Size                 |                                    | dropdown list               | Dropdown list to choose size displays corectly               |   **PASS**    |                              |                                                              |
+| Quantity                     |                                    | increment decrement         | Decrements down to 1 Increments up to 99                     |   **PASS**    |                              |                                                              |
+|                              | When quantity 0                    | Add to Bag button           | "Value must be greater or equal 1" - message displayed       |   **PASS**    |                              |                                                              |
+|                              | When quantity has no number        | Add to Bag button           | error 500 page displayed                                     |   **PASS**    |                              |                                                              |
+|                              | When quantity    is grater than 99 | Add to Bag button           | "Value must be less or equal 99" - message displayed         |   **PASS**    |                              |                                                              |
+| "KEEP SHOPPING "button       |                                    | Click                       | Redirects to Products page                                   |   **PASS**    |                              |                                                              |
+| "ADD TO BAG "button          |                                    | Click                       | Add the product in the shopping bag, shopping bag toast displayed, bag turn pink color |   **PASS**    |                              |                                                              |
+|                              |                                    |                             | Success toast when email correct and signed up succesful     |   **PASS**    |                              |                                                              |
+| Edit Product link            |                                    | Click                       | Redirect to edit Product page                                |   **PASS**    |                              |                                                              |
+|                              |                                    |                             | (Only visible if admin logged in)                            |   **PASS**    |                              |                                                              |
+| Delete Product link          |                                    | Click                       | Open delete confirmation modal                               |   **PASS**    |                              |                                                              |
+|                              |                                    |                             | (Only visible if admin logged in)                            |   **PASS**    |                              |                                                              |
+| Delete modal                 |                                    | Click                       | Delete selected product                                      |   **PASS**    |                              |                                                              |
+|                              |                                    |                             | (Only visible if admin logged in)                            |   **PASS**    |                              |                                                              |
+|                              |                                    |                             | Redirect to Products page                                    |   **PASS**    |                              |                                                              |
+|                              |                                    |                             | 'Product deleted' + confirmation message                     |   **PASS**    |                              |                                                              |
+| Delete modal - cancel button |                                    | Click                       | Close modal with no change made                              |   **PASS**    |                              |                                                              |
+| **Reviews**                  |                                    |                             |                                                              |               |                              |                                                              |
+| User Comment                 |                                    |                             | When Added is visible on the Review section                  |   **PASS**    |                              |                                                              |
+| "**Add a Review**" button    |                                    | Click                       | Redirects to "Add a Review" page form if user is logged in   |   **PASS**    |                              |                                                              |
+|                              |                                    |                             | Confirmation success toast displayed                         |   **PASS**    |                              |                                                              |
+|                              |                                    |                             | Button Invisible if user is not logged in                    | **FAIL?PASS** | Buttons visible to all users | Add if statement to product detail page ` {% if request.user.is_authenticated %}` |
+| "**Register**" link          |                                    | Click                       | Redirects to Sign Up page                                    |   **PASS**    |                              |                                                              |
+| "**Login**" link             |                                    | Click                       | Redirects to Sign In page                                    |   **PASS**    |                              |                                                              |
+| **Edit Review** link         |                                    | Click                       | Redirect to edit recipe page                                 |   **PASS**    |                              |                                                              |
+|                              |                                    |                             | (Only visible if admin in session)                           |   **PASS**    |                              |                                                              |
+| **Delete** Review link       |                                    | Click                       | Open delete confirmation modal                               |   **PASS**    |                              |                                                              |
+|                              |                                    |                             | (Only visible if user logged in)                             |   **PASS**    |                              |                                                              |
+| Delete modal                 |                                    | Click                       | Delete selected review                                       |   **PASS**    |                              |                                                              |
+|                              |                                    |                             | (Only visible if admin logged in)                            |               |                              |                                                              |
+|                              |                                    |                             | Redirect to Products page                                    |   **PASS**    |                              |                                                              |
+|                              |                                    |                             | 'Review deleted' + confirmation message                      |   **PASS**    |                              |                                                              |
+| Delete modal - cancel button |                                    | Click                       | Close modal with no change made                              |   **PASS**    |                              |                                                              |
+
+
+### REVIEW form add_review.html
+| Element                          | Action        | Expected Result                                              | PASS/FAIL | PROBLEM | FIX  |
+| -------------------------------- | ------------- | ------------------------------------------------------------ | :-------: | ------- | ---- |
+| **New Review / Add Review Form** |               |                                                              |           |         |      |
+| Text input fields Review        | Type text     | Text appears                                                 | **PASS**  |         |      |
+|                                  | Leave blank   | Note Please fill in the field                                | **PASS**  |         |      |
+| Rate                             | dropdown menu | Chooses a number from 1 to 5                                 | **PASS**  |         |      |
+|                                  |               | No number is chosen the message please "select an item in the list" | **PASS**  |         |      |
+| Add Review button                | Click         | Text and rate filled in correctly                            | **PASS**  |         |      |
+|                                  |               | Rating added and average Rating counted and adder to the product | **PASS**  |         |      |
+|                                  |               | Redirect to the detail product page                          | **PASS**  |         |      |
+|                                  |               | Success mesage toast displayes                               | **PASS**  |         |      |
+| Cancel                           | Click         | Redirect to the detail product page                          | **PASS**  |         |      |
+|                                  |               |                                                              |           |         |      |
+|                                  |               |                                                              |           |         |      |
+
+### EDIT REVIEW edit_review.html
+
+| Element                  | Action        | Expected Result                                              | PASS/FAIL | PROBLEM | FIX  |
+| ------------------------ | ------------- | ------------------------------------------------------------ | :-------: | ------- | ---- |
+| **Edit Product Form**    |               |                                                              |           |         |      |
+| Text input fields Review | Type text     | Previous text appeared / New test appears                    | **PASS**  |         |      |
+|                          | Leave blank   | Note Please fill in the field                                | **PASS**  |         |      |
+| Rate                     | dropdown menu | Chooses a number from 1 to 5                                 | **PASS**  |         |      |
+|                          |               | Previous rating apeared                                      | **PASS**  |         |      |
+|                          |               | No number is chosen the message please "select an item in the list" | **PASS**  |         |      |
+| Add Review button        | Click         | Text and rate filled in correctly                            | **PASS**  |         |      |
+|                          |               | Rating added and average Rating counted and adder to the product | **PASS**  |         |      |
+|                          |               | Redirect to the detail product page                          | **PASS**  |         |      |
+|                          |               | Success mesage toast displayes                               | **PASS**  |         |      |
+| Cancel                   | Click         | Redirect to the detail product page                          | **PASS**  |         |      |
+|                          |               |                                                              |           |         |      |
+|                          |               |                                                              |           |         |      |
+
+### BLOG blog.html / BLOGPOST blog_detail.html
+
+
+
+
+
+### Product Management form
+
+| Element                                    | Action        | Expected Result                                              | PASS/FAIL | PROBLEM | FIX  |
+| ------------------------------------------ | ------------- | ------------------------------------------------------------ | :-------: | ------- | ---- |
+| **Product Management form**                |               |                                                              |           |         |      |
+| Category Field                             | Dropdown menu | Chose field fom the list ,Text displayed to the user with "Flats" set as default | **PASS**  |         |      |
+| Sku Field                                 | Text input    | Text displayed to user (not required)                        | **PASS**  |         |      |
+| Name Field                                 | Text input    | Text displayed to user (required)                            | **PASS**  |         |      |
+| Description Field                          | Text input    | Text displayed to user (required)                            | **PASS**  |         |      |
+| Has sizes                                  | Dropdown list | Text displayed to the user with "No" set as default, Chose field from the list | **PASS**  |         |      |
+| Price Field                                | Text input    | Text displayed to user (required)                            | **PASS**  |         |      |
+| Image url field                            | Text input    | Text displayed to user (not required)                        | **PASS**  |         |      |
+|                                            |               | Image display properly on the screen                         | **PASS**  |         |      |
+|                                            |               | Default image displayed if no image                          | **PASS**  |         |      |
+| **Select Image** Button                    |               | open the folder with images from admin's computer (not reguired) | **PASS**  |         |      |
+| **Add Product ** Button (fields correct)   | Click         | Redirect to the new product detail page                      | **PASS**  |         |      |
+|                                            |               | Product Added to database and displays on the products page properly | **PASS**  |         |      |
+|                                            |               | "Success, toast confirmation message                         | **PASS**  |         |      |
+| **Add Products** Button (fields incorrect) | Click         | "Please Fill in the field" message                           | **PASS**  |         |      |
+| **Cancel** Button                          | Click         | Redirect to the Products page                                | **PASS**  |         |      |
+
+
+### BLOG MANAGEMENT form
+
+| Element                                | Action     | Expected Result                                              | PASS/FAIL | PROBLEM | FIX  |
+| -------------------------------------- | ---------- | ------------------------------------------------------------ | :-------: | ------- | ---- |
+| **Blog Management form**               |            |                                                              |           |         |      |
+| **Title** Field                        | Text input | Text displayed to user (required)                            | **PASS**  |         |      |
+| **Info** field                         | Text input | Text displayed to user (not required)                        | **PASS**  |         |      |
+| **Content** Field                      | Text input | Text displayed to user (required)                            | **PASS**  |         |      |
+| **Select Image** Button                |            | open the folder with images from admin's computer (not required) | **PASS**  |         |      |
+|                                        |            | Image display properly on the screen                         | **PASS**  |         |      |
+|                                        |            | Default image displayed if no image                          | **PASS**  |         |      |
+| **Add Post ** Button (fields correct)  | Click      | Redirect to the new blog detail page                         | **PASS**  |         |      |
+|                                        |            | Blog Post Added to database and displays on the Blog page properly | **PASS**  |         |      |
+|                                        |            | "Success, toast confirmation message                         | **PASS**  |         |      |
+| **Add Post** Button (fields incorrect) | Click      | "Please Fill in the field" message                           | **PASS**  |         |      |
+| **Cancel** Button                      | Click      | Redirect to the Blog page                                    | **PASS**  |         |      |
+|                                        |            |                                                              |           |         |      |
+
+
+### SHOPPING BAG page bag.html
+
+| Element                      | Action | Expected Result                                              | PASS/FAIL | PROBLEM | FIX  |
+| ---------------------------- | ------ | ------------------------------------------------------------ | :-------: | ------- | ---- |
+| **Shopping Bag**             |        |                                                              |           |         |      |
+| Products                     |        | Products displayed in shopping bag                           | **PASS**  |         |      |
+| **Product Info **            |        |                                                              |           |         |      |
+| Product image field          |        | Product image field displayed properly                       | **PASS**  |         |      |
+| Product Name field           |        | Product name field displayed properly                        | **PASS**  |         |      |
+| Product Category field       |        | Product Category field displayed properly                    | **PASS**  |         |      |
+| SKU field                    |        | Product SKU field displayed properly                         | **PASS**  |         |      |
+| Product Size                 |        | Product Size displayed properly                              | **PASS**  |         |      |
+| Quantity:                    |        | increment / decrement                                        | **PASS**  |         |      |
+| Button **"-"**               | Click  | Quantity decrements down to 0                                | **PASS**  |         |      |
+| Button ** "+"**              | Click  | Quantity increments up to 99                                 | **PASS**  |         |      |
+| **Update** link              | Click  | Updates the quantity                                         | **PASS**  |         |      |
+|                              |        | Success toast message dislay on the screen                   | **PASS**  |         |      |
+|                              |        | The basket updates its price and item                        | **PASS**  |         |      |
+| **Remove** link              | Click  | Removes item from the shopping bag                           | **PASS**  |         |      |
+|                              |        | Success toast message dislay on the screen                   | **PASS**  |         |      |
+|                              |        | The basket updates its price and item                        | **PASS**  |         |      |
+| Bag Total                    |        | Text displays properly, Calculates the total price of the basket | **PASS**  |         |      |
+| Delivery                     |        | Text displays properly, Calculates the delivery 5% discount  | **PASS**  |         |      |
+| Grand Total                  |        | Text displays properly, Calculatec the total grand price including delivery discount | **PASS**  |         |      |
+| **"KEEP SHOPPING"** button   | Click  | Redirect to Products page                                    | **PASS**  |         |      |
+| **"SECURE CHECKOUT"** button | Click  | Redirect to Checkout page                                    | **PASS**  |         |      |
+|                              |        |                                                              |           |         |      |
+|                              |        |                                                              |           |         |      |
+
+### CHECKOUT checkout.html
+
+| Element                             | Action     | Expected Result                                              | PASS/FAIL | PROBLEM | FIX  |
+| ----------------------------------- | ---------- | ------------------------------------------------------------ | :-------: | ------- | ---- |
+| **Checkout**                        |            |                                                              |           |         |      |
+| Checkout form details               | Text input | Text displayed to the user properly                          | **PASS**  |         |      |
+| Order Image                         |            | Image displayed corectly                                     | **PASS**  |         |      |
+|                                     |            | Image redirect to product detail page                        | **PASS**  |         |      |
+| Order Summary                       |            | Products displayed to the user  properly                     | **PASS**  |         |      |
+| Bag Total                           |            | Text displays properly, Calculates the total price of the basket | **PASS**  |         |      |
+| Delivery                            |            | Text displays properly, Calculates the delivery 5% discount  | **PASS**  |         |      |
+| Grand Total                         |            | Text displays properly, Calculatec the total grand price including delivery discount | **PASS**  |         |      |
+| **"CompleteOrder"** button          |            |                                                              |           |         |      |
+| Credit card correct                 |            | entered credit card 4242 4242 4242 4242                      | **PASS**  |         |      |
+|                                     |            | Redirects to Order detail page                               | **PASS**  |         |      |
+|                                     |            | Confirmarion Email recived by the user                       | **PASS**  |         |      |
+|                                     |            | Success message displayed                                    | **PASS**  |         |      |
+|                                     |            | Success webhook received on Stripe                           | **PASS**  |         |      |
+|                                     |            | Order payments added to the Profile order history            | **PASS**  |         |      |
+| credit card requires authentication |            | entered credit card 4000 0025 0000 3155                      | **PASS**  |         |      |
+|                                     |            | Sequre payment Page open to complete authentication          | **PASS**  |         |      |
+|                                     |            | Redirects to Order detail page                               | **PASS**  |         |      |
+|                                     |            | Confirmation Email recived by the user                       | **PASS**  |         |      |
+|                                     |            | Success message displayed                                    | **PASS**  |         |      |
+|                                     |            | Success webhook received on Stripe                           | **PASS**  |         |      |
+|                                     |            | Order payments added to the Profile order history            | **PASS**  |         |      |
+| credit card is declined             |            | entered credit card 4000 0000 0000 9995                      | **PASS**  |         |      |
+|                                     |            | Card payment declined                                        | **PASS**  |         |      |
+|                                     |            | Error message displayed                                      | **PASS**  |         |      |
+|                                     |            | Failed webhook received on Stripe                            | **PASS**  |         |      |
+| credit card details incorect        |            | Message disply :Your card number is invalid.                 | **PASS**  |         |      |
+| **"Adjust Bag"** button             | Click      | Redirect to Shopping Bag page                                | **PASS**  |         |      |
+|                                     |            |                                                              |           |         |      |
+
+### REGISTER signup.html
+
+| Element                               | Action     | Expected Result                                              | PASS/FAIL |
+| ------------------------------------- | ---------- | ------------------------------------------------------------ | :-------: |
+| **Register form/Sign Up**/ form       |            |                                                              |           |
+| E-mail addres                         | Text input | Text displayed to user                                       | **PASS**  |
+| E-mail address confirmation           | Text input | Text displayed to user, correct email                        | **PASS**  |
+| Username                              | Text input | Text displayed to user at least 4 characters                 | **PASS**  |
+| Password                              | Text input | Password hidden to user                                      | **PASS**  |
+| Confirmation Password                 | Text input | Password hidden to user                                      | **PASS**  |
+| **Sign Up** Button (fields correct)   | Click      | Redirect to "Verify your e-mail address" page                | **PASS**  |
+|                                       |            | "Alert,  "confirmation emai sent to user"                    | **PASS**  |
+|                                       |            | Verification email  with confirmation link recived by thre user's email box, Redirect to Confirm e-mail address , confirm email address | **PASS**  |
+|                                       |            | New user added to database                                   | **PASS**  |
+|                                       |            | Redirect to Sign In page                                     | **PASS**  |
+|                                       |            | Success message toast displayed                              | **PASS**  |
+| **Sign Up** Button (fields incorrect) | Click      | Fields highlighted red, user prompted to change format       | **PASS**  |
+| Passwords doesn't match               | Click      | "This password is to short. Must contain at least 8 characters/You must type the same password each time" rejection message | **PASS**  |
+| Username already in use               | Click      | "Username already exists, please choose another"             | **PASS**  |
+| email address incorect                | Click      | Please include an @ in the email address/ #                  | **PASS**  |
+| E-mail address confirmation           | Click      | You must type the same email each time                       | **PASS**  |
+| **Redirect Link**                     |            |                                                              | **PASS**  |
+| **"Sign in" ** here link              | Click      | Redirect to Sign In page                                     | **PASS**  |
+| "**Back to Login**"                   | Click      | Redirect to Sign In page                                     | **PASS**  |
+|                                       |            |                                                              |           |
+
+
+### SIGN IN form login.html / Password reset
+
+| Element                          | Action     | Expected Result                                  | PASS/FAIL | PROBLEM | FIX  |
+| -------------------------------- | ---------- | ------------------------------------------------ | :-------: | ------- | ---- |
+| **Sign in form**                 |            |                                                  |           |         |      |
+| Username or e-mail               | Text input | Text displayed to user                           | **PASS**  |         |      |
+| Password                         | Text input | Password hidden to user                          | **PASS**  |         |      |
+| Sign In Button (fields correct)  | Click      | Redirect to Home page                            | **PASS**  |         |      |
+|                                  |            | "Succes, toast  "username"" confirmation message | **PASS**  |         |      |
+| Log In Button (fields incorrect) | Click      | Reload Sign in page                              | **PASS**  |         |      |
+|                                  |            | Alert message display                            | **PASS**  |         |      |
+|                                  |            |                                                  |           |         |      |
+| **Sign Up Link**                 |            |                                                  | **PASS**  |         |      |
+| 'sign up' link                   | Click      | Redirect to Registration page                    | **PASS**  |         |      |
+|                                  |            |                                                  |           |         |      |
+| **Forgot Password?**             |            |                                                  |           |         |      |
+|                                  | Click      | Redirect to "Password Reset" page                | **PASS**  |         |      |
+|                                  |            |                                                  |           |         |      |
+| **Password Reset** page          |            |                                                  |           |         |      |
+| e-mail addres                    | Text input | Text displayed to user                           | **PASS**  |         |      |
+| "Back to login" link             | Click      | Redirect to Sign In page                         | **PASS**  |         |      |
+| "Reset My Password" button       | Click      | Redirect the user to Password reset page         | **PASS**  |         |      |
+|                                  |            | Password Resset sent to the user's email         | **PASS**  |         |      |
+|                                  |            |                                                  |           |         |      |
+|          |            |                                                  |           |         |      |
+
+### PROFILE profile.html
+
+| Element                          | Action | Expected Result                                         | PASS/FAIL | PROBLEM | FIX  |
+| -------------------------------- | ------ | ------------------------------------------------------- | :-------: | ------- | ---- |
+| **My Profile**                   |        |                                                         |           |         |      |
+| Delivery Information form fields |        | Text  in all fields displayed to the user properly      | **PASS**  |         |      |
+| **UPDATE INFORMATION** Button    |        | Updates the Delivery Details                            | **PASS**  |         |      |
+|                                  |        | Success toast message disolayed                         | **PASS**  |         |      |
+|                                  |        | Delivery Information updated in Database                | **PASS**  |         |      |
+| **Order history**                |        | Displays all order history                              | **PASS**  |         |      |
+| Order number link                |        | Redirect to Confirmation Order Detail                   | **PASS**  |         |      |
+|                                  |        | Alert message about confirmation email sent on the date | **PASS**  |         |      |
+| **Review History**               |        | Text in all fields displays corectly                    | **PASS**  |         |      |
+| **Edit** buton                   |        | Redirect to the Edit Review                             | **PASS**  |         |      |
+|                                  |        | Rating displayed corectly when new Rating added         | **PASS**  |         |      |
+
+
+### SIGN OUT logout.htlm 
+
+| Element              | Action | Expected Result         | PASS/FAIL | PROBLEM | FIX  |
+| -------------------- | ------ | ----------------------- | :-------: | ------- | ---- |
+| **Log Out/Sign Out** |        |                         |           |         |      |
+| "Sign out" button    | Click  | Redirect to Home page   | **PASS**  |         |      |
+|                      | Click  | Success toast displayed | **PASS**  |         |      |
+| "Cancel button"      | Click  | Redirect to Home page   | **PASS**  |         |      |
+|                      |        |                         |           |         |      |
+
+### CONTACT form contact.html
+
+| Element                                 | Action        | Expected Result                                  | PASS/FAIL |      |      |
+| --------------------------------------- | ------------- | ------------------------------------------------ | :-------: | ---- | ---- |
+| **Contact form**                        |               |                                                  |           |      |      |
+| Full name                               | Text input    | Text displayed to user                           | **PASS**  |      |      |
+| Email                                   | Text input    | Text displayed to user                           | **PASS**  |      |      |
+| General query                           | dropdown list | Choses the query from the list                   | **PASS**  |      |      |
+| Message field                           | Text input    | Text displayed to the user                       | **PASS**  |      |      |
+|                                         |               |                                                  | **PASS**  |      |      |
+| Send Button (fields correct)            | Click         | Redirect to Contact page                         | **PASS**  |      |      |
+|                                         |               | Message sent                                     | **PASS**  |      |      |
+|                                         |               | Message received on the owner gmail account      | **PASS**  |      |      |
+|                                         |               | Redirect to Contact page                         | **PASS**  |      |      |
+|                                         |               | "Message Sent Successfully" confirmation message | **PASS**  |      |      |
+| Send Button (fields incorrect or empty) | Click         | "Please Fill in the field" message               | **PASS**  |      |      |
+
+### UNSUBSCRIBE Form newsletter_unsubscribe.html
+
+| Element                             | Action    | Expected Result                                  | PASS/FAIL | PROBLEM | FIX  |
+| ----------------------------------- | --------- | ------------------------------------------------ | :-------: | ------- | ---- |
+| **Unsubscribe Form**                |           |                                                  |           |         |      |
+| Email address field                 | Type text | Text displayed to the user                       | **PASS**  |         |      |
+| Unsubscribe Button (fields correct) | Click     | Redirect to Unsubscribe Form page                | **PASS**  |         |      |
+|                                     |           | "Succes, toast  "username"" confirmation message | **PASS**  |         |      |
+|                                     |           | Email removed from database                      |           |         |      |
+| Unsubscribe Button (fields incorrect)| Click   | "Please Fill in the field" message                |   **PASS**          |      |
+| Cancel                              | Click     | Redirect to the  product page                    | **PASS**  |         |      |
+| Link **Here**                       | Click     | Redirect to the   Contact Us page                | **PASS**  |         |      |
+|                                     |           |                                                  |           |         |      |
+
+
 
 
 ### Checking for broken links
 ---
+
+
+
 
 
 ### Responsive Design
@@ -576,11 +992,7 @@ and the number of result is displayed on the left site of the page.
 
 
  **Encountered problems while testing the site on different devices**
-HOME PAGE base.html/index.html
-PRODUCTS PAGE products.html
-DETAIL PRODUCT PAGE detail_product.html
-REVIEW add_review.html
-BLOG blog.html
+
 
 
 
@@ -603,7 +1015,8 @@ To improve SEO, the following actions were taken:
 To improve accessibility, the following actions were taken:
 - Background and foreground colors not have a sufficient contrast ratio. FIXED BY: Contrast between font and backgorunbd color was checked on the [contrast checker](https://webaim.org/resources/contrastchecker/) and slightly darken 
 ![contrast-checker](wireframes/testing/contrast-checker.png)
-- Buttons do not have accessible name FIXED BY: added aria-label="button-search-icon"
+- Buttons do not have accessible name FIXED BY: added aria-label="search button" in base.html
+![accessibility-search-button](wireframes/testing/accessibility-search-button.png)
 - Heading elements are not in a sequentally - descending order FIXED BY: "Shop Now" button on the home page heading changed from `<h4>` to `<h2>`
 
 - **Accessibility for mobile devices on LightHouse**
