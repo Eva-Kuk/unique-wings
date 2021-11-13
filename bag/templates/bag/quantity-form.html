@@ -3,7 +3,7 @@
     <div class="form-group">
         <div class="input-group">
             <div class="input-group-prepend">
-                <button class="decrement-qty btn btn-sm btn-teal rounded-0"
+                <button class="decrement-qty btn btn-sm btn-teal rounded-0" aria-label="decrement quantity button"
                     data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
                     <span>
                         <i class="fas fa-minus fa-sm"></i>
@@ -12,9 +12,9 @@
             </div>
             <input class="form-control form-control-sm qty_input" type="number"
                 name="quantity" value="{{ item.quantity }}" min="1" max="99"
-                data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
+                data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}" aria-label="input-quantity-form">
             <div class="input-group-append">
-                <button class="increment-qty btn btn-sm btn-teal rounded-0"
+                <button class="increment-qty btn btn-sm btn-teal rounded-0" aria-label="increment quantity button"
                     data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
                     <span>
                         <i class="fas fa-plus fa-sm"></i>
