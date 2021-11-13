@@ -75,6 +75,9 @@ h4 {
 .text-pink {
     color:#E11469 !important;
 }
+.text-pink-bag{
+    color:#F8B9CF !important;
+}
 .text-teal {
     color: #227A8C;
 }
@@ -438,12 +441,14 @@ input[name='q']::placeholder {
     border-color: rgba(34, 34, 34, 0);
 }
 .allauth-form-inner-content a {
-	color: #227A8C; /* text-info */
+	color: #227A8C !important; /* text-info */
 }
 .allauth-form-inner-content button {
     border: 1px solid #fff0;
 }
-
+.text-info {
+    color: #227A8C !important; 
+}
 /* ---------------products.html----------------- */
 .overlay {
 	height: 100%;
