@@ -12,22 +12,22 @@
 ## Encountered Issues
 ---
 
-**Project Bugs And solutions**
+**Project Bugs and Solutions**
 ---
 While working on this project I encountered the following problems which I tried to solve in the following way:
 1. ERROR: IntegrityError at/accounts/login/ unique constrant failed:profiles.user_id showed while registering new user and trying to sign in 
 ![integrity error](wireframes/testing/integrity-error.png)
     SOLVING BY: 
-    - Checking for code differences in diffchecker (came out correct) ,
+    - Checking for code differences in diffchecker (came out correct),
     - Created a new superuser (still left with the same error),
-    - Deleted the db.sqlite3 file in workspace, make and run migrations, loaded my fixtures for categories.json and product.json, then created a new superuser (still didn't work)
-    - Checked all related files and the issue was forgotten undo uncommited lines in models.py 
+    - Deleted the db.sqlite3 file in workspace, make and run migrations, loaded my fixtures for categories.json and product.json, then created a new superuser (still didn't work),
+    - Checked all related files and the issue was forgotten undo uncommitted lines in models.py 
         - from
     ![integrity error bug](wireframes/testing/integrity-error-bug.png)
         - to
     ![integrity error solution](wireframes/testing/integrity-error-solved.png)
 
-2. ERROR: while making purchase on the site and receivind an order confirmation on the profile site and success message the confirmation email doesn't appear in the terminal. Instead the error `POST /checkout/wh/HTTP/1.1 500 146184` and TemplateDoesntExist received
+2. ERROR: while making purchases on the site and receiving an order confirmation on the profile site and success message the confirmation email doesn't appear in the terminal. Instead the error `POST /checkout/wh/HTTP/1.1 500 146184` and TemplateDoesntExist received
 ![confirmation-email-error](wireframes/testing/confirmation-email-error.png)
     SOLVED BY:
    - Checking for typos and correct place for **confirmation_emails** folder and webhook_handler.py
@@ -36,7 +36,7 @@ While working on this project I encountered the following problems which I tried
 ![confirmation-email-error-typo](wireframes/testing/confirmation-email-error-typo.png)
 
 
-3. ERROR: While saving the comment on the "Add Comment" form the Integrity error not hull constraint failed: blog_blogcomment.user_comment_id appear
+3. ERROR: While saving the comment on the "Add Comment" form the Integrity error Not Null constraint failed: blog_blogcomment.user_comment_id appeared
 
 ![integrity-error-comments-blog](wireframes/testing/integrity-error-comments-blog.png)
 
@@ -59,7 +59,7 @@ While working on this project I encountered the following problems which I tried
     SOLVED BY:
     - Changing if statement
 ![modal-delete-button-error-solved](wireframes/testing/modal-delete-button-error-solved.jpg)
-6. ISSUE: While adding missing message field into the models.py in contact form a makemigration non-nullable firld 'message' issue appeared
+6. ISSUE: While adding the missing message field into the models.py in contact form a make-migration non-nullable firld 'message' issue appeared
 ![makemigrations-contact-message-issue](wireframes/testing/makemigrations-contact-message-issue.png)
 
 
@@ -68,20 +68,20 @@ While working on this project I encountered the following problems which I tried
 SOLVED BY: 
 - value: null=False changed to null=True
 - value: blank-False changed to null=True
-7. ISSUE: While testing the contact form message field didn't work as expected (no validation) and also the makemigration message appeared
+7. ISSUE: While testing the contact form message field didn't work as expected (no validation) and also the make-migration message appeared
 ![make-migration-message](wireframes/testing/make-migration-message.png)
 SOLVED BY: 
-- in models message atribute value blank=True changed to null=False and null=True stayed the same
+- in models message attribute value blank=True changed to null=False and null=True stayed the same
 - before migrations database with sent emails was deleted
 ![message-field-issue-solved](wireframes/testing/message-field-issue-solved.jpg)
 8. BUG: Input placeholders are not displayed on the Contact page as expected, default labels are enabled.
 ![message-field-issue-solved](wireframes/testing/forms-placeholders-intendation-bug.png)
 
 SOLVED BY:
-- wrong intendation 
+- wrong indentation 
 ![forms-placeholders-intendation-bug](wireframes/testing/forms-placeholders-intendation-bug1.jpg)
 9. I encountered a few difficulties when creating a subscription app for the newsletter
-    a) BUG : The newsletter-subscription form don't display on the site 
+    a) BUG : The newsletter-subscription form didn't display on the site 
     SOLVED BY: Forgot to add the context to the context processors in settings.py `'contexts.subscription_form',` 
     ![contexts-subscription-form](wireframes/testing/contexts-subscription-form.jpg)
     
@@ -90,32 +90,32 @@ SOLVED BY:
     SOLVED BY: It was wrong return 'newsletter_form' whis is a value not a URL changed to redirect_url add in footer.html in the form a hidden input field and change view to get the redirect_url from the form and then redirect it to the redirect_url
     ![hidden-input-field](wireframes/testing/hidden-input-field.jpg)
     ![redirect-url](wireframes/testing/redirect-url.jpg)
-10. I encountered a few difficulties while deploying project to heroku but main was: 
+10. I encountered a few difficulties while deploying the project to heroku but main issue was: 
     a) ISSUE: logo images and hero-images  didn't appear on the on the home page
        SOLVED BY: create a new folder in static folder 'images' and moved the images from media folder to static folder
-    b) ISSUE: logo butterfly image didnt wan't to display ftom static/imagef file
-       SOLVED BY: It have to be moved back to Media folder and add the MEDIA_URL
+    b) ISSUE: logo butterfly image didnt wan't to display from static/imagef file
+       SOLVED BY: It have to be moved back to Media folder and had to add the MEDIA_URL
 
     ![butterfly-logo-mobile-top-header](wireframes/testing/butterfly-logo-mobile-top-header.png)
 
-11. While creating review application I  encountered a few errors that two of them:
+11. While creating the review application I encountered a few errors, two of which were:
     a) ERROR: NameError at products/add_review 
     SOLVED BY: Change 'User' to 'UserProfile' for model and in the views 
     form `user = User.objects.get(user=request.user)` to ` user = get_object_or_404(UserProfile, user=request.user)`
     ![review-user profile-error](wireframes/testing/review-user profile-error.jpg)
 
-    b) ISSUE: Comments don't display on the product_detail site product. Product review object is returning from the view but don't display data on the site.
+    b) ISSUE: Comments don't display on the product_detail site product. Product review object is returning from the view but didn't display data on the site.
 
     ![review-if-statement-issue](wireframes/testing/review-if-statement-issue.jpg)
 
-      SOLVED BY: create the if statement review that checks if there are any reviews and then loop through them. As the product review is already retrived from DB in the view we don't need to create any associacion with produce in the frontend like it was done previously.
+      SOLVED BY: create the if statement review that checks if there are any reviews and then loop through them. As the product review is already retrieved from DB in the view we don't need to create any association with products in the frontend like it was done previously.
 
     ![review-if-statement-issue-sollution](wireframes/testing/review-if-statement-issue-sollution.jpg)
-12. ISSUE: Static Files didn't uploaded on Heroku live website after changes on gitpod
+12. ISSUE: Static Files didn't upload on Heroku live website after changes on gitpod
     SOLVED BY: 
     - Changed STATICFILES_DIRS and add STATIC_ROOT to settings.py
     - Added variables to GitPod variables on settings from heroku DATABASE_URL and DEVELOPMENT set to False, make sure DEVELOPMENT doesn't exist on the Heroku config variables.
-    then make sure to close and reopen worksace again for project 
+    then make sure to close and reopen workspace again for project 
     - run the command `python3 manage.py collectstatic` (staticfiles added to static folder)
 
     BEFORE:
@@ -126,7 +126,7 @@ SOLVED BY:
 
 13. ISSUE: The  Review `Edit | Delete` buttons are visible only for a superuser, not for the owner of the review, and they are not able to edit or remove their reviews. 
 
-    SOLVED BY: Initialy the if statement was checking two variables that are different of types. After changes `Edit | Delete ` links will be visible to the user if they are logged in and they are own the review. 
+    SOLVED BY: Initially the if statement was checking two variables that are different of types. After changes `Edit | Delete ` links will be visible to the user if they are logged in and they own the review. 
         - Make a new variavle `review_user` in the edit_review view 
         - Add to the product_detail a `review_user = None` and if statement
         - Modify if statement in a product_detail.html 
@@ -143,7 +143,7 @@ SOLVED BY:
 
     SOLVED BY:
 
-    - Add signals in the Product app, which will fire whenewer the `Review` is created  for that product and register signal in apps.py
+    - Add signals in the Product app, which will fire whenever the `Review` is created  for that product and register signal in apps.py
     - modify the calculate_rating method
     
     BEFORE CHANGES:
@@ -151,7 +151,7 @@ SOLVED BY:
     
     AFTER CHANGES:
     - remove all() as the aggregation implies all items already
-    - remove the return as the method only calculates the average rating and sets it and don't return anything
+    - remove the return as the method only calculates the average rating and sets it and doesn't return anything
 
     ![calculate-ratings-after](wireframes/testing/calculate-ratings-after.png)
 
@@ -171,7 +171,7 @@ SOLVED BY:
 
     ![review-history-edit-error](wireframes/testing/review-history-edit-error.png)
 
-    SOLVED BY: modyfying the reverse product_id argument
+    SOLVED BY: modifying the reverse product_id argument
 
    ![review-history-edit-solution](wireframes/testing/review-history-edit-solution.jpg)
 
@@ -266,7 +266,7 @@ FIXED:
 
 checkout > static > js > stripe_elements.js 
 
-    - ERROR: mising semicolon lline 117
+    - ERROR: mising semicolon line 117
     - FIXED: semicolon added
 
 ----
@@ -282,7 +282,7 @@ FIXED:
 - semicolons added 
 
 ### Python PEP8
-Used online [PEP8](http://pep8online.com/). The entire code for every file from each application was placed in the PEP8 tool, all the errors was fixed and on the end code passed the test successfully.
+Used online [PEP8](http://pep8online.com/). The entire code for every file from each application was placed in the PEP8 tool, all the errors were fixed and the end code passed the test successfully.
 | app          | python file        | PASS | ERRORS/WARNINGS                                              |
 | ------------ | ------------------ | ---- | ------------------------------------------------------------ |
 | bag          | `apps.py`            | PASS |                                                              |
@@ -342,7 +342,7 @@ I also ran the python test command in the terminal to double check over my Pytho
 
 ---
 
-## Testing User stories
+## Testing User Stories
 ---
 Viewing and navigation
 1. As a new user I want to be able to recognise the purpose of the site immediately, so that I can identify whether I am interested in the content and wish to use the site.
@@ -351,28 +351,28 @@ Viewing and navigation
 ![home-page-after-change-color1](wireframes/readme/home-page-after-change-color1.png)  
 ![home-page-after-change-color2](wireframes/readme/home-page-after-change-color2.png) 
 
-2. AS a new user I want to be able to easily navigate the site, so that I can find what I need effectively.
+2. As a new user I want to be able to easily navigate the site, so that I can find what I need effectively.
     - No matter what page the user lands on, they can easily find and use the navigation bar which also is set fixed, being available at all times.
-    - The logo always leads back to the home page on small devices is a butterfy on medium and large devices is full name logo visible for the user and also HOME link on the dropdown-menu.     
+    - The logo always leads back to the home page on small devices and is a butterfy on medium and large devices, with a full name logo visible for the user and also HOME link on the dropdown-menu.     
 
 ![user-stories-desktop](wireframes/testing/user-stories-desktop.png)  
 ![user-stories-mobile](wireframes/testing/user-stories-mobile.png)  
 
-3. AS a new user I want to be able to access the website on a desktop and also mobile devices,  so that I can use it on a desktop or on the go.
+3. As a new user I want to be able to access the website on a desktop and also mobile devices,  so that I can use it on a desktop or on the go.
     - The website is responsive and tested on various devices as well as operating systems.
     - The footer is placed relative to the bottom of each page, so users will be able to see better website, especially on small devices.
 
-4. AS a general visitor I want to be able to contact the website owner,  so that I can make a query about the product, purchase, return policy, contribute blog.
+4. As a general visitor I want to be able to contact the website owner,  so that I can make a query about the product, purchase, return policy, contribute blog.
  - There is a contact link icon on the navbar and link "Contact Us" on the footer which redirects the user to the contact form
- - When the usser fills in the fields corectly the toast message will display The success message for the user.
+ - When the usser fills in the fields correctly the toast message will display The success message for the user.
 
 ![user-stories-contact](wireframes/testing/user-stories-contact.png) 
 
-5. AS a general user I want to be able to view blogs,  so that I can get new information's about the shop, designers,fashion events, news.
+5. As a general user I want to be able to view blogs,  so that I can get new information's about the shop, designers, fashion events, news.
  - The site contains the Blog where the users can read information about the latest collecion, feed-news, designers, fashion
  - There is a link that directs the user to the contact page if he or she wishes to contribute to the blog.
  - There is the comment section on each blog post article, where registered users are able to leave their comment.
- - There is a Review History section on "My Profile" page where user can read and edit his blog comments.
+ - There is a Review History section on "My Profile" page where users can read and edit their blog comments.
 
 ![user-stories-blog](wireframes/testing/user-stories-blog.png) 
 
@@ -380,188 +380,188 @@ Viewing and navigation
 
 ![user-stories-blog-comment](wireframes/testing/user-stories-blog-comment.png) 
 
-6. AS a new user and future shopper I want to be able to view a list of products, so that I can find which product I'd like to purchase.
+6. As a new user and future shopper I want to be able to view a list of products, so that I can find which product I'd like to purchase.
 
- -  The site contains links on the navigation bar with individual categories and subcategories where the user has the option to choose the product he is interested in.
- - There is a dropdown menu with subcategories for ALL Products, Shoes, Bags, Special Offers when user is able to choose product he is interested in 
+ -  The site contains links on the navigation bar with individual categories and sub-categories, where the user has the option to choose the product they are interested in.
+ - There is a dropdown menu with sub-categories for ALL Products, Shoes, Bags, Special Offers when a user is able to choose product they are interested in.
 
 ![user-stories-product-list](wireframes/testing/user-stories-product-list.png) 
 
-7.  AS a new user and future shopper I want to be able to view individual product details details,  so that I can identify the price, description, shoes rating,  image and available sizes before deciding to purchase.
-- Each product on the page, after clicking on the picture, redirects the user to the detail product, where detailed information as well as comments and rating of the product are provided.
-- Once the user clicks on the picture of the product it will be displayed in large format in a separate window
-- Registered user the ability to add/edit/delete comment and ratings to the product, which are automatically calculated and average rate displayed in the product description.
+7.  As a new user and future shopper I want to be able to view individual product details,  so that I can identify the price, description, shoes rating,  image and available sizes before deciding to purchase.
+- Each product on the page, after clicking on the picture, redirects the user to the detail product, where detailed information as well as comments and rating of the products are provided.
+- Once the user clicks on the picture of the product it will be displayed in large format in a separate window.
+- Registered users have the ability to add/edit/delete comment and ratings to the product, which are automatically calculated and average rate displayed in the product description.
 
 ![user-stories-product-detail](wireframes/testing/user-stories-product-detail.png) 
 
-8. AS a new user and future shopper I want to be able to quickly identify sales, pomotions and special offer, so that I can take advantage of special savings on products I'd like to purchase.
+8. As a new user and future shopper I want to be able to quickly identify sales, promotions and special offers, so that I can take advantage of special savings on products I'd like to purchase.
 - The website has a SPECIAL OFFERS drop-down menu where the user can find Sales and New Arivals
 
 ![user-stories-special-offers](wireframes/testing/user-stories-special-offers.png) 
 
-9. AS a new user and future shopper I want to be able to easily view the total of my purchases at any time,  so that I can avoid spending too much.
--  On the right site of the navbar there is a Shopping bag which updates a total price each time the user adds a new product, and have information free delivery and "Go to secure checkup" button. 
--  Shopping bag change color to pink when user add his first product to indicate there is an item in the bag.
-- Once the user clicks on the Shopping bag, he will be redirected to a Shopping bag page where he view the items, add quantity, remove from the bag or proceess to the secure checkup
-- The succes toast display on the site every time user add a new product in the bag
+9. As a new user and future shopper I want to be able to easily view the total of my purchases at any time,  so that I can avoid spending too much.
+-  On the right site of the navbar there is a Shopping Bag which updates a total price each time the user adds a new product, and have information free delivery and "Go to secure checkup" button. 
+-  Shopping bag change color to pink when user adds his first product to indicate there is an item in the bag.
+- Once the user clicks on the Shopping bag, he will be redirected to a Shopping bag page where he view the items, change quantity, remove from the bag or process to the secure checkup.
+- The success toast will display on the site every time users add a new product in the bag.
 
 ![user-stories-shopping-bag](wireframes/testing/user-stories-shopping-bag.png) 
 ![user-stories-shopping-bag-page](wireframes/testing/user-stories-shopping-bag-page.png) 
 
 **Registration and User Accounts** 
-10. AS a new user and future shopper I want to be able to easily register for an account,  so that I can have a personal account and be able to view my profile.  
+10. As a new user and future shopper I want to be able to easily register for an account,  so that I can have a personal account and be able to view my profile.  
 - From the navigation bar a new user is able to go to the "My Account" dropdown menu where the user can choose the Register button and he will be redirected to the "Sign Up" page. 
-- The Sign up form contains username, email address and password. User need to confirm email address and password.  
-- If the user enters incorrect data, he will be informed about it. If the form is completed correctly, the user will be informed about it with the success toast and redirected to the page, where he will be informed about the verification of his e-mail and sending a link to his inbox
+- The Sign up form contains username, email address and password. User needs to confirm email address and password.  
+- If the user enters incorrect data, he will be informed about it. If the form is completed correctly, the user will be informed about it with the success toast and will be redirected to the page, where he will be informed about the verification of his e-mail and a follow-up link will be sent to his inbox.
 
 ![user-stories-register](wireframes/testing/user-stories-register.png) 
 ![user-stories-register-verify](wireframes/testing/user-stories-register-verify.png) 
 ![user-stories-register-signup-incorrect](wireframes/testing/user-stories-register-signup-incorrect.png) 
 
-11. AS a registered user I want to be able to easily login/out,  so that I can access my personal account information.    
+11. As a registered user I want to be able to easily login/out,  so that I can access my personal account information.    
 -  From the navigation bar a new user can to go to the "My Account" dropdown menu where the user can choose the Login link and he will be redirected to the "Sign in" page.
-- On the "Sign in" page user is asked to enter his email or username and password. If they are completed correctly, he will be informed by toast success about a successful login to his account.
-- Once user is logged into account, he has acces to his My profile/Logout links from "My Account " dropdown menu.
+- On the "Sign in" page users are asked to enter their email or username and password. If they completed the form correctly, they will be informed by toast success about a successful login into their account.
+- Once a user is logged into their account, he / she has access to their My profile/Logout links from the "My Account " dropdown menu.
 
 ![user-story-sign-in](wireframes/testing/user-story-sign-in.png) 
 
-12. AS a registered user I want to be able to easily reset my password in case I forget it,  so that I can recover  access to my account if I have forgotten my password. 
-- On the "Sign in" page there is a link under "Sign In" button "Forgot password", which redirects the user to the "Password Reset" page. The user is asked to enter his email address and press thee "Reset My Pasword" button. User will recive the recover password message on his email.
+12. As a registered user I want to be able to easily reset my password in case I forget it,  so that I can recover  access to my account if I have forgotten my password. 
+- On the "Sign in" page there is a link under "Sign In" button "Forgot password", which redirects the user to the "Password Reset" page. The user is asked to enter their email address and press the "Reset My Pasword" button. User will receive the recover password message in their email.
 
 ![user-stories-reset-password](wireframes/testing/user-stories-reset-password.png) 
 
-13. AS a registered user I want to be able to receive an email confirmation after registering,  so that I can verify that my account registration was succesful. 
-- Once user is registered, he will receive a confirmation email with veryfication link on his account. 
+13. As a registered user I want to be able to receive an email confirmation after registering,  so that I can verify that my account registration was successful. 
+- Once a user is registered, he will receive a confirmation email with a verification link in their account. 
 
 ![user-stories-confirmation-link](wireframes/testing/user-stories-confirmation-link.png) 
 ![user-stories-confirmation](wireframes/testing/user-stories-confirmation.png) 
 
-14. AS a  registered user I want to be able to have a customized dashboard, so that I can view my personal order history and order confirmation, and save my payment information.
-- On "My profile" page user can access, view and edit delivery information, order history and review history.
+14. As a  registered user I want to be able to have a customized dashboard, so that I can view my personal order history and order confirmation, and save my payment information.
+- On "My profile" page users can access, view and edit delivery information, order history and review history.
 
 ![user-strories-user-profile](wireframes/testing/user-strories-user-profile.png) 
 
 
 **Sorting and searching**  
-15. AS a shopper I want to be able to sort the list of available products,  so that I can	easily identify the best rated, best priced and categorically sorted products.
+15. As a shopper I want to be able to sort the list of available products,  so that I can	easily identify the best rated, best priced and categorically sorted products.
 - There is a searchbox on the navigation bar where user can search depending on the entered keyword.
-- On the product page there is a search bar, where the user can search for products in the selected category depending on the price, rating, name and category
+- On the product page there is a search bar, where the user can search for products in the selected category depending on the price, rating, name and category.
 
 ![user-stories](wireframes/testing/user-stories.png) 
 
-16. AS a shopper I want to be able to sort multiple categories of products simultaneously, so that I can find the best-priced or best-rated product across broad categories, such as "high hills" , "flats", "boots" .
-- On the navigation bar there is a dropdown list for both categories SHOES and BAGS where user is able to chose interested category and sort chosen products on the search box depending on price or rate
+16. As a shopper I want to be able to sort multiple categories of products simultaneously, so that I can find the best-priced or best-rated products across broad categories, such as "high hills" , "flats", "boots".
+- On the navigation bar there is a dropdown list for both categories SHOES and BAGS, where a user is able to chose interesting categories and sort chosen products on the search box depending on price or rate.
 
 ![user-stories-bags-category](wireframes/testing/user-stories-bags-category.png)
 ![user-stories-shoes-category](wireframes/testing/user-stories-shoes-category.png)
 ![user-stories-sort-box](wireframes/testing/user-stories-sort-box.png)
 
-17. AS a shopper I want to be able to search for a product by name or description, so that I can Find a specific product I'd like to purchase.
-- There is a searchbox on the navigation bar where user can search depending on the entered keyword.
+17. As a shopper I want to be able to search for a product by name or description, so that I can find a specific product I'd like to purchase.
+- There is a searchbox on the navigation bar where a user can search depending on the entered keyword.
 ![user-stories-sort-box-name](wireframes/testing/user-stories-sort-box-name.png)
 
-18. AS a shopper I want to be able to Easily see what I've searched for and the number of results, so that I can Quickly decide whether the product I want is available. 
+18. As a shopper I want to be able to Easily see what I've searched for and the number of results, so that I can Quickly decide whether the product I want is available. 
 - Once the product is chosen it is displayed on the site with an image, name, price, category and rating
-and the number of result is displayed on the left site of the page.
+and the number of results is displayed on the left site of the page.
 
 ![user-stories-number](wireframes/testing/user-stories-number.png)
 
 **Purchasing the checkout**
-19. AS a shopper I want to be able to easily select the size and quantity of a product when purchasing it,  so that I can Ensure I don't accidentally select the wrong product, quantity or size.
+19. As a shopper I want to be able to easily select the size and quantity of a product when purchasing it, so that I can Ensure I don't accidentally select the wrong product, quantity or size.
 
 ![user-stories-number](wireframes/testing/user-stories-size-quantity.png)
 
-20. AS a shopper I want to be able to view details about the items in my shopping bag,  so that I can decide if I want to purchase an item or edit it.
-- Once the user click on the shopping bag he will be redirected to the "Shopping bag" page where he is able to view/edit/delete/purchase the products in his bag
-- User doesn't need to be logged in to view his bag or go to secure checkout.
+20. As a shopper I want to be able to view details about the items in my shopping bag,  so that I can decide if I want to purchase an item or edit it.
+- Once the user clicks on the shopping bag he will be redirected to the "Shopping Bag" page where he is able to view/edit/delete/purchase the products in his bag.
+- Users doesn't need to be logged in to view their bag or go to secure checkout.
 
 ![user-stories-shopping-bag1](wireframes/testing/user-stories-shopping-bag1.png)
 
-21. AS a shopper I want to be able to easily add, edit & delete items in my shopping bag,  so that I can adjust my total to fit into my budget.
+21. As a shopper I want to be able to easily add, edit & delete items in my shopping bag,  so that I can adjust my total to fit into my budget.
 - On the Shopping bag page there are links "Update" and "Remove" which allow user to edit or delete product.
 - On the detail product page each page contains the "ADD TO BAG" button.
 
-22. AS a shopper I want to be able to revisit my shopping cart after logging in and logging out,  so that I can complete my purchase without re-adding every single item.
-- Once the products are added to the shopping bag are saved, so the user can revisit his profile any time and finish his secure checkout.
+22. As a shopper I want to be able to revisit my shopping cart after logging in and logging out,  so that I can complete my purchase without re-adding every single item.
+- Once the products are added to the shopping bag, they are saved, so the user can revisit their profile any time and finish his secure checkout.
 
-23. AS a shopper I want to be able to checkout using credit/debit card,  so that I can purchase chosen products.
-- Once the user chose the secure checkup button he will be redirected to the "Checkout page, where user us able to use credit card to purchase products.
-- Allauth provides a robust user account system while Stripe offers secure payments, furthered by use of webhooks to ensure transactions are recorded.
+23. As a shopper I want to be able to checkout using credit/debit cards,  so that I can purchase chosen products.
+- Once the user chose the secure checkup button he will be redirected to the "Checkout page, where a user is able to use credit cards to purchase products.
+- 'Allauth' provides a robust user account system while Stripe offers secure payments, furthered by use of webhooks to ensure transactions are recorded.
 ![user-stories-credit-card](wireframes/testing/user-stories-credit-card.png)
 
-24. AS a shopper I want to be able to receive my digital order via email,  so that I can access the item I just purchased.
-- Once the user purchase the product the order, the confirmation email is sent to the user email box. 
+24. As a shopper I want to be able to receive my digital order via email,  so that I can access the item I just purchased.
+- Once the user purchases the product they ordered, the confirmation email is sent to the user email box. 
 ![user-stories-email-order-confirmation](wireframes/testing/user-stories-email-order-confirmation.jpg)
 
 **Navigation**  
-25. AS a site owner I want to be able to access product management from the homepage,  so that I can access my account.
+25. As a site owner I want to be able to access product management from the homepage, so that I can access my account.
 - On the navigation bar once the superuser/admin is logged in, has access to the Product Management and Blog Management
 ![user-stories-admin-access](wireframes/testing/user-stories-admin-access.png)
 
-26. AS a site owner I want to be able to access my dashboard from the homepage,  so that I can return to my dashboard at any time.
-- On the navigation bar there is an icon "My account" with all the necessary links, which are visible after the administrator logs in
+26. As a site owner I want to be able to access my dashboard from the homepage,  so that I can return to my dashboard at any time.
+- On the navigation bar there is an icon "My Account" with all the necessary links, which are visible after the administrator logs in.
 
-27. AS a site owner  I want to be able to receive a notification when there is a pending order, so that I can know when I am making money.
-- Once the the item is purchase, the confirmation email is sent to the user and the site owner.
+27. As a site owner I want to be able to receive a notification when there is a pending order, so that I can know when I am making money.
+- Once the item is purchased, the confirmation email is sent to the user and the site owner.
 
 **Product management/Blog management**
 
-28. AS a site owner I want to be able to add new products,  so that I can add new items to my online store.
-- Once site owner is logged in, he has access to the Product Management link link from "My Account" dropdown menu. The admin will be redirected to the Product page where he can add a new product/blogpost. 
+28. As a site owner I want to be able to add new products, so that I can add new items to my online store.
+- Once a site owner is logged in, he has access to the Product Management link from "My Account" dropdown menu. The admin will be redirected to the Product page where he can add a new product/blogpost. 
 
 ![user-stories-prod-management](wireframes/testing/user-stories-prod-management.png)
 
-29. AS a site owner I want to be able to edit/update products, so that I can update products prices, descriptions, images and other product criteria.
+29. As a site owner I want to be able to edit/update products, so that I can update products prices, descriptions, images and other product criteria.
 
-- Once site owner is logged he has access to the Edit button on each product placed on each product. The user will be redirected to the "Product management" page where he can update product details.
+- Once a site owner is logged, they has access to the Edit button on each product placed on each product. The user will be redirected to the "Product management" page where he can update product details.
 - The toast Alert message will display to inform Admin about editing the product.
 
 ![user-stories-prod-management-edit](wireframes/testing/user-stories-prod-management-edit.png)
 
-30. AS a site owner I want to be able to delete products,  so that I can remove erroneous products or products that are no longer available.
-- Once site owner is logged, he has an access to the "Delete" button on each product. The user will be redirected to the "Product management", page where he can remove product from the database.
+30. As a site owner I want to be able to delete products, so that I can remove erroneous products or products that are no longer available.
+- Once a site owner is logged in, he / she has access to the "Delete" button on each product. The user will be redirected to the "Product management", page where he can remove the product from the database.
 - The modal Alert message will display to confirm Admin about deleting the product.
 
 ![user-stories-delete-link](wireframes/testing/user-stories-delete-link.png)
 ![user-stories-delete](wireframes/testing/user-stories-delete.png)
 
 
-31. AS a site owner I want to be able to add blog post,  so that I can add new posts to their blog.
-- Once site owner is logged he has access to the Blog Management. The admin will be redirected to the Blog Management page where he can add a new blogpost.
+31. As a site owner I want to be able to add blog post,  so that I can add new posts to their blog.
+- Once a site owner is logged in ,he she has access to the Blog Management. The admin will be redirected to the Blog Management page where he can add a new blogpost.
 
 ![user-stories-blog-management](wireframes/testing/user-stories-blog-management.png)
 
-32. AS a site owner I want to be able to Edit/Update a blog post,  so that I can change post name, content, and image.
-- Once site owner is logged he has access to the EDIT link placed on each blogpost.
-- There is a Review History section on "My Profile" page where site owner can read and edit blog comments.
+32. As a site owner I want to be able to Edit/Update a blog post,  so that I can change post name, content, and image.
+- Once a site owner is logged in, he / she has access to the EDIT link placed on each blogpost.
+- There is a Review History section on "My Profile" page where a site owner can read and edit blog comments.
 
 ![user-stories-edit-delete](wireframes/testing/user-stories-edit-delete.png)
 
-33. AS a site owner I want to be able to Delete a blog post,  so that I can remove a blog post.
-- Once site owner is logged he has access to the  Delete link placed on each blogpost.
+33. As a site owner I want to be able to Delete a blog post,  so that I can remove a blog post.
+- Once a site owner is logged in, he / she has access to the  Delete link placed on each blogpost.
 
- **Authentication & account**    
+ **Authentication & Account**    
 
-34. AS a site owner I want to be able to verify my email address,  so that I can set up my account securely.
-- The site owver is able to acces the database by adding the "/admin" to the end of URL where he is able to verify his account , change securely his email address and manage the store from backend.
+34. As a site owner I want to be able to verify my email address, so that I can set up my account securely.
+- The site owver is able to access the database by adding the "/admin" to the end of URL where he is able to verify his account , change securely his email address and manage the store from the backend.
 ![user-strories-user-profile](wireframes/testing/user-stories-backend.png) 
 
-35. AS a site owner I want to be able to update my account information,  so that I can maintain access to my account.
-- Once site owned is logged in he has access to the "My Profile" link from where he is able to edit and update the account information. 
+35. As a site owner I want to be able to update my account information,  so that I can maintain access to my account.
+- Once a site owner is logged in, he / she has access to the "My Profile" link from where he is able to edit and update the account information. 
 ![user-strories-user-profile](wireframes/testing/user-strories-user-profile.png) 
 
-36. AS a site owner I want to be able to logout when I am finished with my work,  so that I can logout of my account.
+36. As a site owner I want to be able to logout when I am finished with my work, so that I can logout of my account.
 - On the "My account" dropdown menu where site user can Logout of his account. 
 
-37. AS a site owner I want to be able to reset my password,  so that I can recover my account or upgrade its security.
-- On the "Sign in" page there is a link under "Sign In" button "Forgot password", which redirects the user to the "Password Reset" page. The user is asked to enter his email address and press thee "Reset My Pasword" button. User will recive the recover password message on his email.
+37. As a site owner I want to be able to reset my password, so that I can recover my account or upgrade its security.
+- On the "Sign in" page there is a link under "Sign In" button "Forgot password", which redirects the user to the "Password Reset" page. The user is asked to enter his email address and press the "Reset My Pasword" button. User will receive the recover password message in their email.
 
 ![user-stories-reset-password](wireframes/testing/user-stories-reset-password.png) 
 
 
 ## Testing Functionality
 
-### HOME PAGE base.html/index.html
+# HOME PAGE base.html/index.html
 
 | Element                            | Sub-categories     | Action            | Expected Result                                              | PASS/FAIL | PROBLEM | FIX  |
 | ---------------------------------- | ------------------ | ----------------- | ------------------------------------------------------------ | :-------: | ------- | ---- |
@@ -650,7 +650,7 @@ and the number of result is displayed on the left site of the page.
 
 
 
-### PRODUCTS PAGE products.html
+# PRODUCTS PAGE products.html
 
 | Element                      | Additional            | Action                    | Expected Result                                              | PASS/FAIL | PROBLEM | FIX  |
 | ---------------------------- | --------------------- | ------------------------- | ------------------------------------------------------------ | :-------: | ------- | ---- |
@@ -678,7 +678,7 @@ and the number of result is displayed on the left site of the page.
 | Back to top button           |                       | Click                     | Move to the top of the page                                  | **PASS**  |         |      |
 
 
-### DETAIL PRODUCT PAGE detail_product.html
+# DETAIL PRODUCT PAGE detail_product.html
 | Element                      | Additional                         | Action                      | Expected Result                                              |   PASS/FAIL   | PROBLEM                      | FIX                                                          |
 | ---------------------------- | ---------------------------------- | --------------------------- | ------------------------------------------------------------ | :-----------: | ---------------------------- | ------------------------------------------------------------ |
 | **Product Detail **          |                                    |                             |                                                              |               |                              |                                                              |
@@ -722,7 +722,7 @@ and the number of result is displayed on the left site of the page.
 | Delete modal - cancel button |                                    | Click                       | Close modal with no change made                              |   **PASS**    |                              |                                                              |
 
 
-### REVIEW form add_review.html
+# REVIEW form add_review.html
 | Element                          | Action        | Expected Result                                              | PASS/FAIL | PROBLEM | FIX  |
 | -------------------------------- | ------------- | ------------------------------------------------------------ | :-------: | ------- | ---- |
 | **New Review / Add Review Form** |               |                                                              |           |         |      |
@@ -738,7 +738,7 @@ and the number of result is displayed on the left site of the page.
 |                                  |               |                                                              |           |         |      |
 |                                  |               |                                                              |           |         |      |
 
-### EDIT REVIEW edit_review.html
+# EDIT REVIEW edit_review.html
 
 | Element                  | Action        | Expected Result                                              | PASS/FAIL | PROBLEM | FIX  |
 | ------------------------ | ------------- | ------------------------------------------------------------ | :-------: | ------- | ---- |
@@ -756,13 +756,77 @@ and the number of result is displayed on the left site of the page.
 |                          |               |                                                              |           |         |      |
 |                          |               |                                                              |           |         |      |
 
-### BLOG blog.html / BLOGPOST blog_detail.html
+# BLOG blog.html / BLOGPOST blog_detail.html
+| Element                              | Additional | Action                     | Expected Result                              |   PASS/FAIL   | PROBLEM                             | FIX                                                          |
+| ------------------------------------ | ---------- | -------------------------- | -------------------------------------------- | :-----------: | ----------------------------------- | ------------------------------------------------------------ |
+| **Blog**                             |            |                            |                                              |               |                                     |                                                              |
+| Link **here**                        |            | Click                      | Redirects to Contact Us page                 |   **PASS**    |                                     |                                                              |
+| **Blog card**                        |            |                            |                                              |               |                                     |                                                              |
+| Blog Image, name, content            |            |                            | Displays correctly                           |   **PASS**    |                                     |                                                              |
+| "Read more" button                   |            | Click                      | Redirect to blog post page                   |   **PASS**    |                                     |                                                              |
+| **Edit** Blog link                   |            | Click                      | Redirect to edit Blog page                   |   **PASS**    |                                     |                                                              |
+|                                      |            |                            | (Only visible if adminloggrd in)             |   **PASS**    |                                     |                                                              |
+| **Delete **Blog link                 |            | Click                      | Open delete confirmation modal               |   **PASS**    |                                     |                                                              |
+|                                      |            |                            | (Only visible if admin logged in)            |   **PASS**    |                                     |                                                              |
+| Delete modal                         |            | Click                      | Delete selected product                      |   **PASS**    |                                     |                                                              |
+|                                      |            |                            | (Only visible if admin logged in)            |   **PASS**    |                                     |                                                              |
+|                                      |            |                            | Redirect to Blog page                        |   **PASS**    |                                     |                                                              |
+|                                      |            |                            | 'Blog post deleted' + confirmation message   |   **PASS**    |                                     |                                                              |
+| Delete modal - cancel button         |            | Click                      | Close modal with no change made              |   **PASS**    |                                     |                                                              |
+| **Back to top** button               |            | Click                      | Move to the top of the page                  |   **PASS**    |                                     |                                                              |
+|                                      |            |                            |                                              |               |                                     |                                                              |
+| **Blog Post page**                   |            |                            |                                              |               |                                     |                                                              |
+| Blog image                           |            | displayed on  page open    | Blog image displayed properly                |   **PASS**    |                                     |                                                              |
+| Blog Name/posted by:                 |            | displayed on  page open    | Blog text displayed properly                 |   **PASS**    |                                     |                                                              |
+| Blog Description                     |            | displayed on the page open | Blog textdisplayed properly                  |   **PASS**    |                                     |                                                              |
+| **"BACK TO BLOG"** button            |            | Click                      | Redirects to Blog page                       |   **PASS**    |                                     |                                                              |
+| **Edit** Blog link                   |            | Click                      | Redirect to edit a blog  page                |   **PASS**    |                                     |                                                              |
+|                                      |            |                            | Blog post updated in the database            |   **PASS**    |                                     |                                                              |
+|                                      |            |                            | (Only visible if admin logged in)            |   **PASS**    |                                     |                                                              |
+| **Delete** Blog link                 |            | Click                      | Open delete confirmation modal               |   **PASS**    |                                     |                                                              |
+|                                      |            |                            | (Only visible if admin logged in)            |   **PASS**    |                                     |                                                              |
+| Delete modal                         |            | Click                      | Delete selected blog post                    |   **PASS**    |                                     |                                                              |
+|                                      |            |                            | (Only visible if admin logged in)            |   **PASS**    |                                     |                                                              |
+|                                      |            |                            | Redirect to Blog page                        |   **PASS**    |                                     |                                                              |
+|                                      |            |                            | 'Blog post deleted' + confirmation message   |   **PASS**    |                                     |                                                              |
+|                                      |            |                            | Blog post removed/ from database             |   **PASS**    |                                     |                                                              |
+| Delete modal - cancel button         |            | Click                      | Close modal with no change made              |   **PASS**    |                                     |                                                              |
+| **Comment** section                  |            |                            |                                              |               |                                     |                                                              |
+| User Comment                         |            |                            | When Added is visible on the Comment section |   **PASS**    |                                     |                                                              |
+| **"Add a Comment"** button           |            | Click                      | Redirect to "Add a Comment" page form        |   **PASS**    |                                     |                                                              |
+|                                      |            |                            | (Only visible if user logged in)             | **FAIL/PASS** | Buttons visible to all users        | Add if statement to product detail page ` {% if request.user.is_authenticated %}` |
+| "**Register**" link                  |            |                            | Redirects to Sign Up page                    |   **PASS**    |                                     |                                                              |
+| "**Login**" link                     |            |                            | Redirects to Sign In page                    |   **PASS**    |                                     |                                                              |
+| "**Edit**" Comment link              |            | Click                      | Redirect to edit a comment page              |   **PASS**    |                                     |                                                              |
+|                                      |            |                            | (Only visible if user logged in)             |   **PASS**    |                                     |                                                              |
+|                                      |            |                            | Blog comment updated in the database         |   **PASS**    |                                     |                                                              |
+| **"Delete" ** Comment link           |            | Click                      | Open delete confirmation modal               |   **PASS**    |                                     |                                                              |
+|                                      |            |                            | (Only visible if user logged in)             |   **PASS**    |                                     |                                                              |
+| Delete modal                         |            | Click                      | Delete selected product                      |   **PASS**    |                                     |                                                              |
+|                                      |            |                            | (Only visible if user logged in)             |   **PASS**    |                                     |                                                              |
+|                                      |            |                            | Redirect to Blog page                        |   **PASS**    |                                     |                                                              |
+|                                      |            |                            | 'Comment deleted' + confirmation message     |   **PASS**    |                                     |                                                              |
+|                                      |            |                            | Blog post removed/ from database             |   **PASS**    |                                     |                                                              |
+| Delete modal - cancel button         |            | Click                      | Close modal with no change made              |   **PASS**    |                                     |                                                              |
+|                                      |            |                            |                                              |               |                                     |                                                              |
+| **New Comment /Add a Comment ** Form |            |                            |                                              |               |                                     |                                                              |
+| Text input fields Comment            |            | Type text                  | Text appears                                 |   **PASS**    |                                     |                                                              |
+|                                      |            | Leave blank                | Note Please fill in the field                | **FAIL/PASS** | Comment added empty with no comment | In blog app/ models.py / BlogComment model in comment field changed value to `blank=False` |
+| Add Comment button                   |            | Click                      | Text and rate filled in correctly            |   **PASS**    |                                     |                                                              |
+|                                      |            |                            | Redirect to the post blog page               |   **PASS**    |                                     |                                                              |
+|                                      |            |                            | Success mesage toast displayes               |   **PASS**    |                                     |                                                              |
+| Cancel                               |            | Click                      | Redirect to the post blog page               |   **PASS**    |                                     |                                                              |
+|                                      |            |                            |                                              |               |                                     |                                                              |
+| **"Edit a Comment"** Form            |            |                            |                                              |               |                                     |                                                              |
+| Text input fields Comment            |            | Type text                  | Text appeared                                |   **PASS**    |                                     |                                                              |
+|                                      |            | Leave blank                | Note Please fill in the field                |   **PASS**    | Comment added empty with no comment | In blog app/ models.py / BlogComment model in comment field changed value to `blank=False` |
+| Update Comment button                |            | Click                      | Text filled in correctly                     |   **PASS**    |                                     |                                                              |
+|                                      |            |                            | Redirect to the blog page                    |   **PASS**    |                                     |                                                              |
+|                                      |            |                            | Success mesage toast displayes               |   **PASS**    |                                     |                                                              |
+| Cancel                               |            | Click                      | Redirect to the post blog page               |   **PASS**    |                                     |                                                              |
 
 
-
-
-
-### Product Management form
+# Product Management form
 
 | Element                                    | Action        | Expected Result                                              | PASS/FAIL | PROBLEM | FIX  |
 | ------------------------------------------ | ------------- | ------------------------------------------------------------ | :-------: | ------- | ---- |
@@ -784,7 +848,7 @@ and the number of result is displayed on the left site of the page.
 | **Cancel** Button                          | Click         | Redirect to the Products page                                | **PASS**  |         |      |
 
 
-### BLOG MANAGEMENT form
+# BLOG MANAGEMENT form
 
 | Element                                | Action     | Expected Result                                              | PASS/FAIL | PROBLEM | FIX  |
 | -------------------------------------- | ---------- | ------------------------------------------------------------ | :-------: | ------- | ---- |
@@ -803,7 +867,7 @@ and the number of result is displayed on the left site of the page.
 |                                        |            |                                                              |           |         |      |
 
 
-### SHOPPING BAG page bag.html
+# SHOPPING BAG page bag.html
 
 | Element                      | Action | Expected Result                                              | PASS/FAIL | PROBLEM | FIX  |
 | ---------------------------- | ------ | ------------------------------------------------------------ | :-------: | ------- | ---- |
@@ -832,13 +896,13 @@ and the number of result is displayed on the left site of the page.
 |                              |        |                                                              |           |         |      |
 |                              |        |                                                              |           |         |      |
 
-### CHECKOUT checkout.html
+# CHECKOUT checkout.html
 
 | Element                             | Action     | Expected Result                                              | PASS/FAIL | PROBLEM | FIX  |
 | ----------------------------------- | ---------- | ------------------------------------------------------------ | :-------: | ------- | ---- |
 | **Checkout**                        |            |                                                              |           |         |      |
 | Checkout form details               | Text input | Text displayed to the user properly                          | **PASS**  |         |      |
-| Order Image                         |            | Image displayed corectly                                     | **PASS**  |         |      |
+| Order Image                         |            | Image displayed correctly                                     | **PASS**  |         |      |
 |                                     |            | Image redirect to product detail page                        | **PASS**  |         |      |
 | Order Summary                       |            | Products displayed to the user  properly                     | **PASS**  |         |      |
 | Bag Total                           |            | Text displays properly, Calculates the total price of the basket | **PASS**  |         |      |
@@ -847,14 +911,14 @@ and the number of result is displayed on the left site of the page.
 | **"CompleteOrder"** button          |            |                                                              |           |         |      |
 | Credit card correct                 |            | entered credit card 4242 4242 4242 4242                      | **PASS**  |         |      |
 |                                     |            | Redirects to Order detail page                               | **PASS**  |         |      |
-|                                     |            | Confirmarion Email recived by the user                       | **PASS**  |         |      |
+|                                     |            | Confirmation Email received by the user                       | **PASS**  |         |      |
 |                                     |            | Success message displayed                                    | **PASS**  |         |      |
 |                                     |            | Success webhook received on Stripe                           | **PASS**  |         |      |
 |                                     |            | Order payments added to the Profile order history            | **PASS**  |         |      |
 | credit card requires authentication |            | entered credit card 4000 0025 0000 3155                      | **PASS**  |         |      |
-|                                     |            | Sequre payment Page open to complete authentication          | **PASS**  |         |      |
+|                                     |            | Secure payment Page open to complete authentication          | **PASS**  |         |      |
 |                                     |            | Redirects to Order detail page                               | **PASS**  |         |      |
-|                                     |            | Confirmation Email recived by the user                       | **PASS**  |         |      |
+|                                     |            | Confirmation Email received by the user                       | **PASS**  |         |      |
 |                                     |            | Success message displayed                                    | **PASS**  |         |      |
 |                                     |            | Success webhook received on Stripe                           | **PASS**  |         |      |
 |                                     |            | Order payments added to the Profile order history            | **PASS**  |         |      |
@@ -862,30 +926,30 @@ and the number of result is displayed on the left site of the page.
 |                                     |            | Card payment declined                                        | **PASS**  |         |      |
 |                                     |            | Error message displayed                                      | **PASS**  |         |      |
 |                                     |            | Failed webhook received on Stripe                            | **PASS**  |         |      |
-| credit card details incorect        |            | Message disply :Your card number is invalid.                 | **PASS**  |         |      |
+| credit card details incorrect        |            | Message disply :Your card number is invalid.                 | **PASS**  |         |      |
 | **"Adjust Bag"** button             | Click      | Redirect to Shopping Bag page                                | **PASS**  |         |      |
 |                                     |            |                                                              |           |         |      |
 
-### REGISTER signup.html
+# REGISTER signup.html
 
 | Element                               | Action     | Expected Result                                              | PASS/FAIL |
 | ------------------------------------- | ---------- | ------------------------------------------------------------ | :-------: |
 | **Register form/Sign Up**/ form       |            |                                                              |           |
-| E-mail addres                         | Text input | Text displayed to user                                       | **PASS**  |
+| E-mail address                         | Text input | Text displayed to user                                       | **PASS**  |
 | E-mail address confirmation           | Text input | Text displayed to user, correct email                        | **PASS**  |
 | Username                              | Text input | Text displayed to user at least 4 characters                 | **PASS**  |
 | Password                              | Text input | Password hidden to user                                      | **PASS**  |
 | Confirmation Password                 | Text input | Password hidden to user                                      | **PASS**  |
 | **Sign Up** Button (fields correct)   | Click      | Redirect to "Verify your e-mail address" page                | **PASS**  |
-|                                       |            | "Alert,  "confirmation emai sent to user"                    | **PASS**  |
-|                                       |            | Verification email  with confirmation link recived by thre user's email box, Redirect to Confirm e-mail address , confirm email address | **PASS**  |
+|                                       |            | "Alert,  "confirmation email sent to user"                    | **PASS**  |
+|                                       |            | Verification email  with confirmation link received by the user's email box, Redirect to Confirm e-mail address , confirm email address | **PASS**  |
 |                                       |            | New user added to database                                   | **PASS**  |
 |                                       |            | Redirect to Sign In page                                     | **PASS**  |
 |                                       |            | Success message toast displayed                              | **PASS**  |
 | **Sign Up** Button (fields incorrect) | Click      | Fields highlighted red, user prompted to change format       | **PASS**  |
-| Passwords doesn't match               | Click      | "This password is to short. Must contain at least 8 characters/You must type the same password each time" rejection message | **PASS**  |
+| Passwords doesn't match               | Click      | "This password is too short. Must contain at least 8 characters/You must type the same password each time" rejection message | **PASS**  |
 | Username already in use               | Click      | "Username already exists, please choose another"             | **PASS**  |
-| email address incorect                | Click      | Please include an @ in the email address/ #                  | **PASS**  |
+| email address incorrect                | Click      | Please include an in the email address/                     | **PASS**  |
 | E-mail address confirmation           | Click      | You must type the same email each time                       | **PASS**  |
 | **Redirect Link**                     |            |                                                              | **PASS**  |
 | **"Sign in" ** here link              | Click      | Redirect to Sign In page                                     | **PASS**  |
@@ -893,7 +957,7 @@ and the number of result is displayed on the left site of the page.
 |                                       |            |                                                              |           |
 
 
-### SIGN IN form login.html / Password reset
+# SIGN IN form login.html / Password reset
 
 | Element                          | Action     | Expected Result                                  | PASS/FAIL | PROBLEM | FIX  |
 | -------------------------------- | ---------- | ------------------------------------------------ | :-------: | ------- | ---- |
@@ -901,7 +965,7 @@ and the number of result is displayed on the left site of the page.
 | Username or e-mail               | Text input | Text displayed to user                           | **PASS**  |         |      |
 | Password                         | Text input | Password hidden to user                          | **PASS**  |         |      |
 | Sign In Button (fields correct)  | Click      | Redirect to Home page                            | **PASS**  |         |      |
-|                                  |            | "Succes, toast  "username"" confirmation message | **PASS**  |         |      |
+|                                  |            | "Success, toast  "username"" confirmation message | **PASS**  |         |      |
 | Log In Button (fields incorrect) | Click      | Reload Sign in page                              | **PASS**  |         |      |
 |                                  |            | Alert message display                            | **PASS**  |         |      |
 |                                  |            |                                                  |           |         |      |
@@ -912,31 +976,31 @@ and the number of result is displayed on the left site of the page.
 |                                  | Click      | Redirect to "Password Reset" page                | **PASS**  |         |      |
 |                                  |            |                                                  |           |         |      |
 | **Password Reset** page          |            |                                                  |           |         |      |
-| e-mail addres                    | Text input | Text displayed to user                           | **PASS**  |         |      |
+| e-mail address                    | Text input | Text displayed to user                           | **PASS**  |         |      |
 | "Back to login" link             | Click      | Redirect to Sign In page                         | **PASS**  |         |      |
 | "Reset My Password" button       | Click      | Redirect the user to Password reset page         | **PASS**  |         |      |
-|                                  |            | Password Resset sent to the user's email         | **PASS**  |         |      |
+|                                  |            | Password Reset sent to the user's email         | **PASS**  |         |      |
 |                                  |            |                                                  |           |         |      |
 |          |            |                                                  |           |         |      |
 
-### PROFILE profile.html
+# PROFILE profile.html
 
 | Element                          | Action | Expected Result                                         | PASS/FAIL | PROBLEM | FIX  |
 | -------------------------------- | ------ | ------------------------------------------------------- | :-------: | ------- | ---- |
 | **My Profile**                   |        |                                                         |           |         |      |
 | Delivery Information form fields |        | Text  in all fields displayed to the user properly      | **PASS**  |         |      |
 | **UPDATE INFORMATION** Button    |        | Updates the Delivery Details                            | **PASS**  |         |      |
-|                                  |        | Success toast message disolayed                         | **PASS**  |         |      |
+|                                  |        | Success toast message displayed                        | **PASS**  |         |      |
 |                                  |        | Delivery Information updated in Database                | **PASS**  |         |      |
 | **Order history**                |        | Displays all order history                              | **PASS**  |         |      |
 | Order number link                |        | Redirect to Confirmation Order Detail                   | **PASS**  |         |      |
 |                                  |        | Alert message about confirmation email sent on the date | **PASS**  |         |      |
-| **Review History**               |        | Text in all fields displays corectly                    | **PASS**  |         |      |
+| **Review History**               |        | Text in all fields displays correctly                    | **PASS**  |         |      |
 | **Edit** buton                   |        | Redirect to the Edit Review                             | **PASS**  |         |      |
-|                                  |        | Rating displayed corectly when new Rating added         | **PASS**  |         |      |
+|                                  |        | Rating displayed correctly when new Rating added         | **PASS**  |         |      |
 
 
-### SIGN OUT logout.htlm 
+# SIGN OUT logout.html 
 
 | Element              | Action | Expected Result         | PASS/FAIL | PROBLEM | FIX  |
 | -------------------- | ------ | ----------------------- | :-------: | ------- | ---- |
@@ -946,14 +1010,14 @@ and the number of result is displayed on the left site of the page.
 | "Cancel button"      | Click  | Redirect to Home page   | **PASS**  |         |      |
 |                      |        |                         |           |         |      |
 
-### CONTACT form contact.html
+# CONTACT form contact.html
 
 | Element                                 | Action        | Expected Result                                  | PASS/FAIL |      |      |
 | --------------------------------------- | ------------- | ------------------------------------------------ | :-------: | ---- | ---- |
 | **Contact form**                        |               |                                                  |           |      |      |
 | Full name                               | Text input    | Text displayed to user                           | **PASS**  |      |      |
 | Email                                   | Text input    | Text displayed to user                           | **PASS**  |      |      |
-| General query                           | dropdown list | Choses the query from the list                   | **PASS**  |      |      |
+| General query                           | dropdown list | Chooses the query from the list                   | **PASS**  |      |      |
 | Message field                           | Text input    | Text displayed to the user                       | **PASS**  |      |      |
 |                                         |               |                                                  | **PASS**  |      |      |
 | Send Button (fields correct)            | Click         | Redirect to Contact page                         | **PASS**  |      |      |
@@ -963,14 +1027,14 @@ and the number of result is displayed on the left site of the page.
 |                                         |               | "Message Sent Successfully" confirmation message | **PASS**  |      |      |
 | Send Button (fields incorrect or empty) | Click         | "Please Fill in the field" message               | **PASS**  |      |      |
 
-### UNSUBSCRIBE Form newsletter_unsubscribe.html
+# UNSUBSCRIBE Form newsletter_unsubscribe.html
 
 | Element                             | Action    | Expected Result                                  | PASS/FAIL | PROBLEM | FIX  |
 | ----------------------------------- | --------- | ------------------------------------------------ | :-------: | ------- | ---- |
 | **Unsubscribe Form**                |           |                                                  |           |         |      |
 | Email address field                 | Type text | Text displayed to the user                       | **PASS**  |         |      |
 | Unsubscribe Button (fields correct) | Click     | Redirect to Unsubscribe Form page                | **PASS**  |         |      |
-|                                     |           | "Succes, toast  "username"" confirmation message | **PASS**  |         |      |
+|                                     |           | "Success, toast  "username"" confirmation message | **PASS**  |         |      |
 |                                     |           | Email removed from database                      |           |         |      |
 | Unsubscribe Button (fields incorrect)| Click   | "Please Fill in the field" message                |   **PASS**          |      |
 | Cancel                              | Click     | Redirect to the  product page                    | **PASS**  |         |      |
@@ -979,50 +1043,130 @@ and the number of result is displayed on the left site of the page.
 
 
 
-
 ### Checking for broken links
 ---
-
-
+I have used the [Dr.LinkChack](https://www.drlinkcheck.com/account/subscriptions/1/projects/1/overview)
+![dr-link-check](wireframes/testing/dr-link-check.png) to make sure there are no broken links.
 
 
 
 ### Responsive Design
 ---
+The website has been tested by using [Chrome DevTools](https://developer.chrome.com/docs/devtools/) and also on [Am I Responsive](http://ami.responsivedesign.is/) and [Responsinator](http://www.responsinator.com/) on a number of devices with varying screen dimensions, for both portrait and landscape views, including iPhone 5/SE, iPhone 6/7/8, iPhone 6/7/8 plus, iPhone 11, iPad, iPad Pro, Moto G4, Galaxy S5, Surface Duo, Galaxy Fold, Widescreen Laptop and Desktop PC, iPad landscape · width: 1024px, iPhone 6-8 Plump landscape · width: 736px ,iPhone 6-8 landscape · width: 667px, Android (Pixel 2) landscape · width: 684px, iPhone expensive landscape · width: 734px
 
+The website was also tested on real devices in both portrait and landscape view. The results with other browsers were satisfying:
 
- **Encountered problems while testing the site on different devices**
-
-
+Samung Galaxy S6/S7/S8/S10/S20.
+Samsung Galaxy Tablet.
+iPhone 13
+Examples of website view on responsinator
+![responsinator-landscape-ipad](wireframes/testing/responsinator-landscape-ipad.png)
+![responsinator-landscape-iphone](wireframes/testing/responsinator-landscape-iphone.png)
+![responsinator-portrait-iphone](wireframes/testing/responsinator-portrait-iphone.png)
 
 
 ## Testing Compatibility
+The website was tested on the following browsers and operating systems:
+
+Google Chrome (Windows 10, Android 11, Safari).
+
+Microsoft Edge (Windows 10).
+
+Firefox (Windows 10).
+
+Opera (Windows 10).
+`Test for Opera browser`
+![opera](wireframes/testing/opera.png)
+
+
+`Test for Firefox browser`
+![firefox](wireframes/testing/firefox.png)
+
+
+` Test for Microsoft Edge browser`
+![edge](wireframes/testing/edge.png)
+
+
 ---
 
 ---
 ## Testing Performance
 ---
-Performance has been tested using Lighthouse tool of Google Chrome.
+Performance has been tested using Lighthouse tool of Google Chrome. The results differed slightly each time on mobile devices, where the performance was a bit worse than on
+ desktop devices but overall they were satisfactory.
 To improve SEO, the following actions were taken:
 - Document doesn't have a meta description FIXED BY: Meta description added to base.html
 - Links do not have descriptive text FIXED BY: add `click here` and Unsubscribe text link
 ![lighthouse-unsubscribeidescriptive-text](wireframes/testing/lighthouse-unsubscribeidescriptive-text.png)
+To improve best Practices for images on the product detail page "Links to cross-origin destination are unsafe" to make safe open images in separate window "rel="noopener" to `target="_blank"` added which are automatically added by default on chromium browsers but Edge and Internet Explorer helps protect the above explicit specification.
+### HOME PAGE DESKTOP
+![lighthouse-home](wireframes/testing/lighthouse-home.png)
 
+### PRODUCTS PAGE
+![lighthhouse-products](wireframes/testing/lighthhouse-products.png)
 
+### DETAIL PRODUCT
+![lighthhouse-productdetail](wireframes/testing/lighthhouse-productdetail.png)
+
+### BLOG
+![lighthouse-blog](wireframes/testing/lighthouse-blog.png)
+
+### BLOG POST
+![lighthouse-postblog](wireframes/testing/lighthouse-postblog.png)
+
+### CONTACT
+![lighthhouse-contact](wireframes/testing/lighthhouse-contact.png)
+
+### MY PROFILE
+![lighthhouse-myprofile](wireframes/testing/lighthhouse-myprofile.png)
+
+### BLOG MANAGEMENT
+![lighthhouse-blogmanagement](wireframes/testing/lighthhouse-blogmanagement.png)
+
+### PRODUCT MANAGEMENT
+![lighthhouse-productmanagement](wireframes/testing/lighthhouse-productmanagement.png)
+
+### SHOPPING BAG
+## empty shopping bag
+![lighthhouse-shoppingbag-empty](wireframes/testing/lighthhouse-shoppingbag-empty.png)
+## full shopping bag
+![lighthhouse-shoppingbag-full](wireframes/testing/lighthouse-shoppingbag-full.png)
+
+### CHECKOUT
+![lighthhouse-checkout](wireframes/testing/lighthhouse-checkout.png)
+
+### SIGNUP
+![lighthhouse-signup](wireframes/testing/lighthhouse-signup.png)
+
+### SIGNOUT
+![lighthhouse-signout](wireframes/testing/lighthhouse-signout.png)
+
+### REGISTER
+![lighthhouse-signout](wireframes/testing/lighthhouse-signout.png)
+
+### REVIEWS
+![lighthhouse-reviews](wireframes/testing/lighthhouse-reviews.png)
+
+### COMMENTS
+![lighthhouse-blogcoments](wireframes/testing/lighthhouse-blogcoments.png)
 
 ## Testing Accessibility
 ----
+Accessibility was checked on all pages of the websites. Most of the low accessibility issues have been fixed. The problem for the lighthouse was also the div overlay which is placed on the site.
 To improve accessibility, the following actions were taken:
-- Background and foreground colors not have a sufficient contrast ratio. FIXED BY: Contrast between font and backgorunbd color was checked on the [contrast checker](https://webaim.org/resources/contrastchecker/) and slightly darken 
-![contrast-checker](wireframes/testing/contrast-checker.png)
-- Buttons do not have accessible name FIXED BY: added aria-label="search button" in base.html
-![accessibility-search-button](wireframes/testing/accessibility-search-button.png)
-- Heading elements are not in a sequentally - descending order FIXED BY: "Shop Now" button on the home page heading changed from `<h4>` to `<h2>`
+- Background and foreground colors did not have a sufficient contrast ratio. FIXED BY: Contrast between font and background color was checked on the [contrast checker](https://webaim.org/resources/contrastchecker/) and slightly darkened.
 
-- **Accessibility for mobile devices on LightHouse**
+![contrast-checker](wireframes/testing/contrast-checker.png)
+- Buttons do not have a accessible name FIXED BY: adding aria-label="search button" in base.html, aria-label="decrement quantity button", aria-label="increment quantity button", aria-label="input-quantity-form" in quantity-form.html for quantity buttons.
+![accessibility-search-button](wireframes/testing/accessibility-search-button.png)
+- Heading elements are not in a sequentially - descending order FIXED BY: "Shop Now" button on the home page heading changed from `<h4>` to `<h2>` also in bag total.html headings for Delivery changed to '<h5> and class small added to keep correct visual look.</h5>
+
+![accessibility-home](wireframes/testing/accessibility-home.png)
 
 
 ## Further Testing
-
+Additional testing 
 
 ### Overflow
+- The website was tested for overflow using [Unicorn Revealer](https://chrome.google.com/webstore/detail/unicorn-revealer/lmlkphhdlngaicolpmaakfmhplagoaln?hl=en-GB) chrome extension.
+- Spelling was checked thoroughly using [Grammarly](https://www.grammarly.com/) extension and [online-spellcheck](https://www.online-spellcheck.com/)
