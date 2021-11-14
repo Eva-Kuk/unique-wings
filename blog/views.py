@@ -116,29 +116,32 @@ def blog_comment(request, blogpost_id):
 
     blogpost = get_object_or_404(BlogPost, pk=blogpost_id)
 
-    if request.method == 'POST':
-        form = CommentForm(request.POST)
-        if form.is_valid():
-            comment = form.save(commit=False)
-            comment.user_comment = request.user
-            comment.blogpost = blogpost
-            comment.save()
-            messages.success(request, 'Thank you for your comment!')
-            return redirect(reverse('blog_detail', args=[blogpost.id]))
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+            form = CommentForm(request.POST)
+            if form.is_valid():
+                comment = form.save(commit=False)
+                comment.user_comment = request.user
+                comment.blogpost = blogpost
+                comment.save()
+                messages.success(request, 'Thank you for your comment!')
+                return redirect(reverse('blog_detail', args=[blogpost.id]))
+            else:
+                messages.error(
+                    request,
+                    'Oops something went wrong. \
+                    Please try again.')
         else:
-            messages.error(
-                request,
-                'Oops something went wrong. \
-                Please try again.')
+            form = CommentForm(instance=blogpost)
+        template = 'blog/add_blogcomment.html'
+        context = {
+            'form': form,
+            'blogpost': blogpost,
+        }
+        return render(request, template, context)
     else:
-        form = CommentForm(instance=blogpost)
-    template = 'blog/add_blogcomment.html'
-    context = {
-        'form': form,
-        'blogpost': blogpost,
-    }
-
-    return render(request, template, context)
+        messages.error(request, 'Failed to add review!')
+        return redirect(reverse('blog'))
 
 
 @login_required
