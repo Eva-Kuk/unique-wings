@@ -37,7 +37,7 @@ class BlogComment(models.Model):
     date = models.DateTimeField(
         auto_now_add=True)
     comment = models.TextField(
-        max_length=1024, null=True, blank=True)
+        max_length=1024, null=True, blank=False)
 
     def __str__(self):
         return self.comment
