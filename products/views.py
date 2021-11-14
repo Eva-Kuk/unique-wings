@@ -170,6 +170,12 @@ def delete_product(request, product_id):
 @login_required
 def add_review(request, product_id):
     """ Add a review to a product """
+    if not request.user.is_authenticated:
+        messages.error(
+            request,
+            'Filed to add review!')
+        return redirect(reverse('home'))
+
     product = get_object_or_404(Product, pk=product_id)
     user = get_object_or_404(UserProfile, user=request.user)
     if request.method == 'POST':
@@ -203,6 +209,12 @@ def add_review(request, product_id):
 @login_required
 def edit_review(request, review_id):
     """ Edit a review to a product """
+    if not request.review.user or request.user.is_superuser:
+        messages.error(
+            request,
+            "Sorry, you don't have the necessary permission to do that.")
+        return redirect(reverse('product_detail'))
+
     review = get_object_or_404(Review, pk=review_id)
     review_user = request.user
     if request.method == 'POST':
@@ -226,13 +238,18 @@ def edit_review(request, review_id):
         "product": review.product,
         "review_user": review_user,
     }
-    print(review_user)
     return render(request, template, context)
 
 
 @login_required
 def delete_review(request, review_id):
     """ Delete a review for a product """
+    if not request.review.user or request.user.is_superuser:
+        messages.error(
+            request,
+            "Sorry, you don't have the necessary permission to do that.")
+        return redirect(reverse('product_detail'))
+
     review = get_object_or_404(Review, pk=review_id)
     review.delete()
     messages.success(request, 'Review deleted successully!')
