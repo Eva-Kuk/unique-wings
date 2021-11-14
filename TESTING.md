@@ -1135,56 +1135,133 @@ To improve SEO, the following actions were taken:
 - Links do not have descriptive text FIXED BY: add `click here` and Unsubscribe text link
 ![lighthouse-unsubscribeidescriptive-text](wireframes/testing/lighthouse-unsubscribeidescriptive-text.png)
 To improve best Practices for images on the product detail page "Links to cross-origin destination are unsafe" to make safe open images in separate window "rel="noopener" to `target="_blank"` added which are automatically added by default on chromium browsers but Edge and Internet Explorer helps protect the above explicit specification.
+
 ### HOME PAGE DESKTOP
 ![lighthouse-home](wireframes/testing/lighthouse-home.png)
+
+MOBILE
+
+![lighthouse-home-mobile](wireframes/testing/lighthouse-home-mobile.png)
+
 
 ### PRODUCTS PAGE
 ![lighthhouse-products](wireframes/testing/lighthhouse-products.png)
 
+MOBILE
+
+![lighthhouse-products-mobile](wireframes/testing/lighthhouse-products-mobile.png)
+
+
 ### DETAIL PRODUCT
 ![lighthhouse-productdetail](wireframes/testing/lighthhouse-productdetail.png)
+
+MOBILE
+
+![lighthhouse-productdetail-mobile](wireframes/testing/lighthhouse-productdetail-mobile.png)
+
 
 ### BLOG
 ![lighthouse-blog](wireframes/testing/lighthouse-blog.png)
 
+MOBILE
+
+![lighthouse-blog-mobile](wireframes/testing/lighthouse-blog-mobile.png)
+
+
 ### BLOG POST
 ![lighthouse-postblog](wireframes/testing/lighthouse-postblog.png)
+
+MOBILE
+
+![lighthouse-postblog-mobile](wireframes/testing/lighthouse-postblog-mobile.png)
+
 
 ### CONTACT
 ![lighthhouse-contact](wireframes/testing/lighthhouse-contact.png)
 
+MOBILE
+
+![lighthhouse-contact-mobile](wireframes/testing/lighthhouse-contact-mobile.png)
+
+
 ### MY PROFILE
 ![lighthhouse-myprofile](wireframes/testing/lighthhouse-myprofile.png)
+
+MOBILE
+
+![lighthhouse-myprofile-mobile](wireframes/testing/lighthhouse-myprofile-mobile.png)
+
 
 ### BLOG MANAGEMENT
 ![lighthhouse-blogmanagement](wireframes/testing/lighthhouse-blogmanagement.png)
 
+MOBILE
+
+![lighthhouse-blogmanagement-mobile](wireframes/testing/lighthhouse-blogmanagement-mobile.png)
+
+
 ### PRODUCT MANAGEMENT
 ![lighthhouse-productmanagement](wireframes/testing/lighthhouse-productmanagement.png)
+
+MOBILE
+
+![lighthhouse-productmanagement-mobile](wireframes/testing/lighthhouse-productmanagement-mobile.png)
 
 ### SHOPPING BAG
 ## empty shopping bag
 ![lighthhouse-shoppingbag-empty](wireframes/testing/lighthhouse-shoppingbag-empty.png)
+
 ## full shopping bag
 ![lighthhouse-shoppingbag-full](wireframes/testing/lighthouse-shoppingbag-full.png)
+
+MOBILE
+
+![lighthhouse-shoppingbag-mobile](wireframes/testing/lighthhouse-shoppingbag-mobile.png)
 
 ### CHECKOUT
 ![lighthhouse-checkout](wireframes/testing/lighthhouse-checkout.png)
 
-### SIGNUP
+MOBILE
+
+![lighthhouse-checkout-mobile](wireframes/testing/lighthhouse-checkout-mobile1.png)
+
+### REGISTER
 ![lighthhouse-signup](wireframes/testing/lighthhouse-signup.png)
+
+MOBILE
+
+![lighthhouse-signup-mobile](wireframes/testing/lighthhouse-signup-mobile.png)
+
+### SIGN IN
+![lighthhouse-signin](wireframes/testing/lighthhouse-signin.png)
+
+MOBILE
+
+![lighthhouse-signin-mobile](wireframes/testing/lighthhouse-signin-mobile.png)
+
 
 ### SIGNOUT
 ![lighthhouse-signout](wireframes/testing/lighthhouse-signout.png)
 
-### REGISTER
-![lighthhouse-signout](wireframes/testing/lighthhouse-signout.png)
+MOBILE
+
+![lighthhouse-signout-mobile](wireframes/testing/lighthhouse-signout-mobile.png)
+
 
 ### REVIEWS
 ![lighthhouse-reviews](wireframes/testing/lighthhouse-reviews.png)
 
+MOBILE
+
+![lighthhouse-reviews-mobile](wireframes/testing/lighthhouse-reviews-mobile.png)
+
+
 ### COMMENTS
 ![lighthhouse-blogcoments](wireframes/testing/lighthhouse-blogcoments.png)
+
+MOBILE
+
+![lighthhouse-blogcoments-mobile](wireframes/testing/lighthhouse-blogcoments-mobile.png)
 
 ## Testing Accessibility
 ----
@@ -1201,7 +1278,7 @@ To improve accessibility, the following actions were taken:
 
 
 ## Further Testing
-Additional testing 
+Additional tests on PEP8 for view.py for products app and view.py for blog app have been made and came out with no errors.
 
 ### Overflow
 - The website was tested for overflow using [Unicorn Revealer](https://chrome.google.com/webstore/detail/unicorn-revealer/lmlkphhdlngaicolpmaakfmhplagoaln?hl=en-GB) chrome extension.
