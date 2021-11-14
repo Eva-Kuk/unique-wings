@@ -167,8 +167,12 @@ def edit_comment(request, comment_id):
             'form': form,
             'comment': comment,
         }
-
+        messages.info(
+            request,
+            f'You are editing your comment for \
+                "{comment.blogpost.title}" blog')
         return render(request, template, context)
+
     else:
         messages.error(request, 'You not allowed to do that!')
         return redirect(reverse('blog'))
