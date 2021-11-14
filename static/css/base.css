@@ -5,9 +5,6 @@
 * Browsers: last 4 version
 */
 
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Roboto:wght@300;400;500;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Princess+Sofia&display=swap');
-
 html {
     height: 100%;
 }
@@ -486,7 +483,9 @@ input[name='q']::placeholder {
     border-color: F5F9F9;
     border-radius: 0;
 }
-
+.font-size-add {
+    font-size: 1.2rem;
+}
 /* ----- BlogPost/BlogComments ------- */
 .image-wrap {
 	height:35vh;
