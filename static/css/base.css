@@ -35,7 +35,7 @@ h4 {
     font-weight: 600;
     letter-spacing: 4px;
 }
-/* -----------------navbar and main page----------------- */
+/* -----------navbar and main page------------- */
 .bg-color-teal {
     background-color:#227A8C;
 }
@@ -76,7 +76,7 @@ h4 {
     color:#E11469 !important;
 }
 .text-pink-bag{
-    color:#F8B9CF !important;
+    color:#ffb8f9 !important;
 }
 .text-teal {
     color: #227A8C;
@@ -107,7 +107,7 @@ h4 {
     font-weight: 500;
     font-size: 1.2rem;
 }
-/*-----------------buttons and badges-----------------*/
+/*----------------- buttons and badges -----------------*/
 .btn-shop-now {
     background: #227A8C;
     color: #F5F9F9;
@@ -483,7 +483,7 @@ input[name='q']::placeholder {
 }
 .custom-checkbox .custom-control-input:checked~.custom-control-label::before {
     background-color: #E11469;
-    border-color: #fafafa;
+    border-color: F5F9F9;
     border-radius: 0;
 }
 
@@ -574,7 +574,7 @@ input[name='q']::placeholder {
 .comment-link {
     color: #17a2b8 !important;
 }
-/* ----------------- Error Pages 404/500 ----------------- */
+/* ----------------- Error Pages 404/500/403 ----------------- */
 #hero-error-img {
     background: url('/media/error-img.jpg') no-repeat center center fixed;
     background-size: cover;

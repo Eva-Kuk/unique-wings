@@ -142,7 +142,6 @@
         <div class="bg-white rounded shadow p-4 mb-4">
             <h3 class="mb-0 mb-2 logo-font comments-header text-center">Reviews</h3>
             <hr>
-
             <div class="row">
                 {% if request.user.is_authenticated %}
                 <div class="col-sm-12 d-flex justify-content-end">
@@ -150,10 +149,11 @@
                 </div>
                 {% else %}
                  <div class="col-sm-12 d-flex justify-content-center">
-                <p class="text-center">Please <a class="comment-link" href="{% url 'account_signup' %}">Register</a> or <a class="comment-link" href="{% url 'account_login' %}">Login</a> to leave a review.</p>
+                <p class="text-center">Please <a class="comment-link" href="{% url 'account_signup' %}">Register</a> or 
+                <a class="comment-link" href="{% url 'account_login' %}">Login</a> to leave a review.</p>
                 </div>
                 {% endif %}
-                 <!--renders all reviews that have been left for the product-->
+                 <!-- renders all reviews that have been left for the product -->
                 <div class="col-sm-12 pt-4 pb-4">
                 {% if reviews %}
                     {% for review in reviews %}
@@ -176,7 +176,8 @@
                                 <p>{{ review.comment }}</p>
                                 <div>
                                     <hr class="hr-comment-color my-2">
-                                    <p class="text-right"><img src="{% static 'images/butterfly-logo.png' %}" class="btf-logo-blog btf-logo-blog-reverse btf-logo-blog-comment align-text-right" alt="butterfly-logo"></p>
+                                    <p class="text-right"><img src="{% static 'images/butterfly-logo.png' %}" 
+                                    class="btf-logo-blog btf-logo-blog-reverse btf-logo-blog-comment align-text-right" alt="butterfly-logo"></p>
                                 </div>
                             </div>
                         </div>

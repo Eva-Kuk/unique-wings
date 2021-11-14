@@ -13,7 +13,6 @@
 <main>
     <div class="overlay"></div>
     <div class="container mt-4">
-
         <!-- Header -->
         <div class="row">
             <div class="col text-center mt-2">
@@ -26,10 +25,17 @@
             <div class="row">
                 <div class="col-12 mb-4">
                     <p>
-                        The "Unique Wings" was inspired by the beautiful and colorful parrots, peacocks, and butterflies, which are the main theme of the collection offered in our store. It is also worth mentioning that the wings from Greek and Roman mythology were once an attribute of the gods. Nowadays they are a symbol of lightness, uniqueness, and freedom, just like the shoes we offer. They are not only unique and beautiful but also light and comfortable to wear. For many, wings also mean making their innermost dreams come true and believing that the impossible may become possible. You will be able to find a collection of shoes which original and unique models wear, and if you are as passionate about fashion as we are, then you will certainly be delighted to have them in your wardrobe.
+                        The "Unique Wings" was inspired by the beautiful and colorful parrots, peacocks, and butterflies, which are the main theme of the collection offered in our store.
+                         It is also worth mentioning that the wings from Greek and Roman mythology were once an attribute of the gods. Nowadays they are a symbol of lightness, 
+                         uniqueness, and freedom, just like the shoes we offer. They are not only unique and beautiful but also light and comfortable to wear. 
+                         For many, wings also mean making their innermost dreams come true and believing that the impossible may become possible. 
+                         You will be able to find a collection of shoes which original and unique models wear, and if you are as passionate about fashion as we are, 
+                         then you will certainly be delighted to have them in your wardrobe.
                     </p>
-                    <p> <span class="logo-font font-weight-bold">Unique Wings</span> blog was created to share with you an interesting news from the world of fashion, latest designs as well as interesting facts and news about designers. We hope you will enjoy your visit and share with us your thoughts.
-
+                    <p> <span class="logo-font font-weight-bold">Unique Wings</span> 
+                        blog was created to share with you an interesting news from the world of fashion, 
+                        latest designs as well as interesting facts and news about designers. 
+                        We hope you will enjoy your visit and share with us your thoughts.
                     </p>
                     <p class="small text-center">
                         <img src="{% static 'images/butterfly-logo.png' %}" class="btf-logo-blog btf-logo-display" alt="butterfly-logo">
@@ -47,7 +53,6 @@
                 <div class="col-12 col-md-6 col-lg-4 mb-4">
                     <!-- Image -->
                     <div class="card shadow text-center h-100 ">
-
                         {% if blogpost.image %}
                         <img src="{{ blogpost.image.url }}" alt="{{ blogpost.title }}" class="image-wrap" />
                         {% else %}
@@ -59,20 +64,15 @@
                             <!-- Preview -->
                             <p class="card-text pt-2">{{ blogpost.info }}</p>
                             <!-- Author -->
-                            <p><small class="px-2 text-muted">Posted by: {{ blogpost.author }} <span class="date"> on:
-                                        {{ blogpost.date_posted }}</span>
-                                    </small></p>
+                            <p><small class="px-2 text-muted">Posted by: {{ blogpost.author }} <span class="date"> on: {{ blogpost.date_posted }}</span></small></p>
                             <!-- Button -->
                             <div class="card-footer card-fotter-alignment">
-                                <a href="{% url 'blog_detail' blogpost.id %}"
-                                    class=" btn btn-sm  rounded-0 btn-teal">Read more</a>
+                                <a href="{% url 'blog_detail' blogpost.id %}" class="btn btn-sm  rounded-0 btn-teal">Read more</a>
                                 <!--Edit/Delete links for superuser-->
                                 {% if request.user.is_superuser %}
                                 <small class="float-right mr-3">
                                     <!-- Delete Blog Post Button Trigger Modal-->
-                                    <button type="button" class="btn text-pink delete-btn pb-1 p-0" data-toggle="modal" data-target="#deleteBlogPost-{{ blogpost.id }}">
-                                        Delete
-                                    </button>
+                                    <button type="button" class="btn text-pink delete-btn pb-1 p-0" data-toggle="modal" data-target="#deleteBlogPost-{{ blogpost.id }}">Delete</button>
                                     <span class="separator"> | </span>
                                     <a class="text-teal edit-btn px-0" href="{% url 'edit_blogpost' blogpost.id %}">Edit</a>
                                 </small>
