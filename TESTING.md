@@ -1041,7 +1041,43 @@ and the number of results is displayed on the left site of the page.
 | Link **Here**                       | Click     | Redirect to the   Contact Us page                | **PASS**  |         |      |
 |                                     |           |                                                  |           |         |      |
 
+### ERROR HANDLERS
 
+| Element                                                      | Action   | Expected Result                                              | PASS/FAIL |                                                   |      |
+| ------------------------------------------------------------ | -------- | ------------------------------------------------------------ | :-------: | ------------------------------------------------- | ---- |
+| **Defensive programing**                                     |          |                                                              |           |                                                   |      |
+| Go Back Home Button on errors pages                          | Click    | Redirect to home page                                        | **PASS**  |                                                   |      |
+| **Not Logged In/admin not logged in user**                   |          |                                                              |           |                                                   |      |
+| remove end of url addres from `https://unique-wings.herokuapp.com/produ ` |          | 404 Page Not Found                                           | **PASS**  |                                                   |      |
+| edit product  from url 'https://unique-wings.herokuapp.com/products/edit/54/' |          | redirect to 'Sign up page'                                   | **PASS**  |                                                   |      |
+| add  product  from url https://unique-wings.herokuapp.com/accounts/login/?next=/products/add/ |          | redirect to 'Sign up page'                                   | **PASS**  |                                                   |      |
+| add  blog post from url https://unique-wings.herokuapp.com/blog/add/ |          | redirect to 'Sign up page'                                   | **PASS**  |                                                   |      |
+| edit blog post from url https://unique-wings.herokuapp.com/blog/edit_blogpost/4/ |          | redirect to 'Sign up page'                                   | **PASS**  |                                                   |      |
+| delete blog post from url https://unique-wings.herokuapp.com/blog/delete/12/ |          | 404 Page Not Found                                           | **PASS**  |                                                   |      |
+| access to profile page from url  https://unique-wings.herokuapp.com/profile/ |          | redirect to 'Sign up page'                                   | **PASS**  |                                                   |      |
+| edit product review from url  https://unique-wings.herokuapp.com/products/edit_review/17 |          | redirect to 'Sign up page'                                   | **PASS**  |                                                   |      |
+| add product review  from url https://unique-wings.herokuapp.com/accounts/login/?next=/products/add_review/17 |          | redirect to 'Sign up page'                                   | **PASS**  |                                                   |      |
+| add comment to blog post from url https://unique-wings.herokuapp.com/accounts/login/?next=/blog/add_comment/29/ |          | redirect to 'Sign up page'                                   | **PASS**  |                                                   |      |
+| edit comment to blog post from url  https://unique-wings.herokuapp.com/blog/edit_comment/29/ |          | redirect to 'Sign up page'                                   | **PASS**  |                                                   |      |
+| **Logged in  user**                                          |          |                                                              |           |                                                   |      |
+| add  product  from url  https://unique-wings.herokuapp.com/accounts/login/?next=/products/add/ |          | Error toast message "Sorry, only store owners can do that" redirect to home `page | **PASS**  |                                                   |      |
+| edit product  from url 'https://unique-wings.herokuapp.com/products/edit/54/' |          | Error toast message "Sorry, only store owners can do that" redirect to home `page | **PASS**  |                                                   |      |
+| add  blog post from url https://unique-wings.herokuapp.com/blog/add/ |          | Error toast message "Sorry, only store owners can do that" redirect to home `page | **PASS**  |                                                   |      |
+| edit blog post from url https://unique-wings.herokuapp.com/blog/edit_blogpost/4/ |          | Error toast message "Sorry, only store owners can do that" redirect to home `page | **PASS**  |                                                   |      |
+| edit blog post when not owner https://unique-wings.herokuapp.com/accounts/login/?next=/blog/edit_comment/28/ |          | Error toast message "You not allowed to do that"             | **PASS**  |                                                   |      |
+|                                                              |          |                                                              |           |                                                   |      |
+|                                                              |          |                                                              |           |                                                   |      |
+|                                                              |          |                                                              |           |                                                   |      |
+| change `profile/users` name to `profile/admin` name in url addres |          | Stays on users profile                                       | **PASS**  |                                                   |      |
+| change end of url addres from `add_recipe to `add_category   |          | Redirect to `403 Forbidden Page`                             | **PASS**  |                                                   |      |
+|                                                              |          | "You have to be an Admin to access this page" denying message | **PASS**  |                                                   |      |
+| change end of url addres from `edit_recipe` to `edit_category |                            | Redirect to page `404 Page Not Found` | **PASS** |                                                              |           |                                                   |      |
+| change end of url addres from `edit_recipe` to `get_categories` |          | Redirect to `403 Forbidden Page`                             | **PASS**  |                                                   |      |
+|                                                              |          | "You have to be an Admin to access this page" denying message | **PASS**  |                                                   |      |
+| **Logged in / admin in session**                             |          |                                                              |           |                                                   |      |
+| change id of different user recipe in the in the `https://8080-moccasin-dragon-f9bcyfgt.ws-eu14.gitpod.io/edit_recipe/.....` URL |          | Admin takes over the recipe and became his owner, has access to edit and delete recipe | **PASS**  | Only used in emergency when inappropriate content |      |
+| **in app.py set `debug=False`**                              |          |                                                              |           |                                                   |      |
+| Set incorect url address for  `https://smoothie-lovers.herokuapp.com/get_recipes` |          | Redirect to `500 Forbidden Page                              | **PASS**  |                                                   |      |
 
 ### Checking for broken links
 ---
