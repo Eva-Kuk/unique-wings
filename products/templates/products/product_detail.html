@@ -1,3 +1,4 @@
+<!-- CREDIT: Code from Boutique Ado project customized -->
 {% extends "base.html" %}
 {% load static %}
 
@@ -52,7 +53,7 @@
                     <span class="separator"> | </span>
                     <a class="text-teal edit-btn px-0" href="{% url 'edit_product' product.id %}">Edit</a>
                 </small>
-                <!-- Modal for Delete Product Button -->
+                <!-- CREDIT: Modal for Delete Product Button from bootstrap customized -->
                 <div class="modal fade" id="deleteProduct-{{ product.id }}" tabindex="-1"
                     aria-labelledby="deleteProduct" aria-hidden="true">
                     <div class="modal-dialog">

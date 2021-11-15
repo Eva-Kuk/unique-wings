@@ -1,3 +1,4 @@
+# CREDIT: Code from Boutique Ado project customized
 from decimal import Decimal
 from django.conf import settings
 from django.shortcuts import get_object_or_404
@@ -33,6 +34,7 @@ def bag_contents(request):
                     'size': size,
                 })
 
+    # Shipping price logic
     if total < settings.FREE_DELIVERY_THRESHOLD:
         delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)
         free_delivery_delta = settings.FREE_DELIVERY_THRESHOLD - total

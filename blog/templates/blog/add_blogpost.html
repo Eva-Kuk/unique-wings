@@ -20,11 +20,10 @@
                 <hr>
             </div>
         </div>
-
         <!-- Add Blogpost Form -->
         <div class="row justify-content-center">
             <div class="col-12 col-md-6 shadow rounded-0 pt-4 pb-4 post-form mx-auto">
-                <h5 class="text-muted mb-4">Add a Blog Post</h5>
+                <h3 class="text-muted mb-4 font-size-add">Add a Blog Post</h3>
                 <form method="POST" action="{% url 'add_blogpost' %}" class="form mb-2" enctype="multipart/form-data">
                     {% csrf_token %}
                      {% for field in form %}
@@ -34,7 +33,6 @@
                             {{ field }}
                         {% endif %}
                     {% endfor %}
-
                     <!-- Buttons -->
                     <div class="text-right mt-2">
                         <a class="btn btn-outline-teal rounded-0" href="{% url 'blog' %}">Cancel</a>

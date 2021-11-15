@@ -1,3 +1,4 @@
+<!-- CREDIT: Code from Boutique Ado project customized -->
 {% extends "base.html" %}
 {% load static %}
 
@@ -23,7 +24,7 @@
         <!-- Add Product Form -->
         <div class="row justify-content-center">
             <div class="col-12 col-md-6 shadow rounded-0 pt-4 pb-4">
-                <h5 class="text-muted mb-4">Add a Product</h5>
+                <h3 class="text-muted mb-4 font-size-add">Add a Product</h3>
                 <form method="POST" action="{% url 'add_product' %}" class="form mb-2" enctype="multipart/form-data">
                     {% csrf_token %}
                     {% for field in form %}
