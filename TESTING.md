@@ -174,7 +174,15 @@ SOLVED BY:
     SOLVED BY: modifying the reverse product_id argument
 
    ![review-history-edit-solution](wireframes/testing/review-history-edit-solution.jpg)
-
+18. ISSUE: Quantity decrementing buttons on the Shopping Bag  didn't stop as expected on number 0, showing negaive numbers.
+- SOLVED BY: Replacing the id value and make as class, add size value for handleEnableDisable function and modify code in quantity-form.html
+product_detail.html changes made
+![quantity-error-product-detail-fix](wireframes/testing/quantity-error-product-detail.jpg)
+quantity-input-script.html changes made
+![quantity-error-quantity-input-script-1-fix](wireframes/testing/quantity-error-quantity-input-script1.jpg)
+![quantity-error-quantity-input-script-2-fix](wireframes/testing/quantity-error-quantity-input-script-2.jpg)
+quantity-form.html changes mage
+![quantity-error-quantity-form-fix](wireframes/testing/quantity-error-quantity-form.jpg)
 ## Code Validation
 
 ### HTML Validator
@@ -247,6 +255,13 @@ Blog edit comment
 
 - added `alt="{{ widget.name }}` for images set dynamically in custom_clearable_file_input.htm file
 - swap the `<span>` , `<p>` tags in custom_clearable_file_input.htm places in products/templates/custom_widget_templates
+
+Shopping bag when empty doesn't show anny wrrors whe product is added to shopping bag it shows and DUPLICATE ERROR
+![shopping-bag-html-validator-error](wireframes/testing/shopping-bag-html-validator-error.png)
+
+Products page - the following errors and warnings has appeared on this page
+
+
 
 ### CSS Jigsaw Validator
 Used [ jigsaw W3C CSS Validation Service](jigsaw W3C CSS Validation Service) to validate my CSS code, came out clean with no errors with 48 warnings about vendor extension
@@ -1278,7 +1293,12 @@ To improve accessibility, the following actions were taken:
 
 
 ## Further Testing
-Additional tests on PEP8 for view.py for products app and view.py for blog app have been made and came out with no errors.
+Additional tests after changes were made
+- PEP8 for view.py for products app - no errors or warnings
+- PEP8 for view.py for blog app have - no errors or warnings 
+- jshint for quantity_input_stripe.html - 7 warnings no errors wasn't sure how to change them as the code was implement from Boutique Ado project and those values are needed for code to work.
+ ![jshint-quantity-input-stripe](wireframes/testing/accessibility-home.png)
+- html validator - product detail - no errors or warnings
 
 ### Overflow
 - The website was tested for overflow using [Unicorn Revealer](https://chrome.google.com/webstore/detail/unicorn-revealer/lmlkphhdlngaicolpmaakfmhplagoaln?hl=en-GB) chrome extension.
