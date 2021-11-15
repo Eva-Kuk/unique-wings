@@ -12,7 +12,8 @@ class BlogPost(models.Model):
     title = models.CharField(
         max_length=150)
     info = models.CharField(
-        max_length=254, null=True, blank=True)
+        max_length=254,
+        null=True, blank=True)
     content = models.TextField(
         null=False, blank=False)
     image = models.ImageField(
@@ -37,7 +38,7 @@ class BlogComment(models.Model):
     date = models.DateTimeField(
         auto_now_add=True)
     comment = models.TextField(
-        max_length=1024, null=True, blank=False)
+        max_length=1024, blank=False)
 
     def __str__(self):
         return self.comment

@@ -34,6 +34,7 @@ class CommentForm(forms.ModelForm):
         fields = (
             'comment',
             )
+
     def __init__(self, *args, **kwargs):
         """
         Add placeholders and classes, remove auto-generated
