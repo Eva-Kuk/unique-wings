@@ -1,4 +1,4 @@
-## Milestone 4 Unique Wings - by Eva Kukla
+## Milestone 4 Unique Wings - by Ewa Kukla
 
 ![logo](wireframes/readme/logo.png)
 
@@ -488,7 +488,7 @@ The default image if image of the product is not available
 ### Responsiveness
  - All templates of this project have been built with the responsive framework Bootstrap 4.6 and also used targeted media queries to make this project responsive on all screen sizes.
 
-NAVIGATION BAR
+## NAVIGATION BAR
 ![navigation bar](wireframes/readme/navigation-bar.png)
 
 This project has two navigation bars present on large screens and folded into the dropdownlist on small devices:
@@ -508,27 +508,27 @@ This project has two navigation bars present on large screens and folded into th
 
 ![navigation bar mobile](wireframes/readme/navigation-bar-mobile.png)
 
-HOME PAGE
+## HOME PAGE
 
 - The home page presents a hero image composed of two shoes from the latest collection of various designers, the store's motto and a button redirecting the visitor to the store products.
 
 ![home page](wireframes/readme/home-page.png)
 
-FOOTER
+## FOOTER
 - The footer contains a list of useful links: Blog, Contact Us, Social media links: Tweeter, Instagram and Facebook and also a newsletter subscription for visitors and users to subscribe to the newsletter.
 - The users don't need to be registered to sign up for the newsletter. Once user ubscribe for the newsletter will be informed by the success toast message. If users decide to unsubscribe from a Newsletter, there is a link which redirects the user to the `Unsubscribe Newsletter` form. The form provides an email to fill in and the user will be removed from the database. The toast message will be displayed.
 
 ![footer](wireframes/readme/footer.png)
 ![subscribe-message-toast](wireframes/readme/subscribe-message-toast.png)
 
-SHOPPING BAG
+## SHOPPING BAG
 - Shopping Bag App allows the user to add/adjust/delete products to the shopping bag, view the Grand total price and details in the bag.
 - When a product is added, a preview of the shopping bag is displayed in a toast and the Grand total price/shipping price is updated.
 - There is free delivery counter that calculates how much users need to spend to get the free delivery.
 
 ![shopping-bag-preview-message](wireframes/readme/shopping-bag-preview-message.png)
 
-CHECKOUT
+## CHECKOUT
 - Checkout App allows the user to safely purchase the selection of items placed in the bag using the Stripe system.
 - Any user is able to purchase the products without being registered and logged into their account. If the payment was successful the user will receive the confirmation email with the order details, confirmation page and the success toast message will display on the screen. If logged in the shipping details will be filled from the details given in the user profile.
 - The credit card details section is linked to the payment platform Stripe for a secure payment procedure.
@@ -541,7 +541,7 @@ CHECKOUT
 
 ![checkout confirmation page](wireframes/readme/checkout-confirmation-page.png)
 
-PRODUCTS
+## PRODUCTS
 - Product App allows the user to see products with basic product information: image, name, price, category, average rating.
 - Clicking the image takes the user to the specific product detail page.
 - Only the super-user (Admin) can have access to the EDIT/DELETE product pills and is able to edit or delete products that already exist in the database.
@@ -550,7 +550,7 @@ PRODUCTS
 
 ![products page](wireframes/readme/products-page.png)
 
-PRODUCT DETAIL PAGE
+## PRODUCT DETAIL PAGE
 - Product detail page displays the product details (image, name, price, category, average rating, description, sizes for shoes). 
 - The quantity button is to choose an amount of products user wants to purchase.
 - Only the super-user (Admin) can have access to the EDIT/DELETE product pills and edit or delete products that already exist in the database.
@@ -563,14 +563,14 @@ PRODUCT DETAIL PAGE
 ![product-detail top](wireframes/readme/product-detail1.png)
 ![product-detail bottom](wireframes/readme/product-detail.png)
 
-REVIEW/RATING
+## REVIEW/RATING
 - Only the registered and logged in users can add/edit/delete reviews and rating. By using `Add Review` button users are redirected to the review page which contain the form to fill in. The average rating made by users is counted and displayed on each product details section.
 - Once the form is filled and the user clicked the "Submit" button, they will be redirected to the product page and the success toast message will display. The same procedure is for deleting review.
 
 ![reviews-form](wireframes/readme/reviews-form.png)
 ![reviews-success-message](wireframes/readme/reviews-success-message.png)
 
-PRODUCT MANAGEMENT
+## PRODUCT MANAGEMENT
 - Product management is for a super-user/admin and is visible on `My Account` dropdown menu when admin is logged into their account.
 - Only a super-user (Admin) has the possibility to add products to the database by filling in the add product form. Images can be selected directly from the admin's computer. There is an option for url links as well.
 - Once admin add the 
@@ -586,21 +586,21 @@ PRODUCT MANAGEMENT
 
 ![modal-alert](wireframes/readme/modal-alert.png)
 
-REGISTER
+## REGISTER
 - The site visitor can add their details to open an account on the site through the Register form page. Every account requests an email, email-confirmation, username, password and  password confirmation.
 - A verification email is sent to the user's email to avoid fake users with no email. That email contains a security link that opens a "confirmed email" page on the website. The user is added to the database and is allowed to complete their profile on their new profile page.
 
 ![sign-up](wireframes/readme/sign-up.png)
 
 
-LOGIN
+## LOGIN
 - The site visitor can login to the site if they are an existing user through the login page. The user needs their email address or username as well as their password to connect. The user can also retrieve their password if forgotten.
 - Once the login form is approved, the user will see the succesfull toast message on the screen.
 
 ![sign-in](wireframes/readme/sign-in.png)
 ![sign-in-message](wireframes/readme/sign-in-message.png)
 
-PROFILE
+## PROFILE
 - Profile Page is personal and displays for the registered and logged in user by using the link `My Profile` on the `My Account` dropdown menu. 
 - User is able to fill in and update the Delivery information and see the order history.
 - The order number links to the order confirmation page.
@@ -609,26 +609,26 @@ PROFILE
 ![profile](wireframes/readme/profile.png)
 ![profile-rewiews](wireframes/readme/profile-reviews.png)
 
-SIGN OUT
+## SIGN OUT
 - The user can log out by accessing the logout page through the main navigation bar and confirm to log out. The user is then redirected to the index page.
 
 ![sign out](wireframes/readme/sign-out.png)
 ![sign out message](wireframes/readme/sign-out-message.png)
 
-CONTACT
+## CONTACT
 - Contact page allows the user to sent a query to the admin. User has the possibility to choose the query from the list General Query, Delivery Query, Return Query, Blog Contribution, Complaint.
 The query is stored in the database and two emails are sent: one to the user to confirm that the message was received and one to the admin to signal the store owner of a new query.
 - Any User can contact the site owner by email.
 ![contact](wireframes/readme/contact.png)
 
-BLOG
+## BLOG
 
 - Blog page is made to bring to users many interesting facts about fashion industry, designers, collections and events going on. Only the admin can manage the blog posts, and users can sent emails if they would like to contribute to the blog post there is a link which redirects user to the contact form. 
 - Blog page can be accessed through the navigation menu.
  ![blog](wireframes/readme/blog1.png)
  ![blog](wireframes/readme/blog2.png)
 
-BLOG DETAIL PAGE
+## BLOG DETAIL PAGE
 
 - Blog detail page display the full blog post (title, author, date posted/last updated, content) and the comment section. All visitors can read the blog post and comments but only registered and logged in users can add/edit/delete comment.
 - The edit link redirects to an edit form while the delete link triggers a confirmation modal and permanently deletes the comment if "Delete" is clicked in the modal.
@@ -636,7 +636,7 @@ BLOG DETAIL PAGE
 ![blog detail page3](wireframes/readme/blog-detail-page2.png)
 ![blog detail page3](wireframes/readme/blog-detail-page3.png)
 
-BLOG MANAGEMENT
+## BLOG MANAGEMENT
 - Blog management is for a super-user/admin and is visible on My Account dropdown menu when admin is logged into account.
 - Only an Admin has possibility to add blogpost by filling in the add blog post form. Images can be selected directly from the admin's computer. 
 - Only an Admin is able to edit/delete blogposts on the blog page or by navigating to a blog detail page and click the Edit|Delete pills
@@ -647,7 +647,8 @@ When testing the site, the lighthouse tool showed insufficient contrast between 
 ![home-page-after-change-color1](wireframes/readme/home-page-after-change-color1.png)
 ![home-page-after-change-color2](wireframes/readme/home-page-after-change-color2.png)
 
-
+## CUSTOM ERROR PAGES
+The website has custom error pages for the following errors with the corresponding error messages.The error pages present the butterfly, which matches the theme of the store and allude to a little bit of  lost.
 ERROR PAGE 500
 ![500-error](wireframes/readme/500-error.png)
 
@@ -671,11 +672,11 @@ I would like to add the followung features
 - **Paypal:** The possibility for users to pay for their items using Paypal.
 - **Apple Pay** - The possibility for users to be able to pay for their items using Apple Pay.
 - **Wishlist:** The possibility for users to be able to create a wishlist.
+- Automated testing for application
 ---
 Accessibility:
 Alt Tags:
 In order to ensure that all images are accessible for those using a screen reader, I have ensured that all images used throughout the site include alt tags.
-
 
 ## Technologies Used
 
