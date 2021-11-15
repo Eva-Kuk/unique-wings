@@ -1,45 +1,74 @@
 <script>
-    /*jshint esversion: 6 */
+    /* jshint esversion: 6 */
+    /* CREDIT: Code from Boutique Ado project */
+    /* 
+    * Disable +/- buttons outside 1-99 range.
+    * If no size is passed to the function, the parameter will have a value of undefined by default,
+    * which prevents any errors 
+    */
+    function handleEnableDisable(itemId, size) {
+        if (size) {
+            var currentValue = parseInt($(`.size_${itemId}_${size}`).val());
+        } else {
+            var currentValue = parseInt($(`.id_qty_${itemId}`).val());
+        }
 
-    // Disable +/- buttons outside 1-99 range
-    function handleEnableDisable(itemId) {
-        let currentValue = parseInt($(`#id_qty_${itemId}`).val());
-        let minusDisabled = currentValue < 2;
-        let plusDisabled = currentValue > 98;
-        $(`#decrement-qty_${itemId}`).prop('disabled', minusDisabled);
-        $(`#increment-qty_${itemId}`).prop('disabled', plusDisabled);
+        var minusDisabled = currentValue < 2;
+        var plusDisabled = currentValue > 98;
+
+        if (size) {
+            $(`.decrement-size_${itemId}_${size}`).prop('disabled', minusDisabled);
+            $(`.increment-size_${itemId}_${size}`).prop('disabled', plusDisabled);
+        } else {
+            $(`.decrement-qty_${itemId}`).prop('disabled', minusDisabled);
+            $(`.increment-qty_${itemId}`).prop('disabled', plusDisabled);
+        }
     }
 
     // Ensure proper enabling/disabling of all inputs on page load
-    let allQtyInputs = $('.qty_input');
-    for(let i = 0; i < allQtyInputs.length; i++){
-        let itemId = $(allQtyInputs[i]).data('item_id');
-        handleEnableDisable(itemId);
+    var allQtyInputs = $('.qty_input');
+    for(var i = 0; i < allQtyInputs.length; i++){
+        var itemId = $(allQtyInputs[i]).data('item_id');
+        var size = $(allQtyInputs[i]).data('size');
+        handleEnableDisable(itemId, size);
     }
 
     // Check enable/disable every time the input is changed
     $('.qty_input').change(function() {
-        let itemId = $(this).data('item_id');
-        handleEnableDisable(itemId);
+        var itemId = $(this).data('item_id');
+        var size = $(this).data('size');
+        handleEnableDisable(itemId, size);
     });
 
     // Increment quantity
     $('.increment-qty').click(function(e) {
        e.preventDefault();
-       let closestInput = $(this).closest('.input-group').find('.qty_input')[0];
-       let currentValue = parseInt($(closestInput).val());
-       $(closestInput).val(currentValue + 1);
-       let itemId = $(this).data('item_id');
-       handleEnableDisable(itemId);
+       var itemId = $(this).data('item_id');
+       var size = $(this).data('size');
+       var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
+       if (size) {
+          var allQuantityInputs = $(`.input-group-${itemId} input[data-size='${size}']`);
+       } else {
+          var allQuantityInputs = $(`.input-group-${itemId} input[name='quantity']`);
+       }
+       var currentValue = parseInt($(closestInput).val());
+       $(allQuantityInputs).val(currentValue + 1);
+       handleEnableDisable(itemId, size);
     });
 
     // Decrement quantity
     $('.decrement-qty').click(function(e) {
        e.preventDefault();
-       let closestInput = $(this).closest('.input-group').find('.qty_input')[0];
-       let currentValue = parseInt($(closestInput).val());
-       $(closestInput).val(currentValue - 1);
-       let itemId = $(this).data('item_id');
-       handleEnableDisable(itemId);
+       var itemId = $(this).data('item_id');
+       var size = $(this).data('size');
+       var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
+       if (size) {
+          var allQuantityInputs = $(`.input-group-${itemId} input[data-size='${size}']`);
+       } else {
+          var allQuantityInputs = $(`.input-group-${itemId} input[name='quantity']`);
+       }
+       var currentValue = parseInt($(closestInput).val());
+       $(allQuantityInputs).val(currentValue - 1);
+       handleEnableDisable(itemId, size);
     });
 </script>
