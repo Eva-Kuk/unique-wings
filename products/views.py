@@ -209,11 +209,6 @@ def add_review(request, product_id):
 @login_required
 def edit_review(request, review_id):
     """ Edit a review to a product """
-    if not request.review.user or request.user.is_superuser:
-        messages.error(
-            request,
-            "Sorry, you don't have the necessary permission to do that.")
-        return redirect(reverse('product_detail'))
 
     review = get_object_or_404(Review, pk=review_id)
     review_user = request.user
@@ -244,11 +239,6 @@ def edit_review(request, review_id):
 @login_required
 def delete_review(request, review_id):
     """ Delete a review for a product """
-    if not request.review.user or request.user.is_superuser:
-        messages.error(
-            request,
-            "Sorry, you don't have the necessary permission to do that.")
-        return redirect(reverse('product_detail'))
 
     review = get_object_or_404(Review, pk=review_id)
     review.delete()
