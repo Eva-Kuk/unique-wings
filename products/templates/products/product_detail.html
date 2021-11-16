@@ -55,11 +55,11 @@
                 </small>
                 <!-- CREDIT: Modal for Delete Product Button from bootstrap customized -->
                 <div class="modal fade" id="deleteProduct-{{ product.id }}" tabindex="-1"
-                    aria-labelledby="deleteProduct" aria-hidden="true">
+                    aria-labelledby="deleteProductModal-{{ product.id }}" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="deleteProduct">Confirm Delete</h5>
+                                <h5 class="modal-title" id="deleteProductModal-{{ product.id }}">Alert!</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -164,7 +164,7 @@
                             <!-- Delete Review Comment Button Trigger Modal-->
                             <button type="button" class="btn text-pink delete-btn pt-1 px-1" data-toggle="modal" data-target="#deleteReview-{{ review.id }}">Delete</button>      
                             <span class="separator"> | </span> 
-                            <a href="{% url 'edit_review' review.id %}" class="text-teal px-1 pt-1 edit-btn">Edit</i></a>
+                            <a href="{% url 'edit_review' review.id %}" class="text-teal px-1 pt-1 edit-btn">Edit</a>
                         </div>
                         {% endif %}
                         <div class="col-12 d-flex flex-column">

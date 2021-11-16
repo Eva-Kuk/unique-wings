@@ -79,11 +79,11 @@
 
                                 <!-- CREDIT: Modal for Delete Blog Post from bootstram customized -->
                                 <div class="modal fade" id="deleteBlogPost-{{ blogpost.id }}" tabindex="-1"
-                                    aria-labelledby="deleteBlogPostModal" aria-hidden="true">
+                                    aria-labelledby="deleteBlogPostModal-{{ blogpost.id }}" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="deleteBlogPostModal">Alert!</h5>
+                                                <h5 class="modal-title" id="deleteBlogPostModal-{{ blogpost.id }}">Alert!</h5>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
