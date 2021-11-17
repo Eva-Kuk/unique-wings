@@ -7,7 +7,9 @@
 - [Testing Compatibility](#testing-compatibility)
 - [Testing Accessibility](#testing-accessibility)
 - [Testing Performance](#testing-performance)
+- [Flake test errors](#flake-test-errors)
 - [Further Testing](#further-testing)
+
 
 ## Encountered Issues
 ---
@@ -16,23 +18,32 @@
 ---
 While working on this project I encountered the following problems which I tried to solve in the following way:
 1. ERROR: IntegrityError at/accounts/login/ unique constrant failed:profiles.user_id showed while registering new user and trying to sign in 
+
 ![integrity error](wireframes/testing/integrity-error.png)
+
     SOLVING BY: 
     - Checking for code differences in diffchecker (came out correct),
     - Created a new superuser (still left with the same error),
     - Deleted the db.sqlite3 file in workspace, make and run migrations, loaded my fixtures for categories.json and product.json, then created a new superuser (still didn't work),
     - Checked all related files and the issue was forgotten undo uncommitted lines in models.py 
+
         - from
+
     ![integrity error bug](wireframes/testing/integrity-error-bug.png)
+
         - to
+
     ![integrity error solution](wireframes/testing/integrity-error-solved.png)
 
 2. ERROR: while making purchases on the site and receiving an order confirmation on the profile site and success message the confirmation email doesn't appear in the terminal. Instead the error `POST /checkout/wh/HTTP/1.1 500 146184` and TemplateDoesntExist received
+
 ![confirmation-email-error](wireframes/testing/confirmation-email-error.png)
+
     SOLVED BY:
    - Checking for typos and correct place for **confirmation_emails** folder and webhook_handler.py
    - Checking the webhooks are correct, updating in the settings variables, and on the stripe site 
    - The error came from a typo in the `confirmation_email_subject.txt`
+
 ![confirmation-email-error-typo](wireframes/testing/confirmation-email-error-typo.png)
 
 
@@ -51,14 +62,18 @@ While working on this project I encountered the following problems which I tried
 
     SOLVED BY:
     - It was a typo in id 
+
 ![modal-error](wireframes/testing/modal-error.jpg)
 
 5. BUG: `Delete|Edit` buttons for comments don't hide when user is on his account is able to to see other users buttons
 
 ![modal-delete-button-error](wireframes/testing/modal-delete-button-error.jpg)
+
     SOLVED BY:
     - Changing if statement
+
 ![modal-delete-button-error-solved](wireframes/testing/modal-delete-button-error-solved.jpg)
+
 6. ISSUE: While adding the missing message field into the models.py in contact form a make-migration non-nullable firld 'message' issue appeared
 ![makemigrations-contact-message-issue](wireframes/testing/makemigrations-contact-message-issue.png)
 
@@ -69,27 +84,39 @@ SOLVED BY:
 - value: null=False changed to null=True
 - value: blank-False changed to null=True
 7. ISSUE: While testing the contact form message field didn't work as expected (no validation) and also the make-migration message appeared
+
 ![make-migration-message](wireframes/testing/make-migration-message.png)
+
 SOLVED BY: 
 - in models message attribute value blank=True changed to null=False and null=True stayed the same
 - before migrations database with sent emails was deleted
+
 ![message-field-issue-solved](wireframes/testing/message-field-issue-solved.jpg)
+
 8. BUG: Input placeholders are not displayed on the Contact page as expected, default labels are enabled.
+
 ![message-field-issue-solved](wireframes/testing/forms-placeholders-intendation-bug.png)
 
 SOLVED BY:
 - wrong indentation 
+
 ![forms-placeholders-intendation-bug](wireframes/testing/forms-placeholders-intendation-bug1.jpg)
+
 9. I encountered a few difficulties when creating a subscription app for the newsletter
     a) BUG : The newsletter-subscription form didn't display on the site 
     SOLVED BY: Forgot to add the context to the context processors in settings.py `'contexts.subscription_form',` 
+
     ![contexts-subscription-form](wireframes/testing/contexts-subscription-form.jpg)
     
     b) ERROR: No Reverse Match at contact/newsletter signup 
+
      ![no-reverse-match-newsletter-error](wireframes/testing/no-reverse-match-newsletter-error.png)
+
     SOLVED BY: It was wrong return 'newsletter_form' whis is a value not a URL changed to redirect_url add in footer.html in the form a hidden input field and change view to get the redirect_url from the form and then redirect it to the redirect_url
+
     ![hidden-input-field](wireframes/testing/hidden-input-field.jpg)
     ![redirect-url](wireframes/testing/redirect-url.jpg)
+
 10. I encountered a few difficulties while deploying the project to heroku but main issue was: 
     a) ISSUE: logo images and hero-images  didn't appear on the on the home page
        SOLVED BY: create a new folder in static folder 'images' and moved the images from media folder to static folder
@@ -111,6 +138,7 @@ SOLVED BY:
       SOLVED BY: create the if statement review that checks if there are any reviews and then loop through them. As the product review is already retrieved from DB in the view we don't need to create any association with products in the frontend like it was done previously.
 
     ![review-if-statement-issue-sollution](wireframes/testing/review-if-statement-issue-sollution.jpg)
+
 12. ISSUE: Static Files didn't upload on Heroku live website after changes on gitpod
     SOLVED BY: 
     - Changed STATICFILES_DIRS and add STATIC_ROOT to settings.py
@@ -119,9 +147,11 @@ SOLVED BY:
     - run the command `python3 manage.py collectstatic` (staticfiles added to static folder)
 
     BEFORE:
+
     ![old-static-url](wireframes/testing/old-static-url.png)
    
     AFTER:
+
     ![updated-static-url](wireframes/testing/updated-static-url.png)
 
 13. ISSUE: The  Review `Edit | Delete` buttons are visible only for a superuser, not for the owner of the review, and they are not able to edit or remove their reviews. 
@@ -132,9 +162,11 @@ SOLVED BY:
         - Modify if statement in a product_detail.html 
     
     BEFORE CHANGES:
+
     ![review-if-stetement-product-detail-issue](wireframes/testing/review-if-stetement-product-detail-issue.png)
    
     AFTER CHANGES:
+
     ![review-if-statement-edit-review](wireframes/testing/review-if-statement-edit-review.jpg)
     ![review-if-statement-product-detail](wireframes/testing/review-if-statement-product-detail.jpg)
     ![review-if-statement-product-detail-html](wireframes/testing/review-if-statement-product-detail-html.jpg)
@@ -147,6 +179,7 @@ SOLVED BY:
     - modify the calculate_rating method
     
     BEFORE CHANGES:
+
     ![calculate-ratings-before](wireframes/testing/calculate-rating-before.jpg)
     
     AFTER CHANGES:
@@ -174,102 +207,185 @@ SOLVED BY:
     SOLVED BY: modifying the reverse product_id argument
 
    ![review-history-edit-solution](wireframes/testing/review-history-edit-solution.jpg)
+
 18. ISSUE: Quantity decrementing buttons on the Shopping Bag  didn't stop as expected on number 0, showing negaive numbers.
 - SOLVED BY: Replacing the id value and make as class, add size value for handleEnableDisable function and modify code in quantity-form.html
+
 product_detail.html changes made
-![quantity-error-product-detail-fix](wireframes/testing/quantity-error-product-detail.jpg)
+
+![quantity-error-product-detail](wireframes/testing/quantity-error-product-detail.jpg)
+
 quantity-input-script.html changes made
+
 ![quantity-error-quantity-input-script-1-fix](wireframes/testing/quantity-error-quantity-input-script1.jpg)
 ![quantity-error-quantity-input-script-2-fix](wireframes/testing/quantity-error-quantity-input-script-2.jpg)
+
 quantity-form.html changes mage
+
 ![quantity-error-quantity-form-fix](wireframes/testing/quantity-error-quantity-form.jpg)
+
+19. ERROR:While doing additional review tests, an error popped up when I wanted to edit and delete a review. It was caused by the code I wrote earlier in order to prevent unwanted users from entering the reviews and editing them.
+
+![attribute-error-edit-review](wireframes/testing/attribute-error-edit-review.png)
+
+SOLVED BY: That particular chunk of code has was removed from edit and delete review in products app view.py
+
+![attribute-error-edit-review-fix](wireframes/testing/attribute-error-edit-review-fix.png)
+
+
 ## Code Validation
 
 ### HTML Validator
 1. Used [W3C Markup Validation](https://validator.w3.org/) Service HTML to validate my HTML code for all pages. Because the code is made up of Jinja templates, had to check on the site by right clicking each page, selecting View Page Source and running that generated code through the validator.
-
+In those parts of the code where `for` loops were used, e.g. for all products, blog articles or modals for delete buttons s a protection against accidental deletion of things that are entered only once in the code.On the website where code was checked they loaded as many times as there were products or articles showing an error.
 
 | HTML Page                                           |                      Warnings / Errors                       | Fixed |
 | :-------------------------------------------------- | :----------------------------------------------------------: | ----- |
-| home/base.html/main-nav.html/mobile-top-header.html | no space between attributes(space added), end tag a violets nesting rules(add </div>), Cannot recover after last error (add </div>), the type attribute is unnecessary for JS (removed) | PASS* |
-| /accounts/login/                                    |                             None                             | PASS |
-| /accounts/logout/                                   |                             None                             | PASS |
-| /accounts/signup/                                   |     None       | PASS  |
-| /products/                                          |      The type attribute is unnecessary for JS (removed)      | PASS |
-| /products/1/                                        |      The type attribute is unnecessary for JS (removed)      | PASS  |
-| /products/add/                                      |      The type attribute is unnecessary for JS (removed)      | PASS |
-| /products/edit/1                                    | The type attribute is unnecessary for JS (removed), missing alt attribute (added `alt="{{ widget.name }})`, element <p> not allowed as child of <strong> element (elements swapped) | PASS |
-| /reviews/add_review/1/                              |                             None                             | PASS |
-| /reviews/edit/review/1/                             |                             None                             | PASS |
-| /profile/                                           |      The type attribute is unnecessary for JS (removed)      | PASS |
-| /profile/order_history/                             |                             None                             | PASS |
-| /blog/                                              | Section lacks heading. Consider using `h2`  `h6` elements(fixed section removed), The type attribute is unnecessary for JS (removed)' | PASS  |
-| /blog/1/                                            | Bad value `button` for attribute `type` on element `a` element (removed) | PASS |
-| /blog/edit_blogpost/1/                              | missing alt attribute (added `alt="{{ widget.name }})`, element <p> not allowed as child of <strong> (elements swapped) element ,  | PASS  |
-| /blog/comment/1/                                    |                             None                             | PASS |
-| /blog/edit_comment/2/                               |                             None                             | PASS |
-| /bag/                                               | Attribute`w-75` not allowed on element `hr` at this point., The type attribute is unnecessary for JS (removed) | PASS  |
-| /checkout/                                          | Empty heading for loading-spinner, Duplicate ID div_id_email`, Duplicate ID `id_email` | PASS  |
-| /checkout.checkout_success/                         |                             None                             | PASS |
-| /contact/                                           | Attribute`w-75` not allowed on element `hr` at this point.(`<class="w-75">`) Unclosed element `div` (closed div) | PASS  |
-| /newsletter_unsubscribe/                            | Attribute`w-75` not allowed on element `hr` at this point (`<class="w-75">`), | PASS  |
+| home/base.html/main-nav.html/mobile-top-header.html | no space between attributes(space added), end tag a violets nesting rules, Cannot recover after last error, duplicate ID, the type attribute is unnecessary for J | PASS* |
+| /accounts/login/                                    |  Duplicate ID `div_id_email` Duplicate ID `id_email`(fixed)  | PASS* |
+| /accounts/logout/                                   |  Duplicate ID `div_id_email` Duplicate ID `id_email`(fixed)  | PASS* |
+| /accounts/signup/                                   | Duplicate ID `div_id_email` Duplicate ID `id_email` (fixed)  | PASS  |
+| /products/                                          | The type attribute is unnecessary for JS (removed) , 'ERROR:Duplicate ID deleteProduct' and WARNING 'The first occurence of ID delete product was here' as each product have modal for delete button.(add dynamic address to modal-title alert and aria-labelledby) | PASS* |
+| /products/1/                                        | The type attribute is unnecessary for JS (removed) img element must have alt attribute (added `alt="{{ widget.name }}` for images set dynamically in custom_clearable_file_input.htm file, ) element p not allowed as child of element strong (attributes swapped) | PASS  |
+| /products/add/                                      |      The type attribute is unnecessary for JS (removed)      | PASS* |
+| /products/edit/1                                    | The type attribute is unnecessary for JS (removed), missing alt attribute, element <p> not allowed as child of <strong> element , alt attribute is missing | PASS* |
+| /reviews/add_review/1/                              |                             None                             | PASS* |
+| /reviews/edit/review/1/                             |                             None                             | PASS* |
+| /profile/                                           |      The type attribute is unnecessary for JS (removed)      | PASS* |
+| /profile/order_history/                             |                             None                             | PASS* |
+| /blog/                                              | Section lacks heading. Consider usingh2``h6` elements(fixed), The type attribute is unnecessary for JS (removed)', 'Duplicate ID deleteProduct' and WARNING 'The first occurence of ID delete product was here' as each product have modal for delete button.( add dynamic address to modal-title alert and aria-labelledby) | PASS  |
+| /blog/1/                                            | Bad value `button` for attribute `type` on element [`a`](https://html.spec.whatwg.org/multipage/#the-a-element): Subtype missing, | PASS* |
+| /blog/edit_blogpost/1/                              | missing alt attribute, element <p> not allowed as child of <strong> element , alt attribute is missing | PASS  |
+| /blog/comment/1/                                    |                             None                             | PASS* |
+| /blog/edit_comment/2/                               |                             None                             | PASS* |
+| /bag/                                               | Attribute`w-75` not allowed on element [`hr`](https://html.spec.whatwg.org/multipage/#the-hr-element) at this point.(class attribute added), The type attribute is unnecessary for JS (removed), Duplicated ID remove_1, The first occurrence of ID remove_1 (considered bug ) | PASS  |
+| /checkout/                                          | Empty heading for loading-spinner (headings changed to paragraphs)  ,Duplicate ID `div_id_email` Duplicate ID `id_email` (fixed) | PASS  |
+| /checkout.checkout_success/                         |                             None                             | PASS* |
+| /contact/                                           | Attribute`w-75` not allowed on element [`hr`](https://html.spec.whatwg.org/multipage/#the-hr-element) at this point. Unclosed element `div`, Duplicate ID `div_id_email` Duplicate ID `id_email` (fixed) | PASS  |
+| /newsletter_unsubscribe/                            | Attribute`w-75` not allowed on element [`hr`](https://html.spec.whatwg.org/multipage/#the-hr-element) at this point, | PASS  |
 
+PEP8 check code
 
-Home Page (base.html)
+#### Home Page (base.html)
 - ERRORS
     - FIXED: 
     - make the space between attributes
-    - and add the closing `</div>` tag
+    - end tag a was fixed by adding the closing `</div>` tag
     - remove `type="text/javascript"` following the [webmaserworld tip](https://www.webmasterworld.com/javascript/4879097.htm)
     - change the `id="user-options` to `id="user-options-menu` on the base template, line 94, Right Site Menu: My Account 
 
- ![home-html-validator](wireframes/testing/home-html-validator.png)
+![home-html-validator](wireframes/testing/home-html-validator.png)
 
 ![home-html-validator2](wireframes/testing/home-html-validator2.png)
 
-Contact
-
+#### Contact
  - ERRORS
-
-![contact-html-validator-error](wireframes/testing/contact-html-validator-error.png)
-
     - FIXED:
     - add closing div tag `</div>`
     - add class to `<hr>` element `<class="w-75">`
- 
-Add product / Edit products
 
+![contact-html-validator-error](wireframes/testing/contact-html-validator-error.png)
+
+- ERROR id Duplicate attribute
+    - FIXED: removed id="new-image" in custom_clearable_file_input.html recomended by slack students
+
+![contact-html-validator-id-error](wireframes/testing/contact-html-validator-id-error.png)
+
+
+![contact-html-validator-id-fix](wireframes/testing/contact-html-validator-id-fix.jpg)
+
+ERROR: Duplicate ID `div_id_email` Duplicate ID `id_email` 
+That error was caused by the newsletter created in the footer, which has an email field form set as crispy form as well as contact form, sing up form, singout, checkout form. Since it is used as a crispy form the id is generated automatically by Django and has the same id as all email fields generated frome crispy form. 
+    - FIXED: 
+        - change the `email` name to `subscription_email` in Newsletter models.py 
+        - add new self.field `id=subscription_email_id` to widged attibutes in views.py
+  
+![contact-duplicate-id-html-validator-error](wireframes/testing/contact-duplicate-id-html-validator-error.png)
+
+FIX
+
+``views.py``
+![duplicate-id-newsletter-error-fix](wireframes/testing/duplicate-id-newsletter-error-fix.jpg)   
+``models.py``
+![duplicate-id-newsletter-error-model-fix](wireframes/testing/duplicate-id-newsletter-error-model-fix.jpg)   
+
+#### Products page  
+ERROR: 'Duplicate ID deleteProduct' and WARNING 'The first occurence of ID delete product was here' as each product have modal for delete button.
+    - FIX:
+    - add dynamic address to modal-title alert and aria-labelledby
+
+![products-html-validator](wireframes/testing/products-html-validator.png)
+![products-html-validator-error](wireframes/testing/products-html-validator-error.jpg)
+
+FIX
+
+![products-html-validator-fix](wireframes/testing/products-html-validator-fix.jpg)
+
+#### Add product / Edit products
  - ERRORS:
-
-  ![edit-product-html-validator-errors](wireframes/testing/edit-product-html-validator-errors.png)
-
-- FIXED:
+    - FIX:
     - java script `type` attribute removed
     - swap the `<span>` , `<p>` tags in custom_clearable_file_input.htm places in products/templates/custom_widget_templates
     - added `alt="{{ widget.name }}` for images set dynamically in custom_clearable_file_input.htm file
 
-Blog edit comment
-- ERRORS
+  ![edit-product-html-validator-errors](wireframes/testing/edit-product-html-validator-errors.png)
+
+#### Blog edit comment
+- ERROR:
+    - FIX:
+    - added `alt="{{ widget.name }}` for images set dynamically in custom_clearable_file_input.htm file
+    - swap the `<span>` , `<p>` tags in custom_clearable_file_input.htm places in products/templates/custom_widget_templates
 
 ![blog-widget-alt-html-validator-error](wireframes/testing/blog-widget-alt-html-validator-error.png)
 
-- added `alt="{{ widget.name }}` for images set dynamically in custom_clearable_file_input.htm file
-- swap the `<span>` , `<p>` tags in custom_clearable_file_input.htm places in products/templates/custom_widget_templates
+#### Blog and blog post
+ERROR: 'Duplicate ID deleteProduct' and WARNING 'The first occurence of ID delete product was here' as each product have modal for delete button.
+    - FIX:
+    - add dynamic address to modal-title alert and aria-labelledby the same procedure like in products.html
 
-Shopping bag when empty doesn't show anny wrrors whe product is added to shopping bag it shows and DUPLICATE ERROR
+![blog-post-detail-html-validator-error](wireframes/testing/blog-post-detail-html-validator-error.png)
+
+#### Shopping bag 
+ERROR: when empty Shopping Bag  doesn't show anny errors when product is added to shopping bag it shows and DUPLICATE ERROR, the mobile version of Shopping bag is showing in the dom at the same time as at the desktop version but both are not visible at the same time it was introduced in our project Boutique Ado as a bugas there is no fix for that at this time.
+
+![shopping-bag-html-validator](wireframes/testing/shopping-bag-html-validator.png)
+
+ERROR: 'Duplicate ID deleteProduct' and WARNING 'The first occurence of ID delete product was here' as each product have modal for delete button.
+    - FIX:
+    - add dynamic address to modal-title alert and aria-labelledby the same procedure like in products.html
+
+
 ![shopping-bag-html-validator-error](wireframes/testing/shopping-bag-html-validator-error.png)
 
-Products page - the following errors and warnings has appeared on this page
 
+#### Profile - The type attribute is unnecessary for java script - in profile.html file, attribute removed following the 
+
+[webmaserworld](https://www.webmasterworld.com/javascript/4879097.htm) hint
+
+ERROR:
+
+![profile-type-error-html-validator](wireframes/testing/profile-type-error-html-validator.png)
+
+FIX:
+
+![profile-type-error-html-validator-fix](wireframes/testing/profile-type-error-html-validator-fix.jpg)
+
+#### Checkout - id_email and div_id_email duplicated errors 
+ERROR: Duplicate ID `div_id_email` Duplicate ID `id_email`(automatically generated by crispy forms)
+ERRORS: empty heading for spinner 
+    - FIX: change `<h1>` to `<p>`
+
+![checkout-html-validator](wireframes/testing/checkout-html-validator-error.png)
 
 
 ### CSS Jigsaw Validator
 Used [ jigsaw W3C CSS Validation Service](jigsaw W3C CSS Validation Service) to validate my CSS code, came out clean with no errors with 48 warnings about vendor extension
+
 ![css-validator](wireframes/testing/css-validator.png)
 
-### script.js testing
-used [jshint](https://jshint.com/) to validate javascript code for script.js. 
+### JSHINT Validator script.js testing
 
+used [jshint](https://jshint.com/) to validate javascript code for script.js. 
 
 profiles>static>js>countryfield.js
 
@@ -354,7 +470,6 @@ I also ran the python test command in the terminal to double check over my Pytho
 ![gitpod test](wireframes/testing/gitpod-test.png)
 
 
-
 ---
 
 ## Testing User Stories
@@ -363,6 +478,7 @@ Viewing and navigation
 1. As a new user I want to be able to recognise the purpose of the site immediately, so that I can identify whether I am interested in the content and wish to use the site.
     - When the user lands on the website the welcome sign and hero images, placed on the home page gives a first glimpse on the website content and purpose.
     - The `Shop Now` button, on the middle of the website, shopping bag icon indicates what is the website's purpose.
+
 ![home-page-after-change-color1](wireframes/readme/home-page-after-change-color1.png)  
 ![home-page-after-change-color2](wireframes/readme/home-page-after-change-color2.png) 
 
@@ -473,6 +589,7 @@ Viewing and navigation
 
 17. As a shopper I want to be able to search for a product by name or description, so that I can find a specific product I'd like to purchase.
 - There is a searchbox on the navigation bar where a user can search depending on the entered keyword.
+
 ![user-stories-sort-box-name](wireframes/testing/user-stories-sort-box-name.png)
 
 18. As a shopper I want to be able to Easily see what I've searched for and the number of results, so that I can Quickly decide whether the product I want is available. 
@@ -502,15 +619,18 @@ and the number of results is displayed on the left site of the page.
 23. As a shopper I want to be able to checkout using credit/debit cards,  so that I can purchase chosen products.
 - Once the user chose the secure checkup button he will be redirected to the "Checkout page, where a user is able to use credit cards to purchase products.
 - 'Allauth' provides a robust user account system while Stripe offers secure payments, furthered by use of webhooks to ensure transactions are recorded.
+
 ![user-stories-credit-card](wireframes/testing/user-stories-credit-card.png)
 
 24. As a shopper I want to be able to receive my digital order via email,  so that I can access the item I just purchased.
 - Once the user purchases the product they ordered, the confirmation email is sent to the user email box. 
+
 ![user-stories-email-order-confirmation](wireframes/testing/user-stories-email-order-confirmation.jpg)
 
 **Navigation**  
 25. As a site owner I want to be able to access product management from the homepage, so that I can access my account.
 - On the navigation bar once the superuser/admin is logged in, has access to the Product Management and Blog Management
+
 ![user-stories-admin-access](wireframes/testing/user-stories-admin-access.png)
 
 26. As a site owner I want to be able to access my dashboard from the homepage,  so that I can return to my dashboard at any time.
@@ -559,10 +679,12 @@ and the number of results is displayed on the left site of the page.
 
 34. As a site owner I want to be able to verify my email address, so that I can set up my account securely.
 - The site owver is able to access the database by adding the "/admin" to the end of URL where he is able to verify his account , change securely his email address and manage the store from the backend.
+
 ![user-strories-user-profile](wireframes/testing/user-stories-backend.png) 
 
 35. As a site owner I want to be able to update my account information,  so that I can maintain access to my account.
 - Once a site owner is logged in, he / she has access to the "My Profile" link from where he is able to edit and update the account information. 
+
 ![user-strories-user-profile](wireframes/testing/user-strories-user-profile.png) 
 
 36. As a site owner I want to be able to logout when I am finished with my work, so that I can logout of my account.
@@ -1064,35 +1186,23 @@ and the number of results is displayed on the left site of the page.
 | Go Back Home Button on errors pages                          | Click    | Redirect to home page                                        | **PASS**  |                                                   |      |
 | **Not Logged In/admin not logged in user**                   |          |                                                              |           |                                                   |      |
 | remove end of url addres from `https://unique-wings.herokuapp.com/produ ` |          | 404 Page Not Found                                           | **PASS**  |                                                   |      |
-| edit product  from url 'https://unique-wings.herokuapp.com/products/edit/54/' |          | redirect to 'Sign up page'                                   | **PASS**  |                                                   |      |
-| add  product  from url https://unique-wings.herokuapp.com/accounts/login/?next=/products/add/ |          | redirect to 'Sign up page'                                   | **PASS**  |                                                   |      |
-| add  blog post from url https://unique-wings.herokuapp.com/blog/add/ |          | redirect to 'Sign up page'                                   | **PASS**  |                                                   |      |
-| edit blog post from url https://unique-wings.herokuapp.com/blog/edit_blogpost/4/ |          | redirect to 'Sign up page'                                   | **PASS**  |                                                   |      |
-| delete blog post from url https://unique-wings.herokuapp.com/blog/delete/12/ |          | 404 Page Not Found                                           | **PASS**  |                                                   |      |
-| access to profile page from url  https://unique-wings.herokuapp.com/profile/ |          | redirect to 'Sign up page'                                   | **PASS**  |                                                   |      |
-| edit product review from url  https://unique-wings.herokuapp.com/products/edit_review/17 |          | redirect to 'Sign up page'                                   | **PASS**  |                                                   |      |
-| add product review  from url https://unique-wings.herokuapp.com/accounts/login/?next=/products/add_review/17 |          | redirect to 'Sign up page'                                   | **PASS**  |                                                   |      |
-| add comment to blog post from url https://unique-wings.herokuapp.com/accounts/login/?next=/blog/add_comment/29/ |          | redirect to 'Sign up page'                                   | **PASS**  |                                                   |      |
-| edit comment to blog post from url  https://unique-wings.herokuapp.com/blog/edit_comment/29/ |          | redirect to 'Sign up page'                                   | **PASS**  |                                                   |      |
+| edit product  from url  |          | redirect to 'Sign up page'                                   | **PASS**  |                                                   |      |
+| add  product  from url  |          | redirect to 'Sign up page'                                   | **PASS**  |                                                   |      |
+| add  blog post from url |          | redirect to 'Sign up page'                                   | **PASS**  |                                                   |      |
+| edit blog post from url |          | redirect to 'Sign up page'                                   | **PASS**  |                                                   |      |
+| delete blog post from url |          | 404 Page Not Found                                           | **PASS**  |                                                   |      |
+| access to profile page from url  |          | redirect to 'Sign up page'                                   | **PASS**  |                                                   |      |
+| edit product review from url  |          | redirect to 'Sign up page'                                   | **PASS**  |                                                   |      |
+| add product review  from url |          | redirect to 'Sign up page'                                   | **PASS**  |                                                   |      |
+| add comment to blog post from url|          | redirect to 'Sign up page'                                   | **PASS**  |                                                   |      |
+| edit comment to blog post from url|          | redirect to 'Sign up page'                                   | **PASS**  |                                                   |      |
 | **Logged in  user**                                          |          |                                                              |           |                                                   |      |
-| add  product  from url  https://unique-wings.herokuapp.com/accounts/login/?next=/products/add/ |          | Error toast message "Sorry, only store owners can do that" redirect to home `page | **PASS**  |                                                   |      |
-| edit product  from url 'https://unique-wings.herokuapp.com/products/edit/54/' |          | Error toast message "Sorry, only store owners can do that" redirect to home `page | **PASS**  |                                                   |      |
-| add  blog post from url https://unique-wings.herokuapp.com/blog/add/ |          | Error toast message "Sorry, only store owners can do that" redirect to home `page | **PASS**  |                                                   |      |
-| edit blog post from url https://unique-wings.herokuapp.com/blog/edit_blogpost/4/ |          | Error toast message "Sorry, only store owners can do that" redirect to home `page | **PASS**  |                                                   |      |
-| edit blog post when not owner https://unique-wings.herokuapp.com/accounts/login/?next=/blog/edit_comment/28/ |          | Error toast message "You not allowed to do that"             | **PASS**  |                                                   |      |
+| add  product  from url |          | Error toast message "Sorry, only store owners can do that" redirect to home `page | **PASS**  |                                                   |      |
+| edit product  from url |          | Error toast message "Sorry, only store owners can do that" redirect to home `page | **PASS**  |                                                   |      |
+| add  blog post from url |          | Error toast message "Sorry, only store owners can do that" redirect to home `page | **PASS**  |                                                   |      |
+| edit blog post from url |          | Error toast message "Sorry, only store owners can do that" redirect to home `page | **PASS**  |                                                   |      |
+| edit blog post when not owner|          | Error toast message "You not allowed to do that"             | **PASS**  |                                                   |      |
 |                                                              |          |                                                              |           |                                                   |      |
-|                                                              |          |                                                              |           |                                                   |      |
-|                                                              |          |                                                              |           |                                                   |      |
-| change `profile/users` name to `profile/admin` name in url addres |          | Stays on users profile                                       | **PASS**  |                                                   |      |
-| change end of url addres from `add_recipe to `add_category   |          | Redirect to `403 Forbidden Page`                             | **PASS**  |                                                   |      |
-|                                                              |          | "You have to be an Admin to access this page" denying message | **PASS**  |                                                   |      |
-| change end of url addres from `edit_recipe` to `edit_category |                            | Redirect to page `404 Page Not Found` | **PASS** |                                                              |           |                                                   |      |
-| change end of url addres from `edit_recipe` to `get_categories` |          | Redirect to `403 Forbidden Page`                             | **PASS**  |                                                   |      |
-|                                                              |          | "You have to be an Admin to access this page" denying message | **PASS**  |                                                   |      |
-| **Logged in / admin in session**                             |          |                                                              |           |                                                   |      |
-| change id of different user recipe in the in the `https://8080-moccasin-dragon-f9bcyfgt.ws-eu14.gitpod.io/edit_recipe/.....` URL |          | Admin takes over the recipe and became his owner, has access to edit and delete recipe | **PASS**  | Only used in emergency when inappropriate content |      |
-| **in app.py set `debug=False`**                              |          |                                                              |           |                                                   |      |
-| Set incorect url address for  `https://smoothie-lovers.herokuapp.com/get_recipes` |          | Redirect to `500 Forbidden Page                              | **PASS**  |                                                   |      |
 
 ### Checking for broken links
 ---
@@ -1107,10 +1217,12 @@ The website has been tested by using [Chrome DevTools](https://developer.chrome.
 
 The website was also tested on real devices in both portrait and landscape view. The results with other browsers were satisfying:
 
-Samung Galaxy S6/S7/S8/S10/S20.
-Samsung Galaxy Tablet.
-iPhone 13
+- Samung Galaxy S6/S7/S8/S10/S20.
+- Samsung Galaxy Tablet.
+- iPhone 13
+
 Examples of website view on responsinator
+
 ![responsinator-landscape-ipad](wireframes/testing/responsinator-landscape-ipad.png)
 ![responsinator-landscape-iphone](wireframes/testing/responsinator-landscape-iphone.png)
 ![responsinator-portrait-iphone](wireframes/testing/responsinator-portrait-iphone.png)
@@ -1119,22 +1231,26 @@ Examples of website view on responsinator
 ## Testing Compatibility
 The website was tested on the following browsers and operating systems:
 
-Google Chrome (Windows 10, Android 11, Safari).
+- Google Chrome (Windows 10, Android 11, Safari).
 
-Microsoft Edge (Windows 10).
+- Microsoft Edge (Windows 10).
 
-Firefox (Windows 10).
+- Firefox (Windows 10).
 
-Opera (Windows 10).
+- Opera (Windows 10).
+
 `Test for Opera browser`
+
 ![opera](wireframes/testing/opera.png)
 
 
 `Test for Firefox browser`
+
 ![firefox](wireframes/testing/firefox.png)
 
 
 ` Test for Microsoft Edge browser`
+
 ![edge](wireframes/testing/edge.png)
 
 
@@ -1291,6 +1407,39 @@ To improve accessibility, the following actions were taken:
 
 ![accessibility-home](wireframes/testing/accessibility-home.png)
 
+## Flake test errors
+
+The whole project was also checked with a command typed in the terminals `python3 -m flake8` here are the issues, some of them I corrected in the following way:
+ISSUES:
+`./bag/tests.py:1:1: F401 'django.test.TestCase' imported but unused` - the code from files was remove
+`./bag/models.py:1:1: F401 'django.test.TestCase' imported but unused` - the code from files was remove
+`./bag/admin.py:1:1: F401 'django.test.TestCase' imported but unused` - the code from files was remove
+`./blog/tests.py:1:1: F401 'django.test.TestCase' imported but unused` - the code from files was remove
+`./profiles/tests.py:1:1: F401 'django.test.TestCase' imported but unused` - the code from files was remove
+`./contact/tests.py:1:1: F401 'django.test.TestCase' imported but unused` - the code from files was remove
+`./checkout/tests.py:1:1: F401 'django.test.TestCase' imported but unused` - the code from files was remove
+`./home/tests.py:1:1: F401 'django.test.TestCase' imported but unused` - the code from files was remove
+
+ISSUES:
+`./blog/migrations/0002_blogpost_info.py:16:19: DJ01 Avoid using null=True on string-based fields such CharField.`
+`./blog/migrations/0004_alter_blogcomment_comment.py:16:19: DJ01 Avoid using null=True on string-based fields such TextField.`
+`./blog/migrations/0003_alter_blogcomment_comment.py:16:19: DJ01 Avoid using null=True on string-based fields such TextField.`
+`./checkout/models.py:28:16: DJ01 Avoid using null=True on string-based fields such CharField.`
+`./checkout/models.py:34:23: DJ01 Avoid using null=True on string-based fields such CharField.`
+`./checkout/models.py:36:14: DJ01 Avoid using null=True on string-based fields such CharField.`
+`./checkout/models.py:102:20: DJ01 Avoid using null=True on string-based fields such CharField.`
+`./checkout/migrations/0001_initial.py:29:28: DJ01 Avoid using null=True on string-based fields such CharField.`
+`./checkout/migrations/0001_initial.py:40:34: DJ01 Avoid using null=True on string-based fields such CharField.`
+`./checkout/migrations/0001_initial.py:28:37: DJ01 Avoid using null=True on string-based fields such CharField`
+
+The recomentdation from [slackoverflow](https://stackoverflow.com/questions/8609192/what-is-the-difference-between-null-true-and-blank-true-in-django) about the null=True shouldnt be used for `CharFields` and `TextFields`, which in Django are never saved as NULL. Blank values are stored in the DB as an empty string ('') but also said If I have a scenario where that might be necessary, you should still include null=True. As I'm still new to Django I was afraid to experiment with those values in case to make errors.
+
+ISSUES:
+`./blog/migrations/0001_initial.py:20:80: E501 line too long (117 > 79 characters)` - no changes was applied in case of causing other errors
+`./profiles/migrations/0001_initial.py:21:80: E501 line too long (117 > 79 characters)` - password validators no changes was applied in case of causing other errors
+`./unique_wings/settings.py:144:80: E501 line too long (91 > 79 characters)` - password validators no changes was applied in case of causing other errors
+`./unique_wings/settings.py:147:80: E501 line too long (81 > 79 characters)` - password validators no changes was applied in case of causing other errors
+`./unique_wings/settings.py:150:80: E501 line too long (82 > 79 characters)` - password validators no changes was applied in case of causing other errors
 
 ## Further Testing
 Additional tests after changes were made
