@@ -67,9 +67,9 @@ The aim of this project is to create an e-commerce web application named **Uniqu
 
 The brand name of the website "Unique Wings" was inspired not only by the beautiful and colorful parrots, peacocks and butterflies, which are the main themes of the collection offered in the store, but it's worth mentioning that the wings in Greek and Roman mythology were once an attribute of the gods. Nowadays they are a symbol of lightness, uniqueness and freedom, just like the shoes offer in the store which are not only unique and beautiful but also light and comfortable to wear. For many people, wings can also mean making their innermost dreams come true and believe that the impossible may become possible. I hope users can find on this page a collection of shoes and handbags which do not belong to the cheapest, but certainly belong to the original and unique models which every woman will be delighted to have in her wardrobe.
 
-Users can search for and purchase unique shoes and bags via text search, designers or categories.
+Users can search for and purchase unique shoes and bags via text search, designers or categories, can make order and subscribe for the Newsletter without register or loggin.
 
-Users can create an account to save delivery information for future use, review their orders and logged in users are also able to leave rating on products and write a comment under the blog posts.
+Users can create an account to save delivery information for future use, review their history orders and logged in users are also able to add, edit and delete rating with comments on products and also write a comment for the blog posts.
 
 The owner/administrator of the shop  (with the appropriate access) can add, edit and delete products, and create news posts about new delivery, promotions, fashion and designers.
 
@@ -215,7 +215,8 @@ The project data schema was planned using [dbdiagram.io](https://dbdiagram.io/ho
 
 **Relational Database tables schema**
 
-### "UserProfile" model used to store user information. The "UserProfile" is related to the "User" and "Order" model. Stores default delivery information. UserProfile is automatically created or updated using a Django receiver when a User object is updated or created.
+### "UserProfile" model
+Model used to store user information. The "UserProfile" is related to the "User" and "Order" model. Stores default delivery information. UserProfile is automatically created or updated using a Django receiver when a User object is updated or created.
 
 | *Field*                 | *Field type*  | *Attributes*                                 |
 | ----------------------- | ------------- | -------------------------------------------- |
@@ -230,7 +231,8 @@ The project data schema was planned using [dbdiagram.io](https://dbdiagram.io/ho
 | default_street_address2 | CharField     | max_length=80, null=True, blank=True         |
 | default_county          | CharField     | max_length=80, null=True, blank=True         |
 
-### "User" Model is created by django All Auth on registration, it stores the name, email and password of a user.
+### "User" model
+Model is created by django All Auth on registration, it stores the name, email and password of a user.
 
 | *Field*  | *Field type* | *Attributes* |
 | -------- | ------------ | ------------ |
@@ -240,7 +242,8 @@ The project data schema was planned using [dbdiagram.io](https://dbdiagram.io/ho
 | password | Charfield    |              |
 
 
-### Checkout - "Order" model is related to the user profile, feeding in the shipping and contact information. It creates an instance of an order on the data base with billing information, date and time of placement and by whom. The order model is linked to the"OrderLineItem" model which holds the product information for the order placed. Order order_number field is automatically added on save. Order discount, order_total, delivery and grand_total fields are automatically updated using a Django signal when an OrderLineItem is added or deleted.
+### Checkout model
+"Order" model is related to the user profile, feeding in the shipping and contact information. It creates an instance of an order on the data base with billing information, date and time of placement and by whom. The order model is linked to the"OrderLineItem" model which holds the product information for the order placed. Order order_number field is automatically added on save. Order discount, order_total, delivery and grand_total fields are automatically updated using a Django signal when an OrderLineItem is added or deleted.
 
 | *Field*         | *Field type*  | *Attributes*                                                 |
 | --------------- | ------------- | ------------------------------------------------------------ |
@@ -263,7 +266,8 @@ The project data schema was planned using [dbdiagram.io](https://dbdiagram.io/ho
 | stripe_pid      | CharField     | max_length=254, null=False, blank=False, default=''          |
 
 
-### Checkout - "OrderLineItem" model related to Order, Product, Size and quantity to store and add items to order model. Stores each OrderLineItem after successful checkout.
+### Checkout  model
+"OrderLineItem" model related to Order, Product, Size and quantity to store and add items to order model. Stores each OrderLineItem after successful checkout.
 
 | *Field*        | *Field type* | *Attributes*                                                 |
 | -------------- | ------------ | ------------------------------------------------------------ |
@@ -274,7 +278,8 @@ The project data schema was planned using [dbdiagram.io](https://dbdiagram.io/ho
 | lineitem_total | DecimalField | max_digits=6, decimal_places=2, null=False, blank=False, editable=False |
 
 
-### "Product" model creates objects containing individual product information, such as name, description, price, image and sku. The unique ID is auto generated. The product model is related to the categories model, which divides the products into subsections. The product objects will be used for the order model and favorites model. Product is also related to Review model. 
+### "Product" model
+Model creates objects containing individual product information, such as name, description, price, image and sku. The unique ID is auto generated. The product model is related to the categories model, which divides the products into subsections. The product objects will be used for the order model and favorites model. Product is also related to Review model. 
 
 | *Field*     | *Field type* | *Attributes*                                                 |
 | ----------- | ------------ | ------------------------------------------------------------ |
@@ -289,7 +294,8 @@ The project data schema was planned using [dbdiagram.io](https://dbdiagram.io/ho
 | image       | ImageField   | null=True, blank=True                                        |
 
 
-### Category Model - related to Product
+### Category Model 
+Model Related to Product
 
 | *Field*       | *Field type* | *Attributes*                          |
 | ------------- | ------------ | ------------------------------------- |
@@ -297,7 +303,8 @@ The project data schema was planned using [dbdiagram.io](https://dbdiagram.io/ho
 | friendly_name | CharField    | max_length=254, null=True, blank=True |
 
 
-### "BlogPost" Model used to add and store articles. This model is related to the "BlogComment" Model and stores Blogpost content, image and posted date.
+### "BlogPost" model
+Model used to add and store articles. This model is related to the "BlogComment" Model and stores Blogpost content, image and posted date.
 
 | *Field*     | *Field type*          | *Attributes*                          |
 | ----------- | --------------------- | ------------------------------------- |
@@ -309,7 +316,8 @@ The project data schema was planned using [dbdiagram.io](https://dbdiagram.io/ho
 | date_posted | DateTimeField         | auto_now_add=True                     |
 
 
-### "BlogComment" Model  is linked to the "BlockPost" and "User" models and it's used to store users comments about the Blogpost
+### "BlogComment" model
+Model  is linked to the "BlockPost" and "User" models and it's used to store users comments about the Blogpost
 
 | *Field*      | *Field type*  | *Attributes*                                                |
 | ------------ | ------------- | ----------------------------------------------------------- |
@@ -319,7 +327,8 @@ The project data schema was planned using [dbdiagram.io](https://dbdiagram.io/ho
 | comment      | TextField     | max_length=1024, null=False, blank=False                    |
 
 
-### "Contact" Model stores users queries in the backend for the admin user to view.
+### "Contact" model
+Model stores users queries in the backend for the admin user to view.
 
 | *Field*     | *Field type*  | *Attributes*                                                 |
 | ----------- | ------------- | ------------------------------------------------------------ |
@@ -329,7 +338,8 @@ The project data schema was planned using [dbdiagram.io](https://dbdiagram.io/ho
 | message     | TextField     | max_length=1000, blank=False, null=True                      |
 | date_posted | DateTimeField | auto_now_add=True                                            |
 
-### "NewsletterUserSubscription" model is used to store users emails for newsletter subscription.
+### "NewsletterUserSubscription" model 
+Model is used to store users emails for newsletter subscription.
 
 | *Field*     | *Field type* | *Attributes*                      |
 | ----------- | ------------ | --------------------------------- |
@@ -337,7 +347,8 @@ The project data schema was planned using [dbdiagram.io](https://dbdiagram.io/ho
 | date_sent | DateTimeField  | auto_now_add=True |
 
 
-### "Review" model is used to store user comments for each product. "Review" model is linked to the "Product" and ""User" Model.
+### "Review" model 
+Modelis used to store user comments for each product. "Review" model is linked to the "Product" and ""User" Model.
 
 | *Field*     | *Field type* | *Attributes*                      |
 | ----------- | ------------ | --------------------------------- |
@@ -649,17 +660,22 @@ When testing the site, the lighthouse tool showed insufficient contrast between 
 
 ## CUSTOM ERROR PAGES
 The website has custom error pages for the following errors with the corresponding error messages.The error pages present the butterfly, which matches the theme of the store and allude to a little bit of  lost.
-ERROR PAGE 500
-![500-error](wireframes/readme/500-error.png)
 
 ipad view
 
 ![500-erroripad](wireframes/readme/500-error-ipad.png)
 
+ERROR PAGE 500
+
+![500-error](wireframes/readme/500-error.png)
+
+
 ERROR PAGE 404
+
 ![404-error](wireframes/readme/404-error.png)
 
 ERROR PAGE 403
+
 ![403-error](wireframes/readme/403-error.png)
 
 **Features Left to Implement when skills develop**
