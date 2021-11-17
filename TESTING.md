@@ -75,21 +75,23 @@ While working on this project I encountered the following problems which I tried
 ![modal-delete-button-error-solved](wireframes/testing/modal-delete-button-error-solved.jpg)
 
 6. ISSUE: While adding the missing message field into the models.py in contact form a make-migration non-nullable firld 'message' issue appeared
+
 ![makemigrations-contact-message-issue](wireframes/testing/makemigrations-contact-message-issue.png)
 
 
 ![contact-models-message-error](wireframes/testing/contact-models-message-error.jpg)
 
-SOLVED BY: 
-- value: null=False changed to null=True
-- value: blank-False changed to null=True
+    SOLVED BY: 
+    - value: null=False changed to null=True
+    - value: blank-False changed to null=True
+
 7. ISSUE: While testing the contact form message field didn't work as expected (no validation) and also the make-migration message appeared
 
 ![make-migration-message](wireframes/testing/make-migration-message.png)
 
-SOLVED BY: 
-- in models message attribute value blank=True changed to null=False and null=True stayed the same
-- before migrations database with sent emails was deleted
+    SOLVED BY: 
+    - in models message attribute value blank=True changed to null=False and null=True stayed the same
+    - before migrations database with sent emails was deleted
 
 ![message-field-issue-solved](wireframes/testing/message-field-issue-solved.jpg)
 
@@ -97,8 +99,8 @@ SOLVED BY:
 
 ![message-field-issue-solved](wireframes/testing/forms-placeholders-intendation-bug.png)
 
-SOLVED BY:
-- wrong indentation 
+    SOLVED BY:
+    - wrong indentation 
 
 ![forms-placeholders-intendation-bug](wireframes/testing/forms-placeholders-intendation-bug1.jpg)
 
@@ -156,10 +158,11 @@ SOLVED BY:
 
 13. ISSUE: The  Review `Edit | Delete` buttons are visible only for a superuser, not for the owner of the review, and they are not able to edit or remove their reviews. 
 
-    SOLVED BY: Initially the if statement was checking two variables that are different of types. After changes `Edit | Delete ` links will be visible to the user if they are logged in and they own the review. 
-        - Make a new variavle `review_user` in the edit_review view 
-        - Add to the product_detail a `review_user = None` and if statement
-        - Modify if statement in a product_detail.html 
+    SOLVED BY: 
+    - Initially the if statement was checking two variables that are different of types. After changes `Edit | Delete ` links will be visible to the user if they are logged in and they own the review. 
+    - Make a new variavle `review_user` in the edit_review view 
+    - Add to the product_detail a `review_user = None` and if statement
+    - Modify if statement in a product_detail.html 
     
     BEFORE CHANGES:
 
@@ -209,7 +212,9 @@ SOLVED BY:
    ![review-history-edit-solution](wireframes/testing/review-history-edit-solution.jpg)
 
 18. ISSUE: Quantity decrementing buttons on the Shopping Bag  didn't stop as expected on number 0, showing negaive numbers.
-- SOLVED BY: Replacing the id value and make as class, add size value for handleEnableDisable function and modify code in quantity-form.html
+
+    -SOLVED BY: 
+    - Replacing the id value and make as class, add size value for handleEnableDisable function and modify code in quantity-form.html
 
 product_detail.html changes made
 
@@ -264,7 +269,6 @@ In those parts of the code where `for` loops were used, e.g. for all products, b
 | /contact/                                           | Attribute`w-75` not allowed on element [`hr`](https://html.spec.whatwg.org/multipage/#the-hr-element) at this point. Unclosed element `div`, Duplicate ID `div_id_email` Duplicate ID `id_email` (fixed) | PASS  |
 | /newsletter_unsubscribe/                            | Attribute`w-75` not allowed on element [`hr`](https://html.spec.whatwg.org/multipage/#the-hr-element) at this point, | PASS  |
 
-PEP8 check code
 
 #### Home Page (base.html)
 - ERRORS
@@ -294,8 +298,8 @@ PEP8 check code
 
 ![contact-html-validator-id-fix](wireframes/testing/contact-html-validator-id-fix.jpg)
 
-ERROR: Duplicate ID `div_id_email` Duplicate ID `id_email` 
-That error was caused by the newsletter created in the footer, which has an email field form set as crispy form as well as contact form, sing up form, singout, checkout form. Since it is used as a crispy form the id is generated automatically by Django and has the same id as all email fields generated frome crispy form. 
+- ERROR: Duplicate ID `div_id_email` Duplicate ID `id_email` That error was caused by the newsletter created in the footer, which has an email field form set as crispy form as well as contact form, sing up form, singout, checkout form. Since it is used as a crispy form the id is generated automatically by Django and has the same id as all email fields generated frome crispy form. 
+
     - FIXED: 
         - change the `email` name to `subscription_email` in Newsletter models.py 
         - add new self.field `id=subscription_email_id` to widged attibutes in views.py
@@ -305,7 +309,9 @@ That error was caused by the newsletter created in the footer, which has an emai
 FIX
 
 ``views.py``
+
 ![duplicate-id-newsletter-error-fix](wireframes/testing/duplicate-id-newsletter-error-fix.jpg)   
+
 ``models.py``
 ![duplicate-id-newsletter-error-model-fix](wireframes/testing/duplicate-id-newsletter-error-model-fix.jpg)   
 
@@ -467,6 +473,7 @@ Used online [PEP8](http://pep8online.com/). The entire code for every file from 
 I also ran the python test command in the terminal to double check over my Python code. It all passed with no issues.
 
 `python3 manage.py test`
+
 ![gitpod test](wireframes/testing/gitpod-test.png)
 
 
@@ -1442,12 +1449,12 @@ ISSUES:
 `./unique_wings/settings.py:150:80: E501 line too long (82 > 79 characters)` - password validators no changes was applied in case of causing other errors
 
 ## Further Testing
-Additional tests after changes were made
+Every time when changes were made the website was tested . Additional tests after changes were made
 - PEP8 for view.py for products app - no errors or warnings
 - PEP8 for view.py for blog app have - no errors or warnings 
 - jshint for quantity_input_stripe.html - 7 warnings no errors wasn't sure how to change them as the code was implement from Boutique Ado project and those values are needed for code to work.
  ![jshint-quantity-input-stripe](wireframes/testing/accessibility-home.png)
-- html validator - product detail - no errors or warnings
+- html validator - product detail/contact/signin/signout/register - no errors or warnings
 
 ### Overflow
 - The website was tested for overflow using [Unicorn Revealer](https://chrome.google.com/webstore/detail/unicorn-revealer/lmlkphhdlngaicolpmaakfmhplagoaln?hl=en-GB) chrome extension.
