@@ -108,11 +108,11 @@
                                     <a class="text-teal edit-btn px-0" href="{% url 'edit_product' product.id %}">Edit</a>
                                     </small>
                                     <!-- CREDIT: Modal for Delete Product Button from bootstrap customized -->
-                                    <div class="modal fade" id="deleteProduct-{{ product.id }}" tabindex="-1" aria-labelledby="deleteProduct" aria-hidden="true">
+                                    <div class="modal fade" id="deleteProduct-{{ product.id }}" tabindex="-1" aria-labelledby="deleteProductModal-{{ product.id }}" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title" id="deleteProduct">Alert!</h5>
+                                                    <h5 class="modal-title" id="deleteProductModal-{{ product.id }}">Alert!</h5>
                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
