@@ -33,7 +33,7 @@ class ContactForm(forms.ModelForm):
             if field != 'subject':
                 placeholder = f'{placeholders[field]} *'
                 self.fields[field].widget.attrs['placeholder'] = placeholder
-            self.fields[field].widget.attrs['class'] = 'stripe-style-input'
+            self.fields[field].widget.attrs['class'] = 'border-black  rounded-0'
             self.fields[field].label = False
 
 
@@ -42,7 +42,7 @@ class NewsletterForm(forms.ModelForm):
     class Meta:
         model = Newsletter
         fields = (
-            'email',
+            'subscription_email',
             )
 
     def __init__(self, *args, **kwargs):
@@ -52,11 +52,12 @@ class NewsletterForm(forms.ModelForm):
         """
         super().__init__(*args, **kwargs)
         placeholders = {
-            'email': 'Email Address',
+            'subscription_email': 'Email Address',
         }
 
         for field in self.fields:
             placeholder = f'{placeholders[field]} *'
             self.fields[field].widget.attrs['placeholder'] = placeholder
-            self.fields[field].widget.attrs['class'] = 'border-black rounded-0'
+            self.fields[field].widget.attrs['class'] = 'rounded-0'
+            self.fields[field].widget.attrs['id'] = 'subscription_email_id'
             self.fields[field].label = False

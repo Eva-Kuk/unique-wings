@@ -58,7 +58,7 @@ def newsletter_signup(request):
     if newsletter_form.is_valid():
         instance = newsletter_form.save(commit=False)
         if (Newsletter.objects.filter(
-                email=instance.email).exists()):
+                subscription_email=instance.subscription_email).exists()):
             messages.info(request, 'You are already\
                             signed up for our newsletter.')
         else:
@@ -76,10 +76,10 @@ def newsletter_unsubscribe(request):
     if newsletter_form.is_valid():
         instance = newsletter_form.save(commit=False)
         if (Newsletter.objects.filter(
-                email=instance.email).exists()):
+                subscription_email=instance.subscription_email).exists()):
             Newsletter.objects.filter(
-                email=instance.email).delete()
-            messages.success(request, f'{instance.email}\
+                subscription_email=instance.subscription_email).delete()
+            messages.success(request, f'{instance.subscription_email}\
                 have been removed from subscription.')
         else:
             messages.error(request, 'Sorry! That email address\

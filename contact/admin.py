@@ -27,7 +27,7 @@ admin.site.register(Contact, ContactAdmin)
 
 class NewsletterAdmin(admin.ModelAdmin):
     list_display = (
-        'email',
+        'subscription_email',
         'date_sent',
         )
 
