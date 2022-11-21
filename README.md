@@ -52,7 +52,7 @@
 ![altamiresponsive](wireframes/readme/am-i-responsive1.png)
 
 
-- A live demo can be found [here](https://unique-wings.herokuapp.com/)
+- A live demo can be found [here](https://unique-wings.onrender.com)
 
 - A github repository can be found [here](https://github.com/Eva-Kuk/unique-wings)
 
