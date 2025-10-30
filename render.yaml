@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: unique-wings
+    env: python
+    plan: free
+    buildCommand: |
+      pip install -r requirements.txt
+      python manage.py migrate
+      python manage.py collectstatic --noinput
+    startCommand: gunicorn unique_wings.wsgi
+    envVars:
+      - key: DATABASE_URL
+        sync: false
